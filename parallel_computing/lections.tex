@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{pdfpages}
+\usepackage{multirow}
+
+\usepackage{caption}
+
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{graphicx}%Вставка картинок
+\graphicspath{{noiseimages/}}
+
+\usepackage{float}%"Плавающие" картинки
+\usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
+
+\setlength{\emergencystretch}{10pt}
+
+\begin{document}
+
+\section{Вступительная, короткая лекция}
+
+Фамилия преподователя - Четверушкин.
+
+Уильм Оккамский - ученый в честь которого назвали язык (Occam).
+
+Транcпютер - — это микропроцессор со встроенными средствами межпроцессорной коммуникации, предназначенный для построения многопроцессорных систем.
+
+Компания INMOS. Компьютеп t-800.
+
+\section{Вторая лекция}
+
+\begin{enumerate}
+	\item Возможность параллельного разбиения
+	\item Равномерная загрузка узлов
+	\item Минимизация обмена между узлами
+	\item Автоматизация
+	\item Логическая простота
+	\item Корректность алгоритмов и математических моделей.
+\end{enumerate}
+
+\begin{enumerate}
+	\item Искать другую модель или другой метод
+	\item Передать точки более загруженным процессорам
+	\item Пример про моделирование ковида и явного метода Рунге
+\end{enumerate} 
+
+Пока говорим, только об однородном алгоритме
+
+На следующей лекции h физическая модель, которая позволяет считать лучше.
+
+\section{Лекция 3}
+
+$ 19^9 $ число частиц в кубометре воздуха.
+
+\[ f(t, \overline{x}, \overline{\xi }) \]
+
+\[ \rho = \int_{}^{} mf(t, \overline{x}, \overline{\xi }) d \overline{\xi  } \]
+\[ \rho \overline{u} = \int_{}^{} mf(t, \overline{x}, \overline{\xi }) \xi    d \overline{\xi  } \]
+
+\[ \overline{c } = \overline{\xi   } - \overline{u } \] 
+
+\[ P_{ij} = \int_{}^{} mc_i c_j f(t, \overline{x}, \overline{\xi }) d \xi   \]
+
+\[ q_i = \int_{}^{} \frac{m }{2 } e^2 c_j f(t, \overline{x}, \overline{\xi }) d \xi   \]
+
+\[ \frac{3}{2} k T = \frac{1}{\rho   } \int_{}^{} \frac{mc^2}{2} f d \overline{\xi   } \]
+
+\[ P = \rho \frac{K }{m } T = \rho R T \]
+
+\[ P = \frac{1}{3} (P_{11} + P_{22} + P_{33}) \]
+
+законы сохранения:
+\begin{enumerate}
+	\item \[ m + m_1 = {m}' + {m_1}' \]
+	\item \[ m \overline{\xi} + m_1 \overline{\xi} = {m \overline{\xi}}' + {m_1 \overline{\xi}}' \]
+	\item \[ \frac{m \xi^2}{2} + \frac{m_1 \xi^2}{2} = \frac{{m \xi^2}'}{2} + \frac{{m_1 \xi^2}'}{2} \]
+\end{enumerate}
+
+\[ f(t, \overline{x}, \overline{\xi}) \]
+
+\[ t_1 = t + \Delta t \]
+\[ \overline{x_1} = \overline{ x} + \overline{\xi} \Delta t \]
+\[ \overline{\xi_1} = \overline{\xi} + \overline{\gamma} \Delta t \]
+
+\[ \frac{\partial f }{\partial t } = \xi_i \frac{\partial f }{\partial x_i} + \gamma \frac{\partial f }{\partial \xi_i } = 0 \]
+
+\[ \sum_{}^{} \overline{(\xi)} d \overline{x } d \overline{\xi} = dx d\xi \int_{}^{} f(t, \overline{x }, \overline{\xi}) f(t, \overline{x_1 }, \overline{\xi_1}) |g| \gamma d \gamma d \Theta d \overline{\xi_1} \]
+
+\[ \sum_{+}^{} dx d\xi' = dx d\xi' \int_{}^{}f' {f'}_1 |g'| B' dB d \Theta d {\xi'}_1\]
+
+Теорема Леувилля о сохранении фазового объема.
+
+\[ \frac{\partial f }{\partial t } = \xi_i \frac{\partial f }{\partial x_i} + \gamma \frac{\partial f }{\partial \xi_i } = \iint (f' {f'}_1 - f f_1) |g| d db d \Theta d \overline{\xi_1} \]
+
+\[\int_{}^{} \phi(\xi ) \frac{\partial f }{\partial t } = \xi_i \frac{\partial f }{\partial x_i} + \gamma \frac{\partial f }{\partial \xi_i } = \iint (f' {f'}_1 - f f_1) |g| d db d \Theta \phi(\xi) d \overline{\xi_1} \]
+
+\[ I_{\phi}(t, \overline{x}) = \int_{}^{} g(t, \overline{x}, \overline{\xi}) \phi(\xi) d \overline{\xi}\]
+
+\[ I_{\phi} = \frac{1}{2} (I_{\phi} + I_{{\phi}_1})\]
+
+\[ I_{\phi}(\xi) d \xi =  \xi_i \frac{\partial f }{\partial x_i} + \gamma \frac{\partial f }{\partial \xi_i } = \iint (f' {f'}_1 - f f_1) |g| d db d \Theta \phi(\xi) d \overline{\xi_1} \]
+
+\[ f'\int_{}^{} \phi(\xi) \frac{\partial f }{\partial t }d \xi = \frac{\partial \int_{}^{} f \phi (\xi) }{\partial t} \]
+
+\[ \int_{}^{} \phi (\xi) \xi_i \frac{\partial f }{\partial x_i }d \xi = \frac{\int_{}^{} \xi_i \phi(\xi ) d \overline{\xi}}{\partial x} \]
+
+\[ \int_{}^{} \phi (\xi) \gamma_i \frac{\partial f }{\partial \xi_i} d \xi = \int_{-\infty}^{+\infty} d \xi_k \int_{-\infty}^{\infty} d \overline{\xi} = \int_{-\infty}^{\infty}  -\int_{}^{} f \gamma_i \frac{\partial \phi}{\partial \xi } d \overline{\xi} \]
+
+\end{document}

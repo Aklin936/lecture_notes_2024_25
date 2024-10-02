@@ -1,0 +1,481 @@
+\documentclass{article}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{pdfpages}
+\usepackage{multirow}
+
+\usepackage{caption}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[hidelinks]{hyperref}
+
+
+\usepackage{graphicx}%Вставка картинок
+\graphicspath{{noiseimages/}}
+
+\usepackage{float}%"Плавающие" картинки
+\usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
+
+
+\setlength{\emergencystretch}{10pt}
+
+\usepackage{indentfirst} %Отступ после секции
+
+\begin{document}
+
+\section{Исторический экскурс}
+
+Лекции с 9:30 два часа.
+
+Вариационная постановка для задача мат физики.
+задача - условие на границе + начальное. (Экстремум функционала энергии, поэтому энергетические пространства).
+
+Соболев - прямые методы решения задач. позволяют найти решение с помощью СЛАУ. Наиболее известен метод Рица.
+
+\section{Метод Дирихле}
+
+Дана область $ \omega \in \mathbb{R}^2$.
+
+\[ M = {u:u_{0}(x,y), (x,y) \in \partial \Omega} \]
+\[ \iint_{\Omega}[{(\frac{\partial u}{\partial x})}^2+{(\frac{\partial u}{\partial y})}^2] dx dy \rightarrow min \]
+Интеграл Дирихле $ \Rightarrow \overline{u} $ - гармонический в $ \Omega $
+
+\section{Контрпример Вейерштрасса. }
+
+\[ M={y;y(x) \in c'[-1;1]}, y(-1)=-1, y(1)=1 \]
+\[ J(y) = int^1_{-1} x^2{(y')}^2 dx, J(y) \geq 0 \]
+\[ y_\epsilon(x) = \frac{arctg(\frac{x}{\epsilon})}{arctg(\frac{1}{\epsilon})} \]
+\[ {y'}_{\epsilon}(x) = \frac{1}{arctg(\frac{1}{\epsilon})} \cdot \frac{1}{1+ \frac{x^2}{\epsilon^2}} \cdot \frac{1}{\epsilon} = \]
+\[ = \frac{\epsilon} {arctg (\frac{1}{\epsilon})} \cdot \frac{1}{\epsilon^2+x^2} \]
+\[ J(y_{\epsilon}) = \int_{-1}^1 \frac{x^2 \epsilon^2}{arctg^2(\frac{1}{\epsilon})} \cdot \frac{1}{{(x^2+y^2)}^2} dx = frac{2 \epsilon}{arctg(\frac{1}{\epsilon})} = \frac{0}{\frac{\pi}{2}}\]
+\[ J(\overline{y}) = \int_{-1}^{1} x^2 y^2 dx = 0 \Rightarrow y'=0 \]
+Противоречие: $ y(-1)=-1, y(1)=1 $
+
+\section{Контрпример Адамара}
+
+\[ u(x,y) = \sum_{n=1}^{\inf}\frac{\rho^2}{2^n} cos(2^n \Theta), x=\rho cos \Theta, y=\rho sin \Theta \]
+\[ \rho \leq 1 \]
+Непрерывны и гармоничны.
+Интеграл Дирихле в круге $ \rho \leq r \leq 1 $
+\[ \pi sum_{n=1}^{\inf} {r^2}^{2n+1} {\rightarrow}_{r \rightarrow 1} \inf \]
+
+\section{Метод Ритца}
+
+\[ J(\omega) = int_{a}^{b} f(x,\omega, \omega', ... , \omega^{(k)}) dx \rightarrow inf \]
+\[ \omega \in M \textrm{ класс допустимых функций } \]
+\[ \psi_0, \psi_1, ... \psi_n, ... (\textrm{ координатные функции }) \]
+Св-ва:
+\[ 1) \forall a_1 ... a_n \in \mathbb{R}, \forall_n \]
+\[ \omega_n = \omega_0+ \sum_{i=1}^{n} a_i \omega_i \in M \]
+\[ 2) \forall \omega \in M\textrm{и} \forall epsilon > 0 \]
+*Уравнение полноты*
+\[ H(\omega n) = F(a_1, ... , a_n) \rightarrow inf \]
+\[ || \omega - \psi_0 - \sum_{i=1}{n} a_i \psi_i || < \epsilon \]
+Рассмотрим:
+\[ J(\omega_n) = F(\alpha_1, ..., \alpha_n) \rightarrow inf \]
+\[ \frac{\partial J}{\partial a_1}(\omega_n)=0, ... \frac{\partial J}{\partial a_n}(\omega_n) = 0 -\textrm{ альтернативная система уранений } \]
+\[ \Rightarrow a_1, ... , a_n - \textrm{ решение } \]
+
+Насколько хорошо приближает метод искомое решение?
+На примере задачи об упругой поластине.
+
+\[ \Omega_{\subset \mathbb{R}^2} - \textrm{ обл }, S = \partial \Omega \]
+\[ \textrm{ изгиб } \omega(x,y) \textrm{ удовлетворяет ур-ю Сори Жульен }\]
+\[ \Delta^2 \omega = \frac{\partial^4}{\partial x^2} + 2 \frac{\partial^4 \omega}{{\partial x}^2 {\partial y}^2} + \frac{\partial^4 \omega}{{\partial y}^4} = \frac{q(x y)}{\mathcal{D}}; (x,y) \in \Omega \]
+\[ \mathcal{D} - \textrm{ жесткость пластины при упругом изгибе } \]
+\[ q(x,y),\textrm{- Интенсивность давления } \]
+\[ \omega (x,y) = 0 \]
+\[ \frac{\partial \omega (x,y)}{\partial\mathcal{D} } = 0 \leftarrow \textrm{ Производная по нормали к S } \]
+\[ J(\omega) = \iint_{Omega}( \frac{1}{2} (\Delta \omega)^2 - f(\omega) d \Omega \rightarrow inf) \]
+\[ f = \frac{q(x,y)}{\mathcal{D}} \in C'(\overline{\Omega}) \]
+\[ \omega = \omega_1 + \omega_2 \]
+Рассмотрим без доказательства ограниченности снизу.
+\[ \omega_1 = \frac{1}{8\pi} \iint_{\Omega} r^2 ln r f(\xi, \eta) d\xi \eta \]
+\[ (x,y) (\xi, \eta) - \textrm{ точки из } \Omega r-\textrm{ расстояние между } (x,y)\textrm{ и } (\xi, \eta) \]
+\[ J(\omega) = J_0 + \frac{1}{2} \iint_{\Omega} (\Delta \omega_2)^2 dx dy \]
+\[ j(\omega) \geq J_0 \Rightarrow \exists inf J(\omega)\]
+Введем $ \psi_1(x,y), ... , \psi_n(x,y) $ - координатные ф-ции
+\[ 1) \psi_n(x,y), \frac{\partial^{k+l} \psi_n}{\partial x^k \partial x^l} \in C( \overline{ \Omega}), k \leq \epsilon , l \leq \epsilon \]
+\[ 2) \psi_n(x,y) \textrm{ удовлетворяет краевым условиям} \]
+\[ 3) \forall \textrm{ ф-ии } \zeta(x,y): \]
+\[ \textrm{ a) удовлетворяет пункту 1 } \]
+\[ \textrm{ б) } \zeta(x,y) \equiv 0 (x,y) \in \Omega \rho \]
+\[ \Rightarrow \exists m \in \mathbb{N} , \alpha_1, ... \alpha_m \in \mathbb{R}: \]
+\[ |\zeta(x,y) - \sum_{i=1}^{m} \alpha_i \psi_i (x_i, y_i)|< \epsilon \]
+\[ | \frac{\partial^{k+1}\zeta}{\partial x^k \partial y^l} - \sum_{i=1}^{n} \alpha_i \frac{\partial^{k+l} \psi_i (x,y)}{\partial x^k \partial y^l}| < \epsilon \]
+Условие полноты $ k \leq \epsilon, l \leq \epsilon \Rightarrow $
+
+приближенное решение :
+\[ \omega_n = \alpha_1 \psi_1+ ... + \alpha_n \psi_n \rightarrow J(\omega) \]
+\[ J_n = \iint_\Omega (\frac{1}{2} {(\Delta \omega_n)}^2 - f (\omega_n))dx dy \]
+\[ \alpha_i \textrm{ выбираем : } J (\omega_n) \rightarrow J(\omega) \]
+\[ \sum_{k=1}^n A_{ik} a_k = B_i, i= \overline{1,n} \label{*} \]
+\[ A_{ik} = \iint_\Omega \Delta \psi_i \Delta \psi_k dx dy \Rightarrow \]
+\[ \exists! \textrm{ решение } a_1, ... , a_n \textrm{ в } \omega_n = ... \textrm{ приближение решение } \]
+\[ B_i = \iint_\Omega f\psi_i dx dy \]
+\[ \rightarrow \textrm{ Сущ ед решения } a_1, ..., a_n \textrm{в} \omega_n = ... (\textrm{ приближенное решение }) \]
+\[ \textrm{ Рассмотрим } \forall b_1, ... b_n \]
+\[ \zeta_n = b_1 \psi_n + ... + b_n \xi_n \]
+\[ \ref{*} b_i \textrm{ и } \sum_{i=1}^{n} \]
+\[ \sum_{i=1}^n \sum_{k=1}{n} A_{ik} a_k b_i = \sum_{i=1}^{n} b_i B_i \]
+\[ \sum_{i=x}^n \sum_{k=1}{n} \iint_\Omega b_i \Delta \psi_i \Delta \psi_k a_k dx dy - \sum_{i=1}^{n} \iint_\Omega f b_i \psi_i dx dy = 0 \]
+\[ \sum_{i=1}^{n} [ \iint_\omega b_i \Delta \psi_i \sum_{k=1}^{n} a_k \Delta \xi_k dx dy - \iint_{\Omega f b_i \psi_i dx dy}] = 0 \]
+...
+\[ \int_Omega (\Delta \omega_n \sum_{i=1}{n} b_i \psi_i) - f(\sum_{i=1}{n} b_i \psi_i) dx dy = 0 \]
+\[ \iint_Omega(\Delta \Omega_n \zeta_n - f \zeta) dx dy = 0 \]
+\[ J_n^{(0)} = -\frac{1}{2} \iint_\Omega {(\Delta \omega_u)}^2 dx dy \textrm{ не возрастает y } \geq inf \]
+\[ \forall \epsilon > 0 \textrm{ по критерию Коши } \Rightarrow N(\epsilon) \forall_n > N(\epsilon) \]
+
+\section{Продолжение примера Адамара}
+
+\[ \Psi_1 (x,y), ..., \Psi_n(x,y), - \textrm{ координатные функции } \]
+\[ \omega_n = \alpha \psi_1 + ... + \alpha_n \psi_n \]
+\[ J_n^{(0)} = -\frac{1}{2} \int_{\Omega}  \]
+\[ \forall \epsilon >0 \textrm{сущ} N(\epsilon) \forall n >= N(\epsilon) \forall m\]
+\[ 0 <= J_n^{(0)}< J_{n+m}^{(0)} <= \frac{1}{2} \epsilon \]
+\[ \frac{\omega_{m+n} - \omega_n}{\sqrt{\epsilon}} = \phi (x,y) \]
+\[ \iint_{\Omega}(\delta \phi)^2 dx dy < 1 \]
+\[ \phi (x,y) = \frac{1}{2\pi}\int (\phi \frac{\partial ln(r)}{\partial n} ln r \frac{\partial  \phi}{\partial N}) ds + \frac{1}{2 \pi} \int_{\Omega} \Delta \phi ln r d\zeta d \nu = \]
+\[ | \int_{x}^{} f(x) \overline{g}(x)dx| <= ( \int_{x}^{} {| f(x)|}^2 dx) (\int_{x}^{}{|g(x)}^2 dx) \]
+\[ |\phi (x,y)| <= \frac{1}{2\pi}{(\iint_{\Omega}^{} {(\Delta \phi)}^2 d \zeta d \nu)}^2 {( \iint_{\Omega}^{}{ln}^2 r d \zeta d \eta)}^2 \forall \epsilon > 0 \]
+\[ |\phi (x,y)| <= c_1 \]
+\[ |\omega_{m+n} - \omega{n} | <= c_1 \sqrt{\epsilon} \]
+\[ \omega_n = \frac{\epsilon}{\Omega} \in C(\Omega) \]
+
+\section{Метод Бубнова-Галеркина}
+
+\[ W \alpha_1 \phi_1 + ... + \alpha_n \phi_n\]
+выделить \[ L \omega - \lambda \omega = 0 \]
+\[ L, M  \textrm{- дифференцируемые операторы} \]
+\[ \iint_{\Omega}^{} \omega L \omega dx dy \]
+\[ \sum_{i=1}^{n} (A_{ik} - \lambda B_{i_k}) a_k = 0, k = \overline{1,n} \]
+
+матрица
+
+\[ A_{11} - \lambda B_{11} ... A_{1n} - \lambda B_1n \]
+\[ A_{n1} - \lambda B_{n1} ... A_{1n} - \lambda B_m1 \]
+\[ N (,y = L \omega_n) - \lambda M \omega_n \]
+\[ N(x,y) \perp \phi_i, i = \overline{1,n}\]
+
+\begin{enumerate}
+	\item \[ f(x) =^{\textrm{и.т} = b} -> f(x) dx = 0 \]
+	\item \[ \int_{ f(x)}^{} dx =0, f(x) >= 0  f(x) =^\textrm{пв} 0  \] 
+	\item ...
+\end{enumerate}
+
+\[ \phi_{n(x)}^2 -\textrm{ сумм с квадр по Л}  -> \exists \phi (x)  \] - сумм с пв.
+\[ lin _nk-> \inf \int_{{|\phi _k (x) - \phi (x)|}^2}^{} dx = 0\]
+\[ V \textrm{лин про-во } \]
+
+\[ (\phi , \psi) - \textrm{скал произведение:} \]
+
+\begin{enumerate}
+	\item\[  (\phi, \psi) = (\psi, \phi) \]
+	\item \[ (a_1 \phi_1 + a_2 \phi_2, \psi) = a_1 (\phi_1, \psi) + a_2 (\phi_2, \psi) \]
+	\item \[ (\phi , \phi) >= 0 \]
+	\item \[ \phi, \phi = 0 <-> \phi = \Theta\]
+\end{enumerate}
+\[ || \phi || = \sqrt{(\phi, \phi)} \]
+Неравенство Коши-Буняковского 
+
+Н-во треугольника
+
+\[ L_2(\Omega) (\phi, \psi) = \int_{\Omega}^{} \phi(x) \overline{\psi(x)}dx \]
+\[ L_2(\Omega , \vartheta): (\phi, \psi) = \int_{\Omega}^{} \phi(x) \overline{\psi(x)}\vartheta (x) dX\]
+\[ _x \psi_k dx \]
+
+Критерий не успел
+\[ \phi_1, ..., \phi_n \textrm{ЛЗ в }H \]
+
+Опр M -плотно в H, если \[ \forall p \in H \]
+\[ n \forall \epsilon >0 \exists \phi_n \in M: \]
+\[|| \phi_n - \phi < \epsilon \]
+\[ C_0^{\inf} (\Omega) \textrm{плотно в} L_2(\Omega) \]
+\[ C^{(k)}\textrm{плотно в} L_2(\Omega) \]
+\[ \forall : \\fo \in H \]
+\[ \exists \phi_n^1 \in C_0^{(\inf)}(\Omega) \]
+\[ ||\phi_n^1 - \phi|| < \frac{\epsilon}{2} \]
+\[ \exists {\psi_n}^2 \in C_o^{n-1} (\epsilon) \]
+\[ || \phi^2_n - \phi_n^2 || < \frac{\epsilon }{2}\]
+\[ i\phi - \phi^2_n < \epsilon \]
+
+\[ \{\phi_n \} \textrm{ОНС} \]
+\[ (\phi_n, \phi_m) = \delta _{nm} \]
+\[ ||\phi||^2  = {||\phi_1||}^2 +{||\phi_2||}^2+ ... +{||\phi_n||}^2 +\]
+\[ 0 \{ \phi_n \} \textrm{Полная в }H \]
+\[ \textrm{Если } (\phi_i, \phi_k) = 0 \forall k \in N \]
+\[  -> \phi = \Theta \]
+
+
+\[ \forall \phi \in H a_k = \{ \phi, \phi_k \} - \textrm{ коэффициенты Фурье} \]
+\[ H -\textrm{ гильбертово} \{\phi\} - \textrm{ПОНС} \]
+\[ -> {|| \phi ||}^2 \sum^{\inf}_{k=1} | \phi_1, \phi_k |^2 \] - Неравенство Персеваля
+
+\[ \exists a_k: \sum_{k=1}^{\inf} |a_k|^2 \] сх-ся
+\[ {\phi_n\textrm{ ПОНС в H}} \]
+\[ \sum_{k=1}^{\inf} a_k \phi_k \]
+\[ u ||\phi|| = \sum_{k=1}^{\inf} {|a_k|}^2 \]
+
+H cепарабельно если $ \exists M - $ счетное мн-во плотные в H.
+
+H сепарабельно <-> $ \exists $ ПОНС (счетное или конечное) в H.
+
+\begin{enumerate}
+	\item \[ \{ u: \int_{\Omega}^{} u dx = 0 \} \] - пример подпространства в $ \alpha_2(\Omega) $.
+\end{enumerate}
+
+$ H_1 $ - подпространство в H
+
+\[ \forall \phi \in H \exists ! \phi_1 \in H_1: || \phi-\phi_1 || = {min}_{\psi \in H_1} || \phi- \psi || \textrm{проекция} \phi \textrm{на } H_1 \]
+\[ \phi - \phi_1 + \phi_2 \]
+
+\[ H_2 = \Phi_1 \perp H_1 - \textrm{ ортогональное дополнение} \]
+
+\[ l - \textrm{лин нез фун-л} : M \in H -> R/C \]
+\[ |l_{\phi} <= || l || \cdot ||\phi||_A \]
+\[ {lim}_{\psi -> \phi} = l\phi \]
+\[ | l\psi - l\phi < \epsilon\]
+\[ \forall \epsilon > 0 \exists \delta : \]
+\[ || \psi = \phi ||  \]
+...
+
+\section{Теорема рисса}
+
+\[  \forall l - \textrm{ Непрерывен ли функционал в H } \exists! \psi \in H: \]
+\[ l_{\phi} = (\phi, \psi) \]
+
+
+\[ \textrm{Существует} M - \textrm{плотно в } H \mathcal{F}: M x M -> C(R)  \]
+\[ \mathcal{F}(\phi, \psi): \mathcal{F}(\phi, \psi = \mathcal{ (\psi, \phi)}) \]
+\[ \mathcal{F}(\phi, \phi) \textrm{- Квадратная форма} \]
+
+\[ H_1: \mathcal{D_A \in H} \textrm{Область определения некоторого оператора А}\] 
+
+\[ \mathcal{D}_A - \textrm{Область значений оператора А} \]
+\[ R_A - \textrm{обл значений А} \] 
+
+Начнем с единственности
+
+\section{Энергетическое пр-во}
+
+\[ Au=f; u,f \in | \Omega \in \mathbb{R}^m \]
+\[ -\Delta y = f; f \in \mathcal{C}(\overline{\Omega}) \]
+\[ u|_S = 0 \]
+
+\[ let_A = {u \in \mathcal{C }^2 (\overline{\Omega}); u|_S = 0} \]
+
+Формула остроградского
+
+\[ \int_{\Omega}^{}(\frac{\partial u}{\partial x } + \frac{\partial \psi }{\partial y} + \frac{\partial \omega}{\partial y}) d\Omega = \]
+\[ \int_{S }^{} \overline{u }x + \psi cos(\overline{u }\cdot y) + \omega xos (\overline{u }x ) dS\]
+\[  \]
+\[ \int_{\Omega}^{} dif W d\Omega = \int_{S}^{} W_h dS \]
+\[ \phi = uv, \psi = \omega = 0 \]
+
+\[ \int_{{\Omega}_n}^{} \frac{\partial v }{\partial x } d \Omega = - \int_{\Omega}^{} v \frac{\partial u }{\partial x } d \Omega + \int_{S}^{} uv cos (\overline{u x } dS) \]
+
+\[ \int_{\Omega }^{} \frac{u \partial V }{\partial x_i} d \Omega = - \int_{\Omega }^{} v \frac{\partial u}{\partial x_i} d \Omega + \int_{S }^{} uv cos(\overline{n }x_i ) dS\]
+\[ Lu = - \sum_{i,k =1}^{m } \frac{\partial }{\partial x_i} (A_ik (P ) \frac{ \partial W(P)}{\partial x_k}) + C(P) u(P) \]
+\[ \int_{\Omega}^{} v Lu d \Omega = - \sum_{i,k =1}^{m } \frac{\partial }{\partial x_i} (A_ik (P ) \frac{ \partial W(P)}{\partial x_k}) d \Omega + \int_{\Omega}^{}C u v d \Omega  \]
+
+\[ \textrm{ в } (1) r \rightarrow v, v \rightarrow A_{ik} \frac{\partial u }{\partial x_k } \]
+\[ \int_{\Omega}^{} v L u  = \int_{\Omega}^{} \sum_{i,k = 1}^{M }A_ik \frac{\partial u }{\partial u_k} \frac{\partial v }{\partial x_i} d\Omega - \int_{S }^{} V \sum_{i,k =0}^{m} A_{ik} \frac{\partial u}{\partial x_k } cos(\overline{n }x_i ) dS\]
+
+\[ \int_{\Omega}^{} v L u  = \int_{\Omega}^{} \sum_{i,k = 1}^{M }A_ik \frac{\partial u }{\partial u_k} \frac{\partial v }{\partial x_k} + C_i d\Omega - \int_{S }^{} V \sum_{i,k =0}^{m} A_{ik} \frac{\partial u}{\partial x_k } cos(\overline{n }x_i ) dS\]
+
+\[ (2) - (2)_{u \rightleftarrows x} \]
+из второй формулы Грина вычитаем ее же, но поменяв местами u и v.
+\[ \int_{\Omega}^{} (vLn - u Lv) - \Omega =\]
+
+\[ (3): Tr = \sum_{i,k=1}^{m } A_{ik } \frac{\partial u }{\partial x_i } cos(\overline{u} x_i) \]
+\[ \int_{\Omega }^{} (vLu - uLv) d\Omega = \int_{S }^{} (u N v- vN u) dS \] - третья формула Грина
+
+Частный случай формулы грина, это оператор Лапласа
+
+\[ Lu = - \Delta u; A_{jj} = 1; A_{ik} = 0, i != k; c= 0 \]
+
+\[ 5^1) = \int_{\Omega }^{} v \Delta u d\Omega  = \int_{\Omega}^{} \sum_{i=1}^{m } \frac{\partial n }{\partial x_i }  \frac{\partial v }{\partial x_i} d \Omega - \int_{S }^{} v \frac{\partial u }{\partial n } dS \]
+
+\[ (5^2) - \int_{\Omega}^{} u \Delta u d \Omega = \int_{\Omega}^{} \frac{\partial u }{\partial x_i }^2 d \Omega= \int_{S }^{} u \frac{\partial u }{\partial n } dS  \]
+
+\[ (5^3) \int_{\Omega}^{} (v \Delta u - u \Delta v ) d\Omega = \int_{S }^{} (v \frac{\partial u }{\partial u }- u \frac{\partial v}{\partial u}) dS \]
+
+\section{Положительные и положительно определенные операторы}
+
+\[ H, A \textrm{  симметрична в H } \]
+\[ \textrm{ Теорема } \forall u \in \mathcal{D } \in H (Au, u) >= 0; \]
+
+\[ \textrm{ Пример 1 } \xi = \frac{ d }{d x^2 } \textrm{ в  }L_2 (0,1); \mathcal{D }_B = {u \in c^2_0 (0,1): u(0) = u(1) = 0} \]
+
+\[ (B u, v) = - v  \frac{d^2 u }{d x^2} dx = \int_{0}^{1} \frac{du }{dx} \frac{d v }{d x } dx - v \frac{d u }{dx }|^1_0 = - \int_{0}^{1} \frac{d^ v }{dx^2 } = (u, Bv) \]
+\[ (Bn, u) = \int_{0}^{1} (\frac{du }{dx }) dx = 0 \]
+\[ (Bu, u) = 0 \Rightarrow \frac{du }{dx } = 0 \]
+
+Пр 2
+\[ C = - \frac{ d^2 }{dx^2 }u, \mathcal{D}_c = \{ u \in C^2(0,1) \} \]
+...
+
+
+Пр 3
+
+\[ Au = - \Delta u , \mathcal{D}_A = \{ u \in C^2(\Omega): u|_s = 0 \} \]
+
+\[ (-\Delta u, u ) = - \int_{\Omega }^{} u \Delta u d \Omega = \int_{\Omega }^{} \sum_{i = 1}^{m } (\frac{\partial u }{\partial x_i })^2 d\Omega - \int_{S }^{} u \frac{\partial u }{\partial n } dS >= 0 \]
+\[ \frac{\partial u }{\partial x_i } == 0 \rightleftarrows == const \]
+
+Рассмотрим мембрану
+
+\[ z = \textrm{ в пл } (x,y); u(x,y) -\textrm{ изгиб мембраны } \]
+\[ - \Delta u = \frac{q}{T}\textrm{ (Поперечная нагрузка на натяжение мембраны) } \]
+\[ u|_S = 0 \] - Мембрана закреплена на краях
+\[ (A u , u) = (- \Delta u , u) = \iint_{\Omega} (\frac{\partial u }{\partial x })^2 + (\frac{ \partial u }{\partial y })^2 dx dy \]
+
+Теорема 
+симметричный $ A $ полный, определенный, если $ \exists \gamma > 0 : (Au, u) >= \gamma^2 {||u||}^2 (6)$
+
+Пример
+
+\[ B: u(0) = 0 u(x) = \int_{0}^{x } (u'(t))^2 dt = x\int_{0}^{x } (u'(t)) dt \]
+\[ \textrm{ Если проинтегрировать от 0 до 1 } \leq x \int_{0}^{1} (u'(t)^2 dt) \]
+\[ \int_{0}^{1} u^2 (x) dx \leq \frac{1}{2} \int_{0}^{1}(u'(t))^2 dt \]
+\[ (Bu, u) \geq \gamma^2 ||j||^2; \gamma = \sqrt{2} \]
+
+положительно определен
+
+Пример 4 
+
+\[ Lu = - \frac{d }{ d x } (x^3 \frac{du}{dx}), L_2 (0,1) \]
+\[ D_L = \{u \in C^2[0,1], u(1) = 0 \} \]
+\[(Lu, v) - (u, Lv) = \int_{0}^{1} \frac{d}{dx } x^3 (u \frac{dv }{dx }- V \frac{du }{dx })] dx \]
+
+\[ (Lu v) = \int_{0}^{1} x^3 (\frac{du }{dx })^2 dx \geq 0 \] - положительный
+
+\[ \frac{(Au, u)}{||u||^2} \geq \gamma^2; u\delta (x) = \{ ... \} \]
+\[ u\delta \in \mathcal{D}_L  \]
+\[ u\delta \in \mathcal{D}_L; \frac{(Lu\delta , u\delta)}{||u\delta||^2}  = \frac{\int_{0}^{1} x^3 (\frac{du \delta}{dx}) dx}{\int_{0}^{\delta} x^3 (\delta -x)^4 dx}\] - неверная формула
+
+L не является положительно определенным
+
+A - положительно определенный в H. На $ D_A [u, v]_A = {(A u, v)}_H$ 
+МОжно показать что выполняются все аксиомы скалярного произведения
+
+\begin{enumerate}
+	\item \[ [d, v] = [v, u] \]
+\[ (Au, v) = (u, Av) = \overline{(Av, u)} = \overline{[v, u]} \]
+	\item линейность $ [a_1 u + a_2 u, v] = a_1[u, v] + a_2[u, v]$
+	\item \[ [u, u] \geq \gamma ||i||^2 \geq 0 \]
+	\item \[ [u, u] = \rightleftarrows u = 0 \]
+\end{enumerate}
+
+$ D_A $ предгильбертово, дополним его по $ |*| \Rightarrow $ гильбертово пр-во $ H_A $ 
+
+\section{10.02 Энергетические пр-ва (2)}
+
+\[ H_A -\textrm{ энергетическое пр-во } \]
+
+(0) \[ {||u||}_H \leq \frac{1}{\gamma   } {||u||}_A \]
+
+\[ u \in H_A -> u \in \mathcal{D}_A \]
+\[ -> \exists \{ u_n \} \in \mathcal{D}_A  {lim}_{n-> \infty} || u_n-u||_A \]
+
+Теорема 
+\[ \forall \exists u \in H_A -> \textrm{  злем из H различным } u_1 u_2 \in H_A \textrm{ отв разн. злем из H }\]
+
+Доказательство 
+
+...
+
+2) \[  u_{1, n} \rightarrow_{||.||_A} u_n; u_{2,n} -\rightarrow_{||.||_A} u_2\]
+
+\[ u_1 \textrm{ и  } u_2 \rightarrow u \textrm{ из H }; u = u_1 - u_2\]
+...
+
+\[  r \in H A \in \{ \in u_n \mathcal{D}_A ||u_n -n ||_A \rightarrow_{n \rightarrow \infty} 0 \} \]
+
+\[ || u_n ||_A \rightarrow_{n \rightarrow \infty} ||u||_A \]
+
+
+
+\subsection{Пример}
+
+\[ Bu = - \frac{d^2}{d x^2} u ; D_{B} = {u \in C^2 (0,1]}, u(0) = u(1) = 0 \]
+\[ H = :_2 (0, 1); \]
+
+\[ u \in H_B; \exists \{ u_n \} \in D_B || u_h - u || \rightarrow_{B \rightarrow \infty} \rightarrow 0\]
+
+...
+
+A - положительно, но не положительно определено.
+
+Теорема
+
+\[ u \in H_A : u \in H \rightleftarrows \exists \{ u_n \} \in D_A \]
+\[ || u = u_n || \rightarrow_{n \rightarrow \infty} 0 \]
+\[ || u_k - u_n ||_H \rightarrow_{u,k \rightarrow + \infty} 0 \]
+
+\subsection{Пример 3}
+
+\section{Энергетический метод}
+(для положительно определенных операторов)
+
+\[ Au = f \label{eq:1} \]
+
+\[ A: \mathcal{D} (A) \in H \rightarrow H; \]
+
+Теорема 
+
+A положителен в H уравнении \ref{eq:1} $ \exists $ не более одного решения.
+
+Доказательство
+
+\[ u_1, u_2 - \textrm{ Решения \ref{eq:1}} ... \]
+
+Теорема о функциональной энергии
+
+A - положительный в H; u - решение \ref{eq:1} $ \rightleftarrows $ доставляет минимум функционала
+
+\[ F(u) = (Au, u)_H - (f, u)_H - (u, f)_H \label{eq:2}\]
+
+Доказательство
+
+...
+
+\[  \]
+
+Пример 4
+\[ \Delta^2 \omega = \frac{\partial^4}{\partial x^4}\omega + 2 \frac{\partial^4 \omega }{\partial^2 \omega \partial^2 y} + \frac{\partial^4 \omega }{\partial y ^4} \]
+\[ \mathcal{D}_A = \{ \omega \in c^4( \overline{\Omega}); \omega|_S = 0; \frac{\partial \omega}{\partial n} |_S = 0 \} \]
+
+\[ A-\omega = \frac{a(x,y)}{\mathcal{D}} \]
+
+\section{Обобщение решения задачи о min для ф.э.}
+
+\[ A - \textrm{ Поллжительно определено в H } Au=f \ref{eq:1} f \in H \]
+фикс $ f \in H \forall u \in H_A (u, f)_H :\textrm{ ф-ла } : H_A \rightarrow \mathcal{R} $
+
+\[ | (u, f)_H | \leq ||f||_H {||u||}_H \leq {||f||}_H \frac{1}{\gamma} ||u||_A; \gamma ||f||_H - const \]
+
+\[ \textrm{ Опр } (f, u) \Rightarrow \textrm{ по Т Рисса } \exists u_0\in H_A (f, u)_H = [u, u_0]_A \]
+
+\[ F(u) = [u, u]_A - [u, u_0] - [u_0, u]_A \]
+
+\[ +-[u_0, u_0]_A \label{eq:4}\]
+
+\[ F(u) = || u - u_0 ||^2_A - ||u_0||^2_A  \]
+
+\[ argmin_{u \in H_A} F(u) = u_0 \textrm{ Обощенное решение } Au = f \]
+
+Если H сепарабельно, энергетическое про-во тоже сепарабельно, $ \exists \{ \omega_n \} $ ПОНС
+
+\[ r_0 = \sum_{n=1}^{\infty} [u_0, \omega_n] \omega_n  \ref{eq:5}\]
+
+\[ u = \omega_n [u_0 \omega_n]_A = (f, \omega_n)_H \]
+
+\[ u_0 = \sum_{n=1}^{\infty} (f, \omega_n)_H \omega_n \]
+
+\end{document}

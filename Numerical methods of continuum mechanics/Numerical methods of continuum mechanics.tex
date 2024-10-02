@@ -1,0 +1,370 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{multirow}
+
+\usepackage{caption}
+
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+
+
+\usepackage{graphicx}%Вставка картинок
+\graphicspath{{noiseimages/}}
+
+\usepackage{float}%"Плавающие" картинки
+\usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
+
+\begin{document}
+
+\section{Уравнение конвекции с диффузией}
+
+\[ \frac{\partial Q}{\partial t} +\frac{\partial }{\partial x} (u Q) = \frac{\partial }{\partial x} (\mathcal{D} \frac{\partial Q}{\partial x}); t>0; x \in [-L, L] \]
+
+Уравнение конвекции с диффузией.
+
+\[ Pe = \frac{UL}{\mathcal{D}} \] - число Пекле
+
+\[ \frac{L}{U} = t_{\textrm{конв}} \]
+\[ \frac{L^2}{\mathcal{D}} = t_{\textrm{дифузионная}} \]
+\[ \frac{t_{\textrm{диф}}}{t_{\textrm{конв}}} = \frac{L U}{\mathcal{D}} \]
+
+\[ Re << 1 \] почти дифф процесс
+\[ Re >> 1 \] почти конв процесс
+
+Сначала будем рассматривать стационарное уравнение. 
+
+\[ \frac{d}{dx}(uQ) - \frac{d}{dx} (\mathcal{D} \frac{d Q}{d x}) = 0 \]
+
+На отрезке вводится разностная сетка \[ \Omega_n (x_{i-1}, x_{i}, x_{i+1})\].
+
+Потоковые точки - точки с полуцелые точки
+
+\[ x{i+\frac{1}{2}} = \frac{x_i + x_{i+1}}{2} \] - потоковые узлы
+
+\[ h_{i+\frac{1}{2}} = x_{i+1} - x_{i} \]
+
+\[ h_{i} = \frac{h_{i+\frac{1}{2}} - h_{i-\frac{1}{2}}}{2} \]
+
+Вводим сеточные функции.
+
+\[ Q_i = (x_{i+\frac{1}{2}}; x_{i-\frac{1}{2}}) \]
+константа на отрезке
+\[ [x_{i+\frac{1}{2}} \textrm{до} x_{i-\frac{1}{2}}] \]
+
+D - константа в полуцелых точках (от $ x_i $ до  $ x_{i+1} $ константа)
+
+Считаем скорость и тепло в потоковых точках, где диффузия постоянна
+
+\[ Q_x = \frac{Q_{i+1}i = Q_i}{h_{i+\frac{1}{2}}} \]
+\[ Q_{\overline{x}} = \frac{Q_{i} - Q_{i-1}}{h_{i-\frac{1}{2}}} \]
+\[ Q_{\widehat{x}} = \frac{Q_{i+\frac{1}{2}} - Q_{i-\frac{1}{2}}}{h_{i}} \]
+
+Между потоковыми точками интегрируем получаем формулу.
+
+\[ \int_{x_{i}+\frac{1}{2}}^{x_{i}+\frac{1}{2}} \frac{d}{d x} [uQ - \mathcal{D}\frac{dQ}{dx}]dx = \]
+\[ = [uQ - \mathcal{D}\frac{dQ}{dx}]|_{x_{i} - \frac{1}{2}}^{x_i + \frac{1}{2} } = \]
+\[ W^{tot}_{i + \frac{1}{2}} \]
+
+\[ W^{tot}_{i-\frac{1}{2}} = U_{i+\frac{1}{2}} Q_{i+\frac{1}{2}} = W^D_{i+\frac{1}{2}} - W^D_{i-\frac{1}{2}} \]
+
+\[ W^D_{i+\frac{1}{2}} = - D_{i+\frac{1}{2}} \frac{dQ}{dx}|_{i+\frac{1}{2}} \]
+
+\[ U_i{i+1/2} Q_{i+1/2} - D_{i+1/2}\frac{Q_{i+1} - Q_i}{h_{i+\frac{1}{2}}} -\]
+\[ - [U_i{i-1/2} Q_{i-1/2} - D_{i-1/2} Q_{{\overline{x}}_{i-1/2}}]= 0 \]
+
+\[ \frac{U_{i+1/2} Q_{i+1/2}  - U_{i-1/2} Q_{i-1/2}}{\overline{h_i}} -\]
+\[-\frac{D_{i+1/2} Q_x - D_{i-1/2} Q_{\overline{x}}}{\overline{h_i}} = 0 \]
+
+Интерполируем Q в полуцелые точки.
+
+\[ Q_{i+1/2} = \Theta_{i+1/2} Q_i + (1-Q_{i+1/2}) \Theta_{i+1} \]
+
+\begin{enumerate}
+	\item \[ \Theta = 1/2 \]
+
+	\[ W = .... \]
+
+	Получится схема с центральными разностями
+
+	\[ u Q_x - D Q_{x with lint x} = 0 \]
+
+	\item \[ \Theta_{i+1/2} = 1/2(1+\frac{|u_{i+1/2}|}{U_{i+1/2}}) \]
+
+	\[ W_{i+1/2} = u^+_{i+1/2} Q_i - \overline{U}_{i+1/2} Q_{i+1} \]
+	\[ U'_{i+1/2} = \frac{1}{2} (U_{i+1/2} + |U_{i+1/2}|) \]
+	\[ U with lin_{i+1/2} = \frac{1}{2} (U_{i+1/2} - |U_{i+1/2}|) \]
+
+	\[ (u^+_{i+1/2} Q_i + \overline{u}^+_{i+1/2} Q_i+1) - D Q_{\overline{x} \widehat{x}} = 0 \]
+
+	\section{Модельная задача}
+
+	\[ \frac{d(UQ)}{dx} - D \frac{d^2Q}{dx^2} = 0 \]
+
+\end{enumerate}
+
+При увеличении числа Пeкле график прижимается к координатам снизу.
+
+\section{Решение разностной задачи (центральные разности).}
+
+\[ U \frac{Q_{i+1} - Q_{i-1}}{2h} - \frac{Q_{i+1} - 2Q_{i} - Q_{i-1}}{h^2} = 0\]
+
+\[ Q_i = a + b q^i \]
+
+\[ U \frac{Q_{i+1} - Q_i}{2h} - \frac{Q_{i+1} - 2Q_{i} - Q_{i-1}}{h^2} = 0\]
+
+Подставляем
+
+\[ \frac{U}{2h} b(q^{i+1} - q^{i-1}) -  D b \frac{q^{i+1}-2q^i+q^{i-1}}{h^2} = 0 \]
+
+\[ \frac{u}{2} (q^2-1) - \frac{D}{h}(q^2-2q+1) = 0 \]
+
+\section{Лекция 2}
+
+Точное решение
+
+\[ Q(x) = \frac{1-e^{\frac{Ux}{\mathcal{D}}}}{1-e^{\frac{U}{\mathcal{D}}}} = \]
+
+\[ Q(x) = \frac{1-e^{Pe \cdot i}}{1-e^{Pe_n N}}=  \]
+\[ Q(x) = \frac{1-\overline{q}^i}{1-\overline{q}^N} \]
+
+\[ \overline{q} = e^{Pe_N} = 1+ \frac{Pe_n + Pe_n^2}{2}\]
+
+Сеточная функция (Центральные разности)
+
+\[ q = \frac{1+ \frac{Pe}{2}}{1- \frac{Pe}{2}} =  \]
+\[ (1+ \frac{Pe_N}{2}(1+ \frac{1}{2} {Pe}_n + \frac{1}{4}{Pe}^2_n+...)) =  \]
+\[ 1+ {Pe}_n + \frac{{Pe}^2_n}{2} \]
+
+Но число пекре должно быть меньше 2
+
+Направленные разности
+
+\[  q + {Pe}_n \]
+
+Для схемы с центральными разностями
+
+\[ U \frac{Q_{i+1} - Q_i}{2h} - \frac{Q_{i+1} - 2Q_{i} - Q_{i-1}}{h^2} = 0\]
+\[ Q_{i+1} (\frac{u}{2h} - \frac{\mathcal{d}}{h^2}) + Q_{i} (\frac{2\mathcal{d}}{h^2}) + Q_{i-1} (-\frac{u}{2h} - \frac{\mathcal{d}}{h^2}) = 0 \]
+\[ - Q_{i+1} (1 - \frac{1}{2} \mathcal{D}) + 2Q_{i} - Q_{i-1} (1 - \frac{1}{2} {Pe}_n) = 0 \]
+
+Для схеммы с направленными разностями
+
+\[ U \frac{Q_{i} - Q_{i-1}}{h} - \mathcal{D}\frac{Q_{i+1} - 2Q_{i} + Q_{i-1}}{h^2} = 0\]
+\[ Q_{i-1} (-\frac{u}{h}-\frac{\mathcal{D}}{h^2}) + Q_i(\frac{u}{h}-\frac{2\mathcal{D}}{h^2}) + Q_i(-\frac{\mathcal{D}}{h^2}) = 0\]
+\[ -Q_{i-1} (1+{Pe}_n) ... \]
+
+Попробуем предсказать поведеение вышеописанных схем
+
+\[ Q_{i-1} = Q_i - h \frac{\partial q}{\partial x}|_i + \frac{h^2}{2!} \frac{\partial^2 q }{\partial x} - \frac{h^3}{3!} \frac{\partial^3 Q }{\partial x^3}+... \]
+\[ Q_{i+1} = Q_i + h \frac{\partial q}{\partial x}|_i + \frac{h^2}{2!} \frac{\partial^2 q }{\partial x} + \frac{h^3}{3!} \frac{\partial^3 Q }{\partial x^3}+... \]
+
+Первое слагаемое:
+\[ \frac{U }{h }{(\frac{\partial Q }{\partial x})}_i - \frac{h^2}{2} \frac{\partial^2 Q }{\partial x^2} + \frac{h^3}{3!} \frac{\partial^3 Q }{\partial x^3} ... \]
+
+\[ U \frac{\partial Q}{\partial x}|_i-\frac{1}{2}Uh \frac{\partial^2Q }{\partial x^2} - \mathcal{D} \frac{\partial^2}{\partial x^2}|_i/... = 0 \]
+\[ U \frac{\partial Q}{\partial x}|_i - \mathcal{D}(1+\frac{1}{2} {Pe}_n)\frac{\partial^2 Q }{\partial x^2}|_i \]
+
+ДЛя того чтобы коэф диффузии был похож на то что было в исходном уравнении $ \frac{{Pe}_n}{2} \textrm{ << } 1 $
+
+\section{Схема А.А.Самарского}
+
+\[ U^+Q_{\overline{x}} + U^- Q_x - \frac{\mathcal{D }}{1 + \frac{{Pe}_n }{2}} Q_{\overline{x}x} = 0 \]
+
+\[ \overline{D} = \frac{\mathcal{D }}{1 + \frac{{Pe}_n}{2}} = \mathcal{D(1- \frac{|{Pe}_n| /2}{1+\frac{|{Pe}_n| }{2}})} \]
+
+\[ u^+ Q_{\overline{x}} - u^-Q_x = u Q_{x0} - \frac{|U|_h}{2}Q_{\overline{x} x}\]
+
+\[ U Q_{x0} - \mathcal{D} [\frac{1}{1+\frac{|Pe|}{2}}+\frac{{Pe}_n }{2}]Q_{\overline{x}x} = 0 \]
+- Коэфф диффузии 
+\[ \mathcal{D} [\frac{1}{1+\frac{|Pe|}{2}}+\frac{{Pe}_n }{2}] = \mathcal{D}^* \]
+
+\[ {Pe}^*_n = \frac{Uh }{\mathcal{D }} \textrm{ - эффективное число Пикле } \]
+
+\[ f = {Pe}^*({Pe}) \]
+\[ \mathcal{D}^* = \mathcal{D} \frac{1+\frac{|{Pe}_n|}{2}+\frac{|{Pe}_n|^2}{4}}{1+\frac{|{Pe}_n|}{2}} \]
+\[ {Pe}^* = \frac{Uh }{\mathcal{D}} \frac{1+\frac{|{Pe}_n }{2}}{1+\frac{|{Pe}_n|}{2}+\frac{|{Pe}_n|^2}{4}} \]
+
+\[ {Pe}_n \rightarrow 0; {Pe}^*_n \rightarrow {Pe}_n  \]
+
+\[ {Pe}_n \rightarrow \inf; {Pe}^*_n \rightarrow 2 \]
+
+\[ |{Pe}*n| = \frac{{Pe}^2_n (\frac{1}{2} + \frac{1}{|{Pe}_n|})}{{Pe}^2_n (\frac{1}{4}+\frac{1}{2|{Pe}_n|}+\frac{1}{|{Pe}_n|^2})} \]
+
+\section{Экспоненциальная схема}
+
+\[ u \frac{dQ }{dx} - \mathcal{D} \frac{d^2Q }{dx^2} = 0 \]
+\[ Q(x) = Q_i + {(Q_{i+1} - Q_i)}\frac{{exp({Pe}_{n, i+ \frac{1}{2}}\frac{x-x_i }{h_{i+\frac{1}{2}}})}}{exp({Pe}_{n, i+\frac{1}{2}})-1} \]
+
+\[ W^{tot} = u_{i+\frac{1}{2}} Q_{i+\frac{1}{2}} - \mathcal{D} \frac{dQ}{dx}|_{i+\frac{1}{2}} = \]
+\[ = u_{i+\frac{1}{2}} Q_i + u_{i+\frac{1}{2}}(Q_{i+\frac{1}{2}} Q_i) \frac{exp(\frac{{Pe}_{i+\frac{1}{2}}}{2}-1)}{exp({Pe_{n, i+\frac{1}{2}}}-1)} - \]
+\[ - u_{i+\frac{1}{2}}(Q_{i+1}-Q_i) \frac{exp(\frac{{Pe}_{i+\frac{1}{2}}}{2})}{exp({Pe_{n, i+\frac{1}{2}}})-1} \]
+
+\[ \frac{W_{i+\frac{1}{2}} - W_{i-\frac{1}{2}}}{h_i} = u Q_{\overline{x}} + u h \frac{e^P \frac{{Pe}_N}{2}-1}{e^{{Pe}_N}-1} Q_{\overline{x}x} - u h \frac{e^P \frac{{Pe}_n}{2}}{e^{{Pe}_n}-1} Q_{\overline{x}x} = 0 \]
+
+\[ u Q_{\overline{x}} = u Q_{x0} - \mathcal{D} \frac{Pe}{2} Q_{\overline{x}x} \]
+
+\[ u Q_{x0} - \mathcal{D}^2 Q_{\overline{x}x} = 0 \]
+\[ \mathcal{D}^* = \mathcal{D} (\frac{{Pe}_N}{2} \frac{e^{Pe} + 1}{e^{Pe}-1}) = \mathcal{D} \frac{{Pe}_n }{2} coth\frac{{Pe}}{2} \]
+
+\[ {Pe}_n = \frac{Uh }{\mathcal{D }} = 2 th \frac{{Pn}_n}{2} \]
+
+\section{Схема Сполдинга}
+
+\[ {Pe}^*_{h, i+\frac{1}{2}} = Pe_{h, i+\frac{1}{2}}, {Pe}_h \leq 2 \]
+\[ = 2, {Pe}_h > 2 \]
+
+\[ \Theta_{i+\frac{1}{2}} = \Theta_{i+\frac{1}{2}} Q_i + (1 - \Theta_{i+\frac{1}{2}}Q_{i+1})\]
+
+\[ \Theta_{i+\frac{1}{2}} = \frac{1}{{Pe_n, i+\frac{1}{2}}}[{Pe_{n, \frac{1}{2}}}-1+max(- {Pe}_{n, i+\frac{1}{2}}, 1-\frac{{Pe}_{n, i+\frac{1}{2}}}{2}, 0)] \]
+
+
+\begin{enumerate}
+	\item 
+	\[ |Pe_{n, i+\frac{1}{2}}| \leq 2 \]
+	\[ \Theta_{i+\frac{1}{2}} = \frac{1}{2} \Rightarrow \] буквально схема с центральными разностями.
+	\item
+	\[ |Pe_{n, i+\frac{1}{2}}| > 2 \]
+
+	\begin{enumerate}
+	\item 
+	\[ {Pe}_n > 2 \]
+	\[ \Theta_{i+\frac{1}{2}} = \frac{1}{{Pe}_{n, i+\frac{1}{2}}} [{Pe}_{n+\frac{1}{2}} -1 + 0] = 1 - \frac{1}{Pe} \]
+
+	\item
+	\[ Pe_{n} < -2 \]
+	\[ \Theta_{i+\frac{1}{2}} = \frac{1}{{Pe}_{n, i+\frac{1}{2}}} [{Pe}_{n+\frac{1}{2}} -1 - {Pe}_n] = - \frac{1}{{Pe}_{n}} \]
+
+	\end{enumerate}
+	Или оба варианта в одной формуле
+
+	\[ \frac{1}{2}(1+ \frac{|{Pe}_n|}{{Pe}_n}) - \frac{1}{{Pe}_n} \]
+
+\end{enumerate}
+
+Пподставляем $ \Theta $
+\[ Q_{i+\frac{1}{2}} = [ \frac{1}{2} (1 + \frac{|{Pe}_n|}{{Pe}_n}) = \frac{1}{{Pe}_n}] Q_i + [\frac{1}{2} (1 - \frac{|{Pe}_n|}{{Pe}_n} + \frac{1}{{Pe}_n })]Q_{i+\frac{1}{2}} \]
+
+\[ W_{i+\frac{1}{2}} = u Q_{i+\frac{1}{2}} = U^+_{i+\frac{1}{2}} Q_i + U^-_{i+\frac{1}{2}} Q_i+1 + D Q_x \]
+
+\[ \frac{d }{dx }u Q - D \frac{d^2Q }{dx^2} = 0 \]
+\[ W_{i+\frac{1}{2}} - W_{i-\frac{1}{2}} = U^+ Q_{\overline{x}} + \overline{u} Q_x + D Q_{\overline{x}x} \]
+
+Таких схем множество, но суть такова, что до определенного момента рассматривается направленные разности, а потом переходят на константу
+
+\section{Схема Патанкара}
+
+Надо разобрать к экзамену! Есть в презентации. 
+
+\[ \Theta_{i+\frac{1}{2}} = \frac{1}{{Pe}_{n, i \frac{1}{2}}}[{Pe}_{n, i+\frac{1}{2}} - 1 + max(0, {Pe}_n) + max(0, (1 - 0.1 |{Pe}_n|)^5)] \]
+
+Теперь нужно определить в полуцелых точках.
+
+\section{Разностная схема на расширенных шаблонах}
+
+\[ Q_{i+\frac{1}{2}} = \frac{1}{2} (Q_{i+1} + Q_{i}) - \eta ( Q_{i+1} - 2 Q_i + Q_{i-1}) \]
+
+\begin{enumerate}
+	\item \[ u \frac{d }{dx} = u Q_{x^0} -\frac{U h }{2}( Q_x \overline{x} - Q_{x x})    \frac{1}{2} h^2 Q_{\overline{x} \overline{x} } \]
+
+	\item
+	\[ \eta = \frac{1}{2} \textrm{ - схема с направленными разностями } \]
+
+	\item
+	\[ \eta = \frac{1}{4} -\textrm{  схема Фрома } \]
+	\item
+	\[ \eta = \frac{1}{6} -\textrm{  схема с искуственной дисперсией }\]
+	\item
+	\[ \eta = \frac{1}{8} -\textrm{  схема QUICK  }\]
+
+\end{enumerate}
+
+\section{Нестационарные задачи}
+
+\[ \frac{\partial Q}{\partial t} + \frac{\partial }{\partial x }(u Q) = \mathcal{D} \frac{\partial^2 Q }{\partial x^2 } \]
+
+\[ u = const, {Pe} = \frac{U L }{\mathcal{D}} >> 1 \]
+
+Сетка вводится аналогично стационарной задаче.
+
+\[ t_k = \tau_k \]
+
+\[ \int_{t_k }^{t_{k+1}}\int_{x_{i-\frac{1}{2}}}^{x_{i+\frac{1}{2}}} \frac{\partial Q }{\partial t} dx dt + \int_{t_k }^{t_{k+1}}\int_{x_{i-\frac{1}{2}}}^{x_{i+\frac{1}{2}}} \frac{\partial}{\partial x} (u Q) dx dt = \int_{t_k }^{t_{k+1}}\int_{x_{i-\frac{1}{2}}}^{x_{i+\frac{1}{2}}} \frac{\partial}{\partial x} (\mathcal{D} \frac{\partial Q }{\partial x }) dx dt \]
+
+По слагаемым
+\begin{enumerate}
+	\item Выносим, так как не зависит от t, по x константа на отрезке интегрирования
+	\[ h_i \cdot (Q^{k=1}_i - Q^k_i) \]
+	\item \[ \int_{t_k }^{t_{k+1}}(W_{i+\frac{1}{2}} - W_{i-\frac{1}{2}} dt ) \]
+	Воспользуемся квадратурной формулой
+	\[ = \tau (W^{\sigma}_{i+\frac{1}{2}} + W^{\sigma}_{i-\frac{1}{2}}) \]
+	\[ f^{(\sigma)} = \sigma f^{t_k + 1} + (1-\sigma) f^{t_k} = \sigma \hat{f} + (1-\sigma) f \]
+	Возникает ровно та же проблема определения W в полуцелых точках
+	\item
+	\[ \int_{t_k }^{t_{k+1}} [ \mathcal{D} \frac{\partial Q }{\partial x} |_{i+\frac{1}{2}} - \mathcal{D} \frac{\partial Q }{\partial x} |_{i-\frac{1}{2}}] dt = \]
+	\[ \tau [(\mathcal{D} \frac{\partial Q }{\partial x})_{i+\frac{1}{2}}^{(\sigma)} - (\mathcal{D} \frac{\partial Q }{\partial x})_{i-\frac{1}{2}}^{(\sigma)}] \]
+\end{enumerate}
+
+\section{Решение модельной задачи}
+
+Отрезок от -L до L. Начальные данные: 1 при отрицательных значений, 0 при положительных.
+
+\[ \frac{\partial Q }{\partial t } + u \frac{\partial Q }{\partial x} = \mathcal{D} \frac{\partial^2 Q }{\partial x^2} \]
+
+\[ S = t, y = x - ut \]
+\[ Q(x,t) = Q(y(x,t), S(t)) \]
+\[ \frac{\partial Q }{\partial t } = \frac{\partial Q }{\partial S} \frac{ Q }{\partial t } + \frac{\partial Q }{\partial y}\frac{\partial y}{\partial t} = \frac{\partial Q }{d S}- \frac{\partial Q }{\partial y}\]
+\[ \frac{\partial Q}{\partial y} - u \frac{\partial Q}{i\partial y}+ u \frac{\partial Q }{\partial y } \mathcal{D } \frac{\partial^Q }{\partial y^2} \]
+\[ \frac{\partial Q }{\partial S } = \mathcal{D } \frac{\partial^2 Q}{\partial y^2} \Rightarrow\] интеграл Пуассона
+\[ Q = \frac{1}{\sqrt{\pi}} [\frac{\sqrt{\pi}}{2} - \int_{0}^{\frac{y}{2 sqrt{\mathcal{D S}}}} e^{-z^2} dz] =  \]
+\[ \frac{1}{\sqrt{\pi}} [\frac{\sqrt{\pi}}{2} - \int_{0}^{\frac{x - ut }{2 \sqrt{\mathcal{D }t }}} e^{-z^2} dz] \]
+Подставить это дома и убедиться, что оно является решением уравнения.
+
+\subsection{Направленные разности.}
+
+**рисунок фронта**
+
+Самое большое размытие при использовании чисто неявной схемы ($ \sigma = 1 $)
+
+Меньше всего размывается явная схема ($ \sigma = 0 $).
+
+То есть неявная схема ухудшает проблемы направленных разностей
+
+\subsection{Центральные разности}
+
+**рисунок фронта
+
+Чисто неявная схема снова размывает сильнее.
+
+($ \sigma = 0.5 $)
+
+\section{Диффузия и дисперсия}
+
+Дисперсия - скорость убывания волны зависит от амплитуды.
+
+\[ \frac{\partial Q }{\partial t} + u \frac{\partial Q }{\partial x } = \mathcal{D } \frac{\partial^2 Q }{\partial x^2 } + \beta \frac{\partial^3 Q }{\partial x^3 } + \gamma \frac{\partial^4 Q }{\partial x^4} \]
+
+\[Q(t, x) = e^{-P(m)t} e^{i m (x - q(m) t)} \]
+m - волновое число,
+P(m) - скорость убывания амплитуды,
+q(m) - скорость распространения волны,
+$ i^2 = -1 $.
+
+\[ Q = e^{-P t } e^{im(x-qt)} \]
+
+\[ \frac{\partial Q }{\partial t} + u \frac{\partial Q }{\partial x } = \mathcal{D } \frac{\partial^2 Q }{\partial x^2 } + \beta \frac{\partial^3 Q }{\partial x^3 } + \gamma \frac{\partial^4 Q }{\partial x^4} \]
+
+Подставим Q и посмотрим каими должны быть P и m, для того чтобы оно удовлетворяло уравнениям.
+
+\[ -P - i m q + U i m = - \mathcal{D} m^2 - i m^3 p + \gamma m^4 \]
+
+\[ P = \mathcal{D }m^2 - \gamma m^4 \] - скорость убывания
+\[ q = u + M^2 \beta \] - скорость волны
+
+На амплитуду влияют четные производные ( но они чередуются уменьшает-увеличивает-уменьшает-...)
+
+скорость движения от третьей производной (нечетныепроизводные) проверить с каким знаком.
+
+\end{document}
