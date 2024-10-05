@@ -7,6 +7,8 @@
 
 \usepackage{caption}
 
+\usepackage{amssymb}
+
 \usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 
@@ -366,5 +368,170 @@ $ i^2 = -1 $.
 На амплитуду влияют четные производные ( но они чередуются уменьшает-увеличивает-уменьшает-...)
 
 скорость движения от третьей производной (нечетныепроизводные) проверить с каким знаком.
+
+\section{Дифференциальное представление разностных схем}
+
+\[ L(Q) = 0 \textrm{ Дифференциальное уравнение} \]
+\[ L^{\tau}_h (Q, \tau, h) = 0 \textrm{ - Разностная схема } \]
+\[ L_H^{\tau} (Q) = L(Q) + \epsilon(Q, \tau, h) = 0 \textrm{ - Погрешность аппроксимации } \]
+
+Не будем убирать погрешность и будем его рассматривать как бесконечный ряд.
+
+\[ L_h^{\tau} (Q) = L(Q) + \sum_{i=0}^{\infty} \alpha_i \frac{\partial Q }{\partial x^i } = 0 \]
+
+Процедура по созданию подобного представления (в общих чертах):
+
+\subsection{Дифференциально приближение для схемы с направленными разностями.}
+
+\[ Q_t + u Q^{(\sigma)}_{\overline{x}} - \mathcal{D} Q^{(\sigma)}_{\overline{x}} x = 0 \]
+
+\[ Q^{(\sigma)} = Q^{0.5} + (\sigma - 0.5) \tau Q_t = \frac{\hat{Q} + Q}{2} + (\sigma - 0.5) (\hat{Q} Q)\]
+
+\[ Q_t + u Q^{(0.5)}_{\overline{x}} - \mathcal{D} Q^{(0.5)}_{\overline{x} x} + u(\sigma - 0.5) \tau Q_{t \overline{x }} - \mathcal{D }(\sigma-0.5) Q_{t \overline{x} x} \]
+
+Разложим в точке $ (t_k + \frac{\tau }{2}, x_i Q (t_k + \frac{\tau }{2}) Q^(0.5)) $
+
+\[ Q_t = \frac{\partial \overline{Q }}{\partial t } + \frac{t^2}{2} \frac{\partial^3 \overline{Q  }}{\partial t^3 } + \dots \]
+
+\[ Q^{(0.5)} = \overline{Q} +\frac{\tau^2}{8} \frac{\partial^2 Q}{\partial x ^2} + \dots \]
+
+и тд.
+
+Как избавиться от высоких производных и смешанных производных по t и x. Метод дифференциального представления.
+
+\section{Устойчивость разностных схем. Метод Неймана (Метод гармоник.)}
+
+\[ Q(t, x) = e^{-p(m)t} e^{Im(x-qt)} \textrm{ - Бегущая волна } = a(t) e^{I m x}\]
+
+\[ a(t) = e^{-t [ p(m) + I q m]} \textrm{ Комплексная амплитуда }\]
+
+\[ p(m) = \mathcal{D} m^2, q=u \textrm{ Для нашего конкретного уравнения } \]
+
+\[ Q(t + \tau, x) = e^{-t + \tau}[\mathcal{D}m^2 + (I m q)] e^{Imx} = G Q (t,x) \]
+
+G - Множитель перехода
+
+\[ G = e^{- \tau (\mathcal{D} m^2 = I m u)}  \]
+
+\subsection{Явная схема с направленными разностями}
+
+\[ Q^{k+1}_i = Q^k_i - c(Q^k_i - Q^k_{i-1}) + S (Q^k_{i+1} - 2 Q_i^k + Q^k_{i-1}) \]
+
+\[ c = \frac{u \tau}{h} \textrm{ - число Куррента }, S = \frac{\mathcal{D } \tau }{h^2} \textrm{ - Тепловое число Куррента }\]
+
+\[ Q^k_i = Q (t_k, x_i) = e^{-pt_k} e^{Im [x_i - q t_k]} = \]
+\[ = e^{\tau k [ p - I m q]} e^{I m h i} =  \]
+\[ = a_k e^{I \Theta i}\]
+
+\[ \tau k = t_k, ih = x_i, \Theta = m h \]
+
+Надо выяснить при каких P и Q при подстановке бегущей волны данное уравнение является решением нашего уравнения.
+
+\[ a_{k+1} e^{I \Theta i} = a_k e^{I \Theta i} - c a_k (e^{I \Theta (i-1)}) + S a_k (e^{I \Theta (i-1)} - 2e^{I \Theta i }) + e^{I \Theta(i+1)} \]
+
+\[ e^{e m i}; a_{k+1} = a_k G \]
+
+\[ G = 1 - c(1-e^{-I \Theta}) + S (e^{I \Theta} - 2 + e^{-I \Theta}) \label{eq:f1} \]
+
+\[ c(1-e^{-I \Theta}) = 1 - cos \Theta + i sin \Theta \]
+
+\[ (e^{I \Theta} - 2 + e^{-I \Theta}) = 2 cos \Theta - 2 \]
+
+Напоминание:
+\[ e^{i \phi} = cos \phi + i sin \phi \]
+\[ e^{-i \phi} = cos \phi - i sin \phi \]
+-----------------------------------------
+
+\[ \ref{eq:f1} = 1 - (c+2S)(1-cos \Theta) + I c sin \Theta \textrm{ Множитель перехода со слоя на слой } \]
+
+Схема устойчива тогда, когда $ |G|>1 $
+\[ \Theta = m h \]
+\[ \lambda_{min} = 2h = \frac{2 \pi}{m} \textrm{ - минимальная длинна волны } \]
+
+\[ \Rightarrow mh = \pi \textrm{ Короткие волны }\]
+
+\[ mh \rightarrow 0 \textrm{ - Длинные волны } \]
+
+\[ 1 - (c + 2S ) (1- cos \Theta ) - I c sin \Theta \]
+
+\[ {|G|}^2 = 1 - 4 (c+2S) sim^2 \frac{\Theta}{2} + {(c+2S)}^2 \cdot 4 {sin}^4 \frac{\Theta   }{2} + 4 c^2 {sin}^2 \frac{\Theta   }{2} {cos}^2 \frac{\Theta   }{2} < 1\]
+
+\[ -(c+2S) + {(c+2S)}^2 {sin}^2 \frac{\Theta   }{2} + c^2 {cos^2} \frac{\Theta}{2} < 0 \]
+
+\[ -(c+2S) ({sin}^2 \frac{\Theta}{2} + {cos}^2 \frac{\Theta}{2}) + {(c+2S)}^2 {sin}^2 \frac{\Theta   }{2} + c^2 {cos^2} \frac{\Theta}{2} < 0 \]
+
+\[ (c+ 2S) [ (c+ 2S) - 1] {sin}^2 \frac{\Theta}{2} + [c^2- (c+2S)] {cos}^2 \frac{\Theta    }{2} < 0; \forall \Theta \in [0, \pi] \]
+
+\[ c+2S - 1 < 0; c^2 - (c + 2S) < 0 \textrm{ - Условия устойчивости }\]
+
+Метод Неймана дает необходимое условие устойчивости, но вообще говоря не достаточное.
+
+\section{Изменение амплитуды волны.}
+
+\[ {|G|}^2 = 1+ 4( c + 2S) {sin}^2 \frac{\Theta    }{2} = 4 (c+ 2S )^2 {sin}^2 \frac{\Theta    }{2} {cos}^2 \frac{\Theta   }{2} \]
+
+Для волны $ \Theta = mh \rightarrow 0 $
+
+\[ {|G|}^2 = 1 - 4 (c + 2S) \frac{{(mh)}^2}{4} + 4 (c +2S)^2 \frac{{(mh)}^4}{2}^4 + 4c^2 \frac{{(mh)}^2}{4} = 1 + {(mh)}^2 [ c^2 - (c+ 2S)] =  \]
+\[ = 1 - (mh)^2 [ c+2S - c^2] \]
+\[ |G| = 1 - {(mh)}^2 (S + \frac{1}{2} c(1-c)) \label{eq:1*} \]
+
+\[ |G| = 1 - (m^2 h^2) (\frac{\mathcal{D} \tau}{h^2} + \frac{1}{2} c (1-c)) =  \]
+\[ = 1 - m^2 \tau \mathcal{D} - \frac{1}{2} m^2 h^2 c (1-c) \]
+
+\[ 1 - m^2 \tau \mathcal{D}\textrm{ То как убывает волна в исх уравнении } \]
+\[ \frac{1}{2} m^2 h^2 c (1-c) \textrm{ Добавка разностной схемы } \]
+
+\[ |G| = e^{-\tau \mathcal{D} m^2} = 1 - \tau \mathcal{D} m^2 \]
+
+\subsection{Коротко про устойчивость схемы с центральными разностями}
+
+\[ Q_t + u Q_{x^0  \mathcal{D }Q_{\overline{x }x}} \]
+\[ Q^{k+1}_i = Q^k_i - \frac{1}{2} c (Q^k_{i_k} - Q^k_{i-1}) + S(Q_{i-1}^k - 2 Q^k_i + Q_{i+1}^k) \]
+
+\[ G = 1 - \frac{c }{2} (e^{I \Theta} - e^{-I \Theta}) + S(e^{-I\Theta} - 2 + e^{I\Theta}) = \]
+\[ = 1- 4 S {sin}^2 \frac{\Theta}{2} -2 c I sin \frac{\Theta}{2} cos\frac{\Theta}{2} \]
+
+\[ {|G|}^2 = 1 - 8 S {sin}^2 \frac{\Theta}{2} + 16 S^2 {sin}^4 \frac{\Theta}{2} + 4c^2 {sin}^2 \frac{\Theta}{2} {cos}^2 \frac{\Theta}{2} < 1\]
+
+\[ -2S+4S^2 {sin}^2 \frac{\Theta}{2} + c^2 {cos}^2 \frac{\Theta}{2} < 0 \]
+
+\[ {sin}^2 \frac{\Theta}{2} [4S^2 - 2S] + {cos}^2 \frac{\Theta}{2}[c^2 - 2S] < 0 \]
+\[ 2S^2 - S < 0; c^2-2S < 0 \textrm{ - Условие устойчивости } \]
+
+
+Рассмотрим для длинных волн
+\[ {|G|}^2 = 1 - 8 S {sin}^2 \frac{\Theta}{2} + 16 S^2 {sin}^4 \frac{\Theta}{2} + 4c^2 {sin}^2 \frac{\Theta}{2} {cos}^2 \frac{\Theta}{2} < 1\]
+
+\[ \approx = 1 - 8 S \frac{{(mh)^2}}{4}+ 4 c^2\frac{{(mh)}^2}{4} =  \]
+\[ = 1 - {(mh)}^2(2S-c^2) \]
+
+\[ |G| \approx 1 - {(mh)}^2 S + {(mh)}^2 \frac{c^2}{2} =  \]
+\[ 1 - \frac{m^2 h^2 \mathcal{D} \tau}{h^2} + m^2 h^2 \frac{c^2}{2} \]
+
+Длинные волны убывают медленнее чем в дифференциальном случае. (В прошом примере было наоборот)
+
+дз решить задачи из таблицы (хотя бы некоторые), позже возможно следует ей прислать.
+
+\section{Уравнение движения вязкой несжимаемой жидкости}
+
+\[ \rho [\frac{\partial V }{\partial t } + (v \cdot \triangledown)v] = - \triangledown p + \chi \triangle V = g \rho \]
+\[ div V = 0;  (\triangledown \cdot v) = 0\]
+\[ \rho = \rho(p, t) = \rho_0 (1 + \beta T) \]
+
+V - вектор скорости
+p - Давление
+$ \chi $ - коэффициент вязкости
+
+\[  \frac{\mathcal{D} \rho}{\mathcal{D} x} =  \textrm{ Полная производная }\]
+\[ = \frac{\partial \rho}{\partial t} + \mathcal{V}_x \frac{\partial \rho}{\partial x} + \mathcal{V}_y \frac{\partial \rho}{\partial y} + \mathcal{V}_z \frac{\partial \rho}{\partial z} \]
+
+\[  \frac{\mathcal{D} \rho}{\mathcal{D} x} + \rho div V = 0 \]
+\[ = \frac{\partial \rho}{\partial t} + \mathcal{V}_x \frac{\partial \rho}{\partial x} + \mathcal{V}_y \frac{\partial \rho}{\partial y} + \mathcal{V}_z \frac{\partial \rho}{\partial z} + \rho div V = 0\]
+
+Жидкость несжимаема тоже самое, что полная производная равна 0, это одновременно означает что дивергенция равна 0. 
+
+\[ \frac{\partial \mathcal{V}_x}{\partial t} + \mathcal{V}_x \frac{\partial \mathcal{V}_x}{\partial x}+ \mathcal{V}_y \frac{\partial \mathcal{V}_y}{\partial y}+ \mathcal{V}_z \frac{\partial \mathcal{V}_z}{\partial z} = \]
+\[ = \frac{\mathcal{V}_x}{\partial t} + \frac{\partial}{\partial x} (\mathcal{V}^2_x) - \mathcal{V}\frac{\partial\mathcal{V}_x}{} ... \]
 
 \end{document}
