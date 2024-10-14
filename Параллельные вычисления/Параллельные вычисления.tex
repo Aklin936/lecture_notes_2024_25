@@ -22,9 +22,11 @@
 
 \begin{document}
 
+
+
 \section{Вступительная, короткая лекция}
 
-Фамилия преподователя - Четверушкин.
+ФИО преподователя -  Борис Николаевич Четверушкин.
 
 Уильм Оккамский - ученый в честь которого назвали язык (Occam).
 
@@ -110,5 +112,92 @@ $ 19^9 $ число частиц в кубометре воздуха.
 \[ \int_{}^{} \phi (\xi) \xi_i \frac{\partial f }{\partial x_i }d \xi = \frac{\int_{}^{} \xi_i \phi(\xi ) d \overline{\xi}}{\partial x} \]
 
 \[ \int_{}^{} \phi (\xi) \gamma_i \frac{\partial f }{\partial \xi_i} d \xi = \int_{-\infty}^{+\infty} d \xi_k \int_{-\infty}^{\infty} d \overline{\xi} = \int_{-\infty}^{\infty}  -\int_{}^{} f \gamma_i \frac{\partial \phi}{\partial \xi } d \overline{\xi} \]
+
+\section{Лекция 4}
+Начало лекции пропустил. 
+
+\[ f_o(t, \overline{x }, \overline{\xi}) = \frac{\rho (t, \overline{x})}{{(2 \pi R T(t, x))}^{\frac{3}{2}}} \overline{l}^{\frac{{(3i- u(x, t))}^2}{2RT}} = \frac{\rho }{ {(2 R T)}^{\frac{3}{2}} l^{\frac{-l^2_i}{2RT}}} \]
+
+\[ \int{}_{\infty}^{\infty} x^{2n} l^{-\beta x^2} dxl = \frac{(2n-1) \dots 3 \cdot 1}{2^n} \sqrt{\frac{\pi }{\beta^{2n+1}}} \]
+
+\[ P_ij = \int e_i e_j f_0 d\xi  = \frac{\rho}{{(2\pi R T)}^\frac{3}{2}} ... \]
+
+\[ P_ij = \int e^2_i f d\xi  \frac{\rho}{(2\pi RT)^{\frac{3}{2}}} [ \int e^{\frac{-c i^2}{2 RT }} d e \int e^{\frac{-e_k}{2RT}} \int e^2_i e^{-\frac{e^2_i}{2RT}} dc_i = \rho RT] \]
+
+БГК 
+
+\[ \frac{dR}{dt} = \nu (f - f_0) \]  - число столкновений частиц велико
+
+\[ f = f_0 - \frac{1}{\nu} \frac{df_0}{dt } + \frac{1}{\nu } \frac{d^2 f }{dt } + \dots =  \]
+
+\[ q_i \frac{1}{\nu } \frac{5}{2} R^2 \rho T \frac{\partial t }{\partial x^i} \]
+
+Анонас следующей лекции:
+
+\[ f = f_0 = \frac{\rho_i}{{2RT_i}} k^{-\frac{{(3_k - u_{ki})}^2}{2RT_i}} \] 
+
+**рисунок**
+
+\[ f^{j+1} (\xi) = f^j_{i_0} + \xi \Delta t \frac{f_{i+1, 0} - f^j_{i-1, 0}}{2 \Delta x} - \Delta t \frac{|\xi|}{2} \frac{f^{i_+1, 0} - 2^i_{i_0} + f^j_{i-1}}{\Delta x} \]
+
+\section{Лекция 5}
+
+\[ f^{j+1}_{i} = f^i_{i_0 }(\xi) + \xi \Delta t \frac{f^i_{i+1, 0} - f^j_{i-1, 0}}{2 \Delta x} - \Delta x \frac{|\xi|}{2} \frac{f^j_{i+1, 0}-2f^j_{i-1, 0} + f^i_{i-1, 0}}{\Delta x}\]
+
+\[ \int f^{i+1}_j d\xi = \rho^{i+1}\]
+\[ \int f^{i}_i d\xi = \rho^{i}\]
+
+\[ \beta = \frac{1}{\sqrt{ 2 R T}} \]
+\[ a_{x0} = \frac{a_{i+1} - a_{i-1}}{2 \Delta x} \]
+\[ a_{overline{x} x} = \frac{a_{i+1} - 2a_i + a_{i-1}}{\Delta x^2} \]
+
+Разностная схема:
+
+\[ \frac{\rho _i^{j+1} - \rho_i^j}{\Delta t} + (\rho u)_{x with 0} = \frac{\Delta x}{2} [\rho u erf(s) + \frac{\rho}{ \beta \sqrt{\pi} } exp(-s^2)]_{overline x x} \]
+
+\[ \frac{\rho }{} \]
+
+еще 2 уравнения не успел 
+
+\[ \frac{\partial f }{\partial t} + \xi \frac{\partial f }{\partial x} = J({f'}_1, f') \]
+
+\[ \frac{f^{i+1} - f^i_j }{\Delta t} + \xi \frac{ f^i_j - f^i_{j-1}}{\Delta x} = J, \xi > 0\]
+\[ \frac{f^{i+1} - f^i_j }{\Delta t} + \xi \frac{ f^i_j - f^i_{j+1}}{\Delta x} = J, \xi > 0\]
+
+\[ \frac{f^{i+1} - f^i_j }{\Delta t} + \xi \frac{ f^i_j - f^i_{j+1}}{\Delta x} \frac{\Delta x }{2} |\xi| \frac{f^j_{i+1} - 2f^i_j + f^j_{i-1}}{\Delta x^2} + J(ff'), \xi > 0\]
+
+Ур Больцмана - Ур газ динамики - разностная схема
+Ур Больцмана - разностное киетич ур - ???
+
+\[ \frac{f^{i+1}_j - f^{i}_j}{\Delta t} + \frac{\xi + |\xi| }{2}\frac{15 f^i_j - 2f^i_{j-1} + 0.5 f^j_{i-2}}{\Delta x} = ... \]
+
+
+\[ K_n = \frac{l}{L} << 1\]
+
+**рисунок**
+
+\[ f(t^{i+1}, \overline{x}, \overline{\xi}) - f_0^i(t, x - \xi J, \xi) \]
+
+\[ \frac{f^{i+1}_i - f^i_{i 0}}{\Delta t } + div (\xi f_0)^i = \frac{\partial}{\partial X_i} \frac{J }{2} \xi_i \xi_k \frac{\partial f^j_0}{\partial x_k} \]
+
+Система уравнений (которая оказывается совпадает с уравнением Навье - Стокса)
+
+...
+
+\[ \frac{\partial \rho u }{\partial t} + \frac{\tau}{2} \frac{\partial^2 \rho u  }{\partial t^2} + \frac{\partial (\rho u^2 + P)}{\partial x} = \frac{\partial }{\partial x} \frac{\tau}{2} \frac{\partial }{\partial x} (\rho) ...\]
+
+...
+
+
+
+\[ \frac{\partial \rho}{\partial \tau} + J \frac{\partial^2 \rho}{\partial \tau^2} + \frac{\partial}{\partial x} (\rho u = \frac{\tau}{2} \frac{\partial }{\partial x } ((\rho u^2 + P)))  \]
+
+\[ \frac{\partial Q }{\partial t } + \frac{\tau}{2} \frac{\partial^2 Q}{\partial x^2} \]
+
+Построим схему более устойчивая.
+
+\[ \frac{\partial T }{\partial t} = \epsilon \frac{\partial^2 T}{\partial t^2} = x \frac{\partial^2 T }{\partial x^2} \]
+
+\[ \frac{T^{j+1}_{i} - T_i^{j-1}}{2 \Delta \tau} + \epsilon \frac{T_i^{j+1} - 2 T_i^j + T_i^{j-1}}{\Delta t^2} + x \frac{T^j_{i+1} - 2T_i^j+T_{i-1}{j}}{\Delta x^2} \]
 
 \end{document}
