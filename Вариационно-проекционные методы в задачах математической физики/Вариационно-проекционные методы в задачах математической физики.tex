@@ -653,4 +653,130 @@ A - положительный в H; u - решение \ref{eq:1} $ \rightlefta
 
 \[ u_0 = \sum_{n=1}^{\infty} (f, \omega_n)_H \omega_n \]
 
+\section{Лекция }
+
+\subsection{ Применение энергетического метода для краевых задач}
+
+\begin{enumerate}
+	\item Немного опазадал, пример часть примера пропустил
+	...
+	\[ {(Lu, u)}_H = \sum_{k=0}^{m} \int_{x_1}^{x_2} p_k (x) (\frac{d^k u }{d x^k })^2 dx >= \int_{x_1}^{x^2} p_{n_1} (x) (\frac{d^m u }{d x^n } dx^3) >= p_0 \int_{x_1}^{x^2} (\frac{d^m u }{dx^m } dx = p_0 {||u_(m)||}^2_H) \]
+	...
+	\[ (L u_M ) >= \partial^2 {||u||}^2_H, \gamma = \sqrt{p_0} {(\frac{\sqrt{2}}{x_2-x_1})}^m \]
+	...
+	\[ {||u||}_A \leq \sqrt{p_0 } {||u||^{(m)}}_H \exists \{ u_N (x) \}\]
+
+	\[ {lim}_{n \rightarrow \infty} = 0; u_0 - \textrm{ точное решение  } \]
+
+	\[ {||u_n - u_k ||}_A <= {||u_n - u_0||}_A + {|| u_k - u_0||}_A \rightarrow 0 \]
+	\[ u^{(l)}_n (x_1) = u_k^(l) (x_1) = 0, l = \overline{0, m-1} \]
+	...
+
+	\item Изгиб балки
+	\[ L_{\omega} = \frac{d^2}{dx^2} [E I(x) \frac{d^2 \omega }{dx^2}] + K\omega = q(x)\]
+	\[ \omega - \textrm{ Прогиб балки } \]
+	\[ E - \textrm{ модуль Юнга } \]
+	\[ I(x) - \textrm{ момент инерции } \]
+	\[ q(x) - \textrm{ интенсивность нагрузки на балку } \]
+	\[ K - \textrm{ коэф податливости основания } \]
+
+	\[ \omega (0) = \omega (l) = 0 \]
+	\[ \omega'(0) = \omega'(l) = 0 ; A - \textrm{ Положительно определен } \]
+	Аналогично задачи минимизации функционала
+
+	\[ F(\omega) = \int_{0}^{l} (E I(x) {\omega''}^2 + K\omega^2 - 2q(x \omega)) dx = (L\omega , \omega) -2 (\omega, q)\]
+
+	Воспользуемся методом Рица
+
+	\[ {u_n (x)}^{\infty}_{n=1}, \phi_n (x) = {(x-l)}^2 x^{n+1}, \textrm{ Полная система в  } H_A \]
+
+	\[ \omega_n = \sum_{k=1}^{n} a_k \phi_k (x) = {(x-l)}^2 \sum_{k=1}^{n} a_k x^{k+1} \]
+	\[ \sum_{n}^{k=1} a_k A_{1k} = b_{ij}; i=\overline{1, n} \]
+	\[ b_j = (q, \phi_j)_H = \int_{0}^{l } a(x) (x-l) x dx \]
+	\[ A_{ik} = (L \phi_i, \phi_k)_H = \int_{0}^{l} (E I(x) \frac{d^2 \phi_i}{d x^2} \frac{d^2 \phi_k}{d x^2} + k\phi_i \phi_k) dx \]
+	...
+	\[ \omega(0) = 0; \omega''(l) = 0 \]
+	\[ \omega' (0) = 0 \]
+	\[ \frac{d }{d x } (E I(x) \frac{d^2 \omega }{d x^2})^{x=l}_{x=0} = 0 \]
+	Тут тоже можно доказать полажительную определенность
+	
+	\item Краевая задача для систем ОДУ
+	\[ - \sum_{k=1}^{s} [ \frac{d }{dx }(p_{jk}(x) \frac{du_k (x)}{dx}) - q_{jk}(x) u_k (x)] = f_j(x) \]
+	краевые ...
+
+	\[ - \frac{d }{dx } [P(x) \frac{du }{dx }] + Q(x) u(x) = f(x) \]
+	\[ u(x_1) = u (x_2) = 0 \]
+	\[ (u, v)_{H= L_2(x_1, x_2)} = \int_{x_1}^{x_2} u (x) \cdot v(x) dx = \int_{x_1}^{x_2} \sum_{k=1}^{s} u_k(x) v_k (x) dx \]
+
+	\subsubsection{Теорема}
+	\[ P(x), Q(x) \textrm{ симметр. } x \in [x_1, x_2] \Rightarrow A \textrm{ Симметричный } \]
+	Доказательство
+	\[ {(Au, v)}_H = - \int_{x_1}^{x^2} v(x) \cdot \frac{d}{dx} [P(x) \frac{du }{dx }] dx + \int_{x_1}^{x_2} v(x) \cdot Q(x u(x dx)) = \]
+	\[ = \int_{x_1}^{x_2} P \frac{du }{dx } \cdot \frac{dv }{dx } + v(x \cdot Q(x) u(x))dx \]
+	\[ Q u \cdot v = \sum_{j,k=1}^{s } q_{jk u_k \cdot v_j} =  \]
+	\[ = \sum_{i,j =1}^{s} q_{k,j} v_j \cdot v_k \]
+	Следовательно оператор симметричен
+
+	\subsubsection{Теорема}
+	\[ P(x), Q(x) \textrm{ симметрич на } [x_1, x_2] \]
+	\[ P(x)  \textrm{ положит. опр. } Q(x)\textrm{  неотр на } (x_1, x_2] \Rightarrow A \textrm{ положительно определен } \]
+	доказательство
+	\[ P(x) \textrm{ пол. опр } \forall x \Rightarrow \textrm{ пусть } \lambda_1(x) >0  \]
+	\[ \exists \lambda > 0 = const; \lambda_1(x) > \hat{\lambda}> 0  x \in [x_1, x_2] \]
+
+	\[ \forall t = (t, ... , s ) \]
+	\[ P(x) t \cdot t = \sum_{j, k=1}^{s } P_{jk}(x)t_j t_k \geq  \lambda_1(x) \sum_{k=1}^{s } t_k^2 \geq \]
+	\[ \geq \hat{\lambda } \sum_{k=1}^{s } t^2_k \]
+	\[ Q(x) t\cdot t = \sum_{k, k=1}^{s }q_{jk} t_j t_k \geq 0 \]
+
+	\[ (u, u)_H = \int_{x_1}^{x_2} (P \frac{du }{dx } \cdot \frac{du }{dx}) dx \geq \hat{\lambda } \int_{k=1}^{s} (\frac{du_k}{idx}^2) dx \]
+	\[ (Au, u)_H \geq \frac{2 \hat{\lambda}}{{(x_2 - x_1)}^2} \int_{x_1}^{x_2} (\sum_{k=1}^{s } u_k^2) dx = \frac{2 \hat{\lambda}}{{(x_2 - x_1)}^2} dx = \frac{\hat{\lambda}}{{(x_2-x_1)}^2} {||u||}^2_H \]
+
+	\[ {(Au, u)}_H \geq \gamma^2 {||u||}^2_H \]
+	...
+
+
+\end{enumerate}
+
+\subsection{Основные кр задачи для ур-я Пуассона}
+
+\[ -\Delta u = f(p) \textrm{ в } \Omega \in \mathcal{R}^m \]\label{eq:5_1}
+
+з. Дирихле
+
+\[ u|_{\partial \Omega} = 0 \]\label{eq:5_2}
+\[ A u = - \Delta u = \sum_{k=1}^{m } \frac{\partial^2 u }{\partial x_k^2} \]
+\[ P_A = \{ u \in c^2 (\overline{\Omega}_1) u |_{2 \Omega} = 0 \} \]
+\[ H = L_2 (\Omega) \]
+\[ (- \Delta, u )_h = \int_{\Omega}^{} \sum_{i=1}^{n} (\frac{\partial n }{\partial x_i})^2 d \Omega - \int_{ \partial \Omega}^{} u \frac{\partial u }{\partial n } dS = \int_{\Omega}^{} {({grub} u)}^2 d\Omega \geq 0 \]\label{eq:5_3}
+
+\[  \rightleftarrows \]
+\[ F(u) = (-\Delta u, u )_H -2(u, f)_H  \]\label{eq:5_4}
+\[ F(u) = \int_{\Omega }^{} ((grad u )^2 - 2uf) d\Omega  \]\label{eq:5_5}
+
+\[ [\frac{\partial u }{\partial n} + \gamma (P) u ] |_{\partial \Omega} = 0 \]\label{eq:5_6}
+
+\[ (- \Delta u, u)_H = \int_{\Gamma}^{} (grad u)^2 d\Omega + \int_{\partial u^2}^{} dS \geq 0 \]
+
+\[ (-\Delta u, u)_H =0 \Rightarrow u = condt \int_{ \partial \xi}^{} \gamma c^2 dS = 0 \Rightarrow c = 0 \Rightarrow u= 0\]
+
+\[ F(u) = \int_{\Omega}^{} ((grad u)^2 - 2uf) d\Omega + \int_{\gamma \Omega} \gamma n^2 dS \]\label{eq:5_7}
+
+\[ \frac{\partial u }{\partial n}|_{\partial \Omega } = 0 \]\label{eq:5_8}
+
+з Неймана
+
+\ref{eq:5_1}, \ref{eq:5_8} 
+
+\[ (- \Delta, u )_H = - \int_{\partial \Omega}^{} u  \frac{\partial u}{\partial n} dS + \int_{\Omega}^{} (grad u )^2 d\Omega \geq \]
+
+\[ u == 1 (- \Delta u, u)_H = 0 \]
+
+\[ \textrm{ при  } V == 1 \]
+\[ \int_{\Omega }^{} \Delta u d\Omega = \int_{\partial \overline{\Omega}}^{} \frac{\partial u }{\partial n } dS = 0 \]
+
+\[ S_{\Omega} f d \Omega = 0\]
+Условие разрешимости \ref{eq:5_1} \ref{eq:5_8}
+
+
 \end{document}
