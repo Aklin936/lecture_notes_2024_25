@@ -1,0 +1,32 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {}Лекция 1}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Уравнение конвекции с диффузией}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Модельная задача}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Решение разностной задачи (центральные разности).}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {}Лекция 2}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Схема А.А.Самарского}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Экспоненциальная схема}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Схема Сполдинга}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Схема Патанкара}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Разностная схема на расширенных шаблонах}{10}{subsection.2.5}%
+\contentsline {section}{\numberline {}Лекция 3}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Нестационарные задачи}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Решение модельной задачи}{11}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Направленные разности.}{12}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Центральные разности}{12}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Диффузия и дисперсия}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Дифференциальное представление разностных схем}{13}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Дифференциально приближение для схемы с направленными разностями.}{13}{subsection.3.5}%
+\contentsline {section}{\numberline {}Лекция 4}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Устойчивость разностных схем. Метод Неймана (Метод гармоник.)}{14}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Явная схема с направленными разностями}{14}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Изменение амплитуды волны.}{16}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Коротко про устойчивость схемы с центральными разностями}{16}{subsubsection.4.2.1}%
+\contentsline {section}{\numberline {}Лекция 5}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Уравнение движения вязкой несжимаемой жидкости}{17}{subsection.5.1}%
+\contentsline {section}{\numberline {}Лекция 5}{18}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Переинтерполяции}{20}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Переинтерполяция 1}{20}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Переинтерполяция 2}{20}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Первый способ применение}{20}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Баланс кинетической энергии}{22}{subsection.6.2}%

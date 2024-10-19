@@ -1,27 +1,83 @@
-\documentclass[14pt]{extarticle}
+\documentclass[12pt, a4paper]{article}
 
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
+
+\usepackage{pdfpages}
 \usepackage{multirow}
 
 \usepackage{caption}
 
+\usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
+\usepackage{cancel}
 
-\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 
-
 \usepackage{graphicx}%Вставка картинок
-\graphicspath{{noiseimages/}}
 
 \usepackage{float}%"Плавающие" картинки
 \usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
 
-\begin{document}
 
-\section{Уравнение конвекции с диффузией}
+\setlength{\emergencystretch}{10pt}
+
+\usepackage{indentfirst} %Отступ после секции
+
+\usepackage[left=2cm,right=1cm,
+top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\usepackage{setspace}
+
+\usepackage{tocloft}
+\setlength\cftsecnumwidth{0em}
+
+\usepackage{titlesec}% http://ctan.org/pkg/titlesec
+\titleformat{\section}%
+[hang]% <shape>
+{\normalfont\bfseries\Large}% <format>
+{}% <label>
+{0pt}% <sep>
+{}% <before code>
+\renewcommand{\thesection}{}% Remove section references...
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}%... from subsections
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+	\ \vspace{-1cm}
+	
+	{Московский государственный университет имени М. В. Ломоносова}\\
+	Факультет вычислительной математики и кибернетики\\
+	Кафедра вычислительных методов
+	
+	\vspace{8cm}
+	\begin{spacing}{2.5}
+		{\huge \bfseries ЧИСЛЕННЫЕ МЕТОДЫ МЕХАННИКИ СПЛОШНОЙ СРЕДЫ}
+	\end{spacing}
+	
+
+\end{center}
+
+\vfill
+
+\begin{center}
+	Москва, 2024
+\end{center}
+
+\enlargethispage{2\baselineskip}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Лекция 1}
+
+\subsection{Уравнение конвекции с диффузией}
 
 \[ \frac{\partial Q}{\partial t} +\frac{\partial }{\partial x} (u Q) = \frac{\partial }{\partial x} (\mathcal{D} \frac{\partial Q}{\partial x}); t>0; x \in [-L, L] \]
 
@@ -101,7 +157,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 	\[ (u^+_{i+1/2} Q_i + \overline{u}^+_{i+1/2} Q_i+1) - D Q_{\overline{x} \widehat{x}} = 0 \]
 
-	\section{Модельная задача}
+\subsection{Модельная задача}
 
 	\[ \frac{d(UQ)}{dx} - D \frac{d^2Q}{dx^2} = 0 \]
 
@@ -109,7 +165,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 При увеличении числа Пeкле график прижимается к координатам снизу.
 
-\section{Решение разностной задачи (центральные разности).}
+\subsection{Решение разностной задачи (центральные разности).}
 
 \[ U \frac{Q_{i+1} - Q_{i-1}}{2h} - \frac{Q_{i+1} - 2Q_{i} - Q_{i-1}}{h^2} = 0\]
 
@@ -158,7 +214,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 \[ Q_{i-1} (-\frac{u}{h}-\frac{\mathcal{D}}{h^2}) + Q_i(\frac{u}{h}-\frac{2\mathcal{D}}{h^2}) + Q_i(-\frac{\mathcal{D}}{h^2}) = 0\]
 \[ -Q_{i-1} (1+{Pe}_n) ... \]
 
-Попробуем предсказать поведеение вышеописанных схем
+Попробуем предсказать поведение вышеописанных схем
 
 \[ Q_{i-1} = Q_i - h \frac{\partial q}{\partial x}|_i + \frac{h^2}{2!} \frac{\partial^2 q }{\partial x} - \frac{h^3}{3!} \frac{\partial^3 Q }{\partial x^3}+... \]
 \[ Q_{i+1} = Q_i + h \frac{\partial q}{\partial x}|_i + \frac{h^2}{2!} \frac{\partial^2 q }{\partial x} + \frac{h^3}{3!} \frac{\partial^3 Q }{\partial x^3}+... \]
@@ -171,7 +227,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 ДЛя того чтобы коэф диффузии был похож на то что было в исходном уравнении $ \frac{{Pe}_n}{2} \textrm{ << } 1 $
 
-\section{Схема А.А.Самарского}
+\subsection{Схема А.А.Самарского}
 
 \[ U^+Q_{\overline{x}} + U^- Q_x - \frac{\mathcal{D }}{1 + \frac{{Pe}_n }{2}} Q_{\overline{x}x} = 0 \]
 
@@ -195,7 +251,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 \[ |{Pe}*n| = \frac{{Pe}^2_n (\frac{1}{2} + \frac{1}{|{Pe}_n|})}{{Pe}^2_n (\frac{1}{4}+\frac{1}{2|{Pe}_n|}+\frac{1}{|{Pe}_n|^2})} \]
 
-\section{Экспоненциальная схема}
+\subsection{Экспоненциальная схема}
 
 \[ u \frac{dQ }{dx} - \mathcal{D} \frac{d^2Q }{dx^2} = 0 \]
 \[ Q(x) = Q_i + {(Q_{i+1} - Q_i)}\frac{{exp({Pe}_{n, i+ \frac{1}{2}}\frac{x-x_i }{h_{i+\frac{1}{2}}})}}{exp({Pe}_{n, i+\frac{1}{2}})-1} \]
@@ -213,7 +269,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 \[ {Pe}_n = \frac{Uh }{\mathcal{D }} = 2 th \frac{{Pn}_n}{2} \]
 
-\section{Схема Сполдинга}
+\subsection{Схема Сполдинга}
 
 \[ {Pe}^*_{h, i+\frac{1}{2}} = Pe_{h, i+\frac{1}{2}}, {Pe}_h \leq 2 \]
 \[ = 2, {Pe}_h > 2 \]
@@ -246,7 +302,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 \end{enumerate}
 
-Пподставляем $ \Theta $
+Подставляем $ \Theta $
 \[ Q_{i+\frac{1}{2}} = [ \frac{1}{2} (1 + \frac{|{Pe}_n|}{{Pe}_n}) = \frac{1}{{Pe}_n}] Q_i + [\frac{1}{2} (1 - \frac{|{Pe}_n|}{{Pe}_n} + \frac{1}{{Pe}_n })]Q_{i+\frac{1}{2}} \]
 
 \[ W_{i+\frac{1}{2}} = u Q_{i+\frac{1}{2}} = U^+_{i+\frac{1}{2}} Q_i + U^-_{i+\frac{1}{2}} Q_i+1 + D Q_x \]
@@ -256,7 +312,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 Таких схем множество, но суть такова, что до определенного момента рассматривается направленные разности, а потом переходят на константу
 
-\section{Схема Патанкара}
+\subsection{Схема Патанкара}
 
 Надо разобрать к экзамену! Есть в презентации. 
 
@@ -264,7 +320,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 Теперь нужно определить в полуцелых точках.
 
-\section{Разностная схема на расширенных шаблонах}
+\subsection{Разностная схема на расширенных шаблонах}
 
 \[ Q_{i+\frac{1}{2}} = \frac{1}{2} (Q_{i+1} + Q_{i}) - \eta ( Q_{i+1} - 2 Q_i + Q_{i-1}) \]
 
@@ -283,7 +339,9 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 \end{enumerate}
 
-\section{Нестационарные задачи}
+\section{Лекция 3}
+
+\subsection{Нестационарные задачи}
 
 \[ \frac{\partial Q}{\partial t} + \frac{\partial }{\partial x }(u Q) = \mathcal{D} \frac{\partial^2 Q }{\partial x^2 } \]
 
@@ -309,7 +367,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 	\[ \tau [(\mathcal{D} \frac{\partial Q }{\partial x})_{i+\frac{1}{2}}^{(\sigma)} - (\mathcal{D} \frac{\partial Q }{\partial x})_{i-\frac{1}{2}}^{(\sigma)}] \]
 \end{enumerate}
 
-\section{Решение модельной задачи}
+\subsection{Решение модельной задачи}
 
 Отрезок от -L до L. Начальные данные: 1 при отрицательных значений, 0 при положительных.
 
@@ -324,7 +382,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 \[ \frac{1}{\sqrt{\pi}} [\frac{\sqrt{\pi}}{2} - \int_{0}^{\frac{x - ut }{2 \sqrt{\mathcal{D }t }}} e^{-z^2} dz] \]
 Подставить это дома и убедиться, что оно является решением уравнения.
 
-\subsection{Направленные разности.}
+\subsubsection{Направленные разности.}
 
 **рисунок фронта**
 
@@ -334,7 +392,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 То есть неявная схема ухудшает проблемы направленных разностей
 
-\subsection{Центральные разности}
+\subsubsection{Центральные разности}
 
 **рисунок фронта
 
@@ -342,7 +400,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 ($ \sigma = 0.5 $)
 
-\section{Диффузия и дисперсия}
+\subsection{Диффузия и дисперсия}
 
 Дисперсия - скорость убывания волны зависит от амплитуды.
 
@@ -369,7 +427,7 @@ $ i^2 = -1 $.
 
 скорость движения от третьей производной (нечетныепроизводные) проверить с каким знаком.
 
-\section{Дифференциальное представление разностных схем}
+\subsection{Дифференциальное представление разностных схем}
 
 \[ L(Q) = 0 \textrm{ Дифференциальное уравнение} \]
 \[ L^{\tau}_h (Q, \tau, h) = 0 \textrm{ - Разностная схема } \]
@@ -399,7 +457,9 @@ $ i^2 = -1 $.
 
 Как избавиться от высоких производных и смешанных производных по t и x. Метод дифференциального представления.
 
-\section{Устойчивость разностных схем. Метод Неймана (Метод гармоник.)}
+\section{Лекция 4}
+
+\subsection{Устойчивость разностных схем. Метод Неймана (Метод гармоник.)}
 
 \[ Q(t, x) = e^{-p(m)t} e^{Im(x-qt)} \textrm{ - Бегущая волна } = a(t) e^{I m x}\]
 
@@ -413,7 +473,7 @@ G - Множитель перехода
 
 \[ G = e^{- \tau (\mathcal{D} m^2 = I m u)}  \]
 
-\subsection{Явная схема с направленными разностями}
+\subsubsection{Явная схема с направленными разностями}
 
 \[ Q^{k+1}_i = Q^k_i - c(Q^k_i - Q^k_{i-1}) + S (Q^k_{i+1} - 2 Q_i^k + Q^k_{i-1}) \]
 
@@ -466,7 +526,7 @@ G - Множитель перехода
 
 Метод Неймана дает необходимое условие устойчивости, но вообще говоря не достаточное.
 
-\section{Изменение амплитуды волны.}
+\subsection{Изменение амплитуды волны.}
 
 \[ {|G|}^2 = 1+ 4( c + 2S) {sin}^2 \frac{\Theta    }{2} = 4 (c+ 2S )^2 {sin}^2 \frac{\Theta    }{2} {cos}^2 \frac{\Theta   }{2} \]
 
@@ -484,7 +544,7 @@ G - Множитель перехода
 
 \[ |G| = e^{-\tau \mathcal{D} m^2} = 1 - \tau \mathcal{D} m^2 \]
 
-\subsection{Коротко про устойчивость схемы с центральными разностями}
+\subsubsection{Коротко про устойчивость схемы с центральными разностями}
 
 \[ Q_t + u Q_{x^0  \mathcal{D }Q_{\overline{x }x}} \]
 \[ Q^{k+1}_i = Q^k_i - \frac{1}{2} c (Q^k_{i_k} - Q^k_{i-1}) + S(Q_{i-1}^k - 2 Q^k_i + Q_{i+1}^k) \]
@@ -513,25 +573,163 @@ G - Множитель перехода
 
 дз решить задачи из таблицы (хотя бы некоторые), позже возможно следует ей прислать.
 
-\section{Уравнение движения вязкой несжимаемой жидкости}
+\section{Лекция 5}
 
-\[ \rho [\frac{\partial V }{\partial t } + (v \cdot \triangledown)v] = - \triangledown p + \chi \triangle V = g \rho \]
-\[ div V = 0;  (\triangledown \cdot v) = 0\]
-\[ \rho = \rho(p, t) = \rho_0 (1 + \beta T) \]
+\subsection{Уравнение движения вязкой несжимаемой жидкости}
+
+\begin{equation}\label{eq:5_1}
+\rho [\frac{\partial V }{\partial t } + (v \cdot \triangledown)v] = - \triangledown p + \chi \triangle V = g \rho
+\end{equation}
+\begin{equation}\label{eq:5_2}
+div V = (\triangledown \cdot v) = 0
+\end{equation}
+\begin{equation}\label{eq:5_3}
+\rho = \rho(p, t) = \rho_0 (1 + \beta T) 
+\end{equation}
 
 V - вектор скорости
 p - Давление
 $ \chi $ - коэффициент вязкости
 
-\[  \frac{\mathcal{D} \rho}{\mathcal{D} x} =  \textrm{ Полная производная }\]
-\[ = \frac{\partial \rho}{\partial t} + \mathcal{V}_x \frac{\partial \rho}{\partial x} + \mathcal{V}_y \frac{\partial \rho}{\partial y} + \mathcal{V}_z \frac{\partial \rho}{\partial z} \]
+\[ \frac{D \rho}{D x} = \{ \textrm{ Полная производная  } \} = \frac{\partial \rho}{\partial t} + V_x \frac{\partial \rho}{\partial x} + V_y \frac{\partial \rho}{\partial y} + V_z \frac{\partial \rho}{\partial z} \]
 
-\[  \frac{\mathcal{D} \rho}{\mathcal{D} x} + \rho div V = 0 \]
-\[ = \frac{\partial \rho}{\partial t} + \mathcal{V}_x \frac{\partial \rho}{\partial x} + \mathcal{V}_y \frac{\partial \rho}{\partial y} + \mathcal{V}_z \frac{\partial \rho}{\partial z} + \rho div V = 0\]
+\[  \frac{D \rho}{D x} + \rho div V = 0 \]
+\[ = \frac{\partial \rho}{\partial t} + V_x \frac{\partial \rho}{\partial x} + V_y \frac{\partial \rho}{\partial y} + V_z \frac{\partial \rho}{\partial z} + \rho div V = 0\]
 
 Жидкость несжимаема тоже самое, что полная производная равна 0, это одновременно означает что дивергенция равна 0. 
+\[ \frac{D\rho}{Dt} = 0 \Rightarrow div V = 0 \]
 
-\[ \frac{\partial \mathcal{V}_x}{\partial t} + \mathcal{V}_x \frac{\partial \mathcal{V}_x}{\partial x}+ \mathcal{V}_y \frac{\partial \mathcal{V}_y}{\partial y}+ \mathcal{V}_z \frac{\partial \mathcal{V}_z}{\partial z} = \]
-\[ = \frac{\mathcal{V}_x}{\partial t} + \frac{\partial}{\partial x} (\mathcal{V}^2_x) - \mathcal{V}\frac{\partial\mathcal{V}_x}{} ... \]
+Перепишем уравнение \ref{eq:5_1} в виде:
+\[ \frac{\partial V}{\partial t} + (V \cdot \triangledown) V = - \triangledown \frac{p}{\rho_0} + \nu \triangle V + F \]
 
+\begin{equation}\label{eq:5_4}
+\eta = \frac{\chi}{\rho_0} - \textrm{ Кинетическая вязкость }
+\end{equation}
+
+Из \ref{eq:5_4} Исключаем давление. 
+
+\[ \Delta V = - rotrot V; \]
+\[ (V \cdot \triangledown) V = rot V \times V + \triangledown(\frac{V^22}{2}) \Rightarrow \]
+\begin{equation}\label{eq:5_5}
+\frac{\partial V}{\partial t} + rot V \times V = -\triangledown (\frac{p}{\rho_0} + \frac{V^2}{2}) - \nu rot rot V + F
+\end{equation}
+
+Применим ротор к \ref{eq:5_5}
+\begin{equation}\label{eq:5_6}
+\frac{\partial \Omega}{\partial t} + (V \cdot \triangledown) V = \nu u \triangle + rot F 
+\end{equation}
+
+пусть $ V = (V_x(t,x, y)) $
+
+\section{Лекция 5}
+
+\[ \frac{\partial \omega}{ \partial t } + \frac{\partial}{\partial x} (u \omega) + \frac{\partial}{\partial y }(V \omega) = \nu  \Delta \omega\]
+
+\[ (u \omega) = W^x \]
+\[ (V \omega) = W^y \]
+
+\[ u = \frac{\partial \psi}{\partial y}, V = -\frac{\partial \psi}{\partial x} \]
+\[ div V = 0 \]
+
+\[ \triangle \psi = -\omega \]
+
+\[ \psi, \omega \textrm{ в узлах сетки }, u(i, j+\frac{1}{2}), V(i+\frac{1}{2}, j) \]
+Тогда дивергенция по ячейке автоматически равна нулю. Ячейки называются нулю.
+\[ div V|_{S_{i+\frac{1}{2}, j+\frac{1}{2}}} \]
+
+Ячейка с центром в U $ S(i, j+\frac{1}{2}) $
+Ячейка с центром в V $ S(i+\frac{1}{2}, j) $
+
+Аппроксимация производной nо $ \omega $
+
+\[ \frac{\partial \omega}{\partial t} \]
+
+\[ \int_{S_{i,j}}^{} \frac{\partial\omega}{\partial t} dx dy + \int_{S_ij}^{}(W^x + \frac{\partial}{\partial y } W^y) dx dy = \mu \int_{S_{ij}}^{} \triangle \omega dx dy \]
+
+$ \overline{S} $ означает площадь
+\[ \frac{\partial}{\partial t} [\omega_{ij}] \overline{S_{ij}} = \frac{\partial}{\partial t} \omega_{ij} \overline{h_i^x} \overline{h}^y_i \]
+
+\[ W = (W^x, W^y) \]
+
+\[ I_2 = \int_{S_{ij}}^{} (\frac{\partial}{\partial x} W^x +\frac{\partial}{\partial y } W^y) dx dy = \int_{\partial S_{ij}}^{} (w, n )dl = \]
+\[ = W^x_{i+\frac{1}{2}, j} \overline{h}^y_i + W^y_{ij+\frac{1}{2} \overline{\overline{h}^x_i}} - W^x_{i-\frac{1}{2}, j} \overline{h}^y_i - W^y_{ij-\frac{1}{2} \overline{\overline{h}^x_i}}\]
+Делим на $ \frac{1}{\overline{h^x_i} \overline{h}^y_i} $
+
+\[ \frac{W^x_{i+\frac{1}{2}} - W^y_{i-\frac{1}{2}}}{\overline{h_i}} \]
+
+\[ u_ij = \frac{h^y_{i, j+\frac{1}{2}} u_{ij+\frac{1}{2}} + h^y_{ij-\frac{1}{2}} u_i, j-\frac{1}{2}}{2h^y_j} \]
+\[ V_ij = \frac{h^x_{i+\frac{1}{2}, j} V_{i+\frac{1}{2},j} + h^x_{i-\frac{1}{2}, j} V_{i, j-\frac{1}{2}}}{2h^y_j} \]
+
+\[ u_{ij} = \psi_{y^0}= \frac{\psi_{i, j+1 - \psi_{i, j-1}}}{2 \overline{h}^y_j}, V_{ij} = \psi_{x^0}= \frac{\psi_{i+1, j - \psi_{i-1, j}}}{2 \overline{h}^x_j} \]
+
+\[ W^x_{i+\frac{1}{2}, j} = {(u \omega)}_{i\frac{1}{2}, j} \]
+
+\subsection{Переинтерполяции}
+\subsubsection{Переинтерполяция 1}
+
+\[ W^x_{i+\frac{1}{2}} = \frac{1}{2} (u_{i+1, j} \omega _{i+1j} + u_{ij} + \omega_{ij}) \]
+\[ W^y_{ij+\frac{1}{2}} = \frac{1}{2} (V_{ij+1} \omega_{ij+1} + V_{ij} \omega_{ij}) \]
+
+\subsubsection{Переинтерполяция 2}
+
+\[ W^x_{i+\frac{1}{2}j} = \frac{u_{i+1, j}+u_{ij}}{2} + \frac{\omega_{i+1,j}\omega_{ij}}{2} \]
+
+\[ W^y_{i+\frac{1}{2}j} = \frac{V_{i,j+1}+V_{ij}}{2} + \frac{\omega_{i,j+1}\omega_{ij}}{2} \]
+
+\subsubsection{Первый способ применение}
+Начнем с первого способа.
+
+\[ \mathcal{K}_h(\psi, \omega) \overline{h}^x_i \overline{h}^y_j = (W^x_{i+\frac{1}{2}} - W^x_{i-\frac{1}{2}, j}) \overline{h}^y_i + (W^y_{ij+\frac{1}{2}} - W^y_{i,j-\frac{1}{2}}) \overline{h}^x_i \]
+
+\[ u_{i+1,j} = \psi_{y^0}(+1_x); u_{ij} = \psi_{y^0} \]
+\[ W^x_{i+\frac{1}{2}, j} =  \frac{1}{2}[\psi_{y^0} (+1_x) \omega_{i+1j} + \psi_{y^0} \omega_{ij}] \]
+
+\[ W^x_{i-\frac{1}{2}, j} = \frac{1}{2}[\psi_{y^0} \omega_{i+1j} + \psi_{y^0}(-1_x) \omega_{i-1, j}] \]
+
+\[ W^x_{i+\frac{1}{2}, j} - W^x_{i-\frac{1}{2}, j} \]
+
+\[ \mathcal{K}_h(\psi, \omega) \overline{h}^x_i \overline{h}^y_j = (W^x_{i+\frac{1}{2}} - W^x_{i-\frac{1}{2}, j}) \overline{h}^y_i + (W^y_{ij+\frac{1}{2}} - W^y_{i,j-\frac{1}{2}}) \overline{h}^x_i =  \]
+\[ \frac{1}{2} [\psi_{y_0}(+1+x) \omega_{i+1j} - \psi_{y^0} \omega_{i-1,j}] \overline{h^y_i} - \frac{1}{2} [\psi_{x^0}(+1_y) \omega_{ij+1} - \psi_{x^0} - \psi_{x^0}(-1_y) \omega_{ij-1}] \overline{h}^x_i \]
+
+\[ \mathcal{K}_h (\psi, \omega) = (\psi_{y^0} \omega)_{x^0} - (\psi_x^0 \omega)_{y^0} \]
+
+Теперь осталось проинтегрировать оператор лапласа.
+
+\[ I = \nu \int (\frac{\partial^2 \omega }{\partial x^2} + \frac{\partial^2 \omega}{\partial y^2}) dx dy = \int_{\partial S_{ij}}^{} ((grad \omega, n) dl) \]
+
+Еще есть условие, его тоже надо аппроксимировать
+
+\[ \omega = - \Delta \psi \]
+
+\[ \int_{S_{ij}}^{} \omega dx dy = - \int_{S_{ij}}^{} (\frac{\partial^2 \psi}{\partial x^2}) (\frac{\partial^2 \psi}{\partial y^2}) dx dy  = - \int_{\partial S_{ij}}^{} (grad \psi, n) dl \]
+
+\[ = -[{(\frac{\partial \psi}{\partial x})}_{i+\frac{1}{2}}^y + (\frac{\partial \psi}{\partial y}_{ij+\frac{1}{2} \overline{h}^x_i}) -(\frac{\partial \psi}{\partial x})_{i-\frac{1}{2}j} \overline{h}^y_i - (\frac{\partial \psi}{\partial y})_{i, j-\frac{1}{2}} \overline{h}^x_i]\]
+
+\[ \frac{\partial \psi}{\partial x} |_{i+\frac{1}{2}, j} = \frac{\psi_{i+1,j} - \psi_{ij}}{h^x_{i+\frac{1}{2}}} \frac{\psi_{i, j+1} - \psi_{ij}}{h^y_{j+\frac{1}{2}}} \]
+
+Но что происходит на границе?
+
+\[ \omega_{ij} S_{i0} = [(\frac{\partial \psi}{\partial x})_{i+\frac{1}{2}, 0} \overline{h}^y_0 + \frac{\partial \psi}{\partial y}_{i\frac{1}{2}} \overline{h}^2_i - \frac{\partial \psi}{\partial x}_{i-\frac{1}{2},0} \overline{h}^h_0 - (\frac{\partial \psi}{\partial y})_{i,0} \overline{h}_i^x]\]
+
+\[ S_{i0} = \overline{h}^x_i \overline{h}^y_0\]
+\[ \overline{h}^y_0 = \frac{h^y_\frac{1}{2}}{2} \]
+
+\[-[{(\frac{\partial \psi}{\partial x})}_{i+\frac{1}{2}}^y \overline{h}^y_0 + {(\frac{\partial \psi}{\partial y})}_{ij+\frac{1}{2}} \overline{h}^x_i -(\frac{\partial \psi}{\partial x})_{i-\frac{1}{2}j} \overline{h}^y_i - (\frac{\partial \psi}{\partial y})_{i, j-\frac{1}{2}} \overline{h}^x_i]\]
+
+$ \psi $ на границе равно нулю $ \Rightarrow $
+
+\[ \omega_{ij} \overline{h}^x_i \overline{h}^y_0 = -(\frac{\partial \psi}{\partial y})_{i,j+\frac{1}{2}} \overline{h}^x_i \]
+\[ \omega_{ij} = -\frac{2}{h^y_{\frac{1}{2}}} \frac{(\psi_{i1} - \psi_{i0})}{h^y_{\frac{1}{2}}} \]
+\[ \omega_{Ij} = -\frac{2}{{(h^y_\frac{1}{2})}^2} \psi_{i1} \textrm{ - итоговое граничное условие (условие Тома (Thom)) } \]
+
+\subsection{Баланс кинетической энергии}
+
+Переобозначим скалярные произведения
+
+\[ f(x_i, y_i) \rightarrow {(f,g)}^0 = \sum_{(i,j) \in \overline{I} \times \overline{J}}^{} f_{ij g_{ij}S_{ij}} = \sum_{i=0}^{N_x}\sum_{j=0}^{N_y} f_{ij} g_{ij} \overline{h}^x_i \overline{h}^y_j \]
+
+\[ (f,g)_h^{(1)} = \sum_{i=0}^{N_x} \sum_{j=0}^{N_{y-1}} f_{ij+\frac{1}{2}} g_{ij+\frac{1}{2}} \overline{h}^x_i \overline{h}^y_j+\frac{1}{2} \]
+
+\[ {(f,g)}^{(2)}_h = \sum_{i=0}^{N_x-1} \sum_{j=0}^{N_{y-1}} f_{i, j+\frac{1}{2}} g_{i+\frac{1}{2}} h^x_{i+\frac{1}{2}} \overline{h}^y_j \]
 \end{document}
+
