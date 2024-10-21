@@ -24,3 +24,4 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Теорема}{20}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Теорема}{20}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Основные кр задачи для ур-я Пуассона}{21}{subsection.5.2}%
+\contentsline {section}{\numberline {}Лекция 6}{22}{section.6}%
