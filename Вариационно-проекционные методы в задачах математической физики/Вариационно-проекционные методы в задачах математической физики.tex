@@ -780,4 +780,40 @@ A - положительный в H; u - решение \ref{eq:1} $ \rightlefta
 
 \section{Лекция 6}
 
+**пропустил начало (почти треть) **
+
+Уравнение Фридрехса в общем виде:
+\[ \int_{\omega}^{} \sum_{k=1}^{m} (\frac{\partial  n}{\partial x_k})^2 d\Omega \geq x^2 \int_{\Omega}^{} u^2 dx \]
+\[ u|_S=0 \]
+
+\[ \int_{\Omega}^{} u^2 d \Omega = \leq c \{ \int_{\Omega}^{}(\frac{\partial u }{\partial x}^2+\frac{\partial n}{\partial y} d\Omega) + \int_{\Omega}^{} u^2 dS \} \]
+
+\[ (\frac{\partial(fv)}{\partial x})^2 + (\frac{\partial (fv)}{\partial y})^2 = f^2 [(\frac{\partial v}{\partial x} + (\frac{\partial v}{\partial y})^2)] - v f\Delta f + \frac{\partial}{\partial x}(v^2 f \frac{\partial f }{\partial x}) \frac{\partial}{\partial y} (v^2 f \frac{\partial f}{\partial y}) \]
+
+Преобразуем правую и левую части
+
+\[ v^2 ((\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2) + f^2 ((\frac{\partial v}{\partial x})^2 + (\frac{\partial v}{\partial y})^2) + 23\frac{\partial v}{\partial x} f \frac{\partial f}{\partial x} + 2v\frac{\partial v }{\partial y} f \frac{\partial f}{\partial y} \]
+
+\[ v^2 (\frac{\partial  f}{\partial x})^2 + v^2 (\frac{\partial  f}{\partial y})^2 + 2v\frac{\partial v}{\partial x}f\frac{\partial  f}{\partial x} + v^2 f \frac{\partial^2 f}{\partial y^2} _ v^2 \frac{\partial^2 f}{\partial y^2} + 2v \frac{\partial v}{\partial y} + \frac{\partial f}{\partial y} - v^2 f \Delta f + f[(\frac{\partial v}{\partial  x})^2+ (\frac{\partial v}{\partial x})^2] \]
+
+Это предполагается очевидным XD
+\[ \int_{}^{} ((\frac{\partial (fv)}{\partial x})^2 + (\frac{\partial (fv)}{\partial y})^2) d\Omega \geq + \int_{\Omega}^{}vf\Delta f d \Omega + \int_{\partial \Omega}^{}v^2 f \frac{\partial f}{\partial  n} dS \]
+\[ -\int_{\Omega}^{} vf \Delta f d\Omega \leq \int_{\Omega}^{} ((\frac{\partial u}{\partial x})^2 + (\frac{\partial u}{\partial y})^2) d \Omega + \int_{\partial \Omega}^{} v^2 f \frac{\partial f}{\partial n}d S \]
+
+\[ f = \sin (\frac{\pi x}{a})\cdot \sin (\frac{\pi y }{b}) \]
+\[ \Delta f = - \pi^2 (\frac{1}{a^2} + \frac{1}{b^2})\cdot f- \int_{\Omega}^{}v^2 f \Delta u^2 = \int_{\Omega}^{} u^2 s\Omega \pi^2 ()  \]
+
+\[ |\int_{\partial u}^{}v^2 f \frac{\partial f}{\partial n} dS| \leq \int_{\partial  \Omega}^{} v^2 f |\frac{\partial f}{\partial n}|dS \leq c_1 \int_{\partial \Omega}^{} u^2 d \Omega \]
+
+\[ \pi^2 (\frac{1}{a^2} + \frac{1}{b^2}) \int_{\Omega}^{} y^2 d\Omega \leq ((\frac{\partial u}{\partial x})^2 +(\frac{\partial u}{\partial x})^2) dx + c_1 \int_{\partial \Omega}^{} v^2 dS \]
+\[ c= min \{\frac{c_1}{\pi^2(\frac{1}{a^2}+\frac{1}{b^2})}; \frac{1}{\pi}(\frac{1}{a^2}+\frac{1}{b^2})\} \]
+
+\[ (-\Delta u, u)_H = \int_{\Omega}^{} (grad u)^2 d\Omega - \int_{\partial \Omega}^{}u \frac{\partial u}{\partial n} dS \geq \int_{\Omega}^{} (grad u)^2 d\Omega + \sigma \int_{\partial  \Omega u^2 dS}^{} \geq \sigma \{ (grad u)^2 d\Omega + \int_{\partial \Omega}^{}u^2 dS \} \]
+
+\[ \frac{1}{c} {||u||}_H^2 \leq \int_{\Omega}^{} (grad u)^2 d\Omega + \int_{\partial \Omega}^{}u^2 dS \]
+
+\[ \frac{\sigma_1}{c} {||u||}_H^2 \leq \int_{\Omega}^{} (grad u)^2 d\Omega + \int_{\partial \Omega}^{}u^2 dS \]
+\[ \sigma = \sqrt{\frac{\sigma}{c}} \]
+
+
 \end{document}
