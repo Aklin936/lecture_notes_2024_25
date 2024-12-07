@@ -48,16 +48,16 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \begin{center}
 	\ \vspace{-1cm}
-	
+
 	{Московский государственный университет имени М. В. Ломоносова}\\
 	Факультет вычислительной математики и кибернетики\\
 	Кафедра вычислительных методов
-	
+
 	\vspace{8cm}
 	\begin{spacing}{2.5}
 		{\huge \bfseries ЧИСЛЕННЫЕ МЕТОДЫ МЕХАННИКИ СПЛОШНОЙ СРЕДЫ}
 	\end{spacing}
-	
+
 
 \end{center}
 
@@ -92,7 +92,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \[ Re << 1 \] почти дифф процесс
 \[ Re >> 1 \] почти конв процесс
 
-Сначала будем рассматривать стационарное уравнение. 
+Сначала будем рассматривать стационарное уравнение.
 
 \[ \frac{d}{dx}(uQ) - \frac{d}{dx} (\mathcal{D} \frac{d Q}{d x}) = 0 \]
 
@@ -236,7 +236,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 \[ u^+ Q_{\overline{x}} - u^-Q_x = u Q_{x0} - \frac{|U|_h}{2}Q_{\overline{x} x}\]
 
 \[ U Q_{x0} - \mathcal{D} [\frac{1}{1+\frac{|Pe|}{2}}+\frac{{Pe}_n }{2}]Q_{\overline{x}x} = 0 \]
-- Коэфф диффузии 
+- Коэфф диффузии
 \[ \mathcal{D} [\frac{1}{1+\frac{|Pe|}{2}}+\frac{{Pe}_n }{2}] = \mathcal{D}^* \]
 
 \[ {Pe}^*_n = \frac{Uh }{\mathcal{D }} \textrm{ - эффективное число Пикле } \]
@@ -280,14 +280,14 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 
 \begin{enumerate}
-	\item 
+	\item
 	\[ |Pe_{n, i+\frac{1}{2}}| \leq 2 \]
 	\[ \Theta_{i+\frac{1}{2}} = \frac{1}{2} \Rightarrow \] буквально схема с центральными разностями.
 	\item
 	\[ |Pe_{n, i+\frac{1}{2}}| > 2 \]
 
 	\begin{enumerate}
-	\item 
+	\item
 	\[ {Pe}_n > 2 \]
 	\[ \Theta_{i+\frac{1}{2}} = \frac{1}{{Pe}_{n, i+\frac{1}{2}}} [{Pe}_{n+\frac{1}{2}} -1 + 0] = 1 - \frac{1}{Pe} \]
 
@@ -314,7 +314,7 @@ D - константа в полуцелых точках (от $ x_i $ до  $ 
 
 \subsection{Схема Патанкара}
 
-Надо разобрать к экзамену! Есть в презентации. 
+Надо разобрать к экзамену! Есть в презентации.
 
 \[ \Theta_{i+\frac{1}{2}} = \frac{1}{{Pe}_{n, i \frac{1}{2}}}[{Pe}_{n, i+\frac{1}{2}} - 1 + max(0, {Pe}_n) + max(0, (1 - 0.1 |{Pe}_n|)^5)] \]
 
@@ -584,7 +584,7 @@ G - Множитель перехода
 div V = (\triangledown \cdot v) = 0
 \end{equation}
 \begin{equation}\label{eq:5_3}
-\rho = \rho(p, t) = \rho_0 (1 + \beta T) 
+\rho = \rho(p, t) = \rho_0 (1 + \beta T)
 \end{equation}
 
 V - вектор скорости
@@ -596,7 +596,7 @@ $ \chi $ - коэффициент вязкости
 \[  \frac{D \rho}{D x} + \rho div V = 0 \]
 \[ = \frac{\partial \rho}{\partial t} + V_x \frac{\partial \rho}{\partial x} + V_y \frac{\partial \rho}{\partial y} + V_z \frac{\partial \rho}{\partial z} + \rho div V = 0\]
 
-Жидкость несжимаема тоже самое, что полная производная равна 0, это одновременно означает что дивергенция равна 0. 
+Жидкость несжимаема тоже самое, что полная производная равна 0, это одновременно означает что дивергенция равна 0.
 \[ \frac{D\rho}{Dt} = 0 \Rightarrow div V = 0 \]
 
 Перепишем уравнение \ref{eq:5_1} в виде:
@@ -606,7 +606,7 @@ $ \chi $ - коэффициент вязкости
 \eta = \frac{\chi}{\rho_0} - \textrm{ Кинетическая вязкость }
 \end{equation}
 
-Из \ref{eq:5_4} Исключаем давление. 
+Из \ref{eq:5_4} Исключаем давление.
 
 \[ \Delta V = - rotrot V; \]
 \[ (V \cdot \triangledown) V = rot V \times V + \triangledown(\frac{V^22}{2}) \Rightarrow \]
@@ -616,7 +616,7 @@ $ \chi $ - коэффициент вязкости
 
 Применим ротор к \ref{eq:5_5}
 \begin{equation}\label{eq:5_6}
-\frac{\partial \Omega}{\partial t} + (V \cdot \triangledown) V = \nu u \triangle + rot F 
+\frac{\partial \Omega}{\partial t} + (V \cdot \triangledown) V = \nu u \triangle + rot F
 \end{equation}
 
 пусть $ V = (V_x(t,x, y)) $
@@ -731,5 +731,657 @@ $ \psi $ на границе равно нулю $ \Rightarrow $
 \[ (f,g)_h^{(1)} = \sum_{i=0}^{N_x} \sum_{j=0}^{N_{y-1}} f_{ij+\frac{1}{2}} g_{ij+\frac{1}{2}} \overline{h}^x_i \overline{h}^y_j+\frac{1}{2} \]
 
 \[ {(f,g)}^{(2)}_h = \sum_{i=0}^{N_x-1} \sum_{j=0}^{N_{y-1}} f_{i, j+\frac{1}{2}} g_{i+\frac{1}{2}} h^x_{i+\frac{1}{2}} \overline{h}^y_j \]
-\end{document}
 
+
+\section{Лекция 8}
+
+\[ \nu(\Delta \omega, \psi)(\omega, \omega) \]
+
+\[ (\Delta, \psi)^0_w \sum_{(i,j)}^{} \not{h}_i^x \not{h}_j^y(\omega_{\overline{x}x}+\omega_{\overline{y}y}) \psi_{ij}= \]
+
+\[ = \sum_{j=1}^{N_y=1} \not{h}^y_u\sum_{i=1}^{N_x-1} (\omega_x - \omega_{\overline{x}} \psi_{ij}+...) = \]
+
+\[ = \sum_{j=1}^{N_y} \not{h}_j^y [\sum_{i=1}^{N_x-1} \omega_x \psi_{ij}-\sum_{i=0}^{N_x-1}\omega_x \psi_{i+1j}] = \]
+
+\[ = \sum_{j=1}^{N_y-1} \not{h}^y_j [\sum_{i=1}^{N_x-2} \omega_x \psi_x h^x_{i+\frac{1}{2}}+ \omega_x (N_x-1)\psi_{N_x-1,j}-\omega(0, j) \psi_{1j}] = \]
+
+\[ \omega_x \psi_x h_{i+\frac{1}{2}}^x (\omega_x (N_x-1) \psi_{N_x-1} - \omega_x(N_x-1) \psi_{N_x}) = -\omega_x (N_x-1) (\psi_{N_x})- ... \]
+
+\[ = - \sum_{j=1}^{N_y-1} \not{h}^y_j \sum_{i=1}^{N_x-1} \omega_x \psi_x h^x_i+\frac{1}{2} = \{\omega = - \Delta \psi = - (\psi_{\overline{x}x}+ \psi_{\overline{y}y})\} = \]
+
+\[ = - \sum_{j=1}^{N_{y-1}} \not{h}^y_i \sum_{i=1}^{N_x-1}(\omega_{i+1}j-\omega_ij)\psi_x = \sum_{j=1}^{Ny-1} \not{h}^y_i [\sum_{i=1}^{N_x}\omega_{ij} \psi \overline{x} - \sum_{i+0}^{N_x-1} \omega_{ij} \psi_{x}] =  \]
+
+\[ = - \sum_{j}^{} \not{h}^y_j \sum_{1}^{N-x-1} \omega_{ij} (\psi_{\overline{x}}- \psi_x) \]
+\[ \psi_{x \overline{x}} = (\psi_x - \psi_{\overline{x}}) \frac{1}{h} \]
+
+\[ = \sum_{0}^{} \not{h}^y_j\sum_{i=1}^{N_x-1} \omega_{ij} (\psi_x - \psi_{\overline{x}}) + \omega_{N_xj} \psi_{\overline{x}}(N_{xj}) - \omega_{0j} \psi(0,j) = \]
+
+Из граничных условаий следует (буквальо есть омеги на границе вправа).
+
+\[ = -\sum \omega^2_ij \not{j}^x_i \not{h}_j^y \]
+
+\subsection{Уравнение теплопроводности}
+
+\[ \frac{\partial T }{\partial  t } \frac{\partial }{\partial  x} (uT) + \frac{\partial  }{\partial  y} (\nu T) =\textrm{  \ae } \Delta T \]
+
+\[ \int_{\Omega}^{} \frac{1}{2} \frac{\partial }{\partial t} (T^2) dx dy + \int_{\Omega}^{} \frac{\partial }{\partial x}(u T)\cdot T)dxdy = \textrm{ \ae } \int_{\Omega}^{} \Delta T dx dy =  \]
+
+\[ \mathcal{K(T)} = -\int_{\Omega}^{}(uT\frac{\partial T}{\partial x} + \nu T \frac{\partial T}{\partial y}) dx dy = -\frac{1}{2} \int_{\Omega}^{} (u \frac{\partial }{\partial x}(T^2))dx dy =\frac{1}{2} \int_{\Omega}^{} (T^2 \frac{\partial u}{\partial x }+ T^2\frac{\partial \nu}{\partial y})dxdy = \frac{1}{2} \int_{\Omega}^{} T^2 div V dx dy = 0 \]
+
+\[ \overset{\omega}{W}^x_{i+\frac{1}{2}j} = \frac{1}{2} (u_{i+1j}\omega_{i+1} + u_ij \omega_{ij}) \] - та самая хорошая интерполяция.
+
+\[ overset{T}{W}^x_{i+\frac{1}{2}j} = \frac{u_{i+1j}+u_{ij}}{2} \frac{T_{i+1j}+T_{ij}}{2} \]
+
+\[ \frac{1}{4} \sum_{ij}^{} \not{h}^y_{j} [T_{ij}(\psi_{overset{0}{y}(+1_x)}+\psi_{\overset{0}{y}})(T_{i+1j}+T_{ij})-T_{ij}(\psi_{\overset{0}{y}+}+\psi_{\overset{0}{y}(-1_x)}) (T_{ij}+T_{i-1j})] \]
+
+\[ \frac{1}{4} \sum_{}^{} \not{h}^x_i [(\psi_{\overset{0}{x}}+\psi_{\overset{0}{x}}) (T_{ij+1}+T_{ij}) - T_{ij}(\psi_{\overset{0}{x}} \psi_{\overset{0}{x}}(-1y))(T_{ij} + T_{ij-1})] \]
+
+
+\[ \sum_{}^{} = \frac{1}{4}\sum_{}^{ij} T_{i-1j} T_{i-1j} [\psi_{\overset{0}{y}}(T_{ij} + T_{i-1j})+ T_{ij} \psi_{\overset{0}{y}}(T_{i+1}+T_{ij})] - \frac{1}{4} \sum_{ij}^{}[T_ij \psi_{\overset{0}{y}}(T_{ij}+T_{i-1j}) + T_{ij}\psi_{\overset{0}{y}(ij)}(T(_{i+1j}+T{ij}))] = \]
+
+Сгруппируем слогаемые из скобок попарно (первое с первым, второе со вторым). В формуле выше опущены шаги сетки.
+
+\[ = \psi_{\overset{0}{y}}(T_{ij}+T_{i-1j})(T_{i-1j}-T_{ij}) + \psi_{\overset{0}{y}} (T_{i+1j} + T(ij))(T_{ij-T_{i+1j}}) = \]
+
+Разность квадратов в обеих скобках.
+
+\[ = \frac{1}{2}\sum_{}^{} \psi_{\overset{0}{y}} (T^2_{i-1j} - T^2(i+j)) = -\frac{1}{2}\psi_{\overset{0}{y}}(T^2)_(\overset{0}{x}) = \]
+
+\[ = \sum_{}^{(1)}+\sum_{}^{(2)} = \frac{1}{2} \sum_{}^{} \not{h}_i^x \not{h}_i^y (- \psi_{\overset{0}{y}} T^2_{\overset{0}{x}}+\psi_{\overset{0}{x}} T^2_{\overset{0}{y}}) = \frac{1}{2} \sum_{ij}^{} \not{h}^x_i \not{h}^y_i (\psi_{overset{0}{x}\overset{0}{y}} \psi_{overset{0}{y}\overset{0}{x}}) \]
+
+\subsection{Уравнение Навье-Стокса в естественных переменных}
+
+\[ \frac{\partial V}{\partial t} + (V \cdot \triangledown)V = - \triangledown \rho \nu \Delta V \]
+\[ did V = 0 \]
+
+\[ \triangledown = (\frac{\partial}{\partial x_1}+\frac{\partial }{\partial x_2} + \frac{\partial }{\partial x_3}) \]
+\[ \Delta = \frac{\partial ^2}{\partial ^2 x_1} + \frac{\partial ^2}{\partial ^2 x_2} + \frac{\partial ^2}{\partial ^2 x_3} \]
+
+\[\frac{ \partial V_i}{\partial t}+ v_j \frac{\partial  v_i}{\partial  x_j} = - \frac{\partial  \rho}{\partial x_j} + \nu \Delta v_i \]
+
+\[ v_j \frac{\partial  v_i}{ \partial  x_j} = V_1 \frac{\partial V_i}{\partial x_1} + V_2 \frac{\partial V_i}{\partial x_2} + V_3 \frac{\partial V_i}{\partial x_3} =  \]
+\[ \frac{\partial }{\partial x_1} (V_1 V_i) + \frac{\partial }{\partial x_2} (V_2 V_i) + \frac{\partial }{\partial x_3} (V_3 V_i) = \]
+\[ V_1 \frac{\partial V_i}{\partial x_1} + V_i \frac{\partial V_1}{\partial  x_1} + V_2 \frac{\partial V_i}{\partial x_2} + V_i \frac{\partial V_2}{\partial  x_2} + V_3 \frac{\partial V_i}{\partial x_3} + V_i \frac{\partial V_3}{\partial  x_3} \]
+
+\[ V (\frac{\partial V}{\partial  t} V) + (\mathcal{K}(V) \circ V \cdot V) = \]
+\[ = -(\triangledown \rho V) + \eta (\Delta V, V) \Rightarrow \frac{d}{d t} \int_{\Omega}^{} E_{kin} d\Omega + \sum_{i=1}^{3} (\mathcal{K}(V)\circ V_i, V_i) d\Omega = \eta \sum_{}^{}(\Delta V_i, V_i) \]
+
+\begin{enumerate}
+	\item \[ \frac{\partial \rho}{\partial  x_i} V_i dx_1 dx_2 dy_2  = -\sum_{i=1}^{3}p \frac{\partial V_i}{\partial  x_i} dx_1 dx_2 dx_3 = \rho (\frac{\partial V_1}{\partial  x_1}+\frac{\partial V_2}{\partial x_2}+\frac{\partial V_3}{\partial x_3}) dx_1 dx_2 dx_3 = 0\]
+\end{enumerate}
+
+\subsection{Вклад конвективных членов}
+
+\[ \int_{\Omega}^{}\sum_{i=1}^{3}[ \frac{\partial }{\partial x_1} (V_i V_2) + \frac{\partial }{\partial x_2(V_i V_2) + \frac{\partial }{\partial x_3(V_i V_3)}}] V_i dx_1 dx_2 dx_3 = \]
+
+\[ -\frac{1}{2} \int_{\Omega}^{}( \sum_{i=1}^{3} V_1 \frac{\partial }{\partial x_1}(V_i^2)+V_2 \frac{\partial }{\partial x_2}(V_i^2)+V_3 \frac{\partial }{\partial x_3}(V_i^2)) dx_1 dx_2 dx_3 =  \]
+
+\[ = \frac{1}{2} \int_{\Omega}^{} \sum_{i=1}^{3} V_i^2 \div V dx_1 dx_2 dx_3 = 0 \]
+
+Конвективный член не вносит изменений (ошибок)
+
+\[ \sum_{i=1}^{3} \int_{\Omega}^{} \Delta V_i \cdot V_i dx_1 dx_2 dx_3 = - \sum_{i=1}^{3} \int_{\Omega}^{} [ (\frac{\partial V_i}{\partial x_1})^2+ (\frac{\partial V_i}{\partial x_2})^2 + (\frac{\partial V_i}{\partial x_3})^2] \]
+
+Введем сетку
+
+\[ V_1 = U \]
+\[ V_2 = V \]
+\[ x_1 = x \]
+\[ x_2 = y \]
+
+Аппроксимация дивергенции скорости V
+
+\[ \div V \]
+\[ \int_{S_{i+\frac{1}{2} j+\frac{1}{2}}}^{} \div V dx dy = \]
+\[ = \int_{\partial  S_{i+\frac{1}{2} j+\frac{1}{2}}}^{} (V, n)dl = \]
+\[ u_{i+1 j + \frac{1}{2}} h^y_{J+\frac{1}{2}} + V_{i+\frac{1}{2} J+1} h^x_{i+\frac{1}{2}} - u_{ij+\frac{1}{2}} h^y_{j+\frac{1}{2}} - V_{i+\frac{1}{2}j} h^x_{i+\frac{1}{2}} \]
+
+\[ \div V = \frac{U_{i+1j+\frac{1}{2} - u_{ij+\frac{1}{2}}}}{h^x_{i+\frac{1}{2}}} + \frac{V_{i+\frac{1}{2}-V_i+\frac{1}{2}j}}{h^y_j\frac{1}{2}} = 0 \]
+
+\section{Лекция 10}
+
+В лекции 9 написали аппроксимации уранения импулься и интегрировали по ячейке.
+Переинтерполировали так чтобы дивергенция внутри ячейки была равна 0.
+
+Вывод разностного уравнения для второй компоненты в разностном случае.
+
+Повторили построение аппроксимации.
+
+Уравнение
+
+\[ \frac{\partial V}{\partial t} + ... - grad p + \nu \Delta V \]
+\[ \div V = 0 \]
+
+$u, V, P$
+
+На давление нет уравнения. Обычно используют предисктор-корректор, не очень хороший споб, но лучше нет.
+
+\begin{enumerate}
+	\item Предиктор скорости
+	\[ \frac{\widetilde{V} - V^k}{t} + K_h (V^k) \widetilde{V} = \nu \Delta \widetilde{V} \]
+	\[ \widetilde{V}|_r = 0 \]
+	\item корректор
+	\[ V^{k+1} = \widetilde{V} = \tau grad p^{k+1} \]
+	\[ \frac{V^{k+1}-V^k}{} \]
+	\[ div V^{k+1} = div \widetilde{V} - \tau div grad P^{k+1} = 0 \]
+	\[ div grad p = \frac{div widetilde{V}}{\tau} \]
+\end{enumerate}
+
+\subsection{Исследование устойчивости}
+
+\[ \frac{\hat{u}_{ij+\frac{1}{2}} - u_{ij+\frac{1}{2}}}{\tau} + \frac{u^2_{i+\frac{1}{2}j+\frac{1}{2}} - U^2_{i-\frac{1}{2}j+\frac{1}{2}}}{h^x} + \frac{(uV)_{ij+1} - (uV)_{ij}}{h^y} = - \frac{P_{i+\frac{1}{2}j+\frac{1}{2}}}{h^x} + \nu \Delta u_{ij+\frac{1}{2}} \]
+
+\[ \frac{u_{i+1j+\frac{1}{2}} - u_{ij+\frac{1}{2}}}{h_x} + \frac{V_{i+\frac{1}{2}j+1}-V_{i+\frac{1}{2}j}}{h_y} = 0 \]
+
+Процедура линеаризации
+
+\[ u = a + \overline{u} \]
+\[ V = b + \overline{V} \]
+\[ p = p_0 + \overline{p} \]
+\[ \overline{u} << 1 \]
+\[ \overline{V} << 1 \]
+\[ \overline{p} << 1 \]
+
+\[ K= (a + \overline{u})^2_{\overline{x}} + {[(a + \overline{u})(f+\overline{V})]}_y = \]
+\[ = (a^2 + 2a \overline{u} + \overline{u}^2)_{\widetilde{x}} (ab + b \overline{u} + a \overline{V} + \overline{u} \overline{V})_y = \]
+\[ = 2 a \overline{u}_{\widetilde{x}} + b \overline{u}_y + a \overline{V}_y = \]
+\[ = a \overline{u}_{\widetilde{x}} + b \overline{u}_y + a(\overline{u}_{\widetilde{x}}\overline{V}_y) \]
+\[ K = a \overline{u}_{\widetilde{x}} + b \overline{u}_y \]
+
+Результат линеаризации:
+
+\[ \frac{\hat{\overline{u}}_{ij+\frac{1}{2}}-\overline{u}_{ij+\frac{1}{2}}}{\tau} + a \hat{\overline{u}}_{\widetilde{x}} + b \hat{\overline{u}}_{y} = - \hat{p}_{\hat{x}} + \nu \Delta \hat{\overline{u}} \]
+\[ \frac{\overline{V_{i+\frac{1}{2}j}- \overline{V}_{i+\frac{1}{2}}}}{\tau} + a \hat{\overline{V}}_y = - \hat{p}_y + \nu \Delta \hat{\overline{V}} \]
+\[ \hat{\overline{u}}_x + \hat{\overline{V}}_y = \nu \]
+
+\section{Лекция}
+
+\subsection{Устойчиость схемы для Н-С}
+
+Система уравнений:
+\[ \frac{\hat{U} - U}{\tau} + a u_{\overset{x}{0}} + b U \overset{y}{0} = -P \hat{x} + \nu (U_{\overline{x}x} + U_{\overline{y}y}) \]
+\[ \frac{\hat{U}-V}{\tau}... \]
+\[ div V = 0 \]
+Конец системы
+
+\[ \phi = l_1 h^x, \Theta = l_1 h^y \]
+\[ U^k_{mn} = U^k(x_m, y_k) = U^k e^{i(l_1x + l_2 y)} = q^k U_a e^{i(m\phi + n \Theta)} \]
+\[ U_a \frac{q^{k+1}-q^k}{\tau} e^{i(m\phi + (n+\frac{1}{2} \Theta))} + a U_a q^{k+1} e^{i(n+\frac{1}{2})\Theta} \frac{e^{i(m+1)\phi} - e^{i(m-1)\phi}}{wh^x} + b U_a q^{k+1} e^{im\pi}\frac{e^{i(n+\frac{3}{2})\Theta}-e^{i(n-\frac{1}{2})\Theta}}{2h^y} = \]
+\[ - q^k U_p \frac{e^{i(m+\frac{1}{2}\phi+(n+\frac{1}{2})\Theta) - e^{i(m-\frac{1}{2})\phi + (n+\frac{1}{2}\Theta)}}}{h^x} + \nu[\frac{1}{{(h^x)}^2} q^{k+1} U_a(e^{i[(m+1)\phi+(n+\frac{1}{2})\Theta]})-2e^{i[m\phi + (n+\frac{1}{2})\Theta]} + e^{i((m-1)\phi + (m+\frac{1}{2})\Theta)} = \]
+\[ = U_a \frac{q^{k+1} q^{k}}{\tau} + U_a q^{k+1} a \frac{e^{i\phi}-e^{-i\phi}}{2h^x} + U_a b q^{k+1} \frac{e^{i\Theta} - e^{-i\Theta}}{2h^y} \]
+\[ = -q^k P_a \frac{e^{i\frac{\phi}{2}} - e^{-i\frac{\phi}{2}}}{h^x} + \nu q^{k+1} \cdot [\frac{e^{i\phi - 2 + e^{-i\phi}}}{(h^x)^2} + \frac{e^{i\Theta} - 2 + e^{-i\Theta}}{(h^y)^2}] = \]
+\[ = U_a \frac{1-\frac{1}{q}}{\tau} + a U_a \frac{i sin \phi}{h_x} + b U_a \frac{i sin \Theta}{h^y} =  \]
+\[ = \frac{2 i sin \frac{\phi}{2}}{h^y} = -P_a \frac{2 i sin \frac{\phi}{2}}{h^x} + \nu U_a [ \frac{1}{(h^x)^2}(wisin\frac{\phi}{2})^2 + \frac{1}{(h^y)^2} (2 i sin \frac{Q}{2})^2] =  \]
+\[ = [\frac{1-\frac{1}{q}}{\tau} + \frac{ia}{h^x} sin \phi + \frac{ib}{h^y} sin \Theta + \nu 4(\frac{{sin}^2\frac{\phi}{2}}{(h^x)^2} + \frac{{sin}^2 \frac{\Theta}{2}}{(h^y)^2})] + \frac{P_n}{h^x} 2 i {sin} \frac{\phi}{2} = 0 \]
+Результат:
+\[ \mathcal{Z}u_a + O V_a + \frac{2i P_a}{h_x} {sin}\frac{\phi}{2} = 0 \]
+То же самое нужно проделать для второй компаненты, полностью аналогично:
+\[ (OU_a + \mathcal{Z} V_a + \frac{29}{h_y} {sin}\frac{Q}{2} P_a) = 0  \]
+Дивергенция:
+\[ U_a a^{k+1} \frac{e^{i(m+1)\phi + (n+\frac{1}{2}\Theta)} - e^{i[m\phi + (n +\frac{1}{2})\Theta]}}{h^x} + V_a a^{k+1} \frac{e^{i(m+\frac{1}{2})\phi + (n+1)\Theta} - e^{i[h_x(m+\frac{1}{2}\phi + n\phi)]}}{h^y} = 0 \]
+\[ \frac{U_a}{h_x}(e^{i\frac{\phi}{2} - e^{-i\frac{\phi}{2}}}) + \frac{V_b}{h_y}(e^{i\frac{\Theta}{2}} - e^{-i\frac{Q}{2}}) = 0 \]
+
+Третье уравнение:
+\[ \frac{1}{h_x} {sin}\frac{\phi}{2}U_a + \frac{1}{h_y} {sin} \frac{\Theta}{2} V_a + O P_a = 0 \]
+Итого система:
+\begin{enumerate}
+	\item \[ \mathcal{z}u_a + O V_a + \frac{2i P_a}{h_x} {sin}\frac{\phi}{2} = 0 \]
+	\item \[ (OU_a + \mathcal{Z} V_a + \frac{29}{h_y} {sin}\frac{Q}{2} P_a) = 0  \]
+	\item \[ \frac{1}{h_x} {sin}\frac{\phi}{2}U_a + \frac{1}{h_y} {sin} \frac{\Theta}{2} V_a + O P_a = 0 \]
+\end{enumerate}
+посчиатем определитель коэффициентов этой системы:
+\begin{enumerate}
+	\item \[ \mathcal{z}u_a + O V_a + \frac{2i P_a}{h_x} {sin}\frac{\phi}{2} = 0 \]
+	\item \[ (OU_a + \mathcal{Z} V_a + \frac{29}{h_y} {sin}\frac{Q}{2} P_a) = 0  \]
+	\item \[ \frac{1}{h_x} {sin}\frac{\phi}{2}U_a + \frac{1}{h_y} {sin} \frac{\Theta}{2} V_a + O P_a = 0 \]
+\end{enumerate}
+\[ = - \mathcal{Z} \frac{1}{(h^x)^2} 2i {sin}^2 \frac{\phi}{2} - \mathcal{Z} \frac{1}{h^y}^2 2i {sin}^2 \frac{\Theta}{2} = 0 \Rightarrow \mathcal{Z} = 0\]
+Подставим z
+\[ \mathcal{Z} = \frac{1 + \frac{1}{q}}{\tau} + \frac{ia}{h^x} {sin} \phi + \frac{ib}{h^y} \sin \Theta + 4\nu (\frac{{sin}^2 \frac{\phi}{2}}{(h^x)^2} + \frac{{sin}^2\frac{Q}{2}}{(h^y)^2}) = 0 \]
+\[ |\frac{1}{q}| < 1; |q| < 1\]
+Следовательно схема безусловна устойчива при этом условии
+
+Для явной схемы
+\[ \mathcal{Z} = \frac{q-1}{\tau} + \frac{ia}{h_z} {sin} \phi + \frac{ib}{h_y} {sin} \Theta + 4 \nu (\frac{{sin}^2 \frac{\phi}{2}}{ (h^x)^2} + \frac{{sin}^2 \frac{\Theta}{2}}{(h^y)^2}) \]
+Так как мы ищем достаточное условие можем взять
+\[ h = h^x = h^y \]
+\[ a = b: \phi = \Theta \]
+
+\[ \frac{q-1}{\tau} + \frac{ia}{h}sin \phi + \frac{ib}{h} sin \phi + 4 \nu (\frac{{sin}^2\frac{\phi}{2}}{h^2} + \frac{{sin}^2 \frac{\phi}{2}}{h^2}) = 0 \]
+\[ \frac{q-1}{\tau} + \frac{i(a+b)}{h} sin \phi + 8 \nu (\frac{{sin}^2 \frac{\phi}{2}}{h^2}) = 0 \]
+\[ q = - \tau \frac{i(a+b)}{h} sin \phi + 8 \nu (\frac{{sin}^2 \frac{\phi}{2}}{h^2}) + 1 \]
+\[ q = \frac{-\tau i(a+b) sin \phi}{h} + \frac{8 \nu (sin^2 \frac{\phi}{2})}{h^2} + 1 \]
+\[ q = \frac{-2\tau ia sin \phi }{h}+ \frac{8 \nu (sin^2 \frac{\phi}{2})}{h^2} + 1 \]
+
+\[ q = (1 - 8\frac{\nu \tau}{h^2} {sin^2} \frac{\phi}{2}) - \frac{2i\tau a}{h} {sin} \phi \]
+Устойчив при модуле q < 1
+
+\[ {|q|}^2 = (1 - \frac{8 \tau \nu}{h^2})^2 + \frac{4 \tau^2 a^2}{h^2} {sin}^2 \phi < 1\]
+\[ 1 - \frac{16\tau\nu}{h^2} {sin}^2 \frac{\phi}{2} + \frac{64 \tau^2 \nu^2}{h^4} {sin}^4 \frac{\phi}{2} + \frac{4\tau^2 a^2}{h^2} {sin}^2 \phi < 1 \]
+\[ \frac{4 \nu} {sin}^2 \frac{\phi}{2} + \frac{16 \tau \nu^2}{h^2} {sin}^4 \frac{\phi}{2} + 4 \tau a^2 {sin}^2 \frac{\phi}{2} \cos^2 \frac{\phi}{2} \]
+\[ \nu + \frac{4\tau \nu}{h^2} {sin}^2 \frac{\phi}{2} \tau a^2 {sin}^2 \frac{\phi}{2} {cos}^2 \frac{\phi}{2} < 0 \]
+\[ -\nu + \tau [\frac{4 \nu {sin}^2 \frac{\phi}{2}}{h^2} + a^2 {cos}^2 \frac{\phi}{2}] < \nu \]
+\[ \tau < \frac{\nu}{4 \nu \frac{{sin}^2 \frac{\phi}{2}}{^2}} + a cos^2 \frac{\phi}{2} \]
+\[ \tau \sim h^2 \]
+
+\subsection{Задача Стефана}
+
+Задача о фазовом переходе (например плавление или замерзание). Задача с подвижной внутренней границей.
+
+В твердой фазе:
+\[ c_p \rho_p \frac{\partial T}{\partial  t} = \frac{\partial }{\partial x}(\kappa^s \frac{\partial T}{\partial x}) \]
+
+\[ c_l \rho_l \frac{\partial T}{\partial  t} = \frac{\partial }{\partial x}(\kappa^l \frac{\partial T}{\partial x}) \]
+
+\[ T_{ph} = 0 \]
+
+Необходимо еще одно условие чтобы получить границу раздела сред, где одно уравнение переходит в другое.
+
+\[ \epsilon^s = C^S_p \rho^S (T - T_0) \]
+\[ \epsilon^l = c_p^S \rho^s(T_{ph}-T_0) + \lambda \rho + C_p^l \rho^l (T-T_{ph}) \]
+
+\[ E =0 \int_{0}^{\xi(t)} \epsilon^s dx + \int_{\xi(t)}^{L} \epsilon^l dx\textrm{ - внутренняя энергия всей системы } \]
+\[ \frac{dE}{dt} = \int_{0}^{\xi(t)} \frac{\partial \epsilon^S}{\partial t} dx + \xi(t) \epsilon^S |_{x= \xi(t)} + \int_{\xi(t)}^{L} \frac{\partial  \epsilon^l}{\partial t} dx - \xi \epsilon^l |_{x = \xi(t)} = \]
+\[ =\int_{0}^{\xi(t)} C_p^S \rho^S \frac{\partial }{\partial t}(T - T_0) dx + \xi(t) [\epsilon^S|_{x=\xi(t)} - \epsilon^l |_{x-\xi(t)}] \int_{\xi(t)}^{L} [C_P^S \rho^S (T_{Ph - T_0}) + \lambda \rho + C_P^l(T-T_0)] dt = \]
+\[ = \int_{0}^{\xi(t)} \frac{\partial }{\partial x} (\kappa^S \frac{\partial T}{\partial x}) dx + \int_{\xi(t)}^{L} \frac{\partial }{\partial x}(\kappa^l \frac{\partial T}{\partial x})sx + \xi(t) [\epsilon^S|_{x=\xi(t)}] = \]
+\[ = \kappa^S \frac{\partial T}{\partial  x}|_{x=\xi(t)} - \kappa^S \frac{\partial T}{\partial x}|_{x=0} + \kappa^l\frac{\partial T}{\partial x}|_{x=L} - \kappa^2\frac{\partial T}{\partial x}|_{x=\xi(t)} + \xi(t) [ C^S_p \rho^S (T_{PH} - T_0) - C^S_p \rho^S(T_{PH - T_0}) - \lambda \rho - C^l_p - C_p^l p^l(T_{PH} - T_{PH})] \]
+Условие Стефана:
+\[ \kappa^S \frac{\partial T}{\partial x}|_{{}\xi(t)}^s - \kappa^l\frac{\partial T}{\partial x}|_{{\xi(t)}^l} = \lambda \rho \overset{\xi}{\cdot} \]
+
+\[ \kappa = \ae \]
+
+\section{Лекция 10}
+
+\begin{enumerate}
+	\item Подход подвижной сетке закрепляем узлы как на резинке, и они двигаются вместе с перемещением границы раздела.
+
+	\item Замена переменных так чтобы левая граница была 0, граница раздела 1, правая граница 2.
+\end{enumerate}
+
+\subsection{Замена переменных (неподвижная сетка)}
+
+Замена переменных (переход в новую систему переменных)
+\[ \widetilde{t} = t \]
+\[ x = \phi (t, y) \{y \xi(t) - "S" \textrm{ (твердая фаза) }; \xi(t) + (L - \xi(t)) (y-1) "l" \textrm{ (жидкая фаза) } \} \]
+
+\[ y = \frac{x}{\xi(t)} - "s"; y = 1 + \frac{x - \xi(t)}{l^l} - "l" \]
+
+Можно проверить что система невырождена, посчитав якобиан:
+\[ l^s \{ \textrm{ длинна твердой фазы } \} \]
+\[ l^l \{ \textrm{ длинна жидкой фазы } \} \]
+
+Отображение становится вырождено только если длинна одной из зон станет равной нулю.
+
+\[ c_p \rho \frac{\partial T}{\partial \widetilde{t}} = \frac{\partial }{\partial x}( \ae \frac{\partial T}{\partial x}); T(t, y) = T (t(\widetilde{t}), y(\widetilde{t}, x)) \]
+
+\[ \frac{\partial T}{\partial x} = \frac{\partial T}{\partial y} \frac{\partial y}{\partial x}, \frac{\partial }{\partial x} = \frac{\partial }{\partial y} \cdot \frac{\partial y}{\partial x} \]
+\[ \frac{\partial }{\partial \widetilde{t}} = \frac{\partial }{\partial t} \frac{\partial t}{\partial  \widetilde{t}} + \frac{\partial }{\partial y}\frac{\partial y}{\partial  \widetilde{t} = \frac{\partial }{\partial t}} + \frac{\partial }{\partial y}\frac{\partial y}{\partial \widetilde{t}} \]
+
+дифференциалы прямого и обратного преобразования:
+
+x:
+
+\[ d \widetilde{t} = dt \]
+\[ dx = \frac{\partial \phi}{\partial t} dt + \frac{\partial \phi}{\partial y}dy \]
+Инварианты с матрицами
+\[
+\begin{pmatrix}
+	d \widetilde{t} \\
+	d x
+\end{pmatrix}
+ =
+\begin{pmatrix}
+	1 & 0 \\
+	\frac{\partial \phi}{\partial t} & \frac{\partial \phi}{\partial t}
+\end{pmatrix}
+\begin{pmatrix}
+	dt \\
+	dy
+\end{pmatrix}
+\]
+
+Умножить его на обратную матрицу.
+
+\[
+\begin{pmatrix}
+	d t \\
+	d x
+\end{pmatrix}
+ =
+\begin{pmatrix}
+	1 & 0 \\
+	\frac{\partial \phi}{\partial t} & \frac{\partial \phi}{\partial t}
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+	d \widetilde{t} \\
+	dy
+\end{pmatrix}
+\]
+\[
+\begin{pmatrix}
+	d t \\
+	d y
+\end{pmatrix}
+ =
+\begin{pmatrix}
+	1 & 0 \\
+	\frac{-\frac{\partial \phi}{\partial t}}{\frac{\partial \phi}{\partial y}} & \frac{1}{\frac{\partial \phi}{\partial y}}
+\end{pmatrix}
+\begin{pmatrix}
+	d \widetilde{t} \\
+	dx
+\end{pmatrix}
+\]
+
+y:
+\[ dt = d\widetilde{t} \]
+\[ dy = \frac{\partial y}{\partial  \widetilde{t}} d \widetilde{t} + \frac{\partial y}{\partial x} dx \]
+Инварианты с матрицами
+
+\[
+\begin{pmatrix}
+	d t \\
+	d y
+\end{pmatrix}
+ =
+\begin{pmatrix}
+	1 & 0 \\
+	\frac{\partial y}{\partial \widetilde{t}} & \frac{\partial y}{\partial t}
+\end{pmatrix}
+\begin{pmatrix}
+	d \widetilde{t} \\
+	dy
+\end{pmatrix}
+\]
+
+тогда посчитаем
+\[ \frac{\partial y}{\partial x} = \frac{1}{\frac{\partial \phi}{\partial y}} \begin{pmatrix}
+	\frac{1}{l^s} \\
+	\frac{1}{l^l}
+\end{pmatrix}
+\frac{1}{l}
+\]
+
+\[ \frac{\partial y}{\partial \widetilde{t}} = - \frac{\frac{\partial \phi}{\partial t}}{\frac{\partial \phi}{\partial y}} = - \frac{\phi_t}{l} \]
+
+Итого
+\[ \frac{\partial }{\partial \widetilde{t}} = \frac{\partial }{\partial t} \frac{\partial t}{\partial  \widetilde{t}} + \frac{\partial }{\partial  y} \frac{\partial y}{\partial \widetilde{t}} = \frac{\partial }{\partial t} + \frac{\partial }{\partial y} \frac{\partial y}{\partial \widetilde{t}} \]
+\[ c(\frac{\partial t}{\partial t} - \frac{\phi_t}{l} \frac{\partial T}{\partial y}) = \frac{1}{l} \frac{\partial }{\partial y} (\ae \frac{1}{l}\frac{\partial T}{\partial y}) \]
+
+Итого получаем совсем другое уровнение, но по постоянным областям.
+
+Теперь перейдем к границному условию:
+\[ \frac{\ae}{l^s} \frac{\partial T}{\partial y}|_{1-0} - \frac{\ae}{l^l}\frac{\partial  T}{\partial y}|_{1+0} \]
+\[\ae \frac{\partial T}{\partial x} |_{x=\xi(t-0)} - \ae \frac{\partial T}{\partial x}_{\xi(t) + 0} = \lambda \frac{d\xi}{dt} \]
+
+Теперь апроксимируем это граничное условие
+
+\[ c (l \frac{\partial T}{\partial t}) - (\phi_t \frac{\partial T}{\partial y}) = \frac{\partial }{\partial y}(\ae \frac{1}{l}\frac{\partial T}{\partial y}) \]
+
+\[ c(\frac{\partial }{\partial t}(lT)) - T \frac{\partial l}{\partial t} - \frac{\partial }{\partial y} (\phi_t T) + T \phi_{ty} \]
+\[ \phi_{ty} = \frac{\partial l}{\partial t} \]
+
+\[ c(\frac{\partial }{\partial t}(lT)) - \frac{\partial }{\partial y} (\phi_t T) = \frac{\partial }{\partial y} (\frac{\ae}{l} \frac{\partial T}{\partial y}) \]
+
+Пусть узел связанный с границей раздела фаз называется $ y_{i*} $
+
+Вводим потоковые точки связанные с серединами отрезков, а температуру относим к узлам.
+
+$\ae$  и  $c$ Относим к потоковым точкам, так как они зависят от фазы отрезка, также как и l (Длинна отрезка l зависит от отрезка).
+
+Нужно написать алгоритм однородный отностельно границы раздела сред.
+
+\[ \int_{t_j}^{j+1} \int_{y_{i-\frac{1}{2}}}^{y_{i+\frac{1}{2}}} c [\frac{\partial }{\partial t}(lT) - \frac{\partial }{\partial y}(\phi_t T)] dt dy = \int_{t_j}^{t_{j+1}} \int_{y_{i-\frac{1}{2}}}^{y_{i+\frac{1}{2}}} \frac{\partial }{\partial y} (\frac{\ae}{l}\frac{\partial T}{\partial y}) dt dy \]
+
+Первый интеграл:
+
+\[ I_1 = \int_{t}^{} \int_{y_{i-\frac{1}{2}}}^{y_{i+\frac{1}{2}}} c \frac{\partial}{\partial t} (lT) dy = \int_{t_j}^{t_{j+1}} dt \frac{\partial }{\partial t} \int_{y{i-\frac{1}{2}}}^{y_{i+\frac{1}{2}}} c (lT) d y = \int_{t_j}^{t_{j+1}} dt \frac{\partial }{\partial t}[\int_{y_{i-\frac{1}{2}}}^{y_i} c l T dy + \int_{y^{i+\frac{1}{2}}}^{y_{i}} clT dy ] =  \]
+
+\[ = \int_{t_j}^{t_{j+1}} dt \frac{\partial }{\partial t}[c_{i-\frac{1}{2}} (l_{i-\frac{1}{2}}T_i)h_{i-\frac{1}{2}}\cdot \frac{1}{2} + c_{i+\frac{1}{2}}(l_{i+\frac{1}{2}} T_i) h_{i+\frac{1}{2}}\frac{1}{2}] = \]
+\[ = \frac{h_{i-\frac{1}{2}}}{2} c_{i-\frac{1}{2}} [(l_{i+\frac{1}{2}} T_i) - (l_{i-\frac{1}{2}}T_i)] + \frac{h_{i+\frac{1}{2}}}{2} c_{i+\frac{1}{2}}[\widehat{(l_{i+\frac{1}{2}}T_i)} - (l_{i+\frac{1}{2}T_i})] \]
+
+Второй интеграл:
+
+\[ I_2 = \int_{t_j}^{t_{j+1}} dt [\int_{y_{i-\frac{1}{2}}}^{y_i} c_{i-\frac{1}{2}}\frac{\partial }{\partial y}(\phi_t T) dy \int_{y_i}^{y_{i+\frac{1}{2}}} c_{i+\frac{1}{2}} \frac{\partial }{\partial y} (\phi_t T) dy] =\]
+
+\[ = \int_{t_i}^{t_{i+1}} [c_{i-\frac{1}{2}}[(\phi_t T)(y_i) - (\phi_t T)(y_{i-\frac{1}{2}})] + [c_{i+\frac{1}{2}} ((\phi_t T)(y_{i+\frac{1}{2}})-(\phi_tT)(y_i))]] = \]
+
+\[ \phi_t|_{i+0} = \phi_t|_{i-0} \]
+\[ \phi_t|_{i=i^*} = \frac{d\xi}{dt}; \phi = y \xi \]
+\[ \phi_t = y \cdot \overset{\cdot}{\xi} \]
+\[ {l''} \phi_t = (2-y) \overset{\cdot}{\xi} \]
+
+\[= \int_{t_j}^{t_{j+1}}(c_{i-\frac{1}{2}} - c_{i+\frac{1}{2}}) \frac{d\xi}{dt}T + c_{i+\frac{1}{2}}(\phi_t T y_{i+\frac{1}{2}} - c_{i-\frac{1}{2}} (\phi_t T)_{y (i-\frac{1}{2})}) dt \]
+
+\[ (\phi_t T)_{i+\frac{1}{2}} = \phi_t(i+\frac{1}{2}) \frac{T_i + T_{i+1}}{2} \]
+
+Остался последний интеграл
+
+\[ \frac{\partial }{\partial y} (\frac{\ae}{l}\frac{\partial T}{\partial y}) \]
+\[ \int_{t_j}^{t_j+1} dt [\int_{y_{i-\frac{1}{2}}}^{y_i} \frac{\partial }{\partial y} (\frac{\ae}{l}\frac{\partial T}{\partial y}) dy + \int_{y_i}^{y_{i+\frac{1}{2}}} \frac{\partial }{\partial y}(\frac{\ae}{l} \frac{\partial T}{\partial y}) dy] =  \]
+
+\[ = \int_{t_j}^{t_j+1} dt[(\frac{\ae}{l}\frac{\partial T}{\partial y})_{y_{i-0}} - (\frac{\ae}{l} \frac{\partial T}{\partial y})_{y_{i-\frac{1}{2}}} + (\frac{\ae}{l}\frac{\partial T}{\partial y})_{y_{i+\frac{1}{2}}} - (\frac{\ae}{l} \frac{\partial T}{\partial y})_{y_i + 0}] =  \]
+\[ = \int_{t_j}^{t_{j+1}} [ \frac{d\xi}{dt} \lambda \delta_{ii*} + (\frac{\ae}{l} \frac{\partial T}{\partial y})_{i+\frac{1}{2}} - (\frac{\ae}{l} \frac{\partial T}{\partial y})_{i-\frac{1}{2}}] dt \]
+
+\section{Лекция}
+
+\subsection{Разностная схема на подвижной сетке}
+
+Вводим сетку так, чтобы один узел был всегда на границе раздела фаз ($ \xi(t) $).
+Если двигается узел $ \xi(t + \tau) $, то все узлы справа и слева сдвигаются, так чтобы расстояние между узлами были равны.
+
+\[ h_{i+\frac{1}{2}}(t) x_{in}(t) - x_i(t) \]
+
+\[ h_{i+\frac{1}{2}} = x+i+1(t + \tau) - x_i (t + \tau) \]
+
+\[ h_i(t) = \cancel{h_i} = \frac{h_{i+\frac{1}{2}} + h_{i-\frac{1}{2}}}{2} \]
+
+\[ \cancel{f_x} = \frac{f(x_{i+1}(t)) - f(x_i(t))}{\cancel{h_i+\frac{1}{2}}(t)} \]
+
+Строим разностную схему
+
+\[ c \frac{\partial T}{\partial t} = \frac{\partial }{\partial x}(\ae \frac{\partial T}{\partial x}) \]
+
+*Картинка с узлами и отрезком интегрирования*
+
+\[ \int_{t_j}^{t_{j+1}} \int_{x_{i-\frac{1}{2}}(t)}^{i+\frac{1}{2}(t)} c \frac{\partial T}{\partial t} dt dx =  \]
+
+вспомним как дифференцируется (формула интегрирования по переменным границам или формула интегрирования по параметру):
+
+\[ \frac{d}{dt}\int_{x_{i+\frac{1}{2}}}^{x_{x+\frac{1}{2}}} (c T) dx k =  \]
+\[ = \int_{x_{i-\frac{1}{2}}(T)}^{i+\frac{1}{2}(t)} \frac{\partial }{\partial t} (cT) dx + (cT)_{i+\frac{1}{2}} \frac{dx_{i+\frac{1}{2}}}{dt} - (CT)_{i-\frac{1}{2}} \frac{dx_{i-\frac{1}{2}}}{dt} \]
+
+Применим эту формулу к интегралу:
+
+\[ I_1 = \int_{t_j}^{t_j+1} dt [\int_{x_{i+\frac{1}{2}}}^{x_i(t)} \frac{\partial }{\partial t} (CT)dx + \int_{x_i}^{x_{i+\frac{1}{2}}}\frac{\partial }{\partial t} (CT)dx ] = \]
+% \[= \int_{t_j}^{t_j+1} dt [\frac{d}{dt} \int_{x_{i-\frac{1}{2}}}^{x_{i+\frac{1}{2}}}(CT)dx - (CT)_{i+\frac{1}{2}} dx] \]
+
+\[ = \int_{t_j}^{t_{j+1}} dt [\frac{d}{dt} \int_{x_{i+\frac{1}{2}}}^{x_i}(CT) dx - (CT) dx - (CT) \frac{dv_i}{dt} + (CT)_{x_{i-\frac{1}{2}}} \frac{ dx_{i-\frac{1}{2}}}{dt} + \frac{d}{dt} \int_{v_i(t)}^{x_i+\frac{1}{2}(t)} (CT) dx - (CT)_{x_i+\frac{1}{2}} \frac{dx_{i+\frac{1}{2}}}{dt} + (CT)_{x_i+0} \frac{dx_i}{dt} ] =\]
+
+\[ = \frac{c_{i-\frac{1}{2}}}{2} [ \hat{ h_{i-\frac{1}{2}}^w T_i} - h^x_{i+\frac{1}{2}} T_j] + \frac{c_{i+\frac{1}{2}}}{2} [\hat{h^x_{i+\frac{1}{2}}T_i} - h^x_{i+\frac{1}{2}} T_i] - \tau [{(CT^(\sigma) x_t)}_{i+\frac{1}{2}} - {(CT^{\sigma} x_t)}_{i-\frac{1}{2}}] - \tau [(c_{i-\frac{1}{2}} - c_{i+\frac{1}{2}}) T^{(\sigma)}_i(x_i)_t] \]
+
+\[ T^{\sigma} = \hat{T} + (1-\sigma)T \]
+
+Шапка значит что $ h^x_{i-\frac{1}{2}}(t_{j+1}) +  $ (берем по следующему временному слою)
+
+\[ \frac{dx_i}{dt} = \frac{\hat{x_i} - x_i}{\tau} \]
+
+\[ I_2 = \int_{t_j}^{t_{j+1}} \int_{x_{i-\frac{1}{2}}(t)}^{x_i+\frac{1}{2}(t)} \frac{\partial }{\partial x} (\ae \frac{\partial T}{\partial x}) dt dx =  \]
+
+\[ \int_{t_j}^{t_{j+1}} dt [\int_{x_{i-\frac{1}{2}}(t)}^{x_i(t)} \frac{\partial }{\partial x}(\ae \frac{\partial T}{\partial x}) dx + \int_{x_i}^{x_{i+\frac{1}{2}}} \frac{\partial }{\partial x} (\ae\frac{\partial T}{\partial x} dx)] = \]
+
+\[ \int_{t_{j}}^{t_{j+1}} dt [ \ae \frac{\partial T}{\partial x} |_{x_i(t)} - \ae \frac{\partial T}{\partial x}|_{x_{i-\frac{1}{2}}(t)} \ae \frac{\partial T}{\partial x}|_{x_i}] =  \]
+
+\[ = \tau \frac{dx_i}{dt} \lambda \delta_{ij} + \tau [\ae_{i+\frac{2}{2}} \frac{\partial T}{Px}|_{i+\frac{1}{2}} - \ae_{{i-\frac{1}{2}}} \frac{\partial T}{\partial x}|_{i-\frac{1}{2}}] \]
+
+\subsection{задача Стефана в двумерном пространстве}
+
+Рассмотрим на фиксированной сетке, на подвижной рассматривать не будем так как нет времени, а они эквивалентны вплоть до замены переменных.
+
+Нарисуем цилиндр со стенками конечной толщины.  внутри есть жидкая фаза "l" и твердая фаза "S".
+
+Плотность снова одинаковая
+
+\[ \frac{\partial T}{\partial t} =\frac{1 }{\widetilde{r}} (\widetilde{r} \ae \frac{\partial T}{\partial \widetilde{r}}) + \frac{\partial }{\partial z}(\widetilde{r} \ae \frac{\partial T}{\partial \widetilde{t}}) \]
+
+\[ {||\ae \triangledown T \cdot N ||} = S t V_{{Ph}(l_z, N)} \]
+
+N - нормаль границы раздела
+
+Условия на границе:
+
+\[ \ae \frac{\partial T}{\partial n}|_S = \ae \frac{\partial T}{\partial n}|_l \]
+
+\[\frac{\partial T}{\partial }  \]
+
+Границы раздела - $ \widetilde{z_1} $ - дно, $ \widetilde{z_2} $ - граница раздела сред, $ \widetilde{z_3} $ - крышка, $ \widetilde{z_0}, \widetilde{z_4} $ - нижняя поверхность, верхняя поверхность
+
+Переводим эти кривые в прямые линии и получаем разделение по отдельным слоям.
+
+Сделаем замену переменных:
+
+\[ t = \widetilde{t} \]
+
+\[ r = \widetilde{r} \]
+
+\[ z = \frac{\widetilde{z} - \widetilde{z_{\gamma}}}{\widetilde{l^{\gamma}}} \]
+
+Например при $ \gamma = 0 $:
+
+\[ z = \frac{\widetilde{z} - z_0}{l^0} \]
+
+\[ \gamma = 0, 1, 2, 3 \]
+
+Делаем замену переменных
+
+$$
+\left\{ \begin{array}{c}
+
+\frac{\partial T}{\partial \widetilde{t}} = \frac{\partial T}{\partial t} + \frac{\partial T}{\partial z} \frac{\partial z}{\partial \widetilde{t}} \\
+
+\frac{\partial T}{\partial \widetilde{r}} + \frac{\partial T}{\partial z}\frac{\partial z}{\partial \widetilde{r}} \\
+
+\frac{\partial T}{\partial \widetilde{z}} = \frac{\partial T}{\partial z} \frac{\partial z}{\partial \widetilde{z}} \\
+
+\end{array} \right.
+$$
+
+\[ d \widetilde{t} = dt \]
+
+\[ d \widetilde{r} = dr \]
+
+\[ d \widetilde{z} = \frac{\partial \phi}{\partial t} dt + \frac{\partial \phi}{\partial r} dr + \frac{\partial \phi}{\partial z} d z\]
+
+\[ d \widetilde{t} = dt \]
+
+\[ d \widetilde{r} = dr \]
+
+\[ d \widetilde{r} = \frac{\partial z}{\partial \widetilde{t}} d \widetilde{t} d \widetilde{t} + \frac{\partial z}{\partial \widetilde{r}}d \widetilde{z} d \widetilde{z} \]
+
+$$
+\begin{bmatrix}
+  d \widetilde{t} \\
+  d \widetilde{r} \\
+  d \widetilde{z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  \frac{\partial \phi}{\partial t} & \frac{\partial \phi}{\partial r} & \frac{\partial \phi}{\partial z}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    dt \\
+    dr \\
+    dz
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+  d t \\
+  d r \\
+  d z
+\end{bmatrix}
+=
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  \frac{\partial \phi}{\partial \widetilde{t}} & \frac{\partial \phi}{\partial \widetilde{r}} & \frac{\partial \phi}{\partial \widetilde{z}}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+    d\widetilde{t} \\
+    d\widetilde{r} \\
+    d\widetilde{z}
+\end{bmatrix}
+$$
+$$
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  \frac{\partial \phi}{\partial t} & \frac{\partial \phi}{\partial r} & \frac{\partial \phi}{\partial z}
+\end{bmatrix}^(-1)
+=
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  \frac{\partial \phi}{\partial \widetilde{t}} & \frac{\partial \phi}{\partial \widetilde{r}} & \frac{\partial \phi}{\partial \widetilde{z}}
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  \frac{\partial \phi}{\partial t} & \frac{\partial \phi}{\partial r} & \frac{\partial \phi}{\partial z}
+\end{bmatrix}^(-1)
+=
+\begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  \frac{-\frac{\partial \phi}{\partial t}}{\frac{\partial \phi}{\partial z}} & \frac{-\frac{\partial \phi}{\partial r}}{\frac{\partial \phi}{\partial z}} & -\frac{1}{\frac{\partial \phi}{\partial z}}
+\end{bmatrix}^(-1)
+$$
+
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  $S_\gamma$ & $ \phi^\gamma_z = l $ & $\phi_t $ & $ r $ \\ \hline
+  $S_0 $ & $ z_1 - z_0 $ & $ 0 $ & $ (z-1)z_{2, r}$ \\ \hline
+  $S_1 $ & $ z_1(\widetilde{r} \widetilde{t} - z_1) $  & $ (z-1) z_{2, t} $ & \\ \hline
+  $S_2 $ & $ z_3 - z_2(\widetilde{r, \widetilde{t}}) $ & $ (3 - z)z_{2, t} $ & \\ \hline
+  $S_3$ & $ z_4 - z_3 $ & $ z_j $ &\\ \hline
+\end{tabular}
+
+Взять таблицу из лекций, но там есть опечатка!
+
+\[ \frac{1}{r} [ \frac{\partial }{\partial \widetilde{r}} (\ae \widetilde{r} \frac{\partial T}{\partial  \widetilde{r}}) + \frac{\partial }{\partial \widetilde{z}}(\widetilde{r \ae \frac{\partial T}{\partial \widetilde{z}}})] \cdot r l = \]
+
+\[ l [\frac{\partial }{\partial \widetilde{r}} Q_1 + \frac{\partial }{\partial \widetilde{z}} Q_2] \textrm{ , где } Q_1 = \ae \widetilde{r} \frac{\partial T}{\partial  \widetilde{r}}, Q_2 = \ae \widetilde{r} \frac{\partial T}{\partial \widetilde{z}} \]
+
+\[ l \frac{\partial Q}{\partial r} = l \frac{\partial Q_1}{\partial r} - \phi_r \frac{\partial Q_1}{\partial z} = \frac{\partial }{\partial r} (l Q_1) - Q_1 \frac{\partial }{\partial r}(l Q_1) - Q_1 \frac{\partial l}{\partial r} - \frac{\partial }{\partial z} - \frac{\partial }{\partial z} (\phi_r Q_1) + Q_1 \frac{\partial \phi_r}{\partial z} = \]
+
+\[ = \frac{\partial }{\partial r} (l Q_1) - \frac{\partial }{\partial z}(\phi_r Q_1) =  \]
+
+\[ = \frac{\partial }{\partial r}(lr\ae (\frac{\partial T}{\partial r} - \frac{\phi_r}{l} \frac{\partial T}{\partial z})) = \]
+
+\[ = \frac{\partial }{\partial z} (\phi_r r \ae (\frac{\partial T}{\partial r} - \frac{\partial _r}{l} \frac{\partial T}{\partial z})) = \]
+
+\[ = \frac{\partial }{\partial r} (r \ae (l \frac{\partial T}{\partial r} - \phi_r\frac{\partial T}{\partial z})) - \frac{\partial }{\partial z} (r \ae (\phi_r \frac{\partial T}{\partial r} - \frac{\phi^2_r}{l}\frac{\partial T}{\partial z})) \]
+
+\[ l \frac{\partial Q}{\partial \widetilde{z}} = \frac{\partial }{\partial z}(\ae r \frac{1}{l} \frac{\partial T}{\partial z}) \]
+
+Введем следующие обозначения
+
+\[ L^{rr} = l; Z^{rz} = Z^{zr} = - \phi_r; Z_zz = \frac{1 + \phi^2}{l} \]
+
+Тогда:
+
+\[ \mathcal{L} = \frac{\partial }{\partial r} [\ae r (L^{rr}\frac{\partial T}{\partial r} + L^{rz} \frac{\partial T}{\partial z})] + \frac{\partial }{\partial z}[\ae r (L^{zr} \frac{\partial T}{\partial r} + L^{zz}) \frac{\partial T}{\partial z}] \]
+
+Этот оператор хороший - эллиптический, самосопряженный, самоопределенный доказать в качестве упражнения.
+
+Подумать как записать краевые условия для выражений $ \frac{\partial T}{\partial n} = 0 $ и $ \frac{\partial T}{\partial n} = 0$
+
+\end{document}

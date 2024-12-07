@@ -1,27 +1,45 @@
 \babel@toc {russian}{}\relax 
-\contentsline {section}{\numberline {}Лекция 1}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Исторический экскурс}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Метод Дирихле}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Контрпример Вейерштрасса. }{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Контрпример Адамара}{3}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Метод Ритца}{4}{subsection.1.5}%
-\contentsline {section}{\numberline {}Лекция 2}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Метод Бубнова -- Галеркина}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Повторение}{8}{subsection.2.2}%
-\contentsline {section}{\numberline {}Лекция 3}{11}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Формулы Грина}{11}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Положительные операторы}{13}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Положительно определенные операторы}{14}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Энергетическая норма}{15}{subsection.3.4}%
-\contentsline {section}{\numberline {}Лекция 4}{16}{section.4}%
-\contentsline {subsection}{\numberline {4.1}10.02 Энергетические пр-ва (2)}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Пример}{16}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Пример 3}{17}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Энергетический метод}{17}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Обобщение решения задачи о min для ф.э.}{17}{subsection.4.5}%
-\contentsline {section}{\numberline {}Лекция }{18}{section.5}%
-\contentsline {subsection}{\numberline {5.1} Применение энергетического метода для краевых задач}{18}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Теорема}{20}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Теорема}{20}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Основные кр задачи для ур-я Пуассона}{21}{subsection.5.2}%
-\contentsline {section}{\numberline {}Лекция 6}{22}{section.6}%
+\contentsline {section}{\numberline {}Лекция 1}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Исторический экскурс}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Метод Дирихле}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Контрпример Вейерштрасса. }{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Контрпример Адамара}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Метод Ритца}{5}{subsection.1.5}%
+\contentsline {section}{\numberline {}Лекция 2}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Метод Бубнова -- Галеркина}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Повторение}{9}{subsection.2.2}%
+\contentsline {section}{\numberline {}Лекция 3}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Формулы Грина}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Положительные операторы}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Положительно определенные операторы}{15}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Энергетическая норма}{16}{subsection.3.4}%
+\contentsline {section}{\numberline {}Лекция 4}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}10.02 Энергетические пр-ва (2)}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Пример}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Пример 3}{18}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Энергетический метод}{18}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Обобщение решения задачи о min для ф.э.}{18}{subsection.4.5}%
+\contentsline {section}{\numberline {}Лекция }{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1} Применение энергетического метода для краевых задач}{19}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Теорема}{21}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Теорема}{21}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Основные кр задачи для ур-я Пуассона}{22}{subsection.5.2}%
+\contentsline {section}{\numberline {}Лекция 6}{23}{section.6}%
+\contentsline {section}{\numberline {}Лекция 7}{25}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Не-во Пуанкаре}{25}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Неоднородные краевые условия}{27}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}ур-е с переменным коэф}{28}{subsection.7.3}%
+\contentsline {section}{\numberline {}Лекция 8}{30}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Энергетический метод для пложительных операторов}{31}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Эллиптические уравнения в бесконечной области}{32}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1} Эллиптическое уравнение в бесконечной области}{32}{subsubsection.8.2.1}%
+\contentsline {section}{\numberline {}Лекция 8}{34}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Метод Бубнова-Галеркина}{34}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Применение метода Б-Г к интегральному уравнению Фредгольма}{34}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Элементы теории приближение}{35}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Введение в теорию степенных сплайнов}{37}{subsection.9.4}%
+\contentsline {section}{\numberline {}Лекция }{37}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Степенные сплайны}{37}{subsection.10.1}%
+\contentsline {section}{\numberline {}Лекция}{40}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Билинейные базисные функции в $\mathcal {R}$}{40}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Построение проекционно сеточной схемы для ОДУ 2-го порядка}{42}{subsection.11.2}%
