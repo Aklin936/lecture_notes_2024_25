@@ -532,7 +532,7 @@ $ {u|}_S = 0 $ --- мембрана закреплена на краях
 	\item $ {[u, v]}_A = \overline{[v, u]}_A $ \\
 		  $ (Au, v) = (u, Av) = \overline{(Av, u)} = \overline{[v, u]} $
 	\item $ [a_1 u + a_2 u, v] = a_1[u, v] + a_2[u, v]$
-	\item $ (Au, u) = [u, u] \geq \gamma \|i\|^2 \geq 0 $
+	\item $ (Au, u) = [u, u] \geq \gamma \|u\|^2 \geq 0 $
 	\item $ [u, u] = 0 \Leftrightarrow u = 0 $
 \end{enumerate}
 
@@ -549,51 +549,75 @@ $ D_A $ предгильбертово, дополним его по $ {|\boldsy
 
 \section{Лекция 4}
 
-\subsection{10.02 Энергетические пр-ва (2)}
+\subsection{Энергетическое пространство}
 
-\[ H_A -\textrm{ энергетическое пр-во } \]
+Пусть $A$ --- положительно определен в $H$ (гильберт.)
 
-(0) \[ {||u||}_H \leq \frac{1}{\gamma   } {||u||}_A \]
+На $D_A: \enspace \begin{array}{l}
+	{[u, v]}_A = {(A u, v)}_H \\
+	{\|u\|}_A = {[u,u]}_A 
+\end{array} $
 
-\[ u \in H_A -> u \in \mathcal{D}_A \]
-\[ -> \exists \{ u_n \} \in \mathcal{D}_A  {lim}_{n-> \infty} || u_n-u||_A \]
-
-Теорема
-\[ \forall \exists u \in H_A -> \textrm{  злем из H различным } u_1 u_2 \in H_A \textrm{ отв разн. злем из H }\]
-
-Доказательство
-
-...
-
-2) \[  u_{1, n} \rightarrow_{||.||_A} u_n; u_{2,n} -\rightarrow_{||.||_A} u_2\]
-
-\[ u_1 \textrm{ и  } u_2 \rightarrow u \textrm{ из H }; u = u_1 - u_2\]
-...
-
-\[  r \in H A \in \{ \in u_n \mathcal{D}_A ||u_n -n ||_A \rightarrow_{n \rightarrow \infty} 0 \} \]
-
-\[ || u_n ||_A \rightarrow_{n \rightarrow \infty} ||u||_A \]
+$ H_A $ --- энергетическое пространство
+\begin{equation}
+	{\|u\|}_H \leq \frac{1}{\gamma   } {\|u\|}_A
+	\label{4.0}
+	\tag{4.0}
+\end{equation}
+\[ u \in H_A \begin{array}{l@{\ }l}
+	\raisebox{-1ex}{$\nearrow$} & u \in D_A \\
+	\raisebox{1ex}{$\searrow$} & \exists \{ u_n \} \in D_A: \ \lim\limits_{n \rightarrow \infty} {\|u_n - u\|}_A = 0
+\end{array} \]
 
 
+\textbf{Теор.} $ \qquad \forall u \in H_A \rightarrow $ только один элемент из $H$, причем различные $u_1, u_2 \in H_A$ отвечают различным элементам из $H$
 
-\subsection{Пример}
+\underline{Док-во.}
 
-\[ Bu = - \frac{d^2}{d x^2} u ; D_{B} = {u \in C^2 (0,1]}, u(0) = u(1) = 0 \]
-\[ H = :_2 (0, 1); \]
+\begin{enumerate}
+	\item
+	$ {u_n}: \lim\limits_{n \rightarrow \infty} {\|u_n - u\|}_A = 0 $ \\
+	$ {\|u_n - u_m\|}_A \leq {\|u_n - u\|}_A + {\|u_m - u\|}_A \underset{n,m \rightarrow \infty}{\rightarrow} 0 $ \\
+	$ \Rightarrow {\|u_n - u_m\|}_H \rightarrow 0 $ при $ n,m \rightarrow \infty $ \\
+	$ \Rightarrow \exists \lim\limits_{n \rightarrow \infty} {\|u_n - u_m\|}_H = 0 $
+	
+	\item
+	$ u_{1, n} \underset{{\|\cdot\|}_A}{\rightarrow}  u_1, \quad u_{2, n} \underset{{\|\cdot\|}_A}{\rightarrow}  u_2 $ \\
+	$ u_1 \ \text{и} \ u_2 \rightarrow u \in H, \qquad u = u_1 - u_2$ \\
+	$ \exists \{u_n\} \in H_A \qquad {\|u_n - u\|}_A \rightarrow 0 $ \\
+	$ \forall f \in H \qquad |(f, u_n)| \overset{\text{КБ}}{\leq} \|f\|\cdot\|u_n\| \leq {\|f\|}_A\cdot\frac{1}{\gamma}\cdot{\|u_n\|}_A \rightarrow 0 $ \\
+	$ \forall \varphi \in D_A \qquad A\varphi = f \in H $ \\
+	Тогда $ (A\varphi, u_n) \rightarrow 0 $ \\
+	$ {[\varphi, u_n]}_A = (A\varphi, u_n) \rightarrow 0 $ \\ 
+	Переходя к пределу: $ {[\varphi, u]}_A = 0 \ \forall \varphi \qquad \Rightarrow u = 0 \Rightarrow u_1 = u_2 \hfill \square $	
+\end{enumerate}
 
-\[ u \in H_B; \exists \{ u_n \} \in D_B || u_h - u || \rightarrow_{B \rightarrow \infty} \rightarrow 0\]
+\textbf{Пример 1}
+\[ Bu = - \frac{d^2}{d x^2}u, \qquad D_{B} = \{u \in C^2 [0,1], \ u(0) = u(1) = 0 \} \]
+\[ H = L_2 (0, 1), \ u \in H_B \]
+\[ u \in H_B, \quad \exists \{u_n\} \in D_B \quad {\|u_n - u\|}_B \rightarrow 0 \]
+\[ {\|u_n - u_k\|}_B \leq {\|u_n - u\|}_B + {\|u_k - u\|}_B \underset{n,k \rightarrow \infty}{\rightarrow} 0 \]
+\[ {\|u_n - u_k\|}_B^2 = \int\limits_{0}^{1} {\left(\frac{du_n}{dx} - \frac{du_k}{dx} \right)}^2 dx \underset{n,k \rightarrow \infty}{\rightarrow} 0 \]
+\[ \Rightarrow \{\frac{du_n}{dx}\} \ \text{фундаментальна в} \ L_2(0,1) \Rightarrow \exists v(x) \in H\]
+\[ u_n(x) = u_n(0) + \int\limits_{0}^{x} u_n^{'}(t) dt, \quad u_n \in D_B, \qquad \ \text{при} \ x=0:\ u_n(0) = 0 \]
+\[ \text{Переходя к пределу:} \quad u(x) = \int\limits_{0}^{x} v(t) dt \quad \text{и} \quad u(0)=0\]
+\[ u(1) = \int\limits_{0}^{1} v(t) dt = \lim\limits_{n \rightarrow \infty} \int\limits_{0}^{1} u_n^{'}(t) dt = \lim\limits_{n \rightarrow \infty} \left( u_n(1) - u_n(0) \right) = 0 \]
+\[ \text{Следовательно,} \ u \ \text{абсолютно непрерывная на} [0,1], \text{удовлетворяет граничным условиям}\] 
+\[ u' \in L_2(0,1) \]
 
-...
+\textbf{Пример 2}
+\[ Cu = - \frac{d^2}{dx^2} u(x); \qquad u'(0)+\alpha u(0)=0, \ u'(1) + \beta u(1)=0 \]
+\[ \exists \{u_n\} \in D_C, \quad \alpha > 0, \ \beta \geq 0 \]
+\[ \int\limits_{0}^{1} {\left( \frac{du_n}{dx} - \frac{du_k}{dx} \right)}^2 dx \underset{n, k \rightarrow \infty}{\rightarrow} 0 \]
+\[ |u_n(0) - u_k(0)| \underset{n, k \rightarrow \infty}{\rightarrow} 0 \]
+\[ u_n(x) = u_n(0) + \int\limits_{0}^{x} u_n'(t) dt \]
+\[ u(x) = c_0 + \int\limits_{0}^{x} v(t) dt \]
 
-A - положительно, но не положительно определено.
+\textbf{Теор.} Пусть оператор $A$ положительный, но не положительно определенный. Тогда
+\[ u \in H_A: \quad u \in H \Leftrightarrow \exists \{ u_n \} \in D_A \]
+\[ {\| u = u_n \|}_A \underset{n \rightarrow \infty}{\rightarrow} 0 \quad \text{и} \quad {\| u_k - u_n \|}_H \underset{n,k \rightarrow \infty}{\rightarrow} 0 \]
 
-Теорема
-
-\[ u \in H_A : u \in H \rightleftarrows \exists \{ u_n \} \in D_A \]
-\[ || u = u_n || \rightarrow_{n \rightarrow \infty} 0 \]
-\[ || u_k - u_n ||_H \rightarrow_{u,k \rightarrow + \infty} 0 \]
-
-\subsection{Пример 3}
+\textbf{Пример 3}
 
 \subsection{Энергетический метод}
 (для положительно определенных операторов)
