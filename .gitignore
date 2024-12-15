@@ -1,0 +1,16 @@
+.gitignore
+
+**/*.aux
+**/*.log
+**/*.toc
+**/*.out
+**/*.synctex.gz
+**/*.gz
+
+/.vscode
+/MFK english
+/MFK2
+/specsem
+/english
+/Параллельные_высокопроизводительные_вычисления/Task1/
+/Спецкурс
