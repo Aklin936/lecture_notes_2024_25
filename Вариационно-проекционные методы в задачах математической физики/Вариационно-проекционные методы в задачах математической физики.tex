@@ -1583,5 +1583,185 @@ $ a_i $ находится из
 \[ ||u_\epsilon - u_{\epsilon, n} ||_{W'}_2 (\Omega) \leq \]
 \[ \leq \frac{ch}{sin \Theta_0} {(q + \frac{h}{\epsilon})}^2 ({||f||}_{L_2} + \frac{1 }{\epsilon} ||\phi||_{W_2^2} (\partial \Omega )) \]
 
+\section{Лекция 14}
+
+\subsection{Вариационная постановка задачит на собственные значения симметрично полржительного оператора}
+
+\[ A \phi = \lambda \phi D(A) \supset H \label{eq:14_1}\]
+
+A - симметричный $ \lambda  $- с зн, $ \lambda \in \mathcal{R} $
+
+\[ \lambda_1 \cancel{=} \lambda_2 - \] с зн A $ \Rightarrow (\phi_1, \phi_2) = 0$
+
+\[ (A\phi, \phi) = \lambda (\phi, \phi) \]
+
+\[ \lambda = \frac{(A\phi, \phi)}{(\phi, \phi)} \label{eq:14_2} \]
+
+Определение
+
+A - ограничено снизу, если $ \forall \phi \in D(A) $
+\[ (A\phi, \phi) \geq k(\phi, \phi)  \label{eq:14_3}\]
+
+\[ k\in \mathcal{R}  \] (не обязательно $ k>0 $)
+
+Далее A - ограничено снизу $ \Rightarrow  \frac{(A \phi, \phi)}{(\phi, \phi)} \geq k \Rightarrow \exists \underset{inf}{\phi \in D(A)} \frac{(A\phi, \phi)}{\phi, \phi} = \alpha \geq k$
+
+\[ F(\phi) = \frac{(A \phi, \phi)}{(\phi, \phi)} \label{eq:14_4} \]
+
+теорема
+
+Пусть $ A $ - симметрично отр снизу, $ \alpha = \underset{inf}{\phi \in D(A)} \frac{(A \phi, \phi)}{(\phi, \phi)} $
+
+Если $ \exists \phi_0 \in D(A): F(\phi_0) = \frac{(A \phi_0, \phi_0)}{(\phi_0, \phi_0)} = \alpha$
+
+$ \Rightarrow \lambda_1 = \alpha; \phi_0 -$ собственные функции
+
+Доказательство
+
+Пусть $ \eta \in D(A), \forall t \in R $
+
+\[ \psi(t) = \frac{(A(\phi_0 + t \eta), \phi_0 + t\eta)}{(\phi_0 + t \eta, \phi_0 + t\eta)} = F(\phi_0 + t \eta) \]
+
+\[ \frac{t^2(A \eta, \eta) + 2 t Re(A \phi_0, \phi) + J(A \phi_0, \phi_0)}{t^2 (\eta, \eta) + 2tRe(\phi_0, \eta) + (\phi_0, \phi_0)} \]
+
+тк $ \phi_0 = argmin F(\phi) \Rightarrow \phi(t)0  $ в $ t=0 min \Rightarrow \psi'(0) = 0 $
+
+\[ (\phi_0, \phi_0) Re (A \phi_0 - d\phi_0, \eta) = 0 \]
+
+аналог, заменив $ (\eta) $ на $ i\eta  \Rightarrow Im (A \phi_0 - d\phi_0, \eta) = 0 \Rightarrow$
+
+\[ \Rightarrow (A \phi_0 - d \phi_0, \eta) = 0 \forall \eta \in D(A) \Rightarrow \]
+
+\[ \Rightarrow A \phi_0 - d \phi_0 = 0 \]
+
+$ A \phi_0 = d \phi_0 \Rightarrow $ с зн в H
+
+покажем min
+
+Пусть $ \lambda_1 $ - с зн A
+
+\[ \lambda_1 = \frac{(A \phi_1, \phi_1)}{(\phi_1, \phi_1)} \geq \frac{(A \phi_0, \phi_0)}{(\phi_0, \phi_0)} \alpha \]
+
+Теорема
+
+Пусть $ \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_4 $ - (n) с зн симм отностельно сн A
+
+Gecnm $ \exists \phi_{n+1} \in D(A): \phi_{n+1}= \underset{argmin}{\phi \in D(A)} \frac{(A \phi, \phi)}{(\phi, \phi)} \Rightarrow $
+
+$ \Rightarrow \lambda_{n+1} = \frac{(A \phi_{n+1}, \phi_{n+1})}{(\phi_{n+1}, \phi_{n+1})} $ с зн; $ \phi_{i+1} $ -с зн
+
+Доказательство
+
+\[ \forall \xi \in D(A) \]
+
+\[ \eta = \xi - \sum_{k=1}^{n} (\xi, \phi_k) \phi_k \]
+
+$ \eta $ удовлетворяет усл \ref{eq:14_9}
+
+\[ \psi(t) = \frac{(A(\phi_{n+1}+tn), \phi_{n+1}+t\eta)}{(\phi_{n+1}+t\eta, \phi_{n+1}, \phi_{n+1} + t\eta)} \]
+
+\[ \Rightarrow A \phi_{n+1} = \lambda_{n+1} \phi_{n+1} \]
+
+Пусть $ \lambda $ с зн $ \lambda'' > \lambda_n, \phi' $ - соответств с ф
+
+\[ \lambda' = \frac{(A\phi', \phi')}{(\phi', \phi)} \geq \lambda_{min} = min \frac{A \phi, \phi}{(\phi, \phi)} \]
+
+$ \lambda$ин - след с зн $ lambda_n $
+
+Теорема
+
+Пусть опрератор опр снизу симм А, содержит тоолько собственные значения  $ \Rightarrow $
+
+$ \Rightarrow \exists min  $ с зн А $ \lambda_0 $ и $ \phi_0  $ - с ф
+
+$ \frac{(A\phi_0, \phi_0)}{(\phi_0, \phi_0)} = \lambda_0 $
+
+\[ A \phi - \lambda B \phi = 0 \label{eq:14_*} \]
+
+A, B - симметричные, Ф - огр. снизу
+В - положительно опр., $  D(A) \subset D(B) \subset H $
+
+Если $ \lambda_0 и \phi_0 $ - удовлетворяет \ref{eq:14_*} $ \Rightarrow \lambda_0 $ с зн, $ \phi_0 $ с ф
+
+\[ \lambda_0 = \frac{A \phi_0, \phi_0}{(B \phi_0, \phi_0)} \]
+
+Теорема
+
+Пусть $ \lambda_k \neq \lambda_m  $ - с зн \ref{eq:14_*}
+
+\[ (B \phi_k, \phi_m) = 0; k \neq m  \] - (огр. снизу А не требуется)
+
+
+Теорема
+
+Пусть $ d - \underset{inf}{\phi \in D(A)} \frac{(A \phi, \phi)}{B \phi, \phi} $
+
+Если $ \exists \phi_0: \frac{(A \phi_0, \phi_0)}{(B(\phi_0, \phi_0))} = d $
+
+$ \Rightarrow d - min $ - с зн \ref{eq:14_*}, $ \phi_0 $ - с ф
+
+Теорема
+
+Пусть $ \lambda \leq \lambda \leq ... \leq \lambda $ - с зн \ref{eq:14_*}
+
+$ \phi_1, ... , \phi_n $ соответствующие собств функции
+
+Пусть $ \exists \phi_{n+1} = \underset{argmin}{\phi \in D(A)}\frac{(A \phi, \phi)}{B \phi, \phi} $
+
+$ \lambda_n \Rightarrow \lambda_{n+1} = \frac{(A \phi_{n+1}, \phi_{n+1})}{(B, \phi_{n+1}, \phi_{n+1})} $
+
+\[ (B\phi, \phi_k) = 0, k = \overline{1, n} \]
+
+\subsection{Метод Рица в задаче с зн}
+
+А - отр снизу оператор
+
+$ d = \underset{inf}{D(A)} \frac{(An, n)}{(n, n)} $
+
+по Т1. Если $ \exists u_0 : \underset{inf}{D(A)}\frac{A \phi_0, \phi_0}{\phi_0, \phi_0} = d \{ \phi: \phi \in D(A) \cup ||\phi||=1\} = M \Rightarrow \underset{inf}{\phi \in M} (A\phi, \phi) $
+
+$ \{ \phi_n \} \supset D(A)$ полно в H
+
+$ \forall u \in D(A) \forall \epsilon > 0 \exists n \in \mathcal{N} $ и $ \alpha_1, ... , \alpha_n \in \mathcal{C} $
+
+\[ ||u - u^*|| < \epsilon; u^* = \sum_{k=1}^{n} \alpha_k \phi_k \]
+
+\[ lin = \sum_{k=1}^{n} a_k \phi_k (Au_n, u_n) - min \]
+
+\[ (A u_n, u_n) = \sum_{k,n = 1}^{n} (A \phi_n, \phi_m) a_k \overline{a_m} \Rightarrow a_k \textrm{ удовлетворяет уравнению }\]
+
+\[ (u_n, u_n) = \sum_{k, m=1}^{n} (\phi_k, \phi_m) a_k; a_m = 1  \label{eq:14_5}\]
+
+Метод множ Лагранжа
+
+\[ \Phi = (A u_n, u_n) - \lambda (u_n, u_n) \]
+
+$ \lambda  $ - пока неопр переметр
+
+\[ \sum_{k=1}^{m} a_k [(A_\phi_k, \phi_m) - \lambda (\phi_k, \phi_m)] = 0 \]
+
+однородное СЛАУ отно $ a_1, ... , a_n $ одн $ \Rightarrow det () = 0  \Rightarrow \textrm{ ур-е на }\lambda $
+
+\[ (A \phi_1, \phi_1) - \lambda = (A\phi_1, \phi_n) \]
+
+\[ (A \phi_2, \phi_1) = (A\phi_2, \phi_n) \]
+
+\[ (A \phi_n, \phi_1) = (A\phi_n, \phi_n) - \lambda \]
+
+и соотв усло $ \{\phi_i \} $  оне
+
+ур-у (т) ой степени по $ \lambda l (-1) \lambda^n $
+
+коэффиц оприделен при матрице Грамма для $ \{ \phi_1, ... \phi_n \} \Rightarrow $ равно (n) корней
+
+Пусть $ \lambda_0 $ - корней $ \Rightarrow  \forall n $ реш max $ \Rightarrow $
+
+$ \Rightarrow a^(0)_k (нетрив) \Rightarrow a^{(0)}_k$ (нетрив)
+
+и выбираем из \ref{eq:14_5} $ ((u_n, u_n) = 1) $ далее $ a^{0}_k: $
+
+в \ref(eq:14_6) по уст $ \lambda_0, a^{(0)}_kl ...$
+
+\[ \sum_{л=1}^{m} a_m^{(0)} a_k^{(0)} (A \phi_k, \phi_m) = \sum_{k=1}^{m} \lambda_0(\phi_k, \phi_m) a_k^{(0)} \]
 
 \end{document}
