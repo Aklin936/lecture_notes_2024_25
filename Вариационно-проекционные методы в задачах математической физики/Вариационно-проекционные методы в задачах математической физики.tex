@@ -559,11 +559,7 @@ $ D_A $ предгильбертово, дополним его по $ {|\boldsy
 \end{array} $
 
 $ H_A $ --- энергетическое пространство
-\begin{equation}
-	{\|u\|}_H \leq \frac{1}{\gamma   } {\|u\|}_A
-	\label{4.0}
-	\tag{4.0}
-\end{equation}
+\[ {\|u\|}_H \leq \frac{1}{\gamma   } {\|u\|}_A \label{4.0} \tag{4.0} \]
 \[ u \in H_A \begin{array}{l@{\ }l}
 	\raisebox{-1ex}{$\nearrow$} & u \in D_A \\
 	\raisebox{1ex}{$\searrow$} & \exists \{ u_n \} \in D_A: \ \lim\limits_{n \rightarrow \infty} {\|u_n - u\|}_A = 0
@@ -592,6 +588,8 @@ $ H_A $ --- энергетическое пространство
 	Переходя к пределу: $ {[\varphi, u]}_A = 0 \ \forall \varphi \qquad \Rightarrow u = 0 \Rightarrow u_1 = u_2 \hfill \square $
 \end{enumerate}
 
+TODO: пропущено
+
 \textbf{Пример 1}
 \[ Bu = - \frac{d^2}{d x^2}u, \qquad D_{B} = \{u \in C^2 [0,1], \ u(0) = u(1) = 0 \} \]
 \[ H = L_2 (0, 1), \ u \in H_B \]
@@ -618,66 +616,55 @@ $ H_A $ --- энергетическое пространство
 \[ {\| u = u_n \|}_A \underset{n \rightarrow \infty}{\rightarrow} 0 \quad \text{и} \quad {\| u_k - u_n \|}_H \underset{n,k \rightarrow \infty}{\rightarrow} 0 \]
 
 \textbf{Пример 3}
+\[ Lu = - \frac{d}{dx} \left( x^3 \frac{du}{dx} \right), \qquad u(1)=0 \]
+\[ D_L = \{u \in C^2 [0,1], \ u(1) = 0 \} \]
+\[ H_L = \left\{ u \ \text{абсолютно непрерывна на} \ [0,1], \quad u(1)=0, \quad \int\limits_{0}^{1} x^3 {u'}^2 dx = 0 \right\} \]
+\[ \tilde{u} = \frac{1}{x} - 1 \]
 
 \subsection{Энергетический метод}
 (для положительно определенных операторов)
+\[ Au = f, \qquad A: \enspace D(A) \subset H \rightarrow H \label{4.1} \tag{4.1} \]
 
-\[ Au = f \label{eq:1} \]
+\textbf{Теор.} $A$ положителен в $H$, тогда уравнение \eqref{4.1} имеет не более одного решения.
 
-\[ A: \mathcal{D} (A) \in H \rightarrow H; \]
+\underline{Док-во.}
+\[ \text{Пусть} \ u_1, u_2 \ \text{--- решения \eqref{4.1}} , \quad \tilde{u} = u_1 - u_2, \quad Au_1 = f, \quad Au_2 = f \]
+\[ A \tilde{u} = 0 \]
+\[ \left( A \tilde{u}, \tilde{u} \right) = {[\tilde{u}, \tilde{u}]}_A = {\| \tilde{u} \|}^2_A = 0 \hfill \square \]
 
-Теорема
+\textbf{Теор. (о функциональной энергии)} $A$ --- является положительным в $H$; $u$ --- решение уравнения \eqref{4.1} $ \Leftrightarrow $ $u$ доставляет минимум функционала
+\[ F(u) = {(Au, u)}_H - {(f, u)}_H - {(u, f)}_H \label{4.2} \tag{4.2} \]
 
-A положителен в H уравнении \ref{eq:1} $ \exists $ не более одного решения.
+\underline{Док-во.}
+... \\
+TODO: пропущено  \\
 
-Доказательство
+\textbf{Пример 4}
+\[ A \omega = \Delta^2 \omega = \frac{\partial^4 \omega}{\partial x^4} + 2 \frac{\partial^4 \omega }{\partial^2 x \partial^2 y} + \frac{\partial^4 \omega }{\partial y ^4} \]
+\[ D_A = \left\{ \omega \in C^4(\overline{\Omega}); \quad \left. \omega \right|_S = 0; \quad \left. \frac{\partial \omega}{\partial n} \right|_S = 0 \right\} \]
 
-\[ u_1, u_2 - \textrm{ Решения \ref{eq:1}} ... \]
+\[ A \omega = \frac{q(x,y)}{\mathcal{D}} \]
 
-Теорема о функциональной энергии
+\subsection{Обобщение решения задачи о min для функционала}
 
-A - положительный в H; u - решение \ref{eq:1} $ \rightleftarrows $ доставляет минимум функционала
+\[ A \ \text{--- положительно определенный в $H$}, \quad Au=f \enspace \eqref{4.1}, \enspace f \in H \]
+\[\text{фикс.}\ f \in H \quad \forall u \in H_A \quad {(u, f)}_H: \ \text{ф-ла} \ H_A \rightarrow \mathbb{R}/ \mathbb{C} \]
+\[ | {(u, f)}_H | \overset{\text{КБ}}{\leq} {\|f\|}_H {\|u\|}_H \leq {\|f\|}_H \frac{1}{\gamma} {\|u\|}_A; \qquad \gamma, \enspace {\|f\|}_H - const \qquad \Rightarrow \ \text{ограничен} \]
+\[ \text{огр.} \ (f, u) \Rightarrow \ \text{по теор. Рисса} \ \exists \ u_0 \in H_A: \ {(f, u)}_H = {[u, u_0]}_A \]
+\[ F(u) = {[u, u]}_A - {[u, u_0]}_A - {[u_0, u]}_A \label{4.star} \tag{4.*} \]
+\[ \pm \enspace {[u_0, u_0]}_A \qquad \text{в} \ \eqref{4.star} \]
+\[ F(u) = {\| u - u_0 \|}^2_A - {\|u_0\|}^2_A  \]
+\[ \underset{u \in H_A}{\operatorname{argmin}} F(u) = u_0 \ \text{--- обобщенное решение} \ Au = f \] \\ \\
 
-\[ F(u) = (Au, u)_H - (f, u)_H - (u, f)_H \label{eq:2}\]
+$H$ --- сепарабельно $\Rightarrow$ $H_A \exists \{ \omega_n \} $ ПОНС
 
-Доказательство
+\[ u_0 = \sum_{n=1}^{\infty} [u_0, \omega_n] \ \omega_n  \]
+\[ u = \omega_n, \qquad {[u_0, \omega_n]}_A = {(f, \omega_n)}_H \]
+\[ u_0 = \sum_{n=1}^{\infty} {(f, \omega_n)}_H \ \omega_n \]
 
-...
+\newpage
 
-\[  \]
-
-Пример 4
-\[ \Delta^2 \omega = \frac{\partial^4}{\partial x^4}\omega + 2 \frac{\partial^4 \omega }{\partial^2 \omega \partial^2 y} + \frac{\partial^4 \omega }{\partial y ^4} \]
-\[ \mathcal{D}_A = \{ \omega \in c^4( \overline{\Omega}); \omega|_S = 0; \frac{\partial \omega}{\partial n} |_S = 0 \} \]
-
-\[ A-\omega = \frac{a(x,y)}{\mathcal{D}} \]
-
-\subsection{Обобщение решения задачи о min для ф.э.}
-
-\[ A - \textrm{ Поллжительно определено в H } Au=f \ref{eq:1} f \in H \]
-фикс $ f \in H \forall u \in H_A (u, f)_H :\textrm{ ф-ла } : H_A \rightarrow \mathcal{R} $
-
-\[ | (u, f)_H | \leq ||f||_H {||u||}_H \leq {||f||}_H \frac{1}{\gamma} ||u||_A; \gamma ||f||_H - const \]
-
-\[ \textrm{ Опр } (f, u) \Rightarrow \textrm{ по Т Рисса } \exists u_0\in H_A (f, u)_H = [u, u_0]_A \]
-
-\[ F(u) = [u, u]_A - [u, u_0] - [u_0, u]_A \]
-
-\[ +-[u_0, u_0]_A \label{eq:4}\]
-
-\[ F(u) = || u - u_0 ||^2_A - ||u_0||^2_A  \]
-
-\[ argmin_{u \in H_A} F(u) = u_0 \textrm{ Обощенное решение } Au = f \]
-
-Если H сепарабельно, энергетическое про-во тоже сепарабельно, $ \exists \{ \omega_n \} $ ПОНС
-
-\[ r_0 = \sum_{n=1}^{\infty} [u_0, \omega_n] \omega_n  \ref{eq:5}\]
-
-\[ u = \omega_n [u_0 \omega_n]_A = (f, \omega_n)_H \]
-
-\[ u_0 = \sum_{n=1}^{\infty} (f, \omega_n)_H \omega_n \]
-
-\section{Лекция }
+\section{Лекция 5}
 
 \subsection{ Применение энергетического метода для краевых задач}
 
@@ -1537,12 +1524,12 @@ $\Theta_0 - min \triangle $
 
 \[ f \in L_2 (\Omega) , g \in W^{\frac{3}{2}}_2 (\partial \Omega) \]
 
-\[ c_3 ({||f||}_L_2 + {||g||}_{W_2^{\frac{3}{2}}}) \leq {||u||}_{W^2_2(|omega)} \leq c_u() \]
+\[ c_3 ({||f||}_L2 + {||g||}_{W_2^{\frac{3}{2}}}) \leq {||u||}_{W^2_2(|omega)} \leq c_u() \]
 
 \begin{enumerate}
     \item Сведение к однородным гр. у
 
-    \[ пусть  \exists \Phi \in  D(A): \Phi=g  \textrm{ на \partial \Omega } \]
+    \[ пусть  \exists \Phi \in  D(A): \Phi=g  \textrm{ на } \partial \Omega \]
     \[ V = u - \Phi \]
     \[ - \Delta V = f = f + \Delta \Phi \in L_2 (\Omega); V |_{\partial \Omega} = 0 \]
 
@@ -1580,7 +1567,7 @@ $ a_i $ находится из
 
 \[ [u_h, \phi_i]_A = (f, \phi_i) + \int_{\partial \Omega}^{}g \phi dS \]
 
-\[ ||u_\epsilon - u_{\epsilon, n} ||_{W'}_2 (\Omega) \leq \]
+\[ ||u_\epsilon - u_{\epsilon, n} ||_{W'} 2 (\Omega) \leq \]
 \[ \leq \frac{ch}{sin \Theta_0} {(q + \frac{h}{\epsilon})}^2 ({||f||}_{L_2} + \frac{1 }{\epsilon} ||\phi||_{W_2^2} (\partial \Omega )) \]
 
 \section{Лекция 14}
