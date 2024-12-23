@@ -29,6 +29,7 @@
 top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \usepackage{setspace}
+\usepackage{accents}
 
 \usepackage{tocloft}
 \setlength\cftsecnumwidth{0em}
@@ -42,6 +43,9 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 {}% <before code>
 \renewcommand{\thesection}{}% Remove section references...
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}%... from subsections
+
+\newcommand{\Int}{\int\limits}
+\newcommand{\Sum}{\sum\limits}
 
 \begin{document}
 
@@ -389,7 +393,7 @@ $\varphi \in D_A \rightarrow ! \enspace A\varphi \in R_A$
 
 \begin{equation}
 	\label{3.0}
-	\tag{0}
+	\tag{3.0}
 	\int\limits_{\Omega } u \frac{\partial v }{\partial x_i} d \Omega = - \int\limits_{\Omega }^{} v \frac{\partial u}{\partial x_i} d \Omega + \int\limits_{S }^{} uv cos(\overline{n} \cdot x_i ) dS \qquad \text{в} \ \mathbb{R}^m
 \end{equation} \\
 
@@ -405,11 +409,13 @@ $\varphi \in D_A \rightarrow ! \enspace A\varphi \in R_A$
 
 \begin{equation}
 	\label{3.1}
+	\tag{3.1}
 	\int\limits_{\Omega}^{} v L u d\Omega = \int\limits_{\Omega}^{} \sum_{i,k = 1}^{m}A_{ik} \frac{\partial u }{\partial x_k} \frac{\partial v }{\partial x_i} d\Omega + \int\limits_{\Omega} C u vd\Omega - \int\limits_{S }^{} v \sum_{i,k=1}^{m} A_{ik} \frac{\partial u}{\partial x_k } cos(\overline{n} \cdot x_i ) dS
 \end{equation}
 
 \begin{equation}
 	\label{3.2}
+	\tag{3.2}
 	\int\limits_{\Omega}^{} u L u d\Omega = \int\limits_{\Omega} \left[ \sum_{i,k = 1}^{m}A_{ik} \frac{\partial u }{\partial x_i} \frac{\partial u }{\partial x_k} + Cu^2 \right] d\Omega - \int\limits_{S } u \sum_{i,k =1}^{m} A_{ik} \frac{\partial u}{\partial x_k } cos(\overline{n} \cdot x_i ) dS
 \end{equation}
 
@@ -426,6 +432,7 @@ $\varphi \in D_A \rightarrow ! \enspace A\varphi \in R_A$
 
 \begin{equation}
 	\label{3.3}
+	\tag{3.3}
 	\int\limits_{\Omega} \left( vLu - uLv \right) d\Omega = \int\limits_{S} \left( uNv - vNu \right) dS
 \end{equation}
 
@@ -435,16 +442,19 @@ $\varphi \in D_A \rightarrow ! \enspace A\varphi \in R_A$
 
 \begin{equation}
 	\label{3.4}
+	\tag{3.4}
 	- \int\limits_{\Omega} v \Delta u d\Omega  = \int\limits_{\Omega}^{} \sum_{i=1}^{m } \frac{\partial u }{\partial x_i }  \frac{\partial v }{\partial x_i} d \Omega - \int\limits_{S }^{} v \frac{\partial u }{\partial n } dS
 \end{equation}
 
 \begin{equation}
 	\label{3.5}
+	\tag{3.5}
 	- \int\limits_{\Omega} u \Delta u d \Omega = \int\limits_{\Omega}^{} {\left(\frac{\partial u }{\partial x_i}\right)}^2 d \Omega - \int\limits_{S }^{} u \frac{\partial u }{\partial n } dS
 \end{equation}
 
 \begin{equation}
 	\label{3.6}
+	\tag{3.6}
 	- \int\limits_{\Omega} (v \Delta u - u \Delta v ) d\Omega = \int\limits_{S }^{} \left(v \frac{\partial u }{\partial n } - u \frac{\partial v}{\partial n}\right) dS
 \end{equation}
 
@@ -646,8 +656,7 @@ TODO: пропущено  \\
 \[ A \omega = \frac{q(x,y)}{\mathcal{D}} \]
 
 \subsection{Обобщение решения задачи о min для функционала}
-
-\[ A \ \text{--- положительно определенный в $H$}, \quad Au=f \enspace \eqref{4.1}, \enspace f \in H \]
+$A$ --- положительно определенный в $H$, $\quad Au=f \enspace \eqref{4.1}, \enspace f \in H$
 \[\text{фикс.}\ f \in H \quad \forall u \in H_A \quad {(u, f)}_H: \ \text{ф-ла} \ H_A \rightarrow \mathbb{R}/ \mathbb{C} \]
 \[ | {(u, f)}_H | \overset{\text{КБ}}{\leq} {\|f\|}_H {\|u\|}_H \leq {\|f\|}_H \frac{1}{\gamma} {\|u\|}_A; \qquad \gamma, \enspace {\|f\|}_H - const \qquad \Rightarrow \ \text{ограничен} \]
 \[ \text{огр.} \ (f, u) \Rightarrow \ \text{по теор. Рисса} \ \exists \ u_0 \in H_A: \ {(f, u)}_H = {[u, u_0]}_A \]
@@ -656,7 +665,7 @@ TODO: пропущено  \\
 \[ F(u) = {\| u - u_0 \|}^2_A - {\|u_0\|}^2_A  \]
 \[ \underset{u \in H_A}{\operatorname{argmin}} F(u) = u_0 \ \text{--- обобщенное решение} \ Au = f \] \\ \\
 
-$H$ --- сепарабельно $\Rightarrow$ $H_A \exists \{ \omega_n \} $ ПОНС
+$H$ --- сепарабельно $\Rightarrow$ $H_A \enspace \exists \{ \omega_n \} $ ПОНС
 
 \[ u_0 = \sum_{n=1}^{\infty} [u_0, \omega_n] \ \omega_n  \]
 \[ u = \omega_n, \qquad {[u_0, \omega_n]}_A = {(f, \omega_n)}_H \]
@@ -666,320 +675,538 @@ $H$ --- сепарабельно $\Rightarrow$ $H_A \exists \{ \omega_n \} $ П�
 
 \section{Лекция 5}
 
-\subsection{ Применение энергетического метода для краевых задач}
+\textbf{Пример} (задача о кручении стержня)
+
+\[ \left\{ \begin{array}{l}
+	-\Delta \psi = 2 G \Theta  \\
+	\left. \psi \right|_{\partial\Omega} = 0  
+\end{array} \right. \]
+
+$G$ --- модуль сдвига
+
+$\Theta$ --- угол закручивания
+\[ \Omega: \left\{ \begin{array}{l}
+	0 \leq x \leq a  \\
+	0 \leq y \leq b  
+\end{array} \right. \]
+\[ Au = -\Delta u \]
+\[ D_A = \left\{ u \in C^2(\Omega), \enspace \left. u \right|_{\partial \Omega} = 0 \right\} \]
+\[ {[u,v]}_A = \Int_{0}^{a} \Int_{0}^{b} -\Delta v(x,y)u(x,y)dxdy \]
+\[ {\| u \|}^2_A = - \Int_{0}^{a} \Int_{0}^{b} \Delta u(x,y)u(x,y)dxdy \]
+\[ \psi_{m,n} = \sin \left( \frac{\pi m x}{a} \right) \sin \left( \frac{\pi n y}{b} \right) \in D_A \]
+\[ \Delta \psi_{m,n} = - \pi^2 \left( \frac{m^2}{a^2} + \frac{n^2}{b^2} \right) \psi (x, y) \]
+\[ {\| u \|}^2_A = \frac{\pi^2 (b^2 m^2 + a^2 n^2)}{4ab} \]
+\[ w_{m,n} = \frac{2}{\pi} \frac{\sqrt{ab}}{\sqrt{b^2 m^2 + a^2 n^2}} \sin \left( \frac{\pi m x}{a} \right) \sin \left( \frac{\pi n y}{b} \right) \]
+\[ (2G\Theta, w_{m,n}) = \frac{16abG\Theta}{\pi^3 m n} \sqrt{\frac{ab}{b^2 m^2 + a^2 n^2}} \]
+\[ \psi(x,y) = \frac{32G\Theta a^2b^2}{\pi^4} \Sum_{m,n=1,3,5...}^{\infty} \frac{\sin \left( \frac{\pi m x}{a} \right) \sin \left( \frac{\pi n y}{b} \right)}{mn (b^2 m^2 + a^2 n^2)} \]
+
+\subsection{Минимизация последовательностей}
+
+$ \Phi(u) $ ограничен снизу на $M$, \quad $\exists d = \underset{u \in M}{\inf} \Phi(u)$
+
+$ {u_n}$ --- минимизирующая, \quad $ \underset{n \rightarrow \infty}{\lim} \Phi(u_n) = d $
+
+Пусть $u_0$ --- обобщенное решение $Au = f$
+
+$ F(u) = {\| u - u_0 \|}_A - {\| u_0 \|}_A $
+
+$ \underset{n \rightarrow \infty}{\lim} F(u_n) = F(u_0) = - {\| u_0 \|}_A $ \\
+
+\textbf{Теор.} Если $A$ положительно определенный оператор в $H$, то для $\forall$ ... ${u_n}$ для $F(u)$:
+\[ \underset{n \rightarrow \infty}{\lim} {\| u_n - u_0 \|}_A = 0 \qquad \Rightarrow {\| u_n - u_0 \|}_A \rightarrow 0 \]
+\[ F(u_n) = {\| u_n - u_0 \|}_A - {\| u_0 \|}_A \rightarrow -{\| u_0 \|}_A \]
+
+Если $u_0 \in H_A$, то теорема верна и для положительного $A$
+
+\subsection{Расширение положительно определенного оператора}
+
+\[ {[u,f]}_H = {[u,u_0]}_A \qquad \forall f \in H \rightarrow \exists! \ uo \in H_A \]
+\[ \Rightarrow \text{определен линейный оператор} \ G: D_G = H \rightarrow H_A \supset R_A \qquad u_0 = Gf \]
+\[ \exists \ G^{-1} \ \text{--- расширение} \ A \]
 
 \begin{enumerate}
-	\item Немного опазадал, пример часть примера пропустил
-	...
-	\[ {(Lu, u)}_H = \sum_{k=0}^{m} \int_{x_1}^{x_2} p_k (x) (\frac{d^k u }{d x^k })^2 dx >= \int_{x_1}^{x^2} p_{n_1} (x) (\frac{d^m u }{d x^n } dx^3) >= p_0 \int_{x_1}^{x^2} (\frac{d^m u }{dx^m } dx = p_0 {||u_(m)||}^2_H) \]
-	...
-	\[ (L u_M ) >= \partial^2 {||u||}^2_H, \gamma = \sqrt{p_0} {(\frac{\sqrt{2}}{x_2-x_1})}^m \]
-	...
-	\[ {||u||}_A \leq \sqrt{p_0 } {||u||^{(m)}}_H \exists \{ u_N (x) \}\]
-
-	\[ {lim}_{n \rightarrow \infty} = 0; u_0 - \textrm{ точное решение  } \]
-
-	\[ {||u_n - u_k ||}_A <= {||u_n - u_0||}_A + {|| u_k - u_0||}_A \rightarrow 0 \]
-	\[ u^{(l)}_n (x_1) = u_k^(l) (x_1) = 0, l = \overline{0, m-1} \]
-	...
-
-	\item Изгиб балки
-	\[ L_{\omega} = \frac{d^2}{dx^2} [E I(x) \frac{d^2 \omega }{dx^2}] + K\omega = q(x)\]
-	\[ \omega - \textrm{ Прогиб балки } \]
-	\[ E - \textrm{ модуль Юнга } \]
-	\[ I(x) - \textrm{ момент инерции } \]
-	\[ q(x) - \textrm{ интенсивность нагрузки на балку } \]
-	\[ K - \textrm{ коэф податливости основания } \]
-
-	\[ \omega (0) = \omega (l) = 0 \]
-	\[ \omega'(0) = \omega'(l) = 0 ; A - \textrm{ Положительно определен } \]
-	Аналогично задачи минимизации функционала
-
-	\[ F(\omega) = \int_{0}^{l} (E I(x) {\omega''}^2 + K\omega^2 - 2q(x \omega)) dx = (L\omega , \omega) -2 (\omega, q)\]
-
-	Воспользуемся методом Рица
-
-	\[ {u_n (x)}^{\infty}_{n=1}, \phi_n (x) = {(x-l)}^2 x^{n+1}, \textrm{ Полная система в  } H_A \]
-
-	\[ \omega_n = \sum_{k=1}^{n} a_k \phi_k (x) = {(x-l)}^2 \sum_{k=1}^{n} a_k x^{k+1} \]
-	\[ \sum_{n}^{k=1} a_k A_{1k} = b_{ij}; i=\overline{1, n} \]
-	\[ b_j = (q, \phi_j)_H = \int_{0}^{l } a(x) (x-l) x dx \]
-	\[ A_{ik} = (L \phi_i, \phi_k)_H = \int_{0}^{l} (E I(x) \frac{d^2 \phi_i}{d x^2} \frac{d^2 \phi_k}{d x^2} + k\phi_i \phi_k) dx \]
-	...
-	\[ \omega(0) = 0; \omega''(l) = 0 \]
-	\[ \omega' (0) = 0 \]
-	\[ \frac{d }{d x } (E I(x) \frac{d^2 \omega }{d x^2})^{x=l}_{x=0} = 0 \]
-	Тут тоже можно доказать полажительную определенность
-
-	\item Краевая задача для систем ОДУ
-	\[ - \sum_{k=1}^{s} [ \frac{d }{dx }(p_{jk}(x) \frac{du_k (x)}{dx}) - q_{jk}(x) u_k (x)] = f_j(x) \]
-	краевые ...
-
-	\[ - \frac{d }{dx } [P(x) \frac{du }{dx }] + Q(x) u(x) = f(x) \]
-	\[ u(x_1) = u (x_2) = 0 \]
-	\[ (u, v)_{H= L_2(x_1, x_2)} = \int_{x_1}^{x_2} u (x) \cdot v(x) dx = \int_{x_1}^{x_2} \sum_{k=1}^{s} u_k(x) v_k (x) dx \]
-
-	\subsubsection{Теорема}
-	\[ P(x), Q(x) \textrm{ симметр. } x \in [x_1, x_2] \Rightarrow A \textrm{ Симметричный } \]
-	Доказательство
-	\[ {(Au, v)}_H = - \int_{x_1}^{x^2} v(x) \cdot \frac{d}{dx} [P(x) \frac{du }{dx }] dx + \int_{x_1}^{x_2} v(x) \cdot Q(x u(x dx)) = \]
-	\[ = \int_{x_1}^{x_2} P \frac{du }{dx } \cdot \frac{dv }{dx } + v(x \cdot Q(x) u(x))dx \]
-	\[ Q u \cdot v = \sum_{j,k=1}^{s } q_{jk u_k \cdot v_j} =  \]
-	\[ = \sum_{i,j =1}^{s} q_{k,j} v_j \cdot v_k \]
-	Следовательно оператор симметричен
-
-	\subsubsection{Теорема}
-	\[ P(x), Q(x) \textrm{ симметрич на } [x_1, x_2] \]
-	\[ P(x)  \textrm{ положит. опр. } Q(x)\textrm{  неотр на } (x_1, x_2] \Rightarrow A \textrm{ положительно определен } \]
-	доказательство
-	\[ P(x) \textrm{ пол. опр } \forall x \Rightarrow \textrm{ пусть } \lambda_1(x) >0  \]
-	\[ \exists \lambda > 0 = const; \lambda_1(x) > \hat{\lambda}> 0  x \in [x_1, x_2] \]
-
-	\[ \forall t = (t, ... , s ) \]
-	\[ P(x) t \cdot t = \sum_{j, k=1}^{s } P_{jk}(x)t_j t_k \geq  \lambda_1(x) \sum_{k=1}^{s } t_k^2 \geq \]
-	\[ \geq \hat{\lambda } \sum_{k=1}^{s } t^2_k \]
-	\[ Q(x) t\cdot t = \sum_{k, k=1}^{s }q_{jk} t_j t_k \geq 0 \]
-
-	\[ (u, u)_H = \int_{x_1}^{x_2} (P \frac{du }{dx } \cdot \frac{du }{dx}) dx \geq \hat{\lambda } \int_{k=1}^{s} (\frac{du_k}{idx}^2) dx \]
-	\[ (Au, u)_H \geq \frac{2 \hat{\lambda}}{{(x_2 - x_1)}^2} \int_{x_1}^{x_2} (\sum_{k=1}^{s } u_k^2) dx = \frac{2 \hat{\lambda}}{{(x_2 - x_1)}^2} dx = \frac{\hat{\lambda}}{{(x_2-x_1)}^2} {||u||}^2_H \]
-
-	\[ {(Au, u)}_H \geq \gamma^2 {||u||}^2_H \]
-	...
-
-
+	\item Ограниченность
+	\[ \forall u \in H_A: \enspace \left| {[u, Gf]}_A \right| \leq | {(u,f)}_H | \leq {\| f \|}_H \cdot {\| u \|}_H \leq \frac{1}{\gamma} {\| f \|}_H \cdot {\| u \|}_A \]
+	\[ \text{Пусть} \ u = Gf \]
+	\[ {\| Gf \|}_A^2 \leq  \frac{1}{\gamma} {\| f \|}_H \cdot {\| Gf \|}_A \]
+	\[ {\| Gf \|}_A \leq  \frac{1}{\gamma} {\| f \|}_H \]
+	\[ {\| Gf \|}_H \leq  \frac{1}{\gamma} {\| Gf \|}_A \]
+	\[ {\| Gf \|}_H \leq  \frac{1}{\gamma^2} {\| f \|}_H \]
+	\item Положительность
+	\[ {(Gf,h)}_H = {[Gf, Gf]}_A = {\| Gf \|}^2_A \geq 0 \]
+	\[ G: \ H_A \rightarrow H_A \forall f \in H_A \]
+	\[ {[Gf,f]}_A = {[f,GF]}_A = \overline{{(f,f)}_H} = {\| f \|}_H \geq 0 \]
+	\[ \text{Пусть} \ Gf = 0 \Rightarrow {(u,f)}_H = {[u, Gf]}_A = 0 \enspace \forall u \in H_A \]
+	TODO
+	\[ \Rightarrow G^{-1} \ \text{--- расширение} \ A \]
+	\[ \forall \tilde{u} \in D_A: \ G^{-1} \tilde{u} \qquad A \tilde{u} \]
+	\[ A \tilde{u} = f \ \Rightarrow \ \tilde{u} \ \text{--- доставляет} \ \min F(u) \]
+	\[ \tilde{u} = Gf, \qquad A \tilde{u} = f = G^{-1} \tilde{u} \Rightarrow G^{-1} \ \text{--- расширение} \ A \]
+	\[ \text{Если $A$ положительно определенный, то и $G^{-1}$ положительно определенный} \]
 \end{enumerate}
 
-\subsection{Основные кр задачи для ур-я Пуассона}
 
-\[ -\Delta u = f(p) \textrm{ в } \Omega \in \mathcal{R}^m \]\label{eq:5_1}
+\subsection{Некоторые методы построения минимизирующей последовательности}
 
-з. Дирихле
+\begin{enumerate}
+	\item Процесс Ритца
+	
+	$H$ --- вещественное гильбертово пространство, $A$ --- положительно определенный
+	\[ Au = f \]
+	\[ \underset{u \in H_A}{\min} F(u) = {[u,u]}_A - 2{(u,f)}_H \]
+	Введем координатные функции $ \varphi_1, \varphi_2, ..., \varphi_n, ... $
+	\begin{itemize}
+		\item $ \varphi_i \in H_A $
+		\item $ \forall n \ {\{ \varphi_i \}}^n_{i=1} $ --- линейно независимые
+		\item $ \varphi_1, \varphi_2, ..., \varphi_n, ... $ полно в $H_A$
+	\end{itemize}
+	\[u_n = \Sum_{k=1}^n a_k \varphi_k, \qquad a_k \in \mathbb{R} \]
+	\[ F(u_n) = {\left[\Sum_{j=1}^n a_j \varphi_j, \Sum_{k=1}^n a_k \varphi_k \right]} - 2{\left(\Sum_{k=1}^n a_k \varphi_k, f \right)} = \Sum_{j,k=1}^n a_j a_k {[\varphi_j, \varphi_k]} - 2 \Sum_{k=1}^n a_k {(\varphi_k, f)} \]
+	Необходимое условие: $ \min \frac{\partial F(u_n)}{\partial a_j} = 0, \ j=\overline{1,n} $. Для положительного $A$ является и достаточным условием
+	\[ \frac{\partial F(u_n)}{\partial a_j} = 2 \Sum_{k=1}^n {[\varphi_j, \varphi_k]}_A a_k - 2 {(f, \varphi_j)} = 0, \qquad j=\overline{1,n} \]
+	Получим СЛАУ относительно $ a_1,..., a_n $
+	\[ \Sum_{k=1}^n {[\varphi_j, \varphi_k]}_A a_k = {(f, \varphi_j)} \rightarrow a_1,...,a_n \ \text{--- решение} \]
+	\[ {\left( {[\varphi_k, \varphi_j]}_A \right)}_{k,j=\overline{1,n}} \ \text{--- определитель Грама} \]
+	$ \exists ! $ решение $u_n = \Sum_{k=1}^n a_k \varphi_k $
+	\[ \{ \varphi_n \} \rightarrow \{ w_n \} \qquad \text{ПОНС в норме} \ {\| \cdot \|}_A \]
+	\[ {[w_k, w_j]}_A = \delta_{kj} \quad \Rightarrow \quad a_k = {(f, w_k)}_H = c_k \]
+	\[ u_n = \Sum_{k=1}^n c_k \varphi_k \]
+	\[ {\| u_n \|}^2_A = \Sum_{k=1}^n c_k^2 {(u_n, f)} = \Sum_{k=1}^n c_k^2 \]
+	\[ F(u_n) = {\| u_n \|}^2_A - 2{(u_n, f)}_H = - \Sum_{k=1}^n c_k^2 = - {\| u_n \|}^2_A \]
+	\[ {\| u_n \|}^2_A \leq {\| u_0 \|}^2_A, \qquad {\| u_n \|}^2_A \underset{n \rightarrow \infty}{\rightarrow} {\| u_0 \|}^2_A \]
+	\[ \text{Пусть} \ n>k: \ {\| u_n - u_k \|}^2_A = {\left\lVert \Sum_{i=k+1}^n c_i w_i \right\rVert}^2_A = \Sum_{i=k+1}^n c_i^2 = {\| u_0 \|}^2_A - {\| u_k \|}^2_A \]
+	\[ \forall u \in H_A \]
+	TODO
+	\[ {\| u_0 \|}^2_A \geq {\| u_1 \|}^2_A = c_1^2 = {({(f, w_1)}_H)}^2 = {({(f, u_1)}_H)}^2 \cdot \frac{1}{{\| u_1 \|}^2_A} \]
+	\[ {\| u_0 \|}^2_A \geq \frac{{({(f, u)}_H)}^2}{{\| u \|}^2_A} \quad \forall u \in H_A \]
+	
+	\item Метод Куранта
+	\[ Au = f, \qquad \Omega \subset \mathbb{R}^m + \ \text{граничные условия} \ \partial \Omega  \]
+	\[ \Phi (u) = F(u) + \underbrace{\Sum_{j=0}^k \Sum_{\alpha_1 + ... + \alpha_n = j} {\left\lVert \frac{\partial^j (Au - f)}{{\partial x_1}^{\alpha_1} \cdot ... \cdot {\partial x_n}^{\alpha_n}} \right\rVert}_H^2}_{\geq 0}, \qquad f \in C^k(\Omega) \]
+	\[ \Phi (u) \geq F(u) \]
+	\[ u_0 = \underset{H_A}{\operatorname{argmin}} \ F(u) \]
+	\[ \{ u_n \} \ \text{--- минимизирует} \ \Phi(u) \]
+	
+	TODO:Пример
+	
+	\item Метод наискорейшего спуска
+	\[ Au = f \]
+	\[ m {\| u \|}^2_H \leq {(Au, u)}_H \leq M {\| u \|}^2_H \]
+	\[ F(u) = {(Au, u)}_H - 2{(u,f)}_H \]
+	
+	\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} $ \quad \forall u_1: \qquad v_1 = Au_1 - f, \qquad u_2 = u_1 - a_1 v_1 $
+	\[ F(u_1 - a_1v_1) = F(u_1) - 2a_1 \Bigl[ {(Au_1, v_1)}_H - {(f,v_1)}_H \Bigr] + a_1^2 {(Av_1, v_1)}_H \]
+	\[ a_1 {(Av_1, v_1)}_H - \Bigl[ {(Au_1, v_1)}_H - {(f,v_1)}_H \Bigr] = 0 \]
+	\[ {(Au_1, v_1)}_H - {(f,v_1)}_H = {(Au_1 - f, v_1)}_H = {(v_1, v_1)}_H = {\| v_1 \|}^2_H \]
+	\[ a_1 = \frac{{\| v_1 \|}^2_H}{{(Av_1, v_1)}_H} \]
+	\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} $ \quad \forall u_2: \qquad v_2 = Au_2 - f_1, \qquad u_3 = u_2 - a_2 v_2 $
+	\[ ... \]
+	\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {n}}} $ \quad {\| u_{n+1} - u_0 \|}_A \leq {\| u_1 - u_0 \|}_A {\Bigl(\frac{M-m}{M+m}\Bigr)}^n $
+	
+\end{enumerate}
 
-\[ u|_{\partial \Omega} = 0 \]\label{eq:5_2}
-\[ A u = - \Delta u = \sum_{k=1}^{m } \frac{\partial^2 u }{\partial x_k^2} \]
-\[ P_A = \{ u \in c^2 (\overline{\Omega}_1) u |_{2 \Omega} = 0 \} \]
-\[ H = L_2 (\Omega) \]
-\[ (- \Delta, u )_h = \int_{\Omega}^{} \sum_{i=1}^{n} (\frac{\partial n }{\partial x_i})^2 d \Omega - \int_{ \partial \Omega}^{} u \frac{\partial u }{\partial n } dS = \int_{\Omega}^{} {({grub} u)}^2 d\Omega \geq 0 \]\label{eq:5_3}
+\subsection{Краевые задачи для ОДУ}
 
-\[  \rightleftarrows \]
-\[ F(u) = (-\Delta u, u )_H -2(u, f)_H  \]\label{eq:5_4}
-\[ F(u) = \int_{\Omega }^{} ((grad u )^2 - 2uf) d\Omega  \]\label{eq:5_5}
+\[ Lu = - \frac{d}{dx} \left( \Phi(x) \frac{du}{dx} \right) + q(x)u'(x) \]
+\[ Lu = f(x), \qquad x_1 < x \leq x_2 \]
+\[ \left\{ \begin{array}{l}
+	\alpha_1 u'(x_1) + \beta_1 u(x_1) = 0 \\
+	\alpha_2 u'(x_2) + \beta_2 u(x_2) = 0
+\end{array} \right. \]
+\[ D_L = \{ C^2[x_1, x_2] + \ \text{граничные условия} \} \]
+Пусть
+\begin{itemize}
+	\item $ p(x) \geq 0, \enspace q(x) \geq 0, \quad x \in [x_1, x_2] $ \\ ($p$ может обращаться в 0 в некоторых точках) $ p(x) \geq p_0 > 0 $
+	\item $ p \in C^1[x_1, x_2], q \in C[x_1, x_2] $
+	\item $ \Int_{x_1}^{x_2} \frac{dx}{p(x)} $ сходится на $ [x_1, x_2] $
+	\item $ \alpha_i^2 + \beta_i^2 > 0, \quad i = 1, 2 $
+\end{itemize}
+\[ (Lu, v) = \Int_{x_1}^{x_2} \left[ p(x) \frac{du}{dx} \frac{dv}{dx} + q(x) u(x) v(x) \right] dx + \frac{\beta_1}{\alpha_1} p(x_1) u(x_1) v(x_1) + \frac{\beta_2}{\alpha_2} p(x_2) u(x_2) v(x_2) \]
+\[ (Lu, u) = \Int_{x_1}^{x_2} \left[ p(x) {\left(\frac{du}{dx}\right)}^2 + q(x) u^2(x) \right] dx + \frac{\beta_1}{\alpha_1} p(x_1) u^2(x_1) + \frac{\beta_2}{\alpha_2} p(x_2) u^2(x_2)  \]
+\[  \blacktriangleright \alpha_1 = \alpha_2 = 0 \]
+\[ (Lu, u) \geq p_0 \Int_{x_1}^{x_2} \left[ p(x) {\left(\frac{du}{dx}\right)}^2 \right] dx = p_0 {\| u' \|}^2_H \geq \gamma^2 {\| u \|}^2_H, \qquad \gamma = \frac{\sqrt{2p_0}}{x_2 - x_1} \]
+\[ u(x_1)=0 \ \rightarrow \ u(x) = \Int_{x_1}^{x} u'(t) dt \]
+\[ u^2(x) \leq (x_2 - x_1) {\| u' \|}^2_H \]
+\[ \Int_{x_1}^{x_2} (...) \ dx \quad \Rightarrow \quad {\| u \|}^2_H \leq \frac{x_2 - x_1}{2} {\| u' \|}^2_H \]
+\[ \blacktriangleright \beta_1 > 0 \]
+\[ (Lu, u) \geq \frac{B}{C} {\| u \|}^2_H \]
+\[ C = \max\left\{2A(x_2 -x_1), 2(x_2 - x_1)\right\}, \quad B = \min\left\{\frac{\beta_1}{\alpha_1} p(x_1), 1\right\} \]
+\begin{multline*}
+	F(u) = {(Lu, u)}_H - 2{(u,f)}_H = \frac{\beta_1}{\alpha_1} p(x_1) u^2(x_1) + \frac{\beta_2}{\alpha_2} p(x_2) u^2(x_2) + \\ + \Int_{x_1}^{x_2} \left[ p(x) {u'(x)}^2 + q(x) u^2(x) - 2f(x)u(x) \right] dx
+\end{multline*}
+\[ u_n(x) \underset{{\| \cdot \|}_A}{\rightarrow} u_0(x) \]
+\[ \underset{n \rightarrow \infty}{\lim} {\| u_n - u_0 \|}_A = 0, \qquad {\| u_n - u_m \|}_A^2 \rightarrow 0 \]
+\[ \underset{n,m \rightarrow \infty}{\lim} \left[ u_n(x) - u_m(x) \right] = 0 \]
+\[ \underset{n,m \rightarrow \infty}{\lim} \Int_{x_1}^{x_2} {\left[ {u'}_n(x) - {u'}_m(x) \right]}^2 dx = 0 \]
+\[ u_n(x) - u_m(x) = u_n(x_1) - u_m(x_1) - \Int_{x_1}^{x_2} {\left[ {u'}_n(t) - {u'}_m(t) \right]}^2 dt \]
+Используя неравенство Буняковского и $ {a+b}^2 \leq a^2 + b^2 $
+\[ {| u_n(x) - u_m(x) |}^2 \leq 2 {(u_n(x_1) - u_m(x_1))}^2 + 2(x_2 - x_1) \Int_{x_1}^{x_2} {\left[ {u'}_n(t) - {u'}_m(t) \right]}^2 dt \]
+\[ u_n(x) \rightrightarrows u(x) \]
+\[ {u'}_n \overset{\text{ср}}{\rightarrow} u'(x) \]
 
-\[ [\frac{\partial u }{\partial n} + \gamma (P) u ] |_{\partial \Omega} = 0 \]\label{eq:5_6}
-
-\[ (- \Delta u, u)_H = \int_{\Gamma}^{} (grad u)^2 d\Omega + \int_{\partial u^2}^{} dS \geq 0 \]
-
-\[ (-\Delta u, u)_H =0 \Rightarrow u = condt \int_{ \partial \xi}^{} \gamma c^2 dS = 0 \Rightarrow c = 0 \Rightarrow u= 0\]
-
-\[ F(u) = \int_{\Omega}^{} ((grad u)^2 - 2uf) d\Omega + \int_{\gamma \Omega} \gamma n^2 dS \]\label{eq:5_7}
-
-\[ \frac{\partial u }{\partial n}|_{\partial \Omega } = 0 \]\label{eq:5_8}
-
-з Неймана
-
-\ref{eq:5_1}, \ref{eq:5_8}
-
-\[ (- \Delta, u )_H = - \int_{\partial \Omega}^{} u  \frac{\partial u}{\partial n} dS + \int_{\Omega}^{} (grad u )^2 d\Omega \geq \]
-
-\[ u == 1 (- \Delta u, u)_H = 0 \]
-
-\[ \textrm{ при  } V == 1 \]
-\[ \int_{\Omega }^{} \Delta u d\Omega = \int_{\partial \overline{\Omega}}^{} \frac{\partial u }{\partial n } dS = 0 \]
-
-\[ S_{\Omega} f d \Omega = 0\]
-Условие разрешимости \ref{eq:5_1} \ref{eq:5_8}
+\newpage
 
 \section{Лекция 6}
 
-**пропустил начало (почти треть) **
+\subsection{Применение энергетического метода для краевых задач}
 
-Уравнение Фридрехса в общем виде:
-\[ \int_{\omega}^{} \sum_{k=1}^{m} (\frac{\partial  n}{\partial x_k})^2 d\Omega \geq x^2 \int_{\Omega}^{} u^2 dx \]
-\[ u|_S=0 \]
+\textbf{Пример 1}
 
-\[ \int_{\Omega}^{} u^2 d \Omega = \leq c \{ \int_{\Omega}^{}(\frac{\partial u }{\partial x}^2+\frac{\partial n}{\partial y} d\Omega) + \int_{\Omega}^{} u^2 dS \} \]
+\[ Lu =\Sum_{k=0}^m (-1)^k \frac{d^k}{{dx}^k} \left[ p_k(x) \frac{d^k u}{{dx}^k} \right], \qquad Lu = f \]
+\[ \left\{ \begin{array}{l}
+	u(x_1) = u'(x_1) = ... = u^{(m-1)}(x_1) = 0 \\ 
+	u(x_2) = u'(x_2) = ... = u^{(m-1)}(x_2) = 0
+\end{array} \right. \]
+\[ p_k(x) \geq 0, \quad x \in [x_1, x_2], \qquad f \in L_2(x_1, x_2) \]
+\[ D_L = \left\{ u \in C^{2m}[x_1, x_2] + \ \text{граничные условия} \right\} \]
+\[ {(Lu, u)}_H = \Sum_{k=0}^{m} \Int_{x_1}^{x_2} p_k (x) {\left(\frac{d^k u }{{dx}^k }\right)}^2 dx \geq \Int_{x_1}^{x_2} p_m (x) {\left(\frac{d^m u }{{dx}^m }\right)}^2 dx \geq p_0 \Int_{x_1}^{x_2} {\left(\frac{d^m u }{{dx}^m }\right)}^2 dx = p_0 {\|u^{(m)}\|}^2_H \]
 
-\[ (\frac{\partial(fv)}{\partial x})^2 + (\frac{\partial (fv)}{\partial y})^2 = f^2 [(\frac{\partial v}{\partial x} + (\frac{\partial v}{\partial y})^2)] - v f\Delta f + \frac{\partial}{\partial x}(v^2 f \frac{\partial f }{\partial x}) \frac{\partial}{\partial y} (v^2 f \frac{\partial f}{\partial y}) \]
+Так как выполняется $ u(x_1) = u'(x_1) = ... = u^{(m-1)}(x_1) = 0 $, то
+\[ {\| u \|}_H^2 \leq \frac{{(x_2-x_1)}^2}{2} {\| u' \|}_H^2 \]
+\[ {\| u \|}_H \leq \frac{x_2 - x_1}{\sqrt{2}} {\| u' \|}_H, \ \ ..., \ \ {\| u^{(l-1)} \|}_H \leq \frac{x_2 - x_1}{\sqrt{2}} {\| u^{(l)} \|}_H, \qquad l=\overline{1,m} \]
+\[ {\| u^{(m)} \|}_H^2 \geq {\left(\frac{\sqrt{2}}{x_2 - x_1}\right)}^m {\| u' \|}_H^2 \]
+FIXME
+\[ (L u_m ) \geq \gamma^2 {\|u\|}^2_H, \quad \gamma = \sqrt{p_0} {\left(\frac{\sqrt{2}}{x_2-x_1}\right)}^m \qquad \Rightarrow \qquad L \ \text{--- положительно определенный} \]
+\[ {\|u\|}_A \leq \sqrt{p_0} \ {\| u^{(m)} \|}_H, \quad \exists \ \{ u_n (x) \}\]
+\[ \underset{n \rightarrow \infty}{\lim} {\| u_n - u_0 \|} = 0, \quad u_0 \ \textrm{--- точное решение} \]
+\[ {\|u_n - u_k \|}_A \leq {\|u_n - u_0\|}_A + {\| u_k - u_0\|}_A \rightarrow 0 \]
+\[ u^{(l)}_n (x_1) = u^{(l)}_k (x_1) = 0, \quad l = \overline{0, m-1} \]
+\[ u^{(m - 1)}_n (x) - u^{(m - 1)}_k (x) = \Int_{x_1}^{x} \left( u^{(m)}_n (t) - u^{(m)}_k (t) \right) \ dt \]
+\begin{multline*}
+	\left| u^{(m - 1)}_n (x) - u^{(m - 1)}_k (x) \right| \overset{\text{КБ}}{\leq} (x - x_1) \Int_{x_1}^{x} {\left( u^{(m)}_n (t) - u^{(m)}_k (t) \right)}^2 \ dt \leq \\
+	\leq (x_2 - x_1) \Int_{x_1}^{x_2} {\left( u^{(m)}_n (t) - u^{(m)}_k (t) \right)}^2 \ dt \leq (x_2 - x_1) {\left\| u^{(m)}_n - u^{(m)}_k \right\|}_H^2
+\end{multline*}
 
-Преобразуем правую и левую части
+\textbf{Пример 2} (задача об изгибе балки)
+\[ L\omega = \frac{d^2}{{dx}^2} \left[E I(x) \frac{d^2 \omega }{{dx}^2}\right] + K\omega = q(x)\]
 
-\[ v^2 ((\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2) + f^2 ((\frac{\partial v}{\partial x})^2 + (\frac{\partial v}{\partial y})^2) + 23\frac{\partial v}{\partial x} f \frac{\partial f}{\partial x} + 2v\frac{\partial v }{\partial y} f \frac{\partial f}{\partial y} \]
+$ \omega $ --- прогиб балки
 
-\[ v^2 (\frac{\partial  f}{\partial x})^2 + v^2 (\frac{\partial  f}{\partial y})^2 + 2v\frac{\partial v}{\partial x}f\frac{\partial  f}{\partial x} + v^2 f \frac{\partial^2 f}{\partial y^2} _ v^2 \frac{\partial^2 f}{\partial y^2} + 2v \frac{\partial v}{\partial y} + \frac{\partial f}{\partial y} - v^2 f \Delta f + f[(\frac{\partial v}{\partial  x})^2+ (\frac{\partial v}{\partial x})^2] \]
+$ E $ --- модуль Юнга
 
-Это предполагается очевидным XD
-\[ \int_{}^{} ((\frac{\partial (fv)}{\partial x})^2 + (\frac{\partial (fv)}{\partial y})^2) d\Omega \geq + \int_{\Omega}^{}vf\Delta f d \Omega + \int_{\partial \Omega}^{}v^2 f \frac{\partial f}{\partial  n} dS \]
-\[ -\int_{\Omega}^{} vf \Delta f d\Omega \leq \int_{\Omega}^{} ((\frac{\partial u}{\partial x})^2 + (\frac{\partial u}{\partial y})^2) d \Omega + \int_{\partial \Omega}^{} v^2 f \frac{\partial f}{\partial n}d S \]
+$ I(x) $ --- момент инерции сечения
 
-\[ f = \sin (\frac{\pi x}{a})\cdot \sin (\frac{\pi y }{b}) \]
-\[ \Delta f = - \pi^2 (\frac{1}{a^2} + \frac{1}{b^2})\cdot f- \int_{\Omega}^{}v^2 f \Delta u^2 = \int_{\Omega}^{} u^2 s\Omega \pi^2 ()  \]
+$ q(x) $ --- интенсивность нагрузки на балку
 
-\[ |\int_{\partial u}^{}v^2 f \frac{\partial f}{\partial n} dS| \leq \int_{\partial  \Omega}^{} v^2 f |\frac{\partial f}{\partial n}|dS \leq c_1 \int_{\partial \Omega}^{} u^2 d \Omega \]
+$ K $ --- коэффициент податливости основания
+\[ \omega (0) = \omega (l) = 0 \]
+\[ \omega'(0) = \omega'(l) = 0 \]
 
-\[ \pi^2 (\frac{1}{a^2} + \frac{1}{b^2}) \int_{\Omega}^{} y^2 d\Omega \leq ((\frac{\partial u}{\partial x})^2 +(\frac{\partial u}{\partial x})^2) dx + c_1 \int_{\partial \Omega}^{} v^2 dS \]
-\[ c= min \{\frac{c_1}{\pi^2(\frac{1}{a^2}+\frac{1}{b^2})}; \frac{1}{\pi}(\frac{1}{a^2}+\frac{1}{b^2})\} \]
+Из предыдущей задачи известно, что $L$ положительно определен
+\[ F(\omega) = \Int_{0}^{l} \left(E I(x) {\omega''}^2 + K\omega^2 - 2q(x) \omega \right) dx = (L\omega , \omega) -2 (\omega, q)\]
 
-\[ (-\Delta u, u)_H = \int_{\Omega}^{} (grad u)^2 d\Omega - \int_{\partial \Omega}^{}u \frac{\partial u}{\partial n} dS \geq \int_{\Omega}^{} (grad u)^2 d\Omega + \sigma \int_{\partial  \Omega u^2 dS}^{} \geq \sigma \{ (grad u)^2 d\Omega + \int_{\partial \Omega}^{}u^2 dS \} \]
+Воспользуемся методом Ритца
+\[ {\{\varphi_n (x)\}}^{\infty}_{n=1}, \quad \varphi_n (x) = {(x-l)}^2 x^{n+1}, \quad \text{полная система в} \ H_A \]
+\[ \omega_n = \Sum_{k=1}^{n} a_k \varphi_k (x) = {(x-l)}^2 \Sum_{k=1}^{n} a_k x^{k+1} \]
+\[ \Sum_{k=1}^{n} a_k A_{ik} = b_{ij}, \quad i=\overline{1, n} \]
+\[ b_j = {(q, \varphi_j)}_H = \Int_{0}^{l } q(x) {(x-l)}^2 x^{j+1} dx \]
+\[ A_{ik} = {(L \varphi_i, \varphi_k)}_H = \Int_{0}^{l} \left(E I(x) \frac{d^2 \varphi_i}{{dx}^2} \frac{d^2 \varphi_k}{{dx}^2} + k\varphi_i \varphi_k \right) dx \]
+\[ \omega_n(x) \underset{[0;l]}{\rightrightarrows} w_0(x), \qquad {\omega'}_n(x) \underset{[0;l]}{\rightrightarrows} {w'}_0(x), \qquad {\omega''}_n(x) \overset{\text{ср}}{\rightrightarrows} {w''}_0(x), \]
+\[ \omega(0) = 0, \qquad \omega''(l) = 0, \qquad \omega' (0) = 0 \]
+\[ {\left.{\frac{d}{dx} \left(E I(x) \frac{d^2 \omega }{d x^2}\right)}\right|}^{x=l}_{x=0} = 0 \]
 
-\[ \frac{1}{c} {||u||}_H^2 \leq \int_{\Omega}^{} (grad u)^2 d\Omega + \int_{\partial \Omega}^{}u^2 dS \]
+\textbf{Пример 3} (краевая задача для систем ОДУ)
+\[ - \Sum_{k=1}^{s} \left[ \frac{d}{dx} \left( p_{jk}(x) \frac{du_k (x)}{dx} \right) - q_{jk}(x) u_k (x) \right] = f_j(x) \]
+\[ u_j(x_1) = u_j(x_2) = 0 \]
+\[ u(x) = {\bigl(u_1(x), ..., u_j(x)\bigr)}^T, \qquad f(x) = {\bigl(f_1(x), ..., f_j(x)\bigr)}^T \]
+\[ {\bigl( p_{jk}(x) \bigr)}_{j,k=1} \subset P(x), \qquad {\bigl( q_{jk}(x) \bigr)}_{j,k=1} \subset Q(x) \]
+\[ - \frac{d}{dx} \left[P(x) \frac{du}{dx} \right] + Q(x) u(x) = f(x) \]
+\[ u(x_1) = u (x_2) = 0 \]
+\[ p_{jk}(x), \ q_{jk}(x), \ {p'}_{jk} (x) \in C[x_1, x_2] \]
+\[ {(u, v)}_{H= L_2(x_1, x_2)} = \Int_{x_1}^{x_2} u (x) v(x) dx = \Int_{x_1}^{x_2} \Sum_{k=1}^{s} u_k(x) v_k (x) dx \]
+\[ D_A = \left\{ u = {\bigl(u_1, ..., u_j\bigr)}^T, \ u_i(x) \in C[x_1, x_2], \ u_i(x_1) = u_i(x_2) = 0 \right\} \]
 
-\[ \frac{\sigma_1}{c} {||u||}_H^2 \leq \int_{\Omega}^{} (grad u)^2 d\Omega + \int_{\partial \Omega}^{}u^2 dS \]
-\[ \sigma = \sqrt{\frac{\sigma}{c}} \]
+\textbf{Теор.} $P(x), Q(x)$ симметричны на $ x \in [x_1, x_2] \quad \Rightarrow \quad A $ симметричный
+
+\underline{Док-во.}
+\begin{multline*}
+	{(Au, v)}_H = - \Int_{x_1}^{x_2} v(x) \frac{d}{dx} \left[P(x) \frac{du}{dx}\right] dx \ + \Int_{x_1}^{x_2} v(x)  Q(x) u(x) dx = \\
+	= \Int_{x_1}^{x_2} \left[P \frac{du }{dx } \frac{dv}{dx} + v(x) Q(x) u(x) \right] dx = {(u, Av)}_H \quad \Rightarrow \quad \text{симметр.}
+\end{multline*}
+\[ Q u v = \Sum_{j,k=1}^{s } q_{jk} u_k v_j = \Sum_{i,j =1}^{s} q_{kj} v_j u_k \hfill \square \]
+
+\textbf{Теор.} $P(x), Q(x)$ симметричны на $[x_1, x_2]$, $P(x)$ --- полож. опр.,  $Q(x)$ неотр. на $[x_1, x_2] \Rightarrow A $ положительно определен
+
+\underline{Док-во.}
+\[ P(x) \textrm{ пол. опр } \forall x \Rightarrow \textrm{ пусть } \lambda_1(x) >0  \]
+\[ \exists \ \tilde{\lambda} > 0 = const, \quad \lambda_1(x) > \tilde{\lambda} > 0, \quad  x \in [x_1, x_2] \]
+\[ \forall \ t = {\bigl(t_1, ..., t_s\bigr)}^T \]
+\[ P(x) t \cdot t = \Sum_{j, k=1}^{s } P_{jk}(x)t_j t_k \geq  \lambda_1(x) \Sum_{k=1}^{s } t_k^2 \geq \tilde{\lambda } \Sum_{k=1}^{s } t^2_k \]
+\[ Q(x) t\cdot t = \Sum_{j, k=1}^{s }q_{jk} t_j t_k \geq 0 \]
+\[ {(Au, u)}_H = \Int_{x_1}^{x_2} \left(P \frac{du }{dx } \cdot \frac{du }{dx} + Qu \cdot u \right) dx \geq \tilde{\lambda } \Int_{x_1}^{x_2} \Sum_{k=1}^s {\left(\frac{du_k}{dx}\right)}^2 dx \]
+\[ (Au, u)_H \geq \frac{2 \tilde{\lambda}}{{(x_2 - x_1)}^2} \Int_{x_1}^{x_2} \left(\Sum_{k=1}^{s } u_k^2\right) dx = \frac{2 \tilde{\lambda}}{{(x_2 - x_1)}^2} {\|u\|}^2_H \]
+\[ {(Au, u)}_H \geq \gamma^2 {\|u\|}^2_H \hfill \square \]
+
+
+\[ \left. \begin{array}{l}
+	u'(x_1) - M_1 u(x_1) = 0 \\
+	u'(x_2) - M_2 u(x_2) = 0
+\end{array} \right. \quad \Rightarrow \quad A \ \text{--- полож. опр.}, \quad M_1, M_2 \ \text{--- ?? неотриц.} \]
+
+\subsection{Основные краевые задачи для ур-я Пуассона}
+
+\[ -\Delta u = f(p) \qquad \text{в} \ \ \Omega \subset \mathbb{R}^m \label{6.1} \tag{6.1} \]
+
+$ \blacktriangleright $ \underline{задача Дирихле}
+\[ u|_{\partial \Omega} = 0 \label{6.2} \tag{6.2}  \]
+\[ A u = - \Delta u = - \Sum_{k=1}^{m } \frac{\partial^2 u }{\partial {x_k}^2} \]
+\[ D_A = \left\{ u \in C^2 \left(\overline{\Omega}\right), \quad u |_{\partial \Omega} = 0 \right\} \]
+\[ H = L_2 (\Omega) \]
+\[ {(-\Delta u, u )}_H = \Int_{\Omega}^{} \Sum_{i=1}^{n} {\left(\frac{\partial u }{\partial x_i}\right)}^2 d \Omega - \cancelto{0}{\int\limits_{S }^{} u \frac{\partial u }{\partial n } dS} = \Int_{\Omega}^{} {(\operatorname{grad} u)}^2 d\Omega \geq 0 \label{6.3} \tag{6.3} \]
+\[ {(Au, u)}_H = 0 \Leftrightarrow u = const = 0 \qquad \Rightarrow \qquad A \ \text{--- положительный} \]
+\[ \Leftrightarrow \min F(u) \]
+\[ F(u) = {(-\Delta u, u )}_H - 2 {(u, f)}_H \label{6.4} \tag{6.4} \]
+\[ F(u) = \Int_{\Omega }^{} {((\operatorname{grad} u )}^2 - 2uf) \ d\Omega \label{6.5} \tag{6.5} \]
+
+$ \blacktriangleright $ \underline{задача Робена}
+\[ {\left. \left[\frac{\partial u }{\partial n} + \sigma (P) u \right] \right|}_{\partial \Omega} = 0 \label{6.6} \tag{6.6} \]
+\[ {(- \Delta u, u)}_H = \Int_{\Omega}^{} {(\operatorname{grad} u)}^2 d\Omega + \Int_{\partial \Omega} \sigma u^2 dS \geq 0, \qquad \sigma(P) \not\equiv 0, \ \sigma(P) \geq 0 \]
+\[ {(-\Delta u, u)}_H =0 \Leftrightarrow u = const = c, \qquad \Int_{ \partial \Omega}^{} \sigma c^2 dS = 0 \Rightarrow c = 0 \Rightarrow u = 0\]
+\[ F(u) = \Int_{\Omega}^{} \left({(\operatorname{grad} u)}^2 - 2uf \right) d\Omega + \Int_{\partial \Omega} \sigma u^2 dS \label{6.7} \tag{6.7} \]
+
+$ \blacktriangleright $ \underline{задача Неймана}
+\[ {\left. \frac{\partial u }{\partial n} \right|}_{\partial \Omega } = 0 \label{6.8} \tag{6.8} \]
+
+Аналогично \eqref{6.3}
+\[ {(-\Delta u, u )}_H = - \cancelto{0}{\Int_{\partial \Omega}^{} u  \frac{\partial u}{\partial n} dS} + \Int_{\Omega}^{} {(\operatorname{grad} u )}^2 d\Omega \geq 0 \]
+Но, этого недостаточно, например:
+\[ u \equiv 1, \quad {(-\Delta u, u)}_H = 0 \]
+Интегрируем $\Int_{\Omega} (...) d \Omega $ уравнение \eqref{6.1}:
+\[ - \Int_{\Omega} \Delta u d \Omega = \Int_{\Omega} f d \Omega \]
+\eqref{3.6} при $v = 1$
+\[ \Int_{\Omega }^{} \Delta u \, d\Omega = \Int_{\partial \overline{\Omega}}^{} \frac{\partial u }{\partial n } dS = 0 \]
+\[ \Int_{\Omega} f \, d\Omega = 0 \quad \text{--- условие разрешимости} \]
+\[ \Int_{\Omega} u(P) \, d\Omega = 0 \label{6.9} \tag{6.9} \]
+\[ D_A = \left\{ u \in C^2 \left(\overline{\Omega}\right), \quad u: \eqref{6.8}, \eqref{6.9} \right\} \]
+
+С учетом условия \eqref{6.9}
+\[ {(-\Delta u, u)}_H =0 \Leftrightarrow \operatorname{grad} u = 0 \Rightarrow u = c \overset{\eqref{6.9}}{\Rightarrow} u = 0 \qquad \Rightarrow \qquad A \ \text{--- положительный} \]
+\[ \Leftrightarrow \min F(u) \]
+\[ F(u) = {(-\Delta u, u )}_H - 2 {(u, f)}_H \]
+\[ F(u) = \Int_{\Omega }^{} {((\operatorname{grad} u )}^2 - 2uf) \ d\Omega \]
+
+\newpage
 
 \section{Лекция 7}
 
-\[ -(\Delta u, u)_H \geq \frac{\sigma_1}{c} {||u||}_H \]
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} \underline{задача Дирихле}
+
+\[ {(-\Delta u, u )}_H = \Int_{\Omega} \Sum_{i=1}^{n} {\left(\frac{\partial u }{\partial x_i}\right)}^2 d \Omega \]
+
+При $ n = 2 $
+\[ {(-\Delta u, u )}_H = \Int_{\Omega} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d \Omega \]
+TODO: картинка + текст
+\[ \forall \ A(x_1, y_1) \in \Pi: \]
+\[ \Int_{x_{min}}^{x_1} \frac{\partial u(x, y_1)}{\partial x} dx = u(x_1, y_1) - u(x_{min}, y_1) \]
+\[ u^2(x_1, y_1) \overset{\text{КБ}}{\leq} (x_1 - x_{min}) \Int_{x_{min}}^{x_1} {\left[ \frac{\partial u(x, y_1)}{\partial x} \right]}^2 dx \leq a \Int_{x_{min}}^{x_{max}} {\left[ \frac{\partial u(x, y_1)}{\partial x} \right]}^2 dx \]
+\[ \Int_{\Pi} u^2(x_1, y_1) dx_1 dy_1 \leq a^2 \Int_{\Pi} {\left[ \frac{\partial u(x, y_1)}{\partial x} \right]}^2 dx dy_1 \leq \Int_{\Pi} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d \Omega \]
+\[ \Int_{\Pi} u^2(x, y) d\Omega \leq \Int_{\Pi} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d \Omega \]
+\[ {(Au, u)}_H \geq \gamma^2 {\| u \|}_H^2 \]
+
+Получаем, что $A$ положительно определен на $D_A$ \\
+
+Неравенство Фридрихса в общем виде:
+\[ \Int_{\Omega}^{} \Sum_{k=1}^{m} \left(\frac{\partial  u}{\partial x_k}\right)^2 d\Omega \geq \gamma^2 \Int_{\Omega}^{} u^2 dx, \qquad u|_S=0 \]
+
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} \underline{задача Робена}
+
+\[ \left\{ \begin{array}{l}
+	- \Delta u = f \qquad \text{в} \ \Omega \\
+	{\left. \left[\cfrac{\partial u }{\partial n} + \sigma (P) u (P) \right] \right|}_{\partial \Omega} = 0
+\end{array} \right. \]
+\[ \sigma(P) \geq \sigma_0 = const > 0 \]
+\[ \Int_{\Omega} u^2 d\Omega \leq C \left\{ \Int_{\Omega} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d\Omega + \Int_{\partial \Omega} u^2 dS \right\} \]
+\[ u = f \cdot v \]
+\[ {\left(\frac{\partial(fv)}{\partial x}\right)}^2 + {\left(\frac{\partial(fv)}{\partial y}\right)}^2 = f^2 \left[{\left(\frac{\partial v}{\partial x}\right)}^2 + {\left(\frac{\partial v}{\partial y}\right)}^2\right] - v^2 f\Delta f + \underbrace{\frac{\partial}{\partial x} \left(v^2 f \frac{\partial f }{\partial x}\right) \frac{\partial}{\partial y} \left(v^2 f \frac{\partial f}{\partial y} \right)}_{(*)} \]
+
+Преобразуем правую и левую части:
+\begin{multline*}
+	{\left( \frac{\partial f}{\partial x} v + \frac{\partial v}{\partial x} f \right)}^2 + {\left( \frac{\partial f}{\partial y} v + \frac{\partial v}{\partial y} f \right)}^2 = v^2 \left( {\left(\frac{\partial f}{\partial x}\right)}^2 + {\left(\frac{\partial f}{\partial y}\right)}^2 \right) + f^2 \left( {\left(\frac{\partial v}{\partial x}\right)}^2 + {\left(\frac{\partial v}{\partial y}\right)}^2 \right) + \\
+	+ 2v \frac{\partial v}{\partial x} f \frac{\partial f}{\partial x} + 2v\frac{\partial v }{\partial y} f \frac{\partial f}{\partial y}
+\end{multline*}
+
+\[ (*) = 2v \frac{\partial v}{\partial x} f \frac{\partial f}{\partial x} + v^2 \frac{\partial}{\partial x} \left( f \frac{\partial f}{\partial x} \right) + 2v\frac{\partial v }{\partial y} f \frac{\partial f}{\partial y} + v^2 \frac{\partial}{\partial y} \left( f \frac{\partial f}{\partial y} \right) \]
+
+Получим
+TODO
+
+\[ v^2 (\frac{\partial  f}{\partial x})^2 + v^2 (\frac{\partial  f}{\partial y})^2 + 2v\frac{\partial v}{\partial x}f\frac{\partial  f}{\partial x} + v^2 f \frac{\partial^2 f}{\partial y^2} _ v^2 \frac{\partial^2 f}{\partial y^2} + 2v \frac{\partial v}{\partial y} + \frac{\partial f}{\partial y} - v^2 f \Delta f + f[(\frac{\partial v}{\partial  x})^2+ (\frac{\partial v}{\partial x})^2] \]
+
+Проинтегрируем получившееся $\Int_{\Omega} (...) d\Omega$
+
+\[ \Int_{\Omega}^{} \left( {\left( \frac{\partial (fv)}{\partial x}\right)}^2 + {\left(\frac{\partial (fv)}{\partial y}\right)}^2 \right) d\Omega \geq - \Int_{\Omega}^{}vf\Delta f \, d\Omega + \Int_{\partial \Omega}^{}v^2 f \frac{\partial f}{\partial  n} dS \]
+\[ -\Int_{\Omega}^{} vf \Delta f d\Omega \leq \Int_{\Omega} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d\Omega + \left| \Int_{\partial \Omega}^{} v^2 f \frac{\partial f}{\partial n}d S \right| \]
+
+\[ f = \sin \left(\frac{\pi x}{a}\right) \sin \left(\frac{\pi y }{b}\right) \]
+\[ \Delta f = - \pi^2 \left(\frac{1}{a^2} + \frac{1}{b^2}\right) f \]
+\[ -\Int_{\Omega}^{}v^2 f \Delta f d\Omega = -\Int_{\Omega}^{} -v^2 f \Delta u^2 (\cdot) d\Omega = \Int_{\Omega}^{} u^2 \pi^2 (\cdot) d\Omega \]
+\[ \left| \Int_{\partial \Omega}^{}v^2 f \frac{\partial f}{\partial n} dS \right| \leq \Int_{\partial  \Omega}^{} v^2 f \left| \frac{\partial f}{\partial n} \right| dS \leq c_1 \Int_{\partial \Omega}^{} u^2 dS \]
+
+\[ \pi^2 \left(\frac{1}{a^2} + \frac{1}{b^2}\right) \Int_{\Omega}^{} u^2 d\Omega \leq \Int_{\Omega} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d\Omega + c_1 \Int_{\partial \Omega}^{} u^2 dS \]
+\[ c = \min \left\{ \frac{c_1}{\pi^2 \left( \frac{1}{a^2} + \frac{1}{b^2}\right)}, \frac{1}{\pi^2 \left( \frac{1}{a^2} + \frac{1}{b^2}\right)} \right\} \]
+
+\begin{multline*}
+	{(-\Delta u, u)}_H = \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega - \Int_{\partial \Omega}^{}u \frac{\partial u}{\partial n} dS \overset{\eqref{6.6}}{\geq} \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega + \sigma_0 \Int_{\partial  \Omega}^{} u^2 dS \geq \\
+	\geq \sigma_1 \left\{ \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega + \Int_{\partial \Omega}^{}u^2 dS \right\}
+\end{multline*}
+\[ \sigma_1 = \min \{\sigma_0, 1\} \]
+\[ \frac{\sigma_1}{c} {\|u\|}_H^2 \leq \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega + \Int_{\partial \Omega}^{}u^2 dS \]
+\[ \gamma = \sqrt{\frac{\sigma_1}{c}} \]
+
+\newpage
+
+\section{Лекция 8}
+
+\[ -(\Delta u, u)_H \geq \frac{\sigma_1}{c} {\|u\|}_H \]
 
 \[ \Delta u = f \textrm{ в } \Omega \]
 \[ \frac{\partial u}{\partial  n}|_{\Omega} = 0 \]
 
-\subsection{Не-во Пуанкаре}
+\subsection{Неравенство Пуанкаре}
 
+TODO
 \[ (x_1, y_1), (x_2, x_2) \in \Omega \]
+\[ \Omega u^2 d \Omega \in A \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega + B(\Int_{\Omega}^{}u d\Omega)^2\]
+\[ \Int_{\Omega}^{} u^2 d\Omega \leq (\frac{\partial  u }{\partial x})^2 + (\frac{\partial  u }{\partial y})^2 + B(\Int_{\Omega}^{} d\Omega)^2 \]
 
-\[ \Omega u^2 d \Omega \in A \int_{\Omega}^{} (grad u)^2 d\Omega + B(\int_{\Omega}^{}u d\Omega)^2\]
+\begin{multline*}
+	u^2 (x_2, y_2) + u^2(x_1, y_1) - 2u(x_2, y_2) \, u(x_1, u_1) = \\
+	= {\left( \Int_{x_1}^{x_2} \frac{\partial u}{\partial x} (x, y_1) dx \right)}^2 + {\left( \Int_{y_1}^{y_2} \frac{\partial u}{\partial y}(x_2, y) dy \right)}^2 + 2\Int_{x_1}^{x_2} \frac{\partial u}{\partial x} (x, y_1)dx \Int_{y_1}^{y_2} \frac{\partial u}{\partial y} (x_2, y) \leq \\
+	\leq 2 {\left( \Int_{x_1}^{x_2} \frac{\partial u}{\partial x} (x, y_1) dx \right)}^2 + 2 {\left( \Int_{y_1}^{y_2} \frac{\partial u}{\partial y}(x_2, y) dy \right)}^2 \leq \\
+	\leq 2 \left\{ |x_2-x_1| \Int_{0}^{a} {\left( \frac{\partial u}{\partial x}(x, y_1) \right)}^2 dx + |y_2-y_1| \Int_{0}^{b} {\left( \frac{\partial u}{\partial x}(x_2, y) \right)}^2 dy \right\}
+\end{multline*}
 
-\[ \int_{\Omega}^{} u^2 d\Omega \leq (\frac{\partial  u }{\partial x})^2 + (\frac{\partial  u }{\partial y})^2 + B(\int_{\Omega}^{} d\Omega)^2 \]
+Проинтегрируем $\iiiint (...) dx_1 dy_1 dx_2 dy_2$
+\[ \iiiint u^2 (x_2, y_2) dx_1 dy_1 dx_2 dy_2 = ab \Int_{\Omega}^{} u^2 d\Omega \]
+\[ \iiiint u(x_2, y_2) u(x_1, y_1) dx_1 dy_1 dx_2 dy_2 = {\left( \Int_{\Omega}^{} u d \Omega \right)}^2 \]
+\[ 2 ab \Int_{\Omega}^{} u^2 d\Omega -2 {\left(\Int_{\Omega}^{} u d\Omega \right)}^2 \leq ab \left\{a^2 \Int_{\Omega}^{} {\left(\frac{\partial u}{\partial x}\right)}^2 d\Omega + b^2 \Int_{\Omega}^{} {\left(\frac{\partial u}{\partial y}\right)}^2 d\Omega) \right\} \]
+\[ A = \max \{a^2, b^2\}, \quad B = \frac{1}{ab} \]
+\[ \Int_{\Omega} u^2 d\Omega \leq A \Int_{\Omega} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d\Omega + B {\left(\Int_{\Omega} u d\Omega \right)}^2 \]
+\[ D_N = D(A_N) = \left\{ u \in C^2(\overline{\Omega}), \quad {\left. \frac{\partial u}{\partial n} \right|}_{\partial  \Omega} = 0, \quad \Int_{\Omega}^{} u d\Omega = 0 \right\} \]
+\[ {\|u\|}^2_H \leq A \Int_{\Omega}^{} \Sum_{k=1}^{m} {\left(\frac{\partial u}{\partial x_k}\right)}^2 d\Omega = \widetilde{A} \ {(Au, u)}_H, \qquad \gamma = \frac{1}{\sqrt{\widetilde{A}}} (A_Nu, u) \geq \gamma^2 {\|u\|}^2_H\]
 
-\[ u^2 (x_2, y_2) + u^2(x_1, y_1) - 2u(x_2, y_2) u(x_1, u_1) = (\int_{x_1}^{x_2} \frac{\partial n}{\partial x} (x, y_1) dx)^2 + (\int_{y_1}^{y_2} \frac{\partial n}{\partial y}(x_2, y) dy)^2 + 2\int_{x_1}^{x_2} \frac{\partial n}{\partial x} (x_1, y_1)dx \int_{y_1}^{y_2} \frac{\partial u}{\partial y} (x, y) \leq 2 \{ |x_2-x_1| \int_{0}^{a} (\frac{\partial n}{\partial x}(x_1, y_1)^2) dx + b \int_{0}^{b} (\frac{\partial u}{\partial y} (x_2, y))^2 dy \} \]
+Далее $ A: \quad A_N $ или $ A_D $ \qquad $ {[u, v]}_A = \Int_{\Omega}^{} \operatorname{grad} u \cdot \operatorname{grad} v \ d\Omega$ 
+\[ {\|u\|}_A = \Int_{\Omega}^{} (\operatorname{grad} u )^2 d \Omega \]
+\[ u, v \in L_2 (\Omega), \quad \psi \in C^{\infty}_0 (\overline{ \Omega}) \]
 
-\[ \iiiint u^2 (x_2, y_2) dx_1 dy_1 dx_2 dy_2 = ab \int_{\Omega}^{} u^2 d\Omega \]
+Если $\forall \psi \in C^{\infty}_0$ справедливо тождество
+\[ \Int_{\Omega}^{} u \frac{\partial \psi}{\partial x_j} d\Omega = -\Int_{\Omega} v_j \psi \, d \Omega \]
 
-\[ ab \int_{\Omega}^{} u^2 d\Omega \]
+то функция $v_j$ называется TODO \\
 
+Пусть $u \in H_{A_D}, \qquad \exists \{u_n\} \in D_{A_{D}}$ такая, что
+\[ {\|u_n - u\|}_H \underset{n \rightarrow \infty}{\rightarrow} 0 \]
+\[ {\|u_n - u\|}_A \underset{n \rightarrow \infty}{\rightarrow} 0 \]
+\[ \Int_{\Omega} {(\operatorname{grad} u_n - \operatorname{grad} u_l)}^2 d\Omega = \Sum_{k=1}^{m} \Int_{\Omega} {\left( \frac{\partial  u_n}{\partial  x_k} - \frac{\partial u_l}{\partial x_k} \right)}^2 d \Omega \rightarrow 0 \]
+\[ \exists \, v_j \in L_2(\Omega): \qquad {\left\| \frac{\partial u_n}{\partial x_k} - v_j \right\|}_H \rightarrow 0 \]
 
-\[ \iiiint u(x_2, y_2) u(x_1, y_1) dx_1 dy_1 dx_2 dy_2 = (\int_{\Omega}^{} u d \Omega) \]
+Покажем, что $ v_k = \cfrac{\partial u}{\partial x_k}, \quad k=\overline{1,m} $
 
-\[  \int_0^a \int_{0}^{b} \int_{0}^{a} \int_{0}^{b} a \int_{0}^{a}(\frac{\partial u}{\partial x} (x_1, y_1)^2)dx dx_1 dy_1 dx_2 dy_2 = \]
-\[ = a^2 b ...\int_{}^{}(\frac{\partial u}{\partial x}(x, y))^2 d\Omega \]
-
-\[ 2 ab \int_{\Omega}^{} u^2 d\Omega -2 (\int_{\Omega}^{} u d\Omega)^2 \leq 2ab \{a^2 \int_{\Omega}^{}(\frac{\partial u}{\partial x} d\Omega + d \int_{\Omega}^{} (\frac{\partial u}{\partial y})^2 d\Omega) \} \]
-
-\[ A = max \{a^2, b^2\}, B = \frac{1}{ab} : ab \]
-
-\[ D_N = D(A_N) = \{ u \in C^2(\overline{\Omega}), \frac{\partial u}{\partial n} |_{\partial  \Omega} = 0; \int_{\Omega}^{} u d\Omega = 0 \} \]
-
-\[ {||u||}^2_H \leq A \int_{\Omega}^{} \sum_{k=1}^{m} (\frac{\partial u}{\partial x_k})^2 d\Omega = \overline{ A} (Lu, u)_H \omega = \frac{2}{\sqrt{ \overline{ A}}} (A_Nu, u) \geq \omega^2 {||u||}^2_H\]
-
-Даже $ A: A_n $ или $ A_D $ $ [u, V]_A = \int_{\Omega}^{} grad u \cdot frad V d\Omega, ||u||_A = \int_{\Omega}^{} (grad u )^2 d \Omega $
-
-\[ u, V \in L_2 (\Omega) ; \psi \in C^{\infty}_0 (\overline{ \Omega}) \]
-\[ \textrm{ Если } \forall \psi \in c^{\infty}_0 \int_{\Omega}^{} u \frac{\partial \psi}{\partial x} d\Omega V \psi d \Omega \]
-
-\[ \textrm{ Пусть  } u \in H_{A_D} \exists \{u_N\}\in D_{A_{D}} \]
-
-\[ {||u_n - u||}_H \rightarrow_{n\rightarrow \infty} 0 \]
-
-\[ {||u_n - u||}_A \rightarrow_{n \rightarrow \infty} 0 \]
-
-\[ \int_{{(grad u_n = grad u_0)}^2}^2 d\Omega = \sum_{k=1}^{m} \int_{}(\frac{\partial  u_n}{\partial  x_k} - \frac{u_l}{\partial x_k})^2 d \Omega \rightarrow 0 \]
-
-\[ || \frac{\partial u_n}{\partial x_k} - V||_H \rightarrow 0 \textrm{ покажем, что  } \Omega \rightarrow 0 \]
-\[ \textrm{ Пусть } \psi \in c^{\infty}_{0} ( \overline{\Omega}) \]
-\[ \int_{\Omega}^{} u_n \frac{\partial \psi}{\partial x_k} d\Omega = - \int_{\Omega}^{} \psi \frac{\partial u_n}{\partial x_j} d\Omega \]
-
-\[ (u_n, \frac{\psi}{\partial  x_k})_H = (\frac{\partial  u_n}{\partial x_k; \psi})_H \rightarrow (u, \frac{\partial  \psi}{\partial  x_k})_H; = -(\psi, V)_H \]
+Пусть $ \psi(P) \in C^{\infty}_{0} ( \overline{\Omega}), \qquad \{u_n\} \in C^2(\overline{\Omega}) $
+\[ \Int_{\Omega}^{} u_n \frac{\partial \psi}{\partial x_k} d\Omega = - \Int_{\Omega}^{} \psi \frac{\partial u_n}{\partial x_k} d\Omega \]
+\[ {\left( u_n, \frac{\partial \psi}{\partial  x_k} \right)}_H = - {\left( \frac{\partial  u_n}{\partial x_k}, \psi \right)}_H \qquad \rightarrow \qquad {\left( u, \frac{\partial \psi}{\partial  x_k} \right)}_H = -(\psi, v_k)_H \]
 
 \subsection{Неоднородные краевые условия}
 
-\[ \Delta u = 0 \label{7_1} \Omega \in \mathcal{R^m}\]
+\[ \Delta u = 0 \label{7.1} \tag{7.1} \]
+\[ u|_{\partial \Omega} = \psi \label{7.2} \tag{7.2} \]
 
-\[ u|_{\partial \Omega} = \psi \label{7_2} \]
+Пусть $\exists \ \psi(P)$, удовлетворяет следующим условиям:
+\[ \bullet \ \psi \in C(\overline{\Omega}) \]
+\[ \bullet \ {\left. \psi (P) \right|}_{\partial \Omega} = \varphi(P) \]
+\[ \bullet \ \frac{\partial  \psi}{\partial  x_k} \in C(\Omega), \ k=\overline{1,m} \]
+\[ \bullet \ \Phi(u) = \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega \label{7.3} \tag{7.3} \]
 
-\[ \textrm{ Пусть  }\exists \psi(P); \psi \in c( \overline{ \Omega}), \label{7_*}\]
-\[ \psi (P) = \phi(P) \]
-\[ \frac{\partial  \psi}{\partial  x_k} \in C(\Omega), k=1 \overline{1,m} \]
-
-\[ \Phi(u) = \int_{\Omega}^{} (grad u)^2 d\Omega \label{7_3}\]
 \[ D_{\Phi} = \{u: ref{7_*} \} \Phi (P) + \eta(P), \]
 \[ \eta: \ref{7_*} + \eta|_{\partial  \Omega } = 0 \label{7_4} \]
 
-Пусть ф-ии $ u_0(P) $ достигает $ min \Phi(u) : u_0(P) $ реш. $ \ref{7_1}, \ref{7_2} $
+Пусть функция $ u_0(P) $ достигает $ \min \Phi(u) : u_0(P) $ реш. $ \eqref{7.1}, \eqref{7.2} $
 
-** 1-3 и еще на гарнице ноль $ \label{7_**}$
+** 1-3 и еще на границе ноль $ \label{7_**}$
 
 \[ u_0 + t \eta \in D_{\Phi}, \forall t \in \mathcal{R}, \eta : \ref{7_**} \]
 
-\[ \Phi(u_0 + th)\textrm{ достигает min при  } t=0 \textrm{ как скал функция t } \]
+\[ \Phi(u_0 + t \eta)\textrm{ достигает min при  } t=0 \ \text{как скал функция от} \ t \]
+\begin{multline*}
+	{\left. \left[ \frac{d}{dt} \Phi(u_0+t \eta) \right] \right|}_{t=0} = {\left. \left[ \frac{d}{dt} \Int_{\Omega}^{} \Sum_{k=1}^{m} {\left(\frac{\partial (u_0 + t\eta)}{\partial x_k}\right)}^2 d\Omega \right] \right|}_{t=0} = \\
+	= {\left. \left[ \frac{d}{dt} \Int_{\Omega}^{} \Sum_{k=1}^{m} \left({\left(\frac{\partial u_0}{\partial  x_k}\right)}^2 + 2\frac{\partial u_0}{\partial x_k} \cdot t \frac{\partial \eta}{\partial x_k} + t^2 {\left(\frac{\partial \eta}{\partial x_k}\right)}^2 \right) d\Omega \right] \right|}_{t=0} = ... = \\
+	= \Int_{\Omega} \operatorname{grad} u_0 \operatorname{grad} \eta d\Omega = 0
+\end{multline*}
 
-\[ \frac{d}{dt} \{ \Phi(u_0+t \eta) \} |_{t=0} = \{ \frac{d}{dt} \int_{\Omega}^{} \sum_{k=1}^{m} (\frac{\partial (u_0 + t\eta)}{\partial x_k})^2 d\Omega \} |_{t=0} = \{ \frac{d}{dt} \int_{\Omega}^{} \sum_{k=1}^{m} [(\frac{\partial u_0}{\partial  x_k})^2 + 2(\frac{\partial u_0}{\partial  x_k})^2 + 2\frac{\partial u_0}{\partial x_k} \cdot t \frac{\partial u}{\partial x_k} + t^2 (\frac{\partial \eta}{\partial x_k})^2] d\Omega \} | = 0\]
+Применяя формулу Грина \eqref{label} и используя краевое условие \eqref{7.4}, получим
+\[ \Int_{\Omega}^{} \eta \, \Delta u_0 \, d\Omega = 0 \]
 
-...
+Множество функций $\eta$ плотно в $L_2(\Omega)$. Тогда из последнего следует:
+\[ \Delta u_0 = 0 \]
 
-\[ \Rightarrow \int_{\Omega}^{} \eta \Delta u_0 d\Omega = 0 \Rightarrow \]
-\[ \eta \ref{7_**}\textrm{  плотность в } L_2(\Omega) = H \]
-\[ \Rightarrow \Delta u_0 = 0 \]
+\[ \Phi (u) = \Int_{\Omega}^{}(\operatorname{grad} u)^2 d \Omega \]
+\[ u = \psi - v, \qquad v|_{\partial \Omega} = 0 \]
+\begin{multline*}
+	\Phi(u) = \Phi (\psi - v) = \Int_{\Omega}^{} {\bigl(\operatorname{grad} (\psi - v) \bigr)}^2 d\Omega = \\
+	= \Int_{\Omega}^{} (\operatorname{grad} \psi)^2 d\Omega - 2 \Int_{\Omega}^{} \operatorname{grad} \psi \cdot \operatorname{grad} v d \Omega + \Int_{\Omega}^{} (\operatorname{grad} v)^2 d \Omega
+\end{multline*}
+\[ F(v) = {\|v\|}^2_{A_D} - 2 \Int_{\Omega}^{} \operatorname{grad} v \cdot \operatorname{grad} \psi \ d\Omega, \qquad v \in H_D = H_{A_D}\]
 
-\[ \Phi (u) = \int_{\Omega}^{}(grad u)^2 d \Omega \]
-\[ \psi: \ref{7_*} u=\psi-V \]
-\[ \Phi(u) = \Phi (\psi - V) = \int_{\Omega}^{} (grad (u=V))^2 d\Omega = \]
-\[ = \int_{\Omega}^{} (grad \psi)^2 d\Omega - 2 \int_{}^{} grad V \cdot grad \psi d \Omega + \int_{\Omega}^{} (grad V) d \Omega \]
+Линейный функционал
+\[ lv = \Int_{\Omega}^{} \operatorname{grad} v \cdot \operatorname{grad} \psi \ d\Omega \]
+\[ {|lv|}^2 \leq \Int_{\Omega}^{} {(\operatorname{grad} \psi)}^2 d\Omega \Int_{\Omega}^{} {(\operatorname{grad} v)}^2 d\Omega = c \, {\|v\|}_{H_{A_D}} \quad \Rightarrow \quad l \ \text{--- ограничен}\]
 
-\[ F(V) = {||V||}^2_{A_D} - 2 \int_{}^{} grad V grad \psi d\Omega; V \in H_D = H_{A_D}\]
-
-\[ l V = \int_{\Omega}^{} grad \psi grad v d \Omega; |lV| \leq \int_{\Omega}^{} (grad \psi)^2 d\Omega \int_{\Omega}^{} (grad V)^2 d\Omega = c ||V||_{H_{A_D}} \Rightarrow l - \textrm{ ограничение }\]
-
-\[ I \forall \textrm{ ограничение } \Omega\]
-\[ \psi \in H' (\Omega): \exists ! \textrm{ Обобщен. реш Дирихле} \]
+Из этого следует, что существует решение задачи о минимуме функционала.
+FIX
+\[ \psi \in H(\Omega): \quad \exists ! \textrm{ Обобщен. реш Дирихле} \]
 \[ u \in H (\Omega) \]
 
-\subsection{ур-е с переменным коэф}
+\subsection{Уравнения с переменными коэффициентами}
 
-\[ Lu = - \sum_{j,k=1}^{m} \frac{\partial }{\partial x} (A_jk(P) \frac{\partial u}{\partial x_k}) + c(P) u; Lu=f \Omega \in \mathcal{R^m} \label{7_2_1} \]
-\[ u|_{\partial \Omega} = 0 \label{7_2_2} \]
+\[ Lu = - \Sum_{j,k=1}^{m} \frac{\partial }{\partial x_j} \left(A_{jk}(P) \frac{\partial u}{\partial x_k}\right) + C(P) u, \qquad Lu=f, \quad \Omega \in \mathbb{R}^m \label{7.5} \tag{7.5} \]
 
-\[ (N [u] + \partial (P) u ) |_{\partial \Omega} = 0 \label{7_2_3} \]
-
-\[ N(u) |\partial_{\partial \Omega} = u \]
+Краевые условия одного из трех типов
+\[ u|_{\partial \Omega} = 0 \label{7.6} \tag{7.6} \]
+\[ {\left. \left[N [u] + \sigma (P) u \right] \right|}_{\partial \Omega} = 0 \label{7.7} \tag{7.7} \]
+\[ {\left. N(u) \right|}_{\partial \Omega} = 0 \label{7.8} \tag{7.8} \]
 
 Формула Грина
-\[ \int_{\Omega}^{}(V Lu - uLV) d\Omega = - \int_{\partial \Omega}^{}(V N(u) - u N(V)) dS \label{7_2_5}\]
+\[ \Int_{\Omega}^{} \left(v Lu - uLv\right) d\Omega = - \Int_{\partial \Omega}^{} \left(v N(u) - u N(v)\right) dS \label{7.9} \tag{7.9} \]
 
-При условиях \ref{7_2_2} и \ref{7_2_4} интеграл сокращается к 0, поэтому останется только \ref{7_2_3}.
-\[ N(u) + \sigma u = 0 \]
-\[ N(v) + \sigma v = 0 \]
-\[ V N(u) + \sigma uV - b N(V) - \partial u V = 0 \]
+При условиях \eqref{7.6} и \eqref{7.8} интеграл очевидным образом обращается в 0, поэтому остается рассмотреть случай \eqref{7.7}.
+\[ N(u) + \sigma u = 0, \quad N(v) + \sigma v = 0 \]
+\[ v N(u) + v \sigma u - u N(v) - u \sigma v = 0 \]
+\[ {\left. \left[ v N(u) - u N(v) \right] \right|}_{\partial \Omega} = 0 \]
 
-на $\partial \Omega V N(u) - uN(V) = 0$
+Получаем, что при любых граничных условиях \eqref{7.6}-\eqref{7.8} правая часть \eqref{7.9} обращается в ноль, а следовательно $(Lu, v) = (u, Lv)$ и оператор симметричен. \\
 
-\[ \Rightarrow \textrm{ гр. у. \ref{7_2_2}, \ref{7_2_3}, \ref{7_2_4}} \]
+Оператор L называется эллиптическим в $ \overline{\Omega} $, если
+\[ \exists \, \mu_0 = const > 0 \quad \forall t_1, ... t_m \in \mathbb{R}, \quad \forall P \in \overline{\Omega}: \quad \Sum_{j,k=0}^{m} A_{jk}(P) t_j t_k \geq \mu_0 \Sum_{j,k=1}^{m} t_k^2 \]
 
-Опр L элементт в $ \overline{\Omega},\textrm{  если } A_{jk}(P): $
-\[ \exists_{\mu_0} = const > 0 \forall t1, ... t_m \in \mathcal{R}; \forall P \in \overline{\Omega} \]
+\textbf{Пример} (оператор Триколи)
+\[ Ly = y \frac{\partial^2 u}{{\partial x}^2} + \frac{\partial^2 u}{{\partial y}^2} \]
+\[ A_{11} = y, \quad A_{21} = A_{12} = 0, \quad A_{22} = 1 \]
+\[ y t_1^2 + 1\cdot t^2_2 \geq B \, t^2_1 + t^2_2 \geq \widetilde{B}(t^2_1+t^2_2), \qquad \widetilde{B} = \min \{B, 1\} \]
+\[ \forall \, \Omega : \ \ \overline{\Omega} \subset \mathbb{R} \times (0, +\infty) \qquad L \ \text{эллиптический в} \ \overline{\Omega} \] \\
 
-\[ \sum_{j,k=0}^{m} A_jk(P) t_j t_k \geq \mu_0 \sum_{j,k=1}^{m} t_k^2 \]
-Пример оператор Триколи
+Если коэффициент $C(P)$ ограничен снизу некоторым положительным числом, то оператор $L$ положительно определенный. Действительно, по формуле Грина \eqref{la}:
+\[ {(Lu, u)}_H = \Int_{\Omega}^{}u Lu \, d\Omega = \Int_{\Omega}^{} \left[\Sum_{j,k=1}^{m} A_{jk} \frac{\partial u}{\partial  x_j}\frac{\partial u}{\partial x_k} + C u^2 \right] d\Omega - \Int_{\partial \Omega}^{} u N (u) dS \]
 
-\[ Ly = y \frac{\partial^2 u}{\partial  x^2} + \frac{\partial^2 u}{\partial y^2} \]
-\[ A_H = y, A_{22} = 1 A_{21} = A_{12} = 0 \]
+При краевых условиях \eqref{7.6}, \eqref{7.8}:
+\[ \Int_{\partial \Omega}^{}(...) \, dS = 0, \qquad \Rightarrow \gamma = \sqrt{c_0} \]
+\[ {(Lu,u)}_H \geq c_0 \Int_{\Omega}^{} u^2 d\Omega = \gamma^2 {\|u\|}^2_H \]
 
-\[ y t_1^2 + 1\cdot t^2_2 \geq B t^2_1 + t^2_2 \geq \hat{B}(t^2_1+t^2_2) \]
+При условии \eqref{7.7}:
+\[ N(u) = -\sigma u $ на $ \partial  \Omega, \qquad \sigma (P) \geq \sigma_0 > 0 \]
+\[ (Lu, u)_H \geq \sigma_0 \Int_{ \partial  \Omega}^{} u^2 dS \geq \sigma_0 \|u\|^2_H \]
+FIX
 
-\[ \forall \Omega : \overline{\Omega} \in \mathcal{R} x(x, +\infty) L \textrm{ элиптич в} \Omega \]
+\newpage
 
-\[ L \textrm{ эллептический в } \overline{\Omega} \]
+\section{Лекция 9}
 
-\[ C(P) \geq 0 \textrm{ ф-ла Грина } \]
-
-\[ (Lu, u)_H = \int_{}^{}u Lu d\Omega = \int_{\Omega}^{} (\sum_{j,k=1}^{m} A_j k \frac{\partial u}{\partial  x_j}\frac{\partial u}{\partial x_k} + C u^2) d\Omega - \int_{\partial}^{} u N (u) dS  \]
-
-\[ \ref{7_2_2}/\ref{7_2_4} \textrm{ Дир Лейли } \int_{\partial \Omega}^{}(\cdot) dS = 0 \gamma = \sqrt{c_0} \]
-
-\[ (Lu,u)_H \geq a_1^2 d\Omega \geq c_0 \int_{\Omega}^{} u^2 d\Omega =\]
-\[ = \Omega^2 ||u||^2_H \]
-
-$ \ref{7_2_3} $ Смен кр з $ N(u) = -\sigma u $ на $ \partial  \Omega \sigma (P) \geq \sigma_0 > 0$
-\[ (Lu, u)_H \geq \sigma \int_{ \partial  \Omega}^{} u^2 dS \geq c_0 ||u||^2_H \]
-
-\section{Лекция 8}
-
-\[ Lu = - \sum_{j,k=1}^{m} \frac{\partial }{\partial  x_j} (J_{jk}(P)\frac{\partial n}{\partial x_k} + c(P)u = f(P)) \label{8_1_1}\]
+\[ Lu = - \sum_{j,k=1}^{m} \frac{\partial }{\partial  x_j} (A_{jk}(P)\frac{\partial n}{\partial x_k} + c(P)u = f(P)) \label{8_1_1}\]
 
 \begin{enumerate}
 	\item з Дирихле
-	\[ (Lu, u) = \mu \sum_{j=1}^{m} \int_{\Sigma}^{}(\frac{\partial n}{\partial x_j})^2 d\Omega \geq \Sigma^2 {||u||}^2_H; \sigma = \sqrt{\\ae \mu_0}\]
+	\[ (Lu, u) = \mu \sum_{j=1}^{m} \int_{\Sigma}^{}(\frac{\partial n}{\partial x_j})^2 d\Omega \geq \Sigma^2 {\|u\|}^2_H; \sigma = \sqrt{\\ae \mu_0}\]
 	\item з Робэна $\label{8_3}$
-	\[ (Lu, u) \geq (\alpha {(\int_{\Sigma}^{} \sum_{j=1})}^{n}(\frac{\partial u}{\partial x_i})^2) d\Omega + \int_{\partial \Omega}^{}n^2 dS) ; \Rightarrow (Lu, u) \geq \alpha {||u||}^2 \]
+	\[ (Lu, u) \geq (\alpha {(\int_{\Sigma}^{} \sum_{j=1})}^{n}(\frac{\partial u}{\partial x_i})^2) d\Omega + \int_{\partial \Omega}^{}n^2 dS) ; \Rightarrow (Lu, u) \geq \alpha {\|u\|}^2 \]
 	\item з Неймана
 	\[ C(P) = 0 \]
 	\[ Lu = -\sum_{j,j =1}^{m}\frac{\partial}{\partial  x_j}(A_{jk} \frac{\partial n}{\partial x_k}l) = f(P) \]
@@ -1009,8 +1236,8 @@ $ \ref{7_2_3} $ Смен кр з $ N(u) = -\sigma u $ на $ \partial  \Omega \s
 
 в $ H_A $ по теореме Рисса $ \exists u_0 \in H_A (u, f) = [u, u_0]A $
 
-\[ [u - u_0, u-u_0] = {||u||}^2_A + {||u_0||}^2_A - 2{[u, u_0]}_A \]
-\[ F(u) = {|| u ||}^2_A - 2[u, u_0]_A = {||u-u_0||}^2_A - {||u_0||^2_A} \label{8_2_4} \]
+\[ [u - u_0, u-u_0] = {\|u\|}^2_A + {\|u_0\|}^2_A - 2{[u, u_0]}_A \]
+\[ F(u) = {\| u \|}^2_A - 2[u, u_0]_A = {\|u-u_0\|}^2_A - {\|u_0\|^2_A} \label{8_2_4} \]
 
 Минимум достигается на элементе $F(u) = u_0$. Но $ u_0 $ может не лежать в энергетическом про-ве. Обобщенное решение с конечной энергией.
 
@@ -1020,44 +1247,50 @@ $ \ref{7_2_3} $ Смен кр з $ N(u) = -\sigma u $ на $ \partial  \Omega \s
 \[ [\phi_n, u_0] = l\phi_n \]
 \[\textrm{ Если } \{\phi \} \in D_A \Rightarrow l \phi_n - (f, \phi_n) \Rightarrow u_o = \sum_{n=1}^{\infty} (f, \phi_n) \phi_n  \]
 
-\[ u_k \sum_{n=1}^{k} (f, \phi_n) ||u_k - u_0||_{A} \rightarrow_{k \rightarrow \infty} 0 \]
+\[ u_k \sum_{n=1}^{k} (f, \phi_n) \|u_k - u_0\|_{A} \rightarrow_{k \rightarrow \infty} 0 \]
 
 \[\textrm{ Если } \{\phi \} \in D_A \Rightarrow l \phi_n - (f, \phi_n) \Rightarrow u_o = \sum_{n=1}^{\infty} (f, \phi_n) \phi_n \Rightarrow = \sum_{n=1}^{\infty} (f, \phi_n) \phi_n \]
 
 \subsection{Эллиптические уравнения в бесконечной области}
 
-\[ \Omega = \infty \textrm{ обл }; \partial \Omega \]
-\[ -\sum_{j,k=1}^{m} \frac{\partial }{\partial x_j}(A_{kj}^{(P)}\frac{\partial u}{\partial x_k}) = f(P) \]
+Пусть $\Omega$ --- бесконечная область
+\[ -\sum_{j,k=1}^{m} \frac{\partial }{\partial x_j} \left(A_{jk} (P)\frac{\partial u}{\partial x_k}\right) = f(P) \]
 
-з Дирихле
-\[ U|_{\partial \Omega} = 0; A_{jk} \textrm{ отр } A\]
+при краевом условии задачи Дирихле
+\[ u|_{\partial \Omega} = 0\]
 
+Допустим, что коэффициенты $A_{jk}$ ограничены
 \[ D_A = \{u \in C^2(\overline{\Omega}), u|_{\partial \Omega} = 0, b(P = 0), |P| >> 1 \} \]
 
-\[ A - \textrm{ положительно определен } \]
+Оператор $A$ является лишь положительным
 
-\[ HuD \exists u_0 \textrm{ об реш с кон энергией } \]
-\[ \exists g(P): f(P = div g(P)) \]
-\[ \int_{\Omega}^{} {|g(P)|}^2 d\Omega < \infty \]
-\[ h(P)l \textrm{ обобщенная  } \div g(P). \textrm{ Если  } \forall \phi (P) \in c_0^{\infty} (\Omega) \]
+Задача \eqref{x}, \eqref{b} имеет решение с конечной энергией тогда, когда
+\[ \exists \, g(P): \quad f(P) = \operatorname{div} g(P), \quad\Int_{\Omega}^{} {|g(P)|}^2 d\Omega < \infty \]
 
-\[ {||u_0||}^2_A \leq C \int_{\Omega}^{} {(g(P))}^2 d \Omega \]
-Дост усл - я
-\[ m \geq 3 \int_{\Omega}^{} |P|^2 f^2 (P) d\Omega < \infty \Rightarrow {||u_0||}_A^2 \leq C^2 \int_{\Omega}^{}{|P|}^2 f (\beta)d\Omega \]
-\[ m \geq 2 \int_{\Omega}^{} f^2 (P) d\Omega < \infty \textrm{ и } f(P)= 0 |P| \Rightarrow 1\]
+$\operatorname{div} g$ понимается в смысле "обобщенной дивергенции"
+\[ {\|u_0\|}^2_A \leq C \Int_{\Omega}^{} {| g(P) |}^2 d \Omega \]
 
-\subsubsection{ Эллиптическое уравнение в бесконечной области}
+Можно указать более простое достаточное условие:
+\[ m \geq 3: \qquad \Int_{\Omega}^{} {|P|}^2 f^2 (P) d\Omega < \infty \quad \Rightarrow \quad {\|u_0\|}_A^2 \leq C^2 \Int_{\Omega}^{}{|P|}^2 f (P)d\Omega \]
+\[ m \geq 2: \qquad \Int_{\Omega}^{} f^2 (P) d\Omega < \infty \]
 
+Перейдем к задаче Неймана:
 \[ H_{A_D} = \{ u \in H' (\Omega) \textrm{ и } {u|}_{\partial  \Omega} = 0 \} \]
 
 \[ H_{A_H} = \{ \exists 0 \delta \frac{\partial u}{\partial x} \in L_2(\Omega) \} \]
 
-\[ F(u) = \int_{k, j=1}^{m} A_{jk} \frac{\partial n}{\partial x}, \frac{\partial n}{\partial  x_n} d \Omega - 2lu \]
-\[ l_N n = -\int_{\Omega}^{} grub u g d\Omega + \int_{\partial u}^{} u g_{\overline{n}} d S \]
-\[ l_D u = -\int_{\Omega}^{} grub  g d\Omega \]
+\[ F(u) = \Int_{k, j=1}^{m} A_{jk} \frac{\partial n}{\partial x_j} \frac{\partial n}{\partial  x_k} d \Omega - 2lu \]
 
-\[ lu = \int_{\Omega}^{} u (P) f(P) d \Omega \]
+В случае задачи Неймана $lu$ определяется формулой:
+\[ l_N u = -\Int_{\Omega}^{} \operatorname{grad} u \cdot g \ d\Omega + \Int_{\partial \Omega}^{} u g_n d S \]
 
+В случае задачи Дирихле:
+\[ l_D u = -\Int_{\Omega}^{} \operatorname{grad} u \cdot g \ d\Omega \]
+
+Если сходится интеграл \eqref{label}, то:
+\[ lu = \Int_{\Omega}^{} u (P) f(P) d \Omega \]
+
+TODO
 \[ Au = f \]
 \[ B_ju=0; j=1,q \]
 \[ H > D_A \] знак принадлежит в обратную сторону
@@ -1069,77 +1302,103 @@ $ B_j: u \in H_A $ главные гр условия для $A$.
 
 \[ - \Delta u = f \]
 \[ \frac{\partial u}{\partial n} + \partial u = 0, \sigma > 0 \]
-\[ {(- \Delta u, V)}_H = - \int_{}^{} V \Delta u d\Omega \]
+\[ {(- \Delta u, v)}_H = - \Int_{}^{} v \Delta u d\Omega \]
 
-\[ \int_{}^{} grud u grad V d\Omega - \int_{\partial \Omega}^{}V\frac{\partial u}{\partial n} dS \]
+\[ \Int_{}^{} grud u grad v d\Omega - \Int_{\partial \Omega}^{}v\frac{\partial u}{\partial n} dS \]
 
-\[ F(u,u) = {||u||}^2_A - 2(f, u) = \int_{\Omega}^{} ({grud}^2 u - 2u) d\Omega + \int_{\partial \Omega}^{} \partial  u^2 dS \]
+\[ F(u,u) = {\|u\|}^2_A - 2(f, u) = \Int_{\Omega}^{} ({grud}^2 u - 2u) d\Omega + \Int_{\partial \Omega}^{} \partial  u^2 dS \]
 
-\[ u_0 = argmin F; \]
+\[ u_0 = \operatorname{argmin} F; \]
 \[ \frac{d}{dt} (F(u_0 + t \eta))|'_{t=0} = 0 \]
-\[ -\int_{\Omega}^{} \eta (\Delta u_0 + f) d\Omega + \int_{\partial \Omega}^{} \eta (\frac{\partial u_0}{\partial \eta} + \partial u_0) dS = 0 \]
+\[ -\Int_{\Omega}^{} \eta (\Delta u_0 + f) d\Omega + \Int_{\partial \Omega}^{} \eta (\frac{\partial u_0}{\partial \eta} + \partial u_0) dS = 0 \]
 
-\section{Лекция 8}
+\newpage
+
+\section{Лекция 10}
 
 \subsection{Метод Бубнова-Галеркина}
 
-\[ Lu = f \label{8_1_1}, D_2 \textrm{ плотность в H }\]
-Опреатор L не обязательно положительный.
-\[ Bu = 0 \label{8_1_1'} \]
-\[ \{\phi_n\} \in D_A \textrm{ координатные функции } \]
-Удовлетворяет (\ref{8_1_1'})
-\[ u_n = \sum_{k=1}^{n}a_n \phi_k(P) \label{2} \]
-\[ a_k \textrm{ выбирается из условия, что  } A u_n - f = \perp \phi_1, .., \phi_n \]
-\[ \label{8_1_3} \sum_{k=1}^{n} (L\phi_k, \phi) a_k  = (f, \phi_j) j= \overline{1, n}\]
+Пусть линейный оператор $L$ (не обязательно положительный) определен на множестве, плотном в $H$ (гильбертовом)
+\[ Lu = f \label{10.1} \tag{10.1} \]
+
+Выбираем последовательность элементов $\{\varphi_n\}, \quad \varphi_n \in D_A $, которые назовем координатными функциями. Все они удовлетворяют некоторым однородным краевым условиям задачи \eqref{10.1}
+
+Будем считать, что как и \eqref{10.1}, так и все краевые условия линейные. Тогда и функция
+\[ u_n = \sum_{k=1}^{n}a_n \varphi_k(P) \label{10.2} \tag{10.2} \]
+
+будет удовлетворять всем краевым условиям задачи \eqref{10.1}
+
+$a_k$ выбирается таким образом, чтобы после подстановки $(A u_n - f) \perp \varphi_1, .., \varphi_n $
+\[ \Sum_{k=1}^{n} a_j (L\varphi_k, \varphi_j)  = (f, \varphi_j), \qquad j= \overline{1, n} \label{10.3} \tag{10.3} \]
 
 \subsection{Применение метода Б-Г к интегральному уравнению Фредгольма}
 
-\[ u(P) - \int_{\Omega}^{} K(P, Q)u(Q) d\Omega f(P) \label{8_1_4} p \in p \in \Omega \]
-\[ \int_{\Omega}^{}\int_{\Omega}^{} k^2 (P, Q) d\Omega_p d\Omega_;:{\Theta} \]
-\[ \int_{}^{}f^2(P) < \infty \exists \textrm{ решение  } u(P) \textrm{ в H} \]
-\[ H = L_2 (\Omega) \]
-\[ \{ \widetilde{\phi_n} \} \textrm{ ПОНС }; (\phi_i, \phi_j) = \delta_{ij} \label{8_1_6} \]
-\[ u_n = \sum_{k=2}^{n}a_k \phi_k (P) \]
-\[ a_m - \sum_{k=1}^{n} \omega_m a_k =  f_m \label{8_1_7} \]
-\[ f_m = (f_1, \phi_m) \]
-\[ \Omega_{mk} = \int_{\Omega}^{}\int_{\Omega}^{} k(P, Q) \phi_m (P) \phi (Q) d\Omega_P d\Omega_Q \]
-\[ f_n(P) = \sum_{k=1}^{n} f_k \phi_k (P) \]
-\[ {lim}_{n\rightarrow \infty} \int_{\Omega}^{} \int_{\Omega}^{} (K_n (P, Q) - K(P, Q))^2 d \Omega_P d \Omega_Q = 0 \]
-\[ {lim}_{n\rightarrow\infty} \int_{\Omega}^{} (f_n f^2) d\Omega \]
-Вспомогательное уравнение
-\[ u_n (P) - \int_{\Omega}^{} K_n (P,Q) u_n (Q)  d\Omega = f_n \]
-Из + ИУ при дос большом \[ u(n) \exists!\textrm{ реш } \label{8_1_9}\textrm{  и } {||m_n - u||}_H \rightarrow^{n\rightarrow \infty} 0 \]
-\[ u_n(P) = \sum_{k=1}^{n} A_k \phi_K (P) \]
-\[ A_k = \sum_{k=1}^{n} \omega_{kl} \int_{\Omega}^{} u_l (Q) u_k(Q) d\Omega + (f, \phi_k) \]
-\[ A_k -\sum_{l=1}^{n} \omega A_k = f_k\]
+\[ u(P) - \Int_{\Omega}^{} K(P, Q) \, u(Q) \, d\Omega = f(P) \label{10.4} \tag{10.4} \]
 
-\subsection{Элементы теории приближение}
+Предполагаем следующее
+\[ \Int_{\Omega}^{}\Int_{\Omega}^{} K^2 (P, Q) \, d\Omega_P \, d\Omega_Q < \infty, \qquad \Int_{}^{}f^2(P) d\Omega < \infty \label{10.5} \tag{10.5} \] 
 
+а также единственность решения \eqref{10.4} в $H=L_2(\Omega)$
+
+Возьмем систему $\{ \varphi_n \}$ полную и ортонормированную (ПОНС)
+\[ (\varphi_i, \varphi_j) = \delta_{ij} \label{10.6} \tag{10.6} \]
+
+Положим
+\[ u_n = \Sum_{k=1}^{n}a_k \varphi_k (P) \]
+
+Подставляя в \eqref{10.4} и требуя ортогональности, а также учитывая \eqref{10.6} получим СЛАУ
+\[ a_m - \Sum_{k=1}^{n} \gamma_{mk} a_k =  (f, \varphi_m) \label{10.7} \tag{10.7} \]
+\[ \gamma_{mk} = \Int_{\Omega}^{}\Int_{\Omega}^{} K(P, Q) \varphi_m (P) \varphi_k (Q) \, d\Omega_P \, d\Omega_Q \]
+
+Введем обозначения:
+\[ K_n(P, Q) = \Sum_{k, m=1}^n \gamma_{mk} \, \varphi_m (P) \, \varphi_k (Q) \]
+\[ f_n(P) = \Sum_{k=1}^{n} (f, \varphi_k) \varphi_k (P) \]
+
+Система $\{ \varphi_n \}$ --- ПОНС, поэтому
+\[ \left. \begin{array}{l}
+	\underset{n \rightarrow \infty}{\lim} \Int_{\Omega}^{} \Int_{\Omega}^{} {\left[K_n (P, Q) - K(P, Q)\right]}^2 \, d \Omega_P \, d \Omega_Q = 0 \\
+	\underset{n \rightarrow \infty}{\lim} \Int_{\Omega}^{} {\left[ f_n(P) - f(P) \right]}^2 d\Omega = \underset{n \rightarrow \infty}{\lim} {\| f_n - f \|}^2 = 0
+\end{array} \right\} \label{10.8} \tag{10.8} \]
+
+Рассмотрим вспомогательное уравнение
+\[ v_n (P) - \Int_{\Omega}^{} K_n (P,Q) v_n (Q)  d\Omega = f_n(P) \label{10.9} \tag{10.9} \]
+
+Из теории интегральных уравнений из \eqref{10.8} следует, что при достаточно большом $n$ уравнение \eqref{10.9} разрешимо и имеет единственное решение
+\[ {\|v_n - v\|}_H \xrightarrow[n \rightarrow \infty]{} 0 \]
+
+Интегральное уравнение \eqref{10.9} можно решить. Заменяя $K_n(P,Q)$ и $f_n(P)$ их значениями, получим
+\[ v_n(P) = \Sum_{k=1}^{n} A_k \varphi_K (P) \]
+\[ A_m = \Sum_{k=1}^{n} \gamma_{mk} \Int_{\Omega}^{} v_n (Q) \, \varphi_k(Q) \, d\Omega + (f, \varphi_m) \]
+\[ A_m -\Sum_{l=1}^{n} \gamma_{mk} A_k = (f, \varphi_m), \qquad m = \overline{1,n} \]
+
+\subsection{Элементы теории приближения}
+
+TODO
 \[ H_A \supset H_N  \textrm{ - конечномерное }\]
 \[ В \exists \textrm{ норм про-во X:  } \exists \textrm{ элемент наилучшего приближения }  \]
-\[ \forall u \in X: \rho(u, H_N) = {inf}_{V \in H_N} \rho(u, V) X = C[a, b] \]
+\[ \forall u \in X: \rho(u, H_N) = {inf}_{v \in H_N} \rho(u, v) X = C[a, b] \]
 \[ 1, x, x^2, ..., x^N, ... \]
 \[ | C[a, b] \rightarrow P_{N-1} (x) \]
-\[ L_N(x) = \sum_{n=1}^{n} f(x_k) l_k(x) \]
+\[ L_N(x) = \Sum_{n=1}^{n} f(x_k) l_k(x) \]
 \[ \{ l_k(x) \} -\textrm{ система фундаментальных многочленов } \]
 \[ l_k(x) = \frac{(x-x^1) ... (x-x_N)}{(x_k-x_1) ... (x_k - x_N)} = \frac{\omega(x)}{(x-x_k) \omega'(x_K)} \]
 \[ l_k(x_m) = \delta _{km}; \omega (x) = П_{k=1}^{m} (x = x_k) \]
-\[ || f - L_N(x) ||_C \leq (1+||P||)\rho_N (f, H_N) \]
-\[ ||P|| = {max}_{x \in [a, b]} \sum_{k=1}^{n} |l_k(x)| = \Lambda_N - \textrm{ построение Лебега }\]
+\[ \| f - L_N(x) \|_C \leq (1+\|P\|)\rho_N (f, H_N) \]
+\[ \|P\| = {max}_{x \in [a, b]} \Sum_{k=1}^{n} |l_k(x)| = \Lambda_N - \textrm{ построение Лебега }\]
 \[ \Lambda_N - \textrm{ неогр возростает при  } n\rightarrow \infty \textrm{ для всего  } C[a,b] \textrm{и сущ зависит от выбора сетки } x_1, ... , x_N\]
 \[ x_k = \frac{a+b}{2} + \frac{2}{b-a} t_k; t_K = -cos\{\frac{\pi}{2N}(2k-1)\}  \]
 \[ \Lambda_N \approx \frac{2}{\pi} ln N + 1- q_N, 0<< q_N < \frac{1}{4} \]
 \[ Lu = -\frac{d}{dx}(p(x \frac{du}{dx}) + q(x) u) \]
 \[ Lu = f\textrm{ + гр у } u(a) = u(b) + 0 \]
-\[ u_n(x) = \sum_{k=1}^{n} a_k l_k(x); a_k = u_N(x_k) \]
-\[ \sum_{p=1}^{n} a_p (Ll_p, l_K) = (f, l_k) = \int_{a}^{b} f(x) ln(x) dx = f_K \]
+\[ u_n(x) = \Sum_{k=1}^{n} a_k l_k(x); a_k = u_N(x_k) \]
+\[ \Sum_{p=1}^{n} a_p (Ll_p, l_K) = (f, l_k) = \Int_{a}^{b} f(x) ln(x) dx = f_K \]
 \[ l_k(x_m) = \delta_{km}, \omega(x) = П^{m}_{k=1} (x- x_k) \textrm{ СЛАУ с mуравнений }\]
-\[ a_{kl} = (Ll_k, l_p) = \int_{a}^{b}p(x) \frac{dl_n(x)}{dx} \frac{dlp(x)}{dx} + \int_{a}^{b}a(x) q(x) l_k(x) f(x) dx \]
+\[ a_{kl} = (Ll_k, l_p) = \Int_{a}^{b}p(x) \frac{dl_n(x)}{dx} \frac{dlp(x)}{dx} + \Int_{a}^{b}a(x) q(x) l_k(x) f(x) dx \]
 \[ x_1 = a; x_N = b \Rightarrow \]
 \[ l_1(x_1) = 0; l_N (X_N) = 0 \]
 
-\[ u_n(x) = \sum_{k=2}^{N-1}u(x_K) l_N(x) \]
-\[ \sum_{p=1}^{N-1}u_k a_{Kp} = f_{k} \]
+\[ u_n(x) = \Sum_{k=2}^{N-1}u(x_K) l_N(x) \]
+\[ \Sum_{p=1}^{N-1}u_k a_{Kp} = f_{k} \]
 \[ p = w \]
 Пример
 \[ p \equiv 1, a \equiv 0 \]
@@ -1149,10 +1408,10 @@ $ B_j: u \in H_A $ главные гр условия для $A$.
 \[ l_3(x) = (x+1(x+\frac{1}{2})(x-\frac{1}{2})(x-\frac{1}{2})) \]
 \[ l_4(x)  = \frac{(x+1(x+\frac{1}{2})x(x-1))}{\frac{3}{2} \cdot 1 \cdot \frac{1}{2} \cdot -\frac{1}{2}} \]
 \[ u_N - u_2 l_2(x) + u_3l_3(x) + u_4l_4(x) \]
-\[ a_{kp} = \int_{-1}^{1} \frac{dl_k}{dx} \frac{dl_P}{dx} dx \]
+\[ a_{kp} = \Int_{-1}^{1} \frac{dl_k}{dx} \frac{dl_P}{dx} dx \]
 период гр у
 \[ [a, b] = [0, 2 \pi] \]
-\[ u_N = \frac{a}{2} + \sum_{k=1}^{} a_k cos(kx) + b_k sin(kx) \]
+\[ u_N = \frac{a}{2} + \Sum_{k=1}^{} a_k cos(kx) + b_k sin(kx) \]
 \[ x_k = \frac{2 \pi}{x}(k-1) a_0, a_k, b_k \textrm{ Упр. } \]
 \[ dim H_N - 2N-1 \]
 \[ a_k cos(kx)+ b_k sin(kx) \]
@@ -1166,589 +1425,590 @@ $ B_j: u \in H_A $ главные гр условия для $A$.
 
 Сплайн степени n, дефекта $ \nu $:
 
-\[ S_{n\nu} = P_n (x) = \sum_{k=0}^{n} a_p^(k) (x-x_k)^P = \sum_{p = 0}^{n} {b'}_P{(x_{k+1} - x)}^P \]
+\[ S_{n\nu} = P_n (x) = \Sum_{k=0}^{n} a_p^(k) (x-x_k)^P = \Sum_{p = 0}^{n} {b'}_P{(x_{k+1} - x)}^P \]
 
 \[ (x - x_K)^P_t = \{ (x - x_k)^P, x \geq x_k; 0, x \leq x_k \} \]
 
-\section{Лекция }
+\newpage
 
-\subsection{Степенные сплайны}
+\section{Лекция 11}
 
-\[ \Omega = [a, b]\textrm{ Разбиение } a = x_0 < x_1 < ... < x_n = b \]
-\[ h_I = x_i - x_{i-1} \]
-\[ h = max_{i=1, N} h_i \]
+\subsection{Кусочно постоянные сплайны}
+
+Рассмотрим случай одной переменной
+\[ \Omega = [a, b] \subset \mathbb{R} \]
+
+Введем на $[a, b]$ сетку 
+\[ a = x_0 < x_1 < ... < x_{N-1} < x_N = b, \qquad h_i = x_i - x_{i-1}, \qquad h = \underset{i=1, N}{\max} \ h_i \]
+
+Зададим на каждом отрезке $(x_{i-1}, x_i)$ функцию
+\[ \varphi_i (x) =  \left\{ \begin{array}{l}
+	1, \qquad x \in (x_{i-1}, x_i) \\
+	0, \qquad x \not \in (x_{i-1}, x_i)
+\end{array} \right. \]
+
+Линейную оболочку таких функций обозначим $H_N$
+
 \begin{enumerate}
-	\item кусочнопостоянные сплайны
-
-	задается многочленами степени 0.
-
-	\[ \phi_i (x) = {1, x \in (x_{i-1}, x_i)}; 0, x \cancel{\in} (x_{i-1}, x_i) \]
-
-	\[H_N = \lambda(\phi_1, ... , \phi_N) \]
-
-	\begin{enumerate}
-		\item Система линейно независима
-		\item $ (\phi_i, \phi_j) = (h_i), i=j $
-	\end{enumerate}
-
-	Теорема:
-
-	\[ \forall u \in {W'}_{p} (a, b) \exists V(x) \in H_N: \]
-	\[ {|| u - v ||}_{L_2(a,b)} \leq c \cdot h {||u||}_{{W'}_p} (a, b) \]
-	\[ {||u||}_{W'_p}(a, b) = {||u||}_{L_p (a, b)} + {|| \frac{du}{dx} ||}_{L_p (a, b)} \]
-
-	Д
-
-	\[ М = \int_{i=1}^{N} u_i \phi_i(x) \]
-	\[ u_i = \frac{1}{h_i} \int_{x_i}^{x_{i-1}} uu(\xi)d \xi \]
-	\[ {||u-v||}^p_{L_p(a,b)} = \int_{a}^{b} {|u - v|}^p dx = \sum_{i=1}^{N} \int_{x_{i-1}}^{xi} |u(x) - \frac{1}{h_i} - \int_{x_{i-1}}^{x_I} u (\xi) d \xi = \]
-	\[ = \sum_{i=1}^{N} \int_{x_{i-1}}^{x_i} | \frac{1}{h_i} |\int_{x_{i-1}}^{x_i} (u(x) - u(\xi)) d\xi| dx = \]
-	\[ \sum_{i=1}^{N} \int_{x_{i-1}}^{x_i} |\frac{1}{h_i} \int_{x_{i-1}}^{x_i} d \xi \int_{\xi}^{x} \frac{du}{d\eta} d \eta |^P dx \leq =  \]
-	\[ \leq \sum_{i=1}^{N} \int_{x_{i-1}}^{x_i} |\frac{1}{h_i} \int_{x_{i-1}}^{x_i} d \xi \int_{x_{i-1}}^{x_i} |\frac{du}{d\eta} d \eta |^P dx = \]
-	\[ = h_i (\int_{x_i-1}^{x_i} (\frac{du}{d\eta} d \eta))^P\]
-
-	Неравенство Гелдера
-	\[ | \int_{\Omega}^{} u(x) v(x) dx \leq {(\int_{\Omega}^{} |u(x)|^q dx)}^\frac{1}{q} (\int_{\Omega}^{} (u(x))^P dx)^\frac{1}{p} \]
-
-	\[ |\int_{x_{i-1}}^{x_i} 1 \cdot |\frac{du}{d\eta}| d\eta \leq (\int_{x_{i-1}}^{x_i} 1^q dx)^\frac{1}{q} (\int_{x_{i-1}}^{x_i}| \frac{du}{d\eta} |^P dx )^\frac{1}{p} \]
-	\[ (\int_{x_{i-1}}^{x_i} | \frac{du}{d\eta}| d\eta)^P \leq h^{\frac{p}{q}}_i \int_{x_i-1}^{x_i} |\frac{du}{d\eta}|^P d\eta \]
-	\[ {||u-v||}^P_{L_P(a, b)} \leq \sum_{i=1}^{N} h_i^{q+\frac{p}{q}} \int_{x_{i-1}}^{x_i} |\frac{du}{d\eta}|^P  d\eta \leq h^{1+\frac{p}{q}} \int_{a}^{b} |\frac{du}{d\eta} d\eta \leq h^P ||u||^P_{{W'}_P} \]
-
-	\[ |x_{(x)} - V^{(x)}| = |\frac{1}{h_i} \int_{x_{i-1}}^{x_i} (u(x)- u(\xi))s \xi| = |\frac{1}{h_i} \int_{x_{i-1}}^{x_i} d\xi \int_{\xi}^{x} \frac{du}{d\eta} d \eta | \leq \]
-	\[ \leq h_i {sup}_{(x_{i-1}, x_i)} \geq h {||u||}_{{W'}_{(a, b)}} \Rightarrow \]
-	\[ \Rightarrow {||u -v||}_{L_{\infty}(a,b)} \leq h {||u||}_{{W'}_\infty (a, b)} \]
-
-	Для устойчивости нам нужно чтобы матрица грамма $ \widetilde{M} = ((\phi_i, \phi_j)) $ a с.н. были отр $ a_1 < |\Lambda| < a_2 $ $ a_1, a_2 $ не зав от N
-
-	\[ wave{\phi_i} (x) = \frac{1}{\sqrt{h_i}} \{1, x \in (\phi_{i-1}, \phi_i); 0, x \cancel{\in} () \} \]
-
-	\[ \Omega \subset \mathcal{R}^m, \Omega = \cup^{N}_{i=1} \Omega_i \]
-	\[ {max}_{i=\overline{1, N}} {sup}_{x_{ij} \leq \Omega_i} |x-y| \leq h \]
-
-	\item Кусочно линейные базисные функции
-
-	\[ 0 < x_0 < x_1 < ... < x_N = b \]
-	$ \forall $ узлы сетки $ x_i \Rightarrow \phi_i (x) = \{ \frac{x-x_{i-1}}{h_i}, x\in (x_{i-1} , x_i); \frac{x_{i_1} x_i}{h_{i+1}}, x \in (x_{i}, x_{i+1}); 0, x \cancel{\in} (x_{i-1}, x_{i+1}) \} i = \overline{i, N-1} $
-	\[ \phi_0(x = \{ \frac{x_1 -x}{h_1}, x \in (x_0, x_1)); 0, x\cancel{\in} (x_{N-1}, ..., x_N) \} \]
-
-
-	\[ {(\phi_i, \phi_j)}_{L_2(\Omega)} = \{ \cancel{=} , |i-j| \leq 1; 0, |i-j| > 1 \} \]
-
-	\[ \nu = \sum_{a_i}^{\phi_i(x)} \in H_N \]
-
-	Теорема
-
-	\[ u \in W_2^2 (\Omega) \Rightarrow \exists V \in H_N = W_2^{1, n} (\Omega) \]
-	\[ {||u-v||}_{L_2(\Omega)} \leq c_1 h^2 ||u||_{W_2^2} (\Omega) \]
-	\[ ||u-v||_{{W'}_2} (\Omega) \leq c_2 \cdot h ||u|| W_2^2 (\Omega) \]
-	\[ v(x) = \sum_{i=0}^{N} u(x_i) \psi_i (x) \]
-	\[ \forall x \in (x_{i-1, x}) \]
-	\[ u(x) - v(x) \]
-	\[ \frac{dv}{dx} = \frac{u(x_i) - u(x_{i-1})}{h_i} x\in (x_{i-1}, x_i) \]
-	\[ u(x) - v(x) = \int_{x_{i-1}}^{x} \frac{d}{d\xi}(u-v) d\xi =\]
-	\[ = \int_{x_{i-1}}^{x} [\frac{du(\xi)}{d\xi} - \frac{\phi(x_i) - u(x_{i-1})}{h_i}] d\xi \]
-	\[ = \frac{1}{h_i} \int_{x_{i-1}}^{x_i} d\xi \int_{x_{i-1}}^{x_i} (\frac{du (\xi)}{d\xi} - \frac{du(\eta)}{du}) d\eta =  \]
-	\[ = \frac{1}{h_i} \int_{x_{i-1}}^{x_i} d\xi \int_{x_[i-1]}^{x_i} d \eta \int_{\eta}^{\xi} \frac{d^2u}{dt} (t) dt \]
-	\[ \Rightarrow |u(x) - v(x)|^2 \leq h_i 4 \int_{x_{i-1}}^{x_i} |\frac{d^2u}{dt^2}|^2, x \in (x_{i-1}, x_i) \]
-	\[ \sum_{i=1}^{N} (\cdot) {||u-v||}_{L_2 (\Omega)} \leq c_1 h^2 {||u||}_{W^2_2} (\Omega)\]
-
+	\item Система линейно независима
+	\item $ (\varphi_i, \varphi_j) = 0 \ \ (i \neq j), \qquad (\varphi_i, \varphi_i) = h_i $
 \end{enumerate}
 
-\section{Лекция}
+\textbf{Теор.} Для любой функции $u(x) \in W_p^1 (\Omega) \quad \exists v(x) \in H_N$:
+\[ {\| u - v \|}_{L_2(a,b)} \leq c h {\|u\|}_{W_p^1 (\Omega)} \]
 
-Получение нормы в 0v21
+где $c = const$ не зависит от $h, u$, а норма в $W_p^1$ задается выражением
+\[ {\|u\|}_{W_p^1(\Omega)} = {\|u\|}_{L_p (\Omega)} + {\left\| \frac{du}{dx} \right\|}_{L_p (\Omega)} \]
 
-Теорема:
+\underline{Док-во}
+\[ v = \Int_{i=1}^{N} u_i \varphi_i(x), \qquad u_i = \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} u(\xi)d \xi \]
 
-$ \textrm{ Если } n(x) \in W^2_{\infty} (\Omega), \textrm{ то } {||u-v||}_{L_{\infty}}(\Omega) \leq c_3 h^2 {||u||}_{W^2_{\infty}}$
-\[ || u-v ||_{W'_{\infty}} \leq c_4 h ||u||_{W^2_{\infty}}(\Omega)\]
-\[ \textrm{ Если } u \in c^2 (\Omega) \]
-\[ {||u-V||}_{C(\omega)} \leq c_5 h^2 {||u||}_{c^2(\Omega)} \]
+Тогда при $p < \infty$
+\begin{multline*}
+	{\|u-v\|}^p_{L_p(a,b)} = \Int_{a}^{b} {|u - v|}^p dx = \Sum_{i=1}^{N} \Int_{x_{i-1}}^{x_i} {\left|u(x) - \frac{1}{h_i} - \Int_{x_{i-1}}^{x_i} u (\xi) d \xi \right|}^p dx = \\
+	= \Sum_{i=1}^{N} \Int_{x_{i-1}}^{x_i} {\left| \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} \bigl( u(x) - u(\xi) \bigr) d\xi \right|}^p dx = \Sum_{i=1}^{N} \Int_{x_{i-1}}^{x_i} {\left| \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} d \xi \Int_{\xi}^{x} \frac{du}{d\eta} d \eta \right|}^p dx \leq \\
+	\leq \Sum_{i=1}^{N} \Int_{x_{i-1}}^{x_i}{ \left| \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} d \xi \Int_{x_{i-1}}^{x_i} \left| \frac{du}{d\eta} \right| d \eta \right|}^p dx = \Sum_{i=1}^{N} h_i {\left( \Int_{x_i-1}^{x_i} \left| \frac{du}{d\eta} \right| d \eta \right)}^p
+\end{multline*}
 
-Докозательство - Упражнение
+Используя неравенство Гельдера:
+\[ \left| \Int_{\Omega}^{} u(x) v(x) dx \right| \leq {\left( \Int_{\Omega}^{} {|u(x)|}^q dx \right)}^{1/q} {\left( \Int_{\Omega}^{} {|v(x)|}^p dx \right)}^{1/p} \]
 
-\[ \phi_i(x) = \frac{1}{\sqrt(h)}
+получим
+\[ \Int_{x_{i-1}}^{x_i} 1 \cdot \left|\frac{du}{d\eta}\right| d\eta \leq {\left( \Int_{x_{i-1}}^{x_i} {1}^q d \eta \right)}^{1/q} {\left( \Int_{x_{i-1}}^{x_i} {\left| \frac{du}{d \eta} \right|}^p d \eta \right)}^{1/p} \]
+\[ {\left(\Int_{x_{i-1}}^{x_i} \left| \frac{du}{d\eta} \right| d\eta \right)}^p \leq h^{p/q}_i \Int_{x_i-1}^{x_i} {\left|\frac{du}{d\eta}\right|}^p d\eta \]
+\[ {\|u-v\|}^p_{L_p} \leq \Sum_{i=1}^{N} h_i^{1+p/q} \Int_{x_{i-1}}^{x_i} {\left|\frac{du}{d\eta}\right|}^p  d\eta \leq h^{1+p/q} \Int_{a}^{b} {\left|\frac{du}{d\eta}\right|}^p d\eta = h^p \Int_{a}^{b} {\left|\frac{du}{d\eta}\right|}^p d\eta \leq h^p {\|u\|}^p_{W_p^1} \]
+
+Для $L_{\infty}$ рассмотрим
+\begin{multline*}
+	|u - v| = \left| u(x) - \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} u(\xi) d\xi \right| = \left| \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} \bigl( u(x)- u(\xi) \bigr) d\xi \right| = \left| \frac{1}{h_i} \Int_{x_{i-1}}^{x_i} d\xi \Int_{\xi}^{x} \frac{du}{d\eta} d \eta \right| \leq \\
+	\leq h_i \underset{x \in (x_{i-1}, x_i)}{\sup} \left| \frac{du}{d\eta} \right| \leq h {\|u\|}_{W_{\infty}^1(\Omega)}
+\end{multline*}
+
+\[  \Rightarrow {\|u -v\|}_{L_{\infty}(\Omega)} \leq h {\|u\|}_{W_\infty^1 (\Omega)} \]
+\[ \hfill \square \] \\
+
+Для устойчивости нам необходимо, чтобы собственные значения матрицы Грама $ \widehat{M} = \bigl(M_{ij} = (\varphi_i, \varphi_j)\bigr) $  были ограничены сверху и снизу положительными числами $ a_1 < \lambda < a_2 $, не зависящими от $N$
+
+\[ {\varphi_i} (x) = \frac{1}{\sqrt{h_i}} \left\{ \begin{array}{l}
+	1, \quad x \in (x_{i-1}, x_i) \\
+	0, \quad x \not \in (x_{i-1}, x_i)
+\end{array} \right. \]
+
+\[ \Omega \subset \mathcal{R}^m, \Omega = \cup^{N}_{i=1} \Omega_i \]
+\[ {max}_{i=\overline{1, N}} {sup}_{x_{ij} \leq \Omega_i} |x-y| \leq h \]
+
+\subsection{Кусочно линейные базисные функции}
+
+Введем на $[a, b]$ сетку 
+\[ a = x_0 < x_1 < ... < x_{N-1} < x_N = b, \qquad h_i = x_i - x_{i-1}, \qquad h = \underset{i=1, N}{\max} \ h_i \]
+
+Зададим на каждом отрезке $(x_{i-1}, x_i)$ функцию
+\[ \varphi_i (x) =  \left\{ \begin{array}{ll}
+	\cfrac{x - x_{i-1}}{h_i}, \qquad & x\in (x_{i-1} , x_i) \\
+	\cfrac{x_{i+1} - x}{h_{i+1}}, \qquad & x \in (x_{i}, x_{i+1}) \\
+	0, \qquad & x \not \in (x_{i-1}, x_{i+1})
+\end{array} \right. \qquad i = \overline{1, N-1} \]
+\[ \varphi_i (x) =  \left\{ \begin{array}{ll}
+	\cfrac{x_1 - x}{h_1}, \qquad & x \in (x_0, x_1) \\
+	0, \qquad & x \not \in (x_0, x_1)
+\end{array} \right. \]
+\[ \varphi_N (x) =  \left\{ \begin{array}{ll}
+	\cfrac{x - x_{N-1}}{h_N}, \qquad & x\in (x_{N-1} , x_N) \\
+	0, \qquad & x \not \in (x_{N-1}, x_N)
+\end{array} \right. \]
+
+TODO картинка
+\[ {(\varphi_i, \varphi_j)}_{L_2(\Omega)} = \left\{ \begin{array}{l}
+	0, \qquad |i-j| > 1 \\
+	1, \qquad |i-j| \leq 1
+\end{array} \right. \]
+\[ v_N = \Sum_{i = 0}^{N} a_i \varphi_i(x) \quad \in H_N \]
+
+\textbf{Теор.} Для любой функции $u(x) \in W_2^2 (\Omega) \quad \exists v(x) \in H_N = W_2^{1, h} (\Omega)$:
+\[ {\| u - v \|}_{L_2(\Omega)} \leq c_1 h^2 {\|u\|}_{W_2^2 (\Omega)}  \]
+\[ {\| u - v \|}_{W_2^1 (\Omega)}  \leq c_2 h {\|u\|}_{W_2^2 (\Omega)}  \]
+
+где $c_1, c_2 = const$ не зависят от $h, u$ \\
+
+\underline{Док-во}
+\[ v(x) = \Sum_{i=0}^{N} u(x_i) \varphi_i (x) \]
+
+Оценим разность $u - v$ в произвольной точке $x \in (x_{i-1}, x_i)$. С учетом того, что функция $v(x)$ кусочно-линейная и $dv(x)/dx = (u(x_i) - u(x_{i-1}))/h_i$
+\begin{multline*}
+	u(x) - v(x) = \Int_{x_{i-1}}^{x} \frac{d}{d\xi}(u-v) d\xi = \Int_{x_{i-1}}^{x} \left[ \frac{du(\xi)}{d\xi} - \frac{u(x_i) - u(x_{i-1})}{h_i} \right] d\xi = \\
+	= \frac{1}{h_i} \Int_{x_{i-1}}^{x} d\xi \Int_{x_{i-1}}^{x_i} \left[ \frac{du (\xi)}{d\xi} - \frac{du(\eta)}{d \eta} \right] d\eta = \frac{1}{h_i} \Int_{x_{i-1}}^{x} d\xi \Int_{x_{i-1}}^{x_i} d \eta \Int_{\eta}^{\xi} \frac{d^2u(t)}{{dt}^2} dt
+\end{multline*}
+
+Применяя к \eqref{label} неравенство КБ и расширяя пределы интегрирования
+\[ {|u(x) - v(x)|}^2 \leq h_i^3 \Int_{x_{i-1}}^{x_i} {\left|\frac{d^2u}{{dt}^2} \right|}^2 dt \]
+
+Суммируя по $i = 1,...,N$ получим \eqref{label}. Если же сначала продифференцировать, а затем провести те же самые рассуждения и оценки, то получим \eqref{label}.
+\[ \Sum_{i=1}^{N} (\cdot) {\|u-v\|}_{L_2 (\Omega)} \leq c_1 h^2 {\|u\|}_{W^2_2} (\Omega)\]
+
+TODO: добавить переходов
+
+\newpage
+
+\section{Лекция 12}
+
+\textbf{Теор.} Если $u(x) \in W^2_{\infty} (\Omega)$, то $ \exists v \in H_N$:
+\[ {\|u-v\|}_{L_{\infty}(\Omega)} \leq c_3 h^2 {\|u\|}_{W^2_{\infty}(\Omega)}\]
+\[ \| u-v \|_{W_{\infty}^1} \leq c_4 h \|u\|_{W^2_{\infty}(\Omega)}\]
+
+Если $u \in C^2(\Omega)$, то
+\[ {\|u-v\|}_{C(\Omega)} \leq c_5 h^2 {\|u\|}_{C^2(\Omega)} \]
+
+\textbf{Упр.} Доказать теорему.
+\[ \varphi_i(x) = \frac{1}{\sqrt{h}}
 \left\{
-\begin{array}{l}
-    \frac{x-x_i}{h_i}, x \in (x_{i-1, x_i}) \\
-    \frac{x_{i+1-x}}{h_i+1}, x \in (x_i, x_{i+1}) \\
-    0, x \in (x_i-1, x_i+1)
+\begin{array}{ll}
+    \cfrac{x-x_{i-1}}{h_i}, \qquad & x \in (x_{i-1}, x_i) \\
+    \cfrac{x_{i+1} - x}{h_{i+1}}, \qquad & x \in (x_i, x_{i+1}) \\
+    0, \qquad & x \in (x_{i-1}, x_{i+1})
 \end{array}
-\right.
+\right. \qquad i = \overline{1, N-1}
 \]
-\[ V = \sum_{i=0}^{N} \sqrt{h} u(x_i) \phi_i(x) \]
+\[ v(x) = \Sum_{i=0}^{N} \sqrt{h} u(x_i) \varphi_i(x) \]
 
-Пример:
-
+\textbf{Пример}
 \[
 \left\{
 \begin{array}{l}
-    - \frac{d}{dx}(p(x) \frac{du}{dx}) + q(x) u = f(x), x \in (a, b) \\
-    u(a) = 0; \frac{du}{dx}(a) = 0, f \in L_2(a, b)
+    - \cfrac{d}{dx} \left(p(x) \cfrac{du}{dx} \right) + q(x) u = f(x), \qquad p(x) >0, \quad q(x) \geq 0, \quad f \in L_2(a, b) \\
+    u(a) = \cfrac{du}{dx}(b) = 0
 \end{array}
 \right.
 \]
-\[ H_A: {||u||}_A = \sqrt{\int_{a}^{b} (p (\frac{du}{dx})^2+qu^2) dx} \]
-\[ H_N - L_{in} (\phi_0, ... \phi_N); \]
+\[ H_A: \quad {\|u\|}_A = \sqrt{\Int_{a}^{b} \left(p \, {\left|\frac{du}{dx}\right|}^2+q {\left| u \right|}^2 \right) dx} \]
+\[ H_N = L (\varphi_0, ..., \varphi_N) \]
 
-\subsection{Билинейные базисные функции в $\mathcal{R}$}
+\subsection{Билинейные базисные функции в $\mathbb{R}^2$}
 
-Все рассматривается для прямоугольной области.
-
-\[ \Omega - \textrm{ прямоугольная в  } \mathcal{R^2}\]
-\[ A_0 = x_0 < x_1 < ... < x_N < A_1, \Delta x_i = x_i - x_{i-1}, \Delta x = maxis_{i=1, N} \Delta x_i \]
-\[ B_0 = y_0 < y_1 < ... < y_N = B, \Delta y_1 = y_i - y_{i-1}, \Delta y = {max}_{i = 1, N} \Delta y_i \]
-\[ \phi_i(x) =
+Пусть $\Omega$ --- некоторая прямоугольная область в $\mathbb{R}^2$
+\[ A_0 = x_0 < x_1 < ... < x_{N_x} < A_1, \qquad \Delta x_i = x_i - x_{i-1}, \quad \Delta x = \underset{i=1, N_x}{\max} \Delta x_i \]
+\[ B_0 = y_0 < y_1 < ... < y_{N_y} = B_1, \qquad \Delta y_1 = y_i - y_{i-1}, \quad \Delta y = \underset{i=1, N_y}{\max} \Delta y_i \]
+\[ h = \max \ (\Delta x, \Delta y) \]
+\[ \varphi_i(x) =
 \left\{
-\begin{array}{l}
-    \frac{x_i - x_{i-1}}{\Delta x_i}, x \in (x_{i-1}, x_i) \\
-    \frac{x_i+1 - x}{\Delta x_{i+1}}, x \in (x_i, x_{i+1}) \\
-    0, x \cancel{\in} (x_{i-1, x_i})
+\begin{array}{ll}
+    \cfrac{x_i - x_{i-1}}{\Delta x_i}, \qquad & x \in (x_{i-1}, x_i) \\
+    \cfrac{x_{i+1} - x}{\Delta x_{i+1}}, \qquad & x \in (x_i, x_{i+1}) \\
+    0, \qquad & x \not \in (x_{i-1}, x_{i+1})
 \end{array}
 \right.
 \]
-\[
-y_j =
+\[ \varphi_j(y) =
 \left\{
-\begin{array}{l}
-    u
+\begin{array}{ll}
+	\cfrac{y_j - y_{j-1}}{\Delta y_j}, \qquad & y \in (y_{j-1}, y_j) \\
+	\cfrac{y_{j+1} - y}{\Delta y_{j+1}}, \qquad & y \in (y_j, y_{j+1}) \\
+	0, \qquad & y \not \in (y_{j-1}, y_{j+1})
 \end{array}
 \right.
 \]
+\[ Q_{ij} (x, y) = \varphi_i(x) \varphi_j(y) \]
+\[ u^h(x,y) = \Sum_{i, j} a_{ij} Q_{ij}(x, y), \qquad (x_i, y_j) \in \overline{\Omega} \]
+\[ L(Q_{ij}) = W_2^{1, h} \cap W_2^1 \] \\
 
-\[ Q_ij(x, y) = \phi_i(x) \phi_j(y) \]
-\[ y(x, y) = \sum_{i, j=1}^{N}a_{i, j} Q_{ij}(x, y), (x, y) \in \overline{\Omega} \]
-\[ L(Q_{ij}) = W_2^{1, h} \owns {W'}_2 \]
+\textbf{Теор.} Если $ u \in C^{(2)} (\Omega)$, то существует  $u^h \in W^{1, h}_2$ такая, что
+\[ {\|u - u^h\|}_{L_2(\Omega)} \leq c h^2 {\|u\|}_{C^{(2)} (\Omega)} \]
+\[ {\|u-u^h\|}_{W_2^1(\Omega)} \leq c h {\| u \|}_{C^{(2)} (\Omega)} \]
 
-Теорема
+где $c = const$ не зависит от $h, u$ \\
 
-Если $ uu \in C^2 (\Omega) \Rightarrow \exists u^h \in W^{1, h}_2$
-\[ {||u - u^h||}_{L_2(\Omega)} \leq c\cdot h^2 {||u||}_{C^2\Omega} \]
-\[ {||u-u^h||}_{{W'}_2(\Omega)} \leq c \cdot h {|| u ||}_{C^2(\Omega)} \]
+\underline{Док-во}
+\[ u^h(x,y) = \Sum_{i, j} u(x_i, y_j) Q_{ij}(x, y) \]
+\[ \xi (x, y) = u(x, y) - u^h(x,y) \]
+\begin{multline*}
+	\xi(x, y) = (x - x_l) \frac{\partial \xi}{\partial x} (x_l, y_k) + (y - y_k) \frac{\partial \xi}{\partial y} (x_k, y_k) + \Int_{x_l}^{x} dx' \Int_{x_l}^{x'} \frac{\partial^2 \xi}{{\partial x''}^2} (x'', y_k) dx'' + \\
+	+ \Int_{y_k}^{y}dy' \Int_{y_k}^{y'} \frac{\partial ^2 \xi}{{\partial y''}^2}(x_l, y'') d y'' + \underbrace{\Int_{x_l}^{x} \Int_{y_k}^{y} \frac{\partial ^2 \xi}{\partial x' \partial y'} (x', y') dx' dy'}_{C}
+\end{multline*}
 
-\[ \xi(x, y) = (x - x_l) \frac{\partial \xi}{\partial x} (x_l, y_k) + (uu - y_k) \frac{\partial \xi}{\partial y} (x_k, y_k) + \int_{x_l}^{x} dx' \int_{x_l}^{x'} \frac{\partial ^2 xi}{\partial {x''}^2} (x'', y_n) dx'' + \]
-\[ + \int_{y_k}^{y}dy' \int_{y_k}^{y'}dy' \frac{\partial ^2 \xi}{\partial {y''}^2}(x_l, y'') d y'' + \int_{x_l}^{x} \int_{y_k}^{y} \frac{\partial ^2 \xi}{\partial x' \partial y'} (x', y') dx' dy'  \]
+\[\frac{\partial^2 u^h}{\partial x \partial y} = \frac{1}{\Delta x_{l+1} \Delta y_{k+1}} \Int_{x_l}^{x_{l+1}} dx' \Int_{y_k}^{y_{k+1}} \frac{\partial^2 u}{\partial x' \partial y'}(x', y') \, dy',\]
 
-...
 
-\[ (x - x_l) \frac{\partial \xi}{\partial x}(x_l, y_k) =  \]
-\[ = \frac{x-x_l}{\Delta x_l H} \int_{x_{l+1}}^{x_l} dx' \int_{x'}^{x_l} \frac{\partial ^2 u}{\partial {x''}^2} (x'', y_k) dx'' \]
+\[\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {A}}} \quad (x - x_l) \frac{\partial \xi}{\partial x}(x_l, y_k) = \frac{x - x_l}{\Delta x_{l+1}}
+\Int_{x_l}^{x_{l+1}} dx' \Int_{x'}^{x_l} \frac{\partial^2 u}{{\partial x''}^2}(x'', y_k) \, dx'',\]
+\[\raisebox{.5pt}{\textcircled{\raisebox{-1.5pt} {B}}} \quad \Int_{x_l}^x dx' \Int_{x_l}^{x'} \frac{\partial^2 \xi}{{\partial x''}^2}(x'', y_k) dx'' = 
+\Int_{x_l}^x dx' \Int_{x_l}^{x'} \frac{\partial^2 u}{{\partial x''}^2}(x'', y_k) \, dx'',\]
+\begin{multline*}
+	\raisebox{.5pt}{\textcircled{\raisebox{-1.5pt} {C}}}
+	\quad \Int_{x_l}^x dx' \Int_{y_k}^y \frac{\partial^2 \xi}{\partial x' \partial y'}(x', y') \, dy' = \\
+	= \frac{1}{\Delta x_{l+1} \Delta y_{k+1}} \Int_{x_l}^{x_{l+1}} dx'' \Int_{y_k}^{y_{k+1}} dy'' \Int_{x_l}^x dx' \Int_{y_k}^{y'} \left( \frac{\partial^2 u}{\partial x' \partial y'}(x', y') - \frac{\partial^2 u}{\partial x'' \partial y''}(x'', y'') \right) \, dy'
+\end{multline*}
 
-\[ \int_{x_l}^{x} dx' \int_{x_l}^{x'} \frac{\partial ^2 \xi}{\partial {x''}} dx' \int_{y_k}^{y} \frac{\partial ^2 \xi}{\partial x' \partial y'} (x', y') dx' dy' = \]
-\[ = \frac{1}{\Delta x_{l+1}, \Delta y_{k+1}} \int_{x_l}^{x_{l+1}} dx'' \int_{y_k}^{y_{k+1}} dy'' \cdot \int_{x_l}^{x} dx' \int_{y_k}^{y} d y' (\frac{\partial u}{\partial x' \partial  y'}( \frac{\partial u}{\partial x' \partial y'}(x', y') - \frac{\partial ^2 u}{\partial x''\partial y''})) dy' \]
+Следовательно выражение для $\xi (x,y)$ принимает вид
+\begin{multline*}
+	\xi(x, y) = \frac{x - x_l}{\Delta x_{l+1}} \Int_{x_l}^{x_{l+1}} dx' \Int_{x'}^{x_l} \frac{\partial^2 u}{{\partial x''}^2}(x'', y_k) \, dx'' + \frac{y - y_k}{\Delta y_{k+1}} \Int_{y_k}^{y_{k+1}} dy' \Int_{y'}^{y_k} \frac{\partial^2 u}{{\partial y''}^2}(x_l, y'') \, dy'' + \\
+	+ \Int_{x_l}^x dx' \Int_{x_l}^{x'} \frac{\partial^2 u}{{\partial x''}^2}(x'', y_k) \, dx'' + \Int_{y_k}^y dy' \Int_{y_k}^{y'} \frac{\partial^2 u}{{\partial y''}^2}(x_l, y'') \, dy'' + \\ 
+	+ \frac{1}{\Delta x_{l+1} \Delta y_{k+1}} \Int_{x_l}^{x_{l+1}} dx'' \Int_{y_k}^{y_{k+1}} dy'' \Int_{x_l}^x dx' \left( \frac{\partial^2 u}{\partial x' \partial y'}(x', y') - \frac{\partial^2 u}{\partial x'' \partial y''}(x'', y'') \right) dy'
+\end{multline*}
 
-...
-здесь была получена первая оценка
+Отсюда следует, что
+\[ | \xi (x,y) | \leq c \left( {\Delta x_{l+1}}^2 + {\Delta y_{k+1}}^2 \right) \Sum_{|i|=2} {\left\| D^{|i|} u \right\|}_{C(\Omega_{l+1, k+1})} \leq c \left( {\Delta x}^2 + {\Delta y}^2 \right) \Sum_{i=2} {\left\| D^{(i)} u \right\|}_{C(\Omega)} \]
+\[ {\| u - u^h \|}_{L_2(\Omega)} = \Int_{\Omega} {| u - u^h |}^2 dx dy \leq c {\left( {\Delta x}^2 + {\Delta y}^2 \right)}^2 {\left( \Sum_{i=2} {\left\| D^{(i)} u \right\|}_{C(\Omega)} \right)}^2 \]
 
-ПОлучить вторую оценку это второе упражнение.
+\textbf{Упр.} Получить вторую оценку
 
-Более сильная оценка. Упр со *.
-\[ x {||u - y^h||}_{C(\Omega)} \leq C (\Delta x^2 + \Delta y^2) \sum_{i=2}^{} {||D^{(1)} u}_{\Omega}\]
+\textbf{Упр*.} Доказать более сильную оценку:
+\[ {\|u - u^h\|}_{C(\Omega)} \leq c ({\Delta x}^2 + {\Delta y}^2) \Sum_{i=2}^{} {\left\| D^{(i)} u \right\|}_{C (\Omega)}\]
 
-\[ F(u) = \int_{\Omega}^{} ((\frac{\partial u}{\partial x})^2 + (\frac{\partial u}{\partial y})^2 + u^2 - 2uf) dx dy \]
+TODO картинка
+\[ \left\{
+\begin{array}{l}
+	- \Delta u + u = f, \qquad f \in L_2 (\Omega) \\
+	u|_{\partial \Omega} = g
+\end{array}
+\right. \]
+\[ F(u) = \Int_{\Omega} \left( {\left( \frac{\partial u}{\partial x} \right)}^2 + {\left( \frac{\partial u}{\partial y} \right)}^2 + u^2 - 2uf \right) dx dy \]
+\[ H_A = \accentset{\circ}{W}_2^1 (\Omega) \]
+\[ \accentset{\circ}{W}_2^{1,h} = \left\{ u^h: u^h \in W_2^{1,h}, \quad u^h = \Sum_{i,j} a_{ij} Q_{ij}, \quad {\| u^h \|}_{\accentset{\circ}{W}_2^{1,h}} = {\| u^h \|}_{W_2^{1,h}}, \quad (x_i, y_j) \in \Omega \right\} \]
 
-\[ H_A - {\overset{0}{W}'}_2( \Omega) \]
-
-Теорема
-
-\[ \forall u \in W'_2 (\Omega) \cup C^2(\Omega) \]
-\[ \exists u^h \in W_2^{1, h} : \textrm{ оценить } (T^1) \]
+\textbf{Теор.} Для любой $u \in W_2^1 (\Omega) \cap C^{(2)}(\Omega)$ существует $u^h \in W_2^{1, h}$ такая, что справедливы оценки \eqref{label}.
 
 \subsection{Построение проекционно сеточной схемы для ОДУ 2-го порядка}
 
-\[
-\left\{
-\begin{array}{l}
-    -\frac{d}{dx}(p(x) \frac{du}{dx})\frac{du}{dx} + q(x)u(x) = f(x), f \in L_2(a, b) \\
-    u(a) = u(b) = 0 \\
-    Au = f,  0< p_0 \leq p(x) \leq p, 0 \leqq(x) \leq q
+Рассмотрим следующую задачу
+\[ \left\{
+\begin{array}{ll}
+    -\cfrac{d}{dx} \left( p(x) \cfrac{du}{dx} \right) + q(x)u(x) = f(x), \qquad & f \in L_2(a, b) \\
+    u(a) = u(b) = 0 \qquad & 0< p_0 \leq p(x) \leq p_1,\ 0 \leq q(x) \leq q_1 \\
 \end{array}
-\right.
-\]
+\right. \]
+\[ Au = f \]
+\[ H = L_2 (a, b) \ \Rightarrow \ A \ \text{положительно определен} \ \Rightarrow \ \exists A^{-1} \ \Rightarrow \ \exists! \ \text{решение} \ \eqref{label} \]
 
-\[ H = L_2 (a, b) \Rightarrow A \textrm{ положительно определена } \Rightarrow \exists A^{-1} \Rightarrow ! \textrm{ реш } u(3) \]
+Пусть $u(x)$ --- решение \eqref{label}
+\[ {\|u\|}_{W_2^2 (\Omega)} \leq c \, {\|f\|}_H \]
+\[ H_A = \accentset{\circ}{W}_2^1 (\Omega), \qquad c_0 {\|u\|}_{W_2^1} \leq {\| u \|}_A \leq c_1 {\|u\|}_{W_2^1} \]
+\[ F(u) = [u, u] -2 (u, f) \rightarrow \min \quad \text{на} \ \accentset{\circ}{W}_2^1 (\Omega)\]
+\[ \varphi_i(x) = \frac{1}{\sqrt{h}} \Biggl\{ ... \]
+\[ \accentset{\circ}{W}_2^{1, h} = \left\{ v = \Sum_{i=1}^{N-1} a_i \varphi_i (x) \right\} \subset \accentset{\circ}{W}_2^1 = H_A \]
+\[ u^h(x) = \Sum_{i=1}^{N-1} a_i \varphi_i (x) \ \text{--- минимизирует} \ F(v) \ \text{на} \ \accentset{\circ}{W}_2^{1, h} \]
 
-\[ \ \]
-\[ {||u||}_{W_2^2} (\Omega) \leq c {||f||}_H \]
-\[ H_A = \overset{0}{W}_2'(\Omega); c_0 {||u||}_{W'_2} \leq {||n||}_A \leq c_1 {||u||}_{{W'}_2} \]
-\[ F(u) = [u, u] -2 (u, f) \rightarrow min \textrm{ на } \overset{0}{{W'}_2} = H_A; u_i = \frac{1}{\sqrt{h}} \textrm{ далее тоже самое что и раньше } \]
-\[ u^h(x) = \sum_{i=1}^{N-1} a_i \phi_i (x) \]
-\[ \overset{0}{W}_2^{i, h} = \{ v = \sum_{i=1}^{N-1} a_i \phi_I (x) \} \]
-\[ \textrm{ Минимизируем }F(v) \textrm{ на } \overset{0}{W}_2^{1, h}; \]
-\[ a_i \textrm{ из }\frac{\partial F}{\partial a}(u_n) = 0, i=1, N-1 \]
-\[ \hat{A a} = f; \hat{A} = (A_{ij}) = ([[\phi_I, \phi_j]]) \]
-\[ a = (a_{i}, ... , a_{N-1})^T \]
-\[ {f = (f_1, ... , f_{N-1})}^T \]
-\[ f_i = \int_{\Omega_i}^{} f \phi_i dx \]
-\[ \phi_i = \int_{\Omega}^{} (p \frac{d\phi_i}{dx}\frac{d \phi_i}{dx} + q \phi_i \phi_j) \]
+Находим $a_j$ из $\cfrac{\partial F}{\partial a} (u_h) = 0, \quad i=\overline{1, N-1}$
 
-\[ \exists ! \textrm{ реш } {(a_1, ..., a_{N-1})}^T \]
-кот однозначно определяется $ u^h \leftarrow argmin F(Vq) $
+Приходим к системе уравнений
+\[ \widehat{A} a = f, \qquad \hat{A} = (A_{ij})\]
+\[ A_{ij} = [\varphi_i, \varphi_j] = \Int_{\Omega_{ij}}^{} \left( p \frac{d\varphi_i}{dx}\frac{d \varphi_j}{dx} + q \varphi_i \varphi_j \right) dx \]
+\[ a = {(a_1, ... , a_{N-1})}^T, \qquad {f = (f_1, ... , f_{N-1})}^T \]
+\[ f_i = \Int_{\Omega_i} f \varphi_i dx \]
 
-Упр Найти $ A_{ij} в случае p и q кусочнопостоянны на сетке$
-\[ p_{i-\frac{1}{2}} = p(x)\]
-\[x\in (x_{i-1}, x_i) i = \overline{1, N} \]
-\[ q_{i-\frac{1}{2}} = - ... \textrm{ аналогично } \]
+Существует единственное решение $ {(a_1, ..., a_{N-1})}^T $, которое однозначно определяет решение $ u^h \leftarrow \underset{v \in \accentset{\circ}{W}_2^{1, h}}{\operatorname{argmin}} \ F(v) $
 
-\section{Лекция}
+Отметим, что так как $A_{ij} = 0$ при $|i - j|>1$, то матрица $\widehat{A}$ оказывается трехдиагональной. \\
 
-Продолжение прошлой лекции
+\textbf{Упр.} Найти $ A_{ij}$ в случае кусочно-постоянных $p$ и $q$ на сетке
+\[ p_{i-\frac{1}{2}} = p(x), \quad x \in (x_{i-1}, x_i), \qquad i = \overline{1, N} \]
+\[ q_{i-\frac{1}{2}} = ... \]
 
-Постановка с прошлой лекции:
-\[ -\frac{d}{dx} [ p(x) \frac{du}{dx}] + q(x) u = f \]
-\[ u(a) = u(b) = 0 \]
+\newpage
 
-\[ ||u - u_{H}|| \leq ||u - V_n||,\textrm{ где } V_n = \sum_{i=1}^{N-1} h_i \phi_i; \forall V_n \in H_{A^{(N)}} = \overset{\circ}{W}_2^1, h \]
+\section{Лекция 13}
 
-\[ c_0 {||u||}_{{W'}_2} \leq {||u||}_A \leq c_1 {||u||}_{{W'}_c} \]
+\[ \left\{ \begin{array}{l}
+	-\cfrac{d}{dx} \left[ p(x) \cfrac{du}{dx}\right] + q(x) u = f \\
+	u(a) = u(b) = 0
+\end{array} \right. \]
+\[ {\|u - u_h\|}_A \leq \|u - v_n\|, \quad \textrm{где} \ v_h = \Sum_{i=1}^{N-1} b_i \varphi_i; \quad \forall v_h \in H_{A}^{(N)} = \accentset{\circ}{W}_2^{1,h} \]
+\[ c_0 {\|u\|}_{{W}_2^1} \leq {\|u\|}_A \leq c_1 {\|u\|}_{{W}_2^1} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq c {\|u - v_h\|}_{{W}^1_2} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq c \underset{v_h \in H_{A}^{(N)}}{\inf} {\|u - v_h\|}_{{W}^1_2} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq ch {\|u\|}_{{W}_2^2} \leq ch {\|f\|}_{H=L_2} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq ch {\|f\|}_{H} \]
+\[ {\|u-u_h\|}_{H=L_2} \leq c_2 h {\|f\|}_H \qquad \text{(в силу неравенства Фридрихса)} \]
 
-\[ {||u-u_h||}_{{W'}_2} \leq ch {||f||}_H \]
+\[ {[u, v]}_A = (f, v), \quad \forall v \in \accentset{\circ}{W}_2^{1} \]
+\[ {[u_h, v_h]}_A = (f, v_h), \quad  \forall v_h \in \accentset{\circ}{W}_2^{1, h} = H_A^{(N)} \]
+\[ [u - u_h, v_h] = 0 \quad \forall v_n \in \accentset{\circ}{W}_2^{1, h} \]
 
-\[ {||u-u_h||}_{H=L_2} \leq c_2 h {||f||}_H \]
+Рассмотрим вспомогательную задачу $ A \Phi = F, \ F = u - u_h $
 
-\[ {[u, V]}_A = (f, V), v \in {W'}^0_2 \]
+по свойствам A $\exists!$ решение $\Phi$:
+\[ {\|\Phi\|}_{W^2_2} \leq c \|F\| = C \|u - u_h\| \]
 
-\[ {[u_n, V_n]}_Aa = (f, V_n);  \forall V_h \in \overset{\circ}{W}_2^{1, h} = H_A^{(N)} \]
+и $ \Phi $ удовлетворяет: $[\Phi, v] = (F, v) \ \forall v \in \accentset{\circ}{W}_2^{1} $
 
-\[ [u - u_n, V_n] = 0 \forall V_n \in \overset{\circ}{W}_2^{1, n} \]
-
-Рассмотрим вспомогательную задачу
-
-Здесь немного путаю n и h, нужно поправить
-
-\[ A \Phi = F, F = u - u_h \textrm{ по св-вам } A \exists! \textrm{ реш } \Phi: \]
-
-\[ ||\Phi||_{W^2_2} \leq c ||F|| = C ||u - u_h|| \]
-
-и $ \Phi $ удовлетворяет:
-
-\[ [\Phi, V] = (F, V) \forall V \in \overset{\circ}{W}^1_2 \]
-Рассмотрим $ V=u - u_h $
-
-\[ (F, V) = (u - u_h, u - u_h) = (A \Phi, u - u_h) = \]
-\[ = [\Phi, u - u_n] - [u - u_n \Phi_h] = \]
-\[ = [\Phi - \Phi_h, u - u_n] \leq {||\Phi - \Phi_n||}_A \cdot {||u - u_n||}_A \leq \]
-\[ \leq ch ||f|| {||\Phi - \Phi_n||}_A \leq \]
-\[ \leq ch ||f|| \cdot {||\Phi - \Phi_h||}_{{W'}_2} \]
+Рассмотрим $ v = u - u_h $
+\begin{multline*}
+	(F, v) = (u - u_h, u - u_h) = (A \Phi, u - u_h) = [\Phi, u - u_h] - [u - u_h, \Phi_h] = [\Phi - \Phi_h, u - u_h] \leq \\
+	\leq {\|\Phi - \Phi_h\|}_A \cdot {\|u - u_h\|}_A \leq ch \|f\| {\|\Phi - \Phi_h\|}_A \leq \tilde{c} h \|f\| \cdot {\|\Phi - \Phi_h\|}_{W_2^1}
+\end{multline*}
 
 Из результатов аппроксимации можно выбрать $ \Phi_h $:
+\[ {\|\Phi - \Phi_h\|}_{{W}_2^1} \leq \tilde{c} h \ {\|\Phi\|}_{W^2_2} \]
+\[ {\|u-u_h\|}^2 \leq ch {\|f\|} \cdot {\|\Phi- \Phi_h\|}_{{W}_2^1} \leq ch^2 \|f\| \cdot {\|\Phi\|}_{W_2^2} \leq ch^2 \|f\| \cdot \|u - u_h\| \]
+\[ \Rightarrow \|u - u_h\| \leq ch^2 \|f\| \cdot \|u - u_h\| \] \\
 
-\[ {||\Phi - \Phi_h||}_{{W'}_2} \leq ch {||\Phi||}_{W^2_2} \]
+Рассмотрим задачу с другими граничными условиями
+\[ \left\{ \begin{array}{l}
+    -\cfrac{d}{dx} \left(p(x) \cfrac{du}{dx}\right) + q(x) u = f(x) \\
+    u(a) = 0, \quad \cfrac{du}{dx}(b) = 0
+\end{array} \right. \]
+\[ u_h = \Sum_{i=1}^N a_i \varphi_i \]
 
-\[ \rightarrow {||u-u_h||}^2 \leq ch {||f||} \cdot {||\Phi- \Phi_h||}_{{W'}_2} \leq ch^2 ||f|| \cdot {||\Phi||}_{W_2^2}  \]
+\textbf{Упр.} Проверитть оценки в $ {W'}_2 $
 
-\[ ||u - u_h|| \leq ch^2 ||f|| \cdot ||u - u_h|| \]
-
-Расмотрим задачу с другими граничными условиями.
-
-упр 1
-
-\[
-\left(
-    \begin{array}{c}
-        -\frac{d}{dx} (p(x) \frac{du}{dx}) + q(x) u = f(x) \\
-        u(a) = 0, \frac{du}{dx}(b) = 0
-    \end{array}
-\right)
-\]
-упр 1 Проверитть оценки в $ {W'}_2 $
-упр 2 Найти $ \hat{A} $ при $ h_i = h, i = overline{1, N} $,
-$ \Phi = 0, P = const $
+\textbf{Упр.} Найти $ \hat{A} $ при $ h_i = h, i = overline{1, N}, \Phi = 0, P = const $
 
 \subsection{Применение ВП к з. Дирихле для ур-я Лапласа}
+\[ \Omega = \{0 < x < a, \ 0 < y < b\} \] 
+\[ \left\{ \begin{array}{l}
+		- \Delta u = f(x, y) \\
+		u|_{\partial \Omega} = 0
+\end{array}  \right. \]
 
-\[ \Omega = \{0 < x < a, 0 < y < b\} \{- \delta u = f(x, y); u|_{\partial \Omega} = 0 \} \]
+\[ A u = - \Delta u \]
+\[ D(A) = \{u \in W_2^2(\Omega), \ \ u|_{\partial \omega} = 0 \}, \qquad f \in L_2(\Omega) \]
 
-\[ \forall A u = - \Delta u , D(A) = \{u \in W_2^2(\Omega) , u|_{\partial \omega} = 0 \}, f \in L_2(\Omega) \]
+A --- симметричный положительно определенный
+\[ \Rightarrow \forall f \in L_2 \quad \exists! \ n \in \accentset{\circ}{W}_2^1 \cap W_2^2 \]
+\[ {\| u \|}_{W_2^2} \leq c \, {\| f \|} \]
+\[ H_A = \accentset{\circ}{W}_2^1 (\Omega), \quad {(u, v)}_A = \Int_{\Omega}^{} \left(\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}\right)d\Omega\]
+\[ {[u, v]}_A = (f, v), \quad \forall v \in H_A \]
+TODO: картинка + дополнить
+\[ \phi_ij = \frac{1}{\sqrt{h_x h_y}} \left\{
+\begin{array}{l}
+    1 - \left(\cfrac{u}{h_y}-j\right), \quad x_j \leq x \leq x_{i+1} \\
+    ... \\
+    ... \\
+    \textbf{Упр.}
+\end{array} \right. \]
+\[ u_h = \Sum_{i=1}^{N_x -1} \Sum_{j=1}^{N_y - 1} a_{ij} \varphi_{ij} (x, y), \qquad H_A^{(N)} = \accentset{\circ}{W}_2^{1, h} \subset H_A = \accentset{\circ}{W}_2^1 \]
 
-A симметричный положительно определенный
-
-\[ \Rightarrow \forall f \in L_2 \exists ! n \in \overset{\circ}{W'}_2 \textrm{ пересечение } W_2^2 \]
-
-\[ H_A = \overset{\circ}{W'}_2 (\Omega), {(u, V)}_A \int_{\Omega}^{} (\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\frac{\partial V}{\partial y})d\Omega\]
-\[ {[u, V]}_A = (f, V), \forall V \in H_A; h_x = \frac{a}{N_x} \]
-\[
-\phi_ij = \frac{1}{\sqrt{h_x h_y}}
-\left(
-    \begin{array}{c}
-        x_j \leq x \leq x_{i+1}; (1 - (\frac{u}{h_y}-j)) \\
-        \textrm{ даллее упр }
-    \end{array}
-\right)
-\]
-
-\[ u_h = \sum_{i=1}^{N_x -1} \sum_{j=1}^{N_y - 1} a_{ij} \phi_{ij} (x, y); H_A^N = \overset{\circ}{W'}_2^{1, h} \subset H_A = \overset{\circ}{W'}_2 \]
-
-$ a_ij $ - решение СЛАУ
-
-\[ {[u_h, phi_{kl}]}_A = (f, \phi_{kl}) \]
-
-\[ \hat{A} a = f \]
-
-\[ A_{ijk} = {[\phi_{ij}, \phi_{kl}]}_A; \phi_i; \textrm{ кусочно лин. } \]
-
-Упр Найти $ A_{ijkl} $
-
-\[ a (a_{11}, a_{21}, ... , a_{N_{x-1}}, ... , a_{1, N_y-1}, a_{2 N_y-1, ... , a_{N_x-1 N_{y-1}}}) \]
+$ a_{ij} $ --- решение СЛАУ, \qquad ${[u_h, \varphi_{kl}]}_A = (f, \varphi_{kl}) $
+\[ \hat{A} a = f, \qquad \hat{A} = \left( A_{ijkl} \right), \qquad A_{ijkl} = {[\varphi_{ij}, \varphi_{kl}]}_A, \qquad \varphi_{ij} \ \text{--- кусочно линейные} \]
+\[ a = \left( a_{1,1}, a_{2,1}, ..., a_{N_x-1,1}, ..., a_{1, N_y-1}, ..., a_{N_x-1, N_y-1} \right), \qquad \textbf{Упр.} \ A_{ijkl} = ? \]
 
 Оценки:
-\[ {||u - u_h||}_{{W'}_2} \leq ch ||f|| \]
-
-\[ ||u - u_h|| \leq ch^2 ||f|| \]
-
+\[ {\|u - u_h\|}_{W_2^1} \leq ch \, \|f\| \]
+\[ \|u - u_h\| \leq ch^2 \, \|f\| \]
 \[ A = - \frac{d}{dx} (p(x) \frac{du}{dx}) + q(x)u \]
 
-упр показать предедущее выражение
+\textbf{Упр.} показать предыдущее выражение
 
-\[ \frac{2a_{ij} - a_{i-1, j} - a_{j+1, i}}{h^2_x} + \frac{2a_{ij} - a_{i, j-1} - a_{i, j+1}}{h^2_y} = f_ij = {(f, \phi_{ij})}_H \]
-
+\[ \frac{2a_{ij} - a_{i-1, j} - a_{j+1, i}}{h^2_x} + \frac{2a_{ij} - a_{i, j-1} - a_{i, j+1}}{h^2_y} = f_{ij} = {(f, \varphi_{ij})}_H, \quad i=\overline{1,N_x-1}, \ j=\overline{1,N_y-1} \]
+TODO:картинка
 \[ \partial  \Omega_h \subset \partial  \Omega \]
 
-h - max сторона треугольника $ \triangle $
-$\Theta_0 - min \triangle $
+$h$ --- $\max$ сторона $ \triangle $
 
-\[ {||u-u_h||}_{{W'}_2(\Omega)} \leq c \frac{h}{sin \Omega_0} ||f|| \]
+$\theta_0$ --- $\min \angle $
+\[ {\|u-u_h\|}_{W_2^1(\Omega)} \leq c \, \frac{h}{sin \theta_0} \|f\| \]
+\[ u_h = \Sum_{i=1}^{N} a_i \varphi_i (x, y) \]
 
-\[ u_h = \sum_{i=1}^{N} a_i \phi_i (x, y) \]
+\subsection{Подходы к решению неоднородной краевой задачи}
 
-\subsection{Подходы к решению неоднородных краевой задачи}
-
-\[
-\left(
-    \begin{array}{c}
-        - \Delta u = f \textrm{ в } \Omega \\
-        u|_{2\omega} = g
+\[ \left\{
+    \begin{array}{l}
+        - \Delta u = f \quad \text{в} \ \Omega \leftarrow \text{выпуклая}, \ \partial \Omega \ \text{гладкая} \\
+        u|_{\partial \Omega} = g, \qquad f \in L_2 (\Omega), \ g \in W^{3/2}_2 (\partial \Omega)
     \end{array}
-\right)
-\]
+\right. \]
+\[ c_3 ({\|f\|}_L2 + {\|g\|}_{W_2^{3/2}}) \leq {\|u\|}_{W^2_2(|omega)} \leq c_u() \]
 
-\[ f \in L_2 (\Omega) , g \in W^{\frac{3}{2}}_2 (\partial \Omega) \]
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} Сведение к однородным граничным условиям
 
-\[ c_3 ({||f||}_L2 + {||g||}_{W_2^{\frac{3}{2}}}) \leq {||u||}_{W^2_2(|omega)} \leq c_u() \]
+ Пусть  $\exists \, \Phi \in  D(A): \ \ \Phi=g$ \ на \ $ \partial \Omega $
+\[ v = u - \Phi \]
+\[ \left\{ \begin{array}{l}
+	- \Delta u = \tilde{f} = f + \Delta \Phi \quad \in L_2(\Omega) \\
+	u|_{\partial \Omega} = 0,
+\end{array} \right. \]
+\[ u_h = v_h + \Phi \]
+\[ \Phi \in {W}_2^1 (\Omega) \]
 
-\begin{enumerate}
-    \item Сведение к однородным гр. у
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} "Снос" \ граничных условий (с $\partial \Omega$ на $\partial \Omega_h$ )
+\[ u_h = \Sum_{i=1}^{\widetilde{N}} a_i \varphi_i (x, y), \qquad \varphi_1, ..., \varphi_N \ \text{--- внутренние узлы}, \ \varphi_{N+1}, ..., \varphi_{\widetilde{N}} \ \text{--- граничные узлы} \]
+\[ i = \overline{1, N}: \quad {[u_h, \varphi_i]}_A = (f, \varphi_i) \]
+\[ i = \overline{N + 1, \widetilde{N}}: \quad a_i \varphi_i (x_i, y_i) = g(x_i, y_i) \]
 
-    \[ пусть  \exists \Phi \in  D(A): \Phi=g  \textrm{ на } \partial \Omega \]
-    \[ V = u - \Phi \]
-    \[ - \Delta V = f = f + \Delta \Phi \in L_2 (\Omega); V |_{\partial \Omega} = 0 \]
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}} Метод штрафа
 
-    \[ u_h = V_h + \Phi \]
-
-    \[ \Phi \in {W'}_2 (\Omega) \]
-
-    \item СНос тр. у
-
-    \[ u_h \sum_{i=1}^{N} a_i \phi_i (x, y) \]
-
-    \[ i = \overline{1, N} = [u_h, \phi_i]_A = (f, \phi_i) \]
-
-    \[ i = \overline{N + 1, \widetilde{N}} a_i \phi_i (x_i, y_i) = g(x_i, y_i) \]
-
-\end{enumerate}
-
-\subsection{Метод штрафа}
-
-рассмотрим модифицированную 3 краевую задачу
-\[
-\left(
-    \begin{array}{c}
-        - \Delta u_{\epsilon} = f \textrm{ в  } \Omega \\
-        u_{\epsilon} + \epsilon \frac{\partial u}{\partial n} = g \textrm{ на  } \partial \Omega
+Рассмотрим модифицированную 3 краевую задачу
+\[ \left\{
+    \begin{array}{l}
+        - \Delta u_{\varepsilon} = f \quad \text{в} \Omega \\
+        u_{\varepsilon} + \varepsilon \cfrac{\partial u}{\partial n} = g \quad \textrm{на} \ \partial \Omega
     \end{array}
-\right), \epsilon > 0 \textrm{ мало }
-\]
+\right., \qquad \varepsilon > 0 \ \text{мало} \]
 
-для нее $ [u, v]_A = \int_{\Omega}^{} \frac{\partial u}{\partial x} \frac{\partial V}{\partial x} + \frac{\partial u}{\partial y} \frac{\partial V}{\partial y} d\Omega + \int_{\partial \Omega}^{} \frac{1}{\epsilon} u V dS $
-
-\[ u_{\epsilon, h} = \sum_{i=1}^{N} a_i \phi_i(x) \]
+Для нее:
+\[ {[u, v]}_A = \Int_{\Omega}^{} \left( \frac{\partial u}{\partial x} \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \frac{\partial v}{\partial y} \right) d\Omega + \Int_{\partial \Omega}^{} \frac{1}{\varepsilon} u v \, dS \]
+\[ u_{\varepsilon, h} = \Sum_{i=1}^{N} a_i \varphi_i(x) \]
 
 $ a_i $ находится из
+\[ {[u_h, \varphi_i]}_A = (f, \varphi_i) + \Int_{\partial \Omega} g \varphi_i \, dS \]
+\[ {\|u_{\varepsilon} - u_{\varepsilon, h} \|}_{W_2^1 (\Omega)} \leq \frac{ch}{\sin \theta_0} \left( 1 + \frac{h}{\varepsilon} \right) \left({\|f\|}_{L_2} + \frac{1 }{\varepsilon} \| g \|_{W_2^{1/2} \left(\partial \Omega \right)} \right) \]
+\[ {\|u_{\varepsilon} - u_{\varepsilon, h} \|}_{L_2 (\Omega)} \leq \frac{ch^2}{\sin^2 \theta_0} {\left( 1 + \frac{h}{\varepsilon} \right)}^2 \left({\|f\|}_{L_2} + \frac{1 }{\varepsilon} \| g \|_{W_2^{1/2} \left(\partial \Omega \right)} \right) \]
+\[ {\|u - u_{\varepsilon} \|}_{W_2^1 (\Omega)} \leq c \, \varepsilon \left({\|f\|}_{L_2} + \frac{1 }{\varepsilon} \| g \|_{W_2^{1/2} \left(\partial \Omega \right)} \right) \]
 
-\[ [u_h, \phi_i]_A = (f, \phi_i) + \int_{\partial \Omega}^{}g \phi dS \]
-
-\[ ||u_\epsilon - u_{\epsilon, n} ||_{W'} 2 (\Omega) \leq \]
-\[ \leq \frac{ch}{sin \Theta_0} {(q + \frac{h}{\epsilon})}^2 ({||f||}_{L_2} + \frac{1 }{\epsilon} ||\phi||_{W_2^2} (\partial \Omega )) \]
+\newpage
 
 \section{Лекция 14}
 
-\subsection{Вариационная постановка задачит на собственные значения симметрично полржительного оператора}
+\subsection{Вариационная постановка задачи на собственные значения \\ симметрично положительного оператора}
 
-\[ A \phi = \lambda \phi D(A) \supset H \label{eq:14_1}\]
+\[ A \varphi = \lambda \varphi, \qquad D(A) \subset H \label{14.1} \tag{14.1} \]
 
-A - симметричный $ \lambda  $- с зн, $ \lambda \in \mathcal{R} $
+A --- симметричный, \qquad $ \lambda $ --- собственные значения, \ $ \lambda \in \mathbb{R} $
+\[ \lambda_1 \neq \lambda_2 \quad \text{--- собств. знач.} \ A \quad \Rightarrow \quad (\varphi_1, \varphi_2) = 0\]
+\[ (A\varphi, \varphi) = \lambda (\varphi, \varphi) \]
+\[ \lambda = \frac{(A\varphi, \varphi)}{(\varphi, \varphi)} \label{eq:14_2} \]
 
-\[ \lambda_1 \cancel{=} \lambda_2 - \] с зн A $ \Rightarrow (\phi_1, \phi_2) = 0$
+\textbf{Опр.} A ограничен снизу, если $ \forall \varphi \in D(A):$ \\
+\[ (A\varphi, \varphi) \geq k(\varphi, \varphi), \quad k \in \mathbb{R} \ \text{(не обязательно $k>0$)} \label{14.2} \tag{14.2} \] \\
 
-\[ (A\phi, \phi) = \lambda (\phi, \phi) \]
+Далее A --- ограничено снизу $ \Rightarrow  \cfrac{(A \varphi, \varphi)}{(\varphi, \varphi)} \geq k \Rightarrow \exists \underset{\varphi \in D(A)}{\inf} \cfrac{(A\varphi, \varphi)}{\varphi, \varphi} = d \geq k$
+\[ F(\varphi) = \frac{(A \varphi, \varphi)}{(\varphi, \varphi)} \label{14.4} \tag{14.4} \]
 
-\[ \lambda = \frac{(A\phi, \phi)}{(\phi, \phi)} \label{eq:14_2} \]
+\textbf{Теор.} Пусть $ A $ --- симметричн., огр. снизу,  \quad $ d = \underset{\varphi \in D(A)}{\inf} \cfrac{(A \varphi, \varphi)}{(\varphi, \varphi)} $ \\
+Если $ \exists \ \varphi_0 \neq 0 \in D(A): \quad F(\varphi_0) = \cfrac{(A \varphi_0, \varphi_0)}{(\varphi_0, \varphi_0)} = d \Rightarrow \exists \min \lambda_1 = d, \quad \varphi_0$ --- собств. функция
 
-Определение
+\underline{Док-во.}
 
-A - ограничено снизу, если $ \forall \phi \in D(A) $
-\[ (A\phi, \phi) \geq k(\phi, \phi)  \label{eq:14_3}\]
+Пусть $ \eta \in D(A), \quad \forall t \in R, \quad \varphi_0 + t \eta \in D(A) $
+\[ \psi(t) = \frac{\bigl( A(\varphi_0 + t \eta), \varphi_0 + t\eta \bigr)}{(\varphi_0 + t \eta, \varphi_0 + t\eta)} = F(\varphi_0 + t \eta) = \frac{t^2(A \eta, \eta) + 2 t \operatorname{Re}(A \varphi_0, \eta) + (A \varphi_0, \varphi_0)}{t^2 (\eta, \eta) + 2t\operatorname{Re}(\varphi_0, \eta) + (\varphi_0, \varphi_0)} \]
 
-\[ k\in \mathcal{R}  \] (не обязательно $ k>0 $)
+Так как $ \varphi_0 = \operatorname{argmin} F(\varphi) \Rightarrow \psi(t) $ в $ t=0 \ \min \Rightarrow \psi'(0) = 0 $
+\[ (\varphi_0, \varphi_0): \quad \operatorname{Re} (A \varphi_0 - d \varphi_0, \eta) = 0 \]
 
-Далее A - ограничено снизу $ \Rightarrow  \frac{(A \phi, \phi)}{(\phi, \phi)} \geq k \Rightarrow \exists \underset{inf}{\phi \in D(A)} \frac{(A\phi, \phi)}{\phi, \phi} = \alpha \geq k$
+Аналогично, заменив $ (\eta) $ на $ (i\eta):$
+\[ \operatorname{Im} (A \varphi_0 - d \varphi_0, \eta) = 0 \Rightarrow (A \varphi_0 - d \varphi_0, \eta) = 0 \quad \forall \eta \in D(A) \Rightarrow A \varphi_0 - d \varphi_0 = 0 \Rightarrow A \varphi_0 = d \varphi_0 \]
 
-\[ F(\phi) = \frac{(A \phi, \phi)}{(\phi, \phi)} \label{eq:14_4} \]
+Следовательно $d$ --- собственное значение, $\varphi_0$ --- собственная функция
 
-теорема
+Покажем \underline{$\min$}
 
-Пусть $ A $ - симметрично отр снизу, $ \alpha = \underset{inf}{\phi \in D(A)} \frac{(A \phi, \phi)}{(\phi, \phi)} $
+Пусть $ \lambda_1 $ --- с. зн. $A$
+\[ \lambda_1 = \frac{(A \varphi_1, \varphi_1)}{(\varphi_1, \varphi_1)} \geq \frac{(A \varphi_0, \varphi_0)}{(\varphi_0, \varphi_0)} = d \label{14.5} \tag{14.5} \]
+\[ \hfill \square \]
 
-Если $ \exists \phi_0 \in D(A): F(\phi_0) = \frac{(A \phi_0, \phi_0)}{(\phi_0, \phi_0)} = \alpha$
+\textbf{Теор.} Пусть $ \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_n $ --- собств. знач. симм., огр. снизу A \\
+Пусть $ \exists \ \varphi_{n+1} \neq 0 \in D(A): \quad \varphi_{n+1}= \underset{\varphi \in D(A)}{\operatorname{argmin}} \cfrac{(A \varphi, \varphi)}{(\varphi, \varphi)} \quad $ при условии:
+\[ (\varphi_{n+1}, \varphi_i) = 0, \quad i=\overline{1,n} \label{14.6} \tag{14.6} \]
+\[ \Rightarrow \lambda_{n+1} = \frac{(A \varphi_{n+1}, \varphi_{n+1})}{(\varphi_{n+1}, \varphi_{n+1})} \ \text{--- следующее собств. знач.}, \quad \varphi_{i+1} \ \text{--- собств. функц.} \]
+TODO: 7, 8
 
-$ \Rightarrow \lambda_1 = \alpha; \phi_0 -$ собственные функции
+\underline{Док-во.}
+\[ \forall \zeta \in D(A) \]
+\[ \eta = \zeta - \Sum_{k=1}^{n} (\zeta, \varphi_k) \varphi_k \]
 
-Доказательство
+$ \eta $ удовлетворяет усл \eqref{14.6}
 
-Пусть $ \eta \in D(A), \forall t \in R $
+$ t \eta $ удовлетворяет усл \eqref{14.6}
 
-\[ \psi(t) = \frac{(A(\phi_0 + t \eta), \phi_0 + t\eta)}{(\phi_0 + t \eta, \phi_0 + t\eta)} = F(\phi_0 + t \eta) \]
+$ \varphi_{n+1} + t \eta \in D(A) $ удовлетворяет усл \eqref{14.6}
+\[ \psi(t) = \frac{\bigl(A(\varphi_{n+1}+tn), \varphi_{n+1}+t\eta \bigr)}{(\varphi_{n+1}+t\eta, \varphi_{n+1} + t\eta)} \]
 
-\[ \frac{t^2(A \eta, \eta) + 2 t Re(A \phi_0, \phi) + J(A \phi_0, \phi_0)}{t^2 (\eta, \eta) + 2tRe(\phi_0, \eta) + (\phi_0, \phi_0)} \]
+Аналогично \quad $ (A \varphi_{n+1} - \lambda_{n+1} \varphi_{n+1}, \zeta) = 0 \qquad \forall \zeta \in D(A) $ (плотно в $H$)
+\[ \Rightarrow A \varphi_{n+1} = \lambda_{n+1} \varphi_{n+1} \]
 
-тк $ \phi_0 = argmin F(\phi) \Rightarrow \phi(t)0  $ в $ t=0 min \Rightarrow \psi'(0) = 0 $
+Пусть $ \exists \lambda' $ --- собств. знач.: \ \ $ \lambda' > \lambda_n, \quad \varphi' $ --- соответствующая собств. функц.
+\[ \lambda' = \frac{(A\varphi', \varphi')}{(\varphi', \varphi')} \geq \lambda_{min} = \underset{\varphi \in D_A +  \eqref{14.6}}{\min} \frac{( A \varphi, \varphi )}{(\varphi, \varphi)} \]
 
-\[ (\phi_0, \phi_0) Re (A \phi_0 - d\phi_0, \eta) = 0 \]
+$ \lambda_{n+1}$ следующее собственное значение после $ \lambda_n $
+\[ \hfill \square \]
 
-аналог, заменив $ (\eta) $ на $ i\eta  \Rightarrow Im (A \phi_0 - d\phi_0, \eta) = 0 \Rightarrow$
+\textbf{Теор.}
 
-\[ \Rightarrow (A \phi_0 - d \phi_0, \eta) = 0 \forall \eta \in D(A) \Rightarrow \]
+Пусть оператор опр снизу симм А, содержит тоолько собственные значения  $ \Rightarrow $
 
-\[ \Rightarrow A \phi_0 - d \phi_0 = 0 \]
+$ \Rightarrow \exists min  $ с зн А $ \lambda_0 $ и $ \varphi_0  $ - с ф
 
-$ A \phi_0 = d \phi_0 \Rightarrow $ с зн в H
+$ \frac{(A\varphi_0, \varphi_0)}{(\varphi_0, \varphi_0)} = \lambda_0 $
 
-покажем min
-
-Пусть $ \lambda_1 $ - с зн A
-
-\[ \lambda_1 = \frac{(A \phi_1, \phi_1)}{(\phi_1, \phi_1)} \geq \frac{(A \phi_0, \phi_0)}{(\phi_0, \phi_0)} \alpha \]
-
-Теорема
-
-Пусть $ \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_4 $ - (n) с зн симм отностельно сн A
-
-Gecnm $ \exists \phi_{n+1} \in D(A): \phi_{n+1}= \underset{argmin}{\phi \in D(A)} \frac{(A \phi, \phi)}{(\phi, \phi)} \Rightarrow $
-
-$ \Rightarrow \lambda_{n+1} = \frac{(A \phi_{n+1}, \phi_{n+1})}{(\phi_{n+1}, \phi_{n+1})} $ с зн; $ \phi_{i+1} $ -с зн
-
-Доказательство
-
-\[ \forall \xi \in D(A) \]
-
-\[ \eta = \xi - \sum_{k=1}^{n} (\xi, \phi_k) \phi_k \]
-
-$ \eta $ удовлетворяет усл \ref{eq:14_9}
-
-\[ \psi(t) = \frac{(A(\phi_{n+1}+tn), \phi_{n+1}+t\eta)}{(\phi_{n+1}+t\eta, \phi_{n+1}, \phi_{n+1} + t\eta)} \]
-
-\[ \Rightarrow A \phi_{n+1} = \lambda_{n+1} \phi_{n+1} \]
-
-Пусть $ \lambda $ с зн $ \lambda'' > \lambda_n, \phi' $ - соответств с ф
-
-\[ \lambda' = \frac{(A\phi', \phi')}{(\phi', \phi)} \geq \lambda_{min} = min \frac{A \phi, \phi}{(\phi, \phi)} \]
-
-$ \lambda$ин - след с зн $ lambda_n $
-
-Теорема
-
-Пусть опрератор опр снизу симм А, содержит тоолько собственные значения  $ \Rightarrow $
-
-$ \Rightarrow \exists min  $ с зн А $ \lambda_0 $ и $ \phi_0  $ - с ф
-
-$ \frac{(A\phi_0, \phi_0)}{(\phi_0, \phi_0)} = \lambda_0 $
-
-\[ A \phi - \lambda B \phi = 0 \label{eq:14_*} \]
+\[ A \varphi - \lambda B \varphi = 0 \label{eq:14_*} \]
 
 A, B - симметричные, Ф - огр. снизу
 В - положительно опр., $  D(A) \subset D(B) \subset H $
 
-Если $ \lambda_0 и \phi_0 $ - удовлетворяет \ref{eq:14_*} $ \Rightarrow \lambda_0 $ с зн, $ \phi_0 $ с ф
+Если $ \lambda_0 и \varphi_0 $ - удовлетворяет \ref{eq:14_*} $ \Rightarrow \lambda_0 $ с зн, $ \varphi_0 $ с ф
 
-\[ \lambda_0 = \frac{A \phi_0, \phi_0}{(B \phi_0, \phi_0)} \]
+\[ \lambda_0 = \frac{A \varphi_0, \varphi_0}{(B \varphi_0, \varphi_0)} \]
 
 Теорема
 
 Пусть $ \lambda_k \neq \lambda_m  $ - с зн \ref{eq:14_*}
 
-\[ (B \phi_k, \phi_m) = 0; k \neq m  \] - (огр. снизу А не требуется)
+\[ (B \varphi_k, \varphi_m) = 0; k \neq m  \] - (огр. снизу А не требуется)
 
 
 Теорема
 
-Пусть $ d - \underset{inf}{\phi \in D(A)} \frac{(A \phi, \phi)}{B \phi, \phi} $
+Пусть $ d - \underset{inf}{\varphi \in D(A)} \frac{(A \varphi, \varphi)}{B \varphi, \varphi} $
 
-Если $ \exists \phi_0: \frac{(A \phi_0, \phi_0)}{(B(\phi_0, \phi_0))} = d $
+Если $ \exists \varphi_0: \frac{(A \varphi_0, \varphi_0)}{(B(\varphi_0, \varphi_0))} = d $
 
-$ \Rightarrow d - min $ - с зн \ref{eq:14_*}, $ \phi_0 $ - с ф
+$ \Rightarrow d - min $ - с зн \ref{eq:14_*}, $ \varphi_0 $ - с ф
 
 Теорема
 
 Пусть $ \lambda \leq \lambda \leq ... \leq \lambda $ - с зн \ref{eq:14_*}
 
-$ \phi_1, ... , \phi_n $ соответствующие собств функции
+$ \varphi_1, ... , \varphi_n $ соответствующие собств функции
 
-Пусть $ \exists \phi_{n+1} = \underset{argmin}{\phi \in D(A)}\frac{(A \phi, \phi)}{B \phi, \phi} $
+Пусть $ \exists \varphi_{n+1} = \underset{argmin}{\varphi \in D(A)}\frac{(A \varphi, \varphi)}{B \varphi, \varphi} $
 
-$ \lambda_n \Rightarrow \lambda_{n+1} = \frac{(A \phi_{n+1}, \phi_{n+1})}{(B, \phi_{n+1}, \phi_{n+1})} $
+$ \lambda_n \Rightarrow \lambda_{n+1} = \frac{(A \varphi_{n+1}, \varphi_{n+1})}{(B, \varphi_{n+1}, \varphi_{n+1})} $
 
-\[ (B\phi, \phi_k) = 0, k = \overline{1, n} \]
+\[ (B\varphi, \varphi_k) = 0, k = \overline{1, n} \]
 
-\subsection{Метод Рица в задаче с зн}
+\subsection{Метод Ритца в задаче собственных значений}
 
-А - отр снизу оператор
+Пусть А --- ограниченный снизу оператор
 
-$ d = \underset{inf}{D(A)} \frac{(An, n)}{(n, n)} $
+\[ d = \underset{u \in D(A)}{\inf} \frac{(Au, u)}{(u, u)} \label{14.11} \tag{14.11} \] 
 
-по Т1. Если $ \exists u_0 : \underset{inf}{D(A)}\frac{A \phi_0, \phi_0}{\phi_0, \phi_0} = d \{ \phi: \phi \in D(A) \cup ||\phi||=1\} = M \Rightarrow \underset{inf}{\phi \in M} (A\phi, \phi) $
+По теор. \eqref{по}. Если $ \exists u_0 : \underset{D(A)}{\inf} \cfrac{A \varphi_0, \varphi_0}{\varphi_0, \varphi_0} = d$, то задачу можно свести к
+\[ M = \left\{ u: \varphi \in D(A) \cap	 \|\varphi\|=1 \right\} \]
+\[ \underset{u \in M}{\inf} (Au, u) \label{14.12} \tag{14.12} \]
+\[ (u, u) = 1 \label{14.13} \tag{14.13} \] \\
 
-$ \{ \phi_n \} \supset D(A)$ полно в H
+TODO
 
-$ \forall u \in D(A) \forall \epsilon > 0 \exists n \in \mathcal{N} $ и $ \alpha_1, ... , \alpha_n \in \mathcal{C} $
+Система $ \{ \varphi_n \} \subset D(A)$ полна в H
+\[\ \forall u \in D(A) \quad \forall \varepsilon > 0 \quad \exists n \in \mathbb{N} $ и $ \alpha_1, ... , \alpha_n \in \mathbb{C} \]
+\[ \|u - u^*\| < \varepsilon, \qquad u^* = \Sum_{k=1}^{n} \alpha_k \varphi_k \]
 
-\[ ||u - u^*|| < \epsilon; u^* = \sum_{k=1}^{n} \alpha_k \phi_k \]
+Положим
+\[ u_n = \Sum_{k=1}^{n} a_k \varphi_k \]
 
-\[ lin = \sum_{k=1}^{n} a_k \phi_k (Au_n, u_n) - min \]
+Выберем коэффициенты $a_k$ так, чтобы $u_n$ удовлетворяло \eqref{14.13} и $ (Au_n, u_n) \rightarrow \min $
+\[ (A u_n, u_n) = \Sum_{k,m = 1}^{n} (A \varphi_n, \varphi_m) a_k \overline{a_m} \]
 
-\[ (A u_n, u_n) = \sum_{k,n = 1}^{n} (A \phi_n, \phi_m) a_k \overline{a_m} \Rightarrow a_k \textrm{ удовлетворяет уравнению }\]
+удовлетворяющих уравнению
+\[ (u_n, u_n) = \Sum_{k, m=1}^{n} (\varphi_k, \varphi_m) a_k \overline{a_m} = 1 \label{14.14} \tag{14.14} \] \\
 
-\[ (u_n, u_n) = \sum_{k, m=1}^{n} (\phi_k, \phi_m) a_k; a_m = 1  \label{eq:14_5}\]
-
-Метод множ Лагранжа
-
+Метод множителей Лагранжа
 \[ \Phi = (A u_n, u_n) - \lambda (u_n, u_n) \]
 
-$ \lambda  $ - пока неопр переметр
+$ \lambda  $ --- пока неопределенный параметр
+\[ \Sum_{k=1}^{m} a_k \left[(A \varphi_k, \varphi_m) - \lambda (\varphi_k, \varphi_m)\right] = 0, \qquad m= \overline{1,n} \label{14.15} \tag{14.15} \]
 
-\[ \sum_{k=1}^{m} a_k [(A_\phi_k, \phi_m) - \lambda (\phi_k, \phi_m)] = 0 \]
+Однородное СЛАУ относительно $ a_1, ... , a_n $ (одновременно не обр. в ноль) $ \Rightarrow \det (...) = 0 \Rightarrow \ \text{уравнение на} \ \lambda $
+\[ \begin{vmatrix}
+	(A\varphi_1, \varphi_1) - \lambda (\varphi_1, \varphi_1) & (A\varphi_2, \varphi_1) - \lambda (\varphi_2, \varphi_1) & \dots & (A\varphi_n, \varphi_1) - \lambda (\varphi_n, \varphi_1) \\
+	(A\varphi_1, \varphi_2) - \lambda (\varphi_1, \varphi_2) & (A\varphi_2, \varphi_2) - \lambda (\varphi_2, \varphi_2) & \vdots & (A\varphi_n, \varphi_2) - \lambda (\varphi_n, \varphi_2) \\ 
+	\vdots & \dots & \ddots & \vdots \\
+	(A\varphi_1, \varphi_n) - \lambda (\varphi_1, \varphi_n) & (A\varphi_2, \varphi_n) - \lambda (\varphi_2, \varphi_n) & \dots & (A\varphi_n, \varphi_n) - \lambda (\varphi_n, \varphi_n)
+\end{vmatrix}
+= 0 \label{14.16} \tag{14.16} \]
 
-однородное СЛАУ отно $ a_1, ... , a_n $ одн $ \Rightarrow det () = 0  \Rightarrow \textrm{ ур-е на }\lambda $
+Если последовательность $\{ \varphi_n \}$ ортонормирована, то уравнение упрощается
+\[ \begin{vmatrix}
+	(A\varphi_1, \varphi_1) - \lambda & (A\varphi_2, \varphi_1) & \dots & (A\varphi_n, \varphi_1) \\
+	(A\varphi_1, \varphi_2) & (A\varphi_2, \varphi_2) - \lambda  & \dots & (A\varphi_n, \varphi_2)  \\ 
+	\vdots & \vdots & \ddots & \vdots \\
+	(A\varphi_1, \varphi_n)  & (A\varphi_2, \varphi_n) & \dots & (A\varphi_n, \varphi_n) - \lambda
+\end{vmatrix}
+= 0 \label{14.17} \tag{14.17} \]
 
-\[ (A \phi_1, \phi_1) - \lambda = (A\phi_1, \phi_n) \]
+Получаем уравнение $n$-й степени по $\lambda$. Коэффициент при  $ (-1) \lambda^n $ равен определителю матрице Грама для $ \{ \varphi_1, ... \varphi_n \}.$ Отсюда следует, что уравнение имеет ровно $n$ корней \\
 
-\[ (A \phi_2, \phi_1) = (A\phi_2, \phi_n) \]
-
-\[ (A \phi_n, \phi_1) = (A\phi_n, \phi_n) - \lambda \]
-
-и соотв усло $ \{\phi_i \} $  оне
-
-ур-у (т) ой степени по $ \lambda l (-1) \lambda^n $
-
-коэффиц оприделен при матрице Грамма для $ \{ \phi_1, ... \phi_n \} \Rightarrow $ равно (n) корней
-
-Пусть $ \lambda_0 $ - корней $ \Rightarrow  \forall n $ реш max $ \Rightarrow $
-
-$ \Rightarrow a^(0)_k (нетрив) \Rightarrow a^{(0)}_k$ (нетрив)
-
-и выбираем из \ref{eq:14_5} $ ((u_n, u_n) = 1) $ далее $ a^{0}_k: $
-
-в \ref(eq:14_6) по уст $ \lambda_0, a^{(0)}_kl ...$
-
-\[ \sum_{л=1}^{m} a_m^{(0)} a_k^{(0)} (A \phi_k, \phi_m) = \sum_{k=1}^{m} \lambda_0(\phi_k, \phi_m) a_k^{(0)} \]
+Пусть $ \lambda_0 $ --- корень. Пусть $a_k^{(0)}, \quad k=\overline{1,n}$ --- нетривиальное решение. Тогда $ \forall \eta: \, \eta a_k^{(0)}$ также будет решением. Под $a_k^{(0)}$ теперь будем понимать $\eta a_k^{(0)}$. Подставив $\eta a_k^{(0)}$ в \eqref{14.14} найдем $\eta$. Подставив в \eqref{14.15} $\lambda = \lambda_0$ и $a_k = a_k^{(0)}$, умножим на $\overline{a_m^{(0)}}$ и просуммируем $\Sum_m (...)$, получим:
+\[ \underbrace{\Sum_{k,m=1}^{n} a_k^{(0)} \overline{a_m^{(0)}} (A \varphi_k, \varphi_m)}_{= \left(Au_n^{(0)}, u_n^{(0)}\right)} = \lambda_0 \underbrace{\Sum_{k,m=1}^{n} (\varphi_k, \varphi_m) a_k^{(0)} \overline{a_m^{(0)}}}_{=1 \ \eqref{14.14}} \]
+\[ \lambda_0 = \left(Au_n^{(0)}, u_n^{(0)}\right), \qquad u_n^{(0)} = \Sum_{k=1}^n a_k^{(0)} \varphi_k \]
+\[ \underset{M}{\min} (Au, u) = \min \, \text{из $\lambda$ корней} \]
 
 \end{document}
