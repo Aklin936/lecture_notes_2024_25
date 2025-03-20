@@ -10,20 +10,21 @@
 \usepackage{caption}
 
 \usepackage[fleqn]{amsmath}
+%\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{cancel}
+\usepackage{xfrac}
 
 \usepackage[hidelinks]{hyperref}
 
-\usepackage{graphicx}%Вставка картинок
-
-\usepackage{float}%"Плавающие" картинки
-\usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
 
 
 \setlength{\emergencystretch}{10pt}
 
-\usepackage{indentfirst} %Отступ после секции
+%\usepackage{indentfirst}
 
 \usepackage[left=2cm,right=1cm,
 top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
@@ -80,281 +81,8 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \newpage
 
-\section{Лекция 1}
-
-\subsection{Исторический экскурс}
-
-Лекции с 9:30 два часа.
-
-Вариационная постановка для задача мат физики.
-задача - условие на границе + начальное. (Экстремум функционала энергии, поэтому энергетические пространства).
-
-Соболев - прямые методы решения задач. позволяют найти решение с помощью СЛАУ. Наиболее известен метод Рица.
-
-\subsection{Метод Дирихле}
-
-Дана область $ \omega \in \mathbb{R}^2$.
-
-\[ M = {u:u_{0}(x,y), (x,y) \in \partial \Omega} \]
-\[ \iint_{\Omega}[{(\frac{\partial u}{\partial x})}^2+{(\frac{\partial u}{\partial y})}^2] dx dy \rightarrow min \]
-Интеграл Дирихле $ \Rightarrow \overline{u} $ - гармонический в $ \Omega $
-
-\subsection{Контрпример Вейерштрасса. }
-
-\[ M={y;y(x) \in c'[-1;1]}, y(-1)=-1, y(1)=1 \]
-\[ J(y) = int^1_{-1} x^2{(y')}^2 dx, J(y) \geq 0 \]
-\[ y_\varepsilon(x) = \frac{arctg(\frac{x}{\varepsilon})}{arctg(\frac{1}{\varepsilon})} \]
-\[ {y'}_{\varepsilon}(x) = \frac{1}{arctg(\frac{1}{\varepsilon})} \cdot \frac{1}{1+ \frac{x^2}{\varepsilon^2}} \cdot \frac{1}{\varepsilon} = \]
-\[ = \frac{\varepsilon} {arctg (\frac{1}{\varepsilon})} \cdot \frac{1}{\varepsilon^2+x^2} \]
-\[ J(y_{\varepsilon}) = \int_{-1}^1 \frac{x^2 \varepsilon^2}{arctg^2(\frac{1}{\varepsilon})} \cdot \frac{1}{{(x^2+y^2)}^2} dx = frac{2 \varepsilon}{arctg(\frac{1}{\varepsilon})} = \frac{0}{\frac{\pi}{2}}\]
-\[ J(\overline{y}) = \int_{-1}^{1} x^2 y^2 dx = 0 \Rightarrow y'=0 \]
-Противоречие: $ y(-1)=-1, y(1)=1 $
-
-\subsection{Контрпример Адамара}
-
-\[ u(x,y) = \sum_{n=1}^{\inf}\frac{\rho^2}{2^n} cos(2^n \Theta), x=\rho cos \Theta, y=\rho sin \Theta \]
-\[ \rho \leq 1 \]
-Непрерывны и гармоничны.
-Интеграл Дирихле в круге $ \rho \leq r \leq 1 $
-\[ \pi sum_{n=1}^{\inf} {r^2}^{2n+1} {\rightarrow}_{r \rightarrow 1} \inf \]
-
-\subsection{Метод Ритца}
-
-\[ J(\omega) = int_{a}^{b} f(x,\omega, \omega', ... , \omega^{(k)}) dx \rightarrow inf \]
-\[ \omega \in M \textrm{ класс допустимых функций } \]
-\[ \psi_0, \psi_1, ... \psi_n, ... (\textrm{ координатные функции }) \]
-Св-ва:
-\[ 1) \forall a_1 ... a_n \in \mathbb{R}, \forall_n \]
-\[ \omega_n = \omega_0+ \sum_{i=1}^{n} a_i \omega_i \in M \]
-\[ 2) \forall \omega \in M\textrm{и} \forall varepsilon > 0 \]
-*Уравнение полноты*
-\[ H(\omega n) = F(a_1, ... , a_n) \rightarrow inf \]
-\[ || \omega - \psi_0 - \sum_{i=1}{n} a_i \psi_i || < \varepsilon \]
-Рассмотрим:
-\[ J(\omega_n) = F(\alpha_1, ..., \alpha_n) \rightarrow inf \]
-\[ \frac{\partial J}{\partial a_1}(\omega_n)=0, ... \frac{\partial J}{\partial a_n}(\omega_n) = 0 -\textrm{ альтернативная система уранений } \]
-\[ \Rightarrow a_1, ... , a_n - \textrm{ решение } \]
-
-Насколько хорошо приближает метод искомое решение?
-На примере задачи об упругой поластине.
-
-\[ \Omega_{\subset \mathbb{R}^2} - \textrm{ обл }, S = \partial \Omega \]
-\[ \textrm{ изгиб } \omega(x,y) \textrm{ удовлетворяет ур-ю Сори Жульен }\]
-\[ \Delta^2 \omega = \frac{\partial^4}{\partial x^2} + 2 \frac{\partial^4 \omega}{{\partial x}^2 {\partial y}^2} + \frac{\partial^4 \omega}{{\partial y}^4} = \frac{q(x y)}{\mathcal{D}}; (x,y) \in \Omega \]
-\[ \mathcal{D} - \textrm{ жесткость пластины при упругом изгибе } \]
-\[ q(x,y),\textrm{- Интенсивность давления } \]
-\[ \omega (x,y) = 0 \]
-\[ \frac{\partial \omega (x,y)}{\partial\mathcal{D} } = 0 \leftarrow \textrm{ Производная по нормали к S } \]
-\[ J(\omega) = \iint_{Omega}( \frac{1}{2} (\Delta \omega)^2 - f(\omega) d \Omega \rightarrow inf) \]
-\[ f = \frac{q(x,y)}{\mathcal{D}} \in C'(\overline{\Omega}) \]
-\[ \omega = \omega_1 + \omega_2 \]
-Рассмотрим без доказательства ограниченности снизу.
-\[ \omega_1 = \frac{1}{8\pi} \iint_{\Omega} r^2 ln r f(\xi, \eta) d\xi \eta \]
-\[ (x,y) (\xi, \eta) - \textrm{ точки из } \Omega r-\textrm{ расстояние между } (x,y)\textrm{ и } (\xi, \eta) \]
-\[ J(\omega) = J_0 + \frac{1}{2} \iint_{\Omega} (\Delta \omega_2)^2 dx dy \]
-\[ j(\omega) \geq J_0 \Rightarrow \exists inf J(\omega)\]
-Введем $ \psi_1(x,y), ... , \psi_n(x,y) $ - координатные ф-ции
-\[ 1) \psi_n(x,y), \frac{\partial^{k+l} \psi_n}{\partial x^k \partial x^l} \in C( \overline{ \Omega}), k \leq \varepsilon , l \leq \varepsilon \]
-\[ 2) \psi_n(x,y) \textrm{ удовлетворяет краевым условиям} \]
-\[ 3) \forall \textrm{ ф-ии } \zeta(x,y): \]
-\[ \textrm{ a) удовлетворяет пункту 1 } \]
-\[ \textrm{ б) } \zeta(x,y) \equiv 0 (x,y) \in \Omega \rho \]
-\[ \Rightarrow \exists m \in \mathbb{N} , \alpha_1, ... \alpha_m \in \mathbb{R}: \]
-\[ |\zeta(x,y) - \sum_{i=1}^{m} \alpha_i \psi_i (x_i, y_i)|< \varepsilon \]
-\[ | \frac{\partial^{k+1}\zeta}{\partial x^k \partial y^l} - \sum_{i=1}^{n} \alpha_i \frac{\partial^{k+l} \psi_i (x,y)}{\partial x^k \partial y^l}| < \varepsilon \]
-Условие полноты $ k \leq \varepsilon, l \leq \varepsilon \Rightarrow $
-
-приближенное решение :
-\[ \omega_n = \alpha_1 \psi_1+ ... + \alpha_n \psi_n \rightarrow J(\omega) \]
-\[ J_n = \iint_\Omega (\frac{1}{2} {(\Delta \omega_n)}^2 - f (\omega_n))dx dy \]
-\[ \alpha_i \textrm{ выбираем : } J (\omega_n) \rightarrow J(\omega) \]
-\[ \sum_{k=1}^n A_{ik} a_k = B_i, i= \overline{1,n} \label{*} \]
-\[ A_{ik} = \iint_\Omega \Delta \psi_i \Delta \psi_k dx dy \Rightarrow \]
-\[ \exists! \textrm{ решение } a_1, ... , a_n \textrm{ в } \omega_n = ... \textrm{ приближение решение } \]
-\[ B_i = \iint_\Omega f\psi_i dx dy \]
-\[ \rightarrow \textrm{ Сущ ед решения } a_1, ..., a_n \textrm{в} \omega_n = ... (\textrm{ приближенное решение }) \]
-\[ \textrm{ Рассмотрим } \forall b_1, ... b_n \]
-\[ \zeta_n = b_1 \psi_n + ... + b_n \xi_n \]
-\[ \ref{*} b_i \textrm{ и } \sum_{i=1}^{n} \]
-\[ \sum_{i=1}^n \sum_{k=1}{n} A_{ik} a_k b_i = \sum_{i=1}^{n} b_i B_i \]
-\[ \sum_{i=x}^n \sum_{k=1}{n} \iint_\Omega b_i \Delta \psi_i \Delta \psi_k a_k dx dy - \sum_{i=1}^{n} \iint_\Omega f b_i \psi_i dx dy = 0 \]
-\[ \sum_{i=1}^{n} [ \iint_\omega b_i \Delta \psi_i \sum_{k=1}^{n} a_k \Delta \xi_k dx dy - \iint_{\Omega f b_i \psi_i dx dy}] = 0 \]
-...
-\[ \int_Omega (\Delta \omega_n \sum_{i=1}{n} b_i \psi_i) - f(\sum_{i=1}{n} b_i \psi_i) dx dy = 0 \]
-\[ \iint_Omega(\Delta \Omega_n \zeta_n - f \zeta) dx dy = 0 \]
-\[ J_n^{(0)} = -\frac{1}{2} \iint_\Omega {(\Delta \omega_u)}^2 dx dy \textrm{ не возрастает y } \geq inf \]
-\[ \forall \varepsilon > 0 \textrm{ по критерию Коши } \Rightarrow N(\varepsilon) \forall_n > N(\varepsilon) \]
-
-\newpage
-
-\section{Лекция 2}
-
-\[ \varphi_1 (x,y), ..., \varphi_n(x,y) \text{ --- координатные функции}, \quad \quad  w_n = \alpha \varphi_1 + ... + \alpha_n \varphi_n \]
-\[ J_n^{(0)} = -\frac{1}{2} \iint\limits_{\Omega} {(\Delta w_n)}^2 dxdy \]
-\[ \forall \varepsilon >0 \ \exists N(\varepsilon) \quad \forall n \geq N(\varepsilon) \quad \forall m: 0 \leq J_n^{(0)} - J_{n+m}^{(0)} \leq \frac{1}{2} \varepsilon \]
-\[ \frac{\omega_{m+n} - \omega_n}{\sqrt{\varepsilon}} = \varphi (x,y) \]
-\[ \iint\limits_{\Omega}{(\Delta \varphi)}^2 dx dy < 1 \]
-
-Обозначим $S = \partial \Omega$ --- границу области $\Omega$
-
-\[ \varphi (x,y) = \frac{1}{2\pi}\int\limits_S \left( \varphi \frac{\partial (\ln r)}{\partial n} - \ln r \frac{\partial  \varphi}{\partial N} \right) dS + \frac{1}{2 \pi} \int\limits_{\Omega} \Delta \varphi \ln r \ d\xi d \eta \]
-\[ {\left| \int\limits_{x} f(x) \overline{g}(x)dx \right|}^2 \leq \left( \int\limits_{x} {|f(x)|}^2 dx \right) \left( \int\limits_{x}{|g(x)|}^2 dx \right) \]
-\[ |\varphi (x,y)| \leq \frac{1}{2\pi}{\left( \iint\limits_{\Omega} {(\Delta \varphi)}^2 d \xi d \eta \right) }^{1/2} {\left( \iint\limits_{\Omega}{\ln}^2 r \ d\xi d\eta \right)}^{1/2} \]
-\[ |\varphi (x,y)| \leq C_1 \]
-\[ |\omega_{n+m} - \omega_{n} | \leq C_1 \sqrt{\varepsilon} \]
-\[ \omega_n \underset{\Omega}{\rightrightarrows}  w_n(x,y) \in C(\Omega) \]
-
-\subsection{Метод Бубнова -- Галеркина}
-
-$ w_n =  \alpha_1 \varphi_1 + ... + \alpha_n \varphi_n\ $
-
-$ L w - \lambda M w = 0 $
-
-$L, M$ --- дифференциальные операторы
-
-$ \sum\limits_{i=1}^{n} (A_{ik} - \lambda B_{i_k}) a_k = 0, \quad k = \overline{1,n} $
-
-\[
-\begin{vmatrix}
-	A_{11} - \lambda B_{11} & \dots & A_{1n} - \lambda B_{1n} \\
-	\vdots & \ddots & \vdots \\
-	A_{n1} - \lambda B_{n1} & \dots & A_{nn} - \lambda B_{nn}
-\end{vmatrix}
-= 0
-\] \\
-
-$ N (x,y) = L w_n - \lambda M w_n \enspace \text{--- \enspace невязка} $
-
-$ N(x,y) \perp \varphi_i, \quad i = \overline{1,n} $
-
-\subsection{Повторение}
-
-\begin{enumerate}
-	\item $ f(x) \overset{\text{п.в.}}{=} 0 \Rightarrow \int\limits_{\Omega} f(x) dx = 0 $
-	\item $ \int\limits_{\Omega} f(x) dx = 0, \enspace f(x) >= 0 \enspace \Rightarrow \enspace f(x)\overset{\text{п.в.}}{=} 0 $
-	\item $ |f(x)| < \varphi(x), \varphi \text{ --- суммируема по Лебегу} \Rightarrow f(x) \text{ --- суммируема по Лебегу} $
-	\item $ \{\varphi_n(x)\} $ --- суммируемы с квадратами по Лебегу
-	\\ \\
-	$\lim\limits_{n,k \rightarrow \infty} \int\limits_{\Omega}{|\varphi_k (x) - \varphi_{n} (x)|}^2 dx = 0
-	$
-	\\ \\ \\
-\end{enumerate}
-
-Обозначим $V$ -- линейное пространство \\
-
-$ (\varphi , \psi) - \text{скалярное произведение:} \quad (\boldsymbol{\cdot},\boldsymbol{\cdot}): V \times V \rightarrow \mathbb{C} $
-
-\begin{enumerate}
-	\item $  (\varphi, \psi) = \overline{(\psi, \varphi)} $
-	\item $ (a_1 \varphi_1 + a_2 \varphi_2, \psi) = a_1 (\varphi_1, \psi) + a_2 (\varphi_2, \psi) $
-	\item $ (\varphi , \varphi) \geq 0 $
-	\item $ (\varphi, \varphi) = 0 \quad \Rightarrow \quad \varphi = \mathbf{0} $
-\end{enumerate}
-
-$ \| \varphi \| = \sqrt{(\varphi, \varphi)} $ \\
-
-\begin{itemize}
-	\item Неравенство Коши-Буняковского
-
-	$ | (\varphi, \psi) | \leq \| \varphi \| \| \psi \|$
-
-	\item Неравенство треугольника
-
-	$ \| \varphi + \psi \| \leq \| \varphi \| + \| \psi \| $
-\end{itemize}
-\[ L_2(\Omega): \quad (\varphi, \psi) = \int\limits_{\Omega}^{} \varphi(x) \overline{\psi(x)}dx \]
-\[ L_2(\Omega , \sigma): \quad (\varphi, \psi) = \int\limits_{\Omega}^{} \varphi(x) \overline{\psi(x)}\sigma (x) dx \]
-\[ L_2(\Omega^m): \quad (\varphi, \varphi) = \int\limits_{\Omega}^{} \sum_{k=1}^{m} \varphi_k(x) \overline{\varphi_k(x)}dx \]
-
-\newpage
-
-\textbf{Критерий линейной зависимости системы функций}
-
-\begin{gather*}
-	\varphi_1, ..., \varphi_n \text{ линейно зависима (ЛЗ) в } H
-\\
-	\hspace{20mm} \Updownarrow
-\\
-	\begin{vmatrix}
-		(\varphi_1, \varphi_1) & \dots & (\varphi_1, \varphi_n) \\
-		\vdots & \ddots & \vdots \\
-		(\varphi_n, \varphi_1) & \dots & (\varphi_n, \varphi_n)
-	\end{vmatrix}
-	= 0
-\end{gather*} \\
-
-\textbf{Опр.} $M$ --- плотно в $H$, если $ \forall p \in H$ и $\forall \varepsilon >0 \enspace \exists \varphi_n \in M: \| \varphi_n - \varphi \| < \varepsilon $. \\
-
-$ C_0^{(\infty)} (\Omega) $ плотно в $ L_2(\Omega) $
-
-$\quad \quad \quad \quad \quad \uparrow$
-
-$ \forall \varepsilon > 0 : \quad \forall \varphi \in H \quad $
-\begin{tabular}[t]{l}
-	$ \exists \varphi_n^1 \in C_0^{(\infty)}(\Omega) : \quad \|\varphi_n^1 - \varphi\| < \varepsilon/2 $ \\
-	$ \exists \varphi_n^2 \in C_0^{\infty} (\Omega) : \quad \|\varphi_n^2 - \varphi_n^1\| < \varepsilon/2 $ \\
-	$...$
-\end{tabular}
-
-$ C_0^{(k)} (\Omega) $ плотно в $ L_2(\Omega) $ \\ \\
-
-$ \{\varphi_n \} $ --- ортонормированная система (ОНС)
-
-$ (\varphi_n, \varphi_m) = \delta _{nm} $
-
-$ {\|\varphi\|}^2  = {\|\varphi_1\|}^2 +{\|\varphi_2\|}^2+ ... +{\|\varphi_n\|}^2 + ...$ \\
-
-
-$ \{ \varphi_n \} $ полная в  $H$, если из $ (\varphi, \varphi_k) = 0 \enspace \forall k \in \mathbb{N} \quad \Rightarrow \quad \varphi = \mathbf{0} $
-
-
-$ \forall \varphi \in H: \quad a_k = (\varphi, \varphi_k) - \textrm{ коэффициенты Фурье} $ \\
-
-
-\textbf{Теор.} $H$ --- гильбертово, $\{\varphi_k\}$ --- полная ортонормированная система (ПОНС) \\ \\
-$ \Rightarrow {\| \varphi \|}^2 = \sum\limits^{\infty}_{k=1} {|a_k|}^2  = \sum\limits^{\infty}_{k=1} {|(\varphi, \varphi_k)|}^2 $ --- равенство Парсеваля \\ \\
-
-
-\textbf{Теор.} $ \exists a_k: \quad \sum\limits_{k=1}^{\infty} {|a_k|}^2 $ сходится, $\{\varphi_n\}$ --- ПОНС в $H$, тогда: \\ \\ $\sum\limits_{k=1}^{\infty} a_k \varphi_k$ сходится по $\|\boldsymbol{\cdot}\|$ к $\varphi \in H$, при этом $\|\varphi\| = \sum\limits_{k=1}^{\infty} {|a_k|}^2$. \\ \\
-
-
-\textbf{Опр.} $H$ cепарабельно если $ \exists M - $ счетное мн-во плотное в H. \\
-
-\textbf{Теор.} $H$ сепарабельно $ \Leftrightarrow \exists $ ПОНС (счетная или конечная) в $H$. \\
-
-$ \{ u: \int\limits_{\Omega}^{} u dx = 0 \} $ --- пример подпространства в $ L_2(\Omega) $. \\ \\
-
-Пусть $ H_1 $ --- подпространство в $H$
-
-$ \forall \varphi \in H \quad \exists ! \varphi_1 \in H_1: \| \varphi - \varphi_1 \| = \underset{\psi \in H_1}{\min}  \| \varphi - \psi \| $ --- проекция $\varphi$ на $H_1$
-
-$ \varphi = \varphi_1 + \varphi_2 $, \quad \quad $ H_2 = \varphi \perp H_1 $ --- ортогональное дополнение \\
-
-$l$ --- линейный функционал $: \quad M \subset H \rightarrow \mathbb{R}/\mathbb{C} $
-
-$ |l_{\varphi}| \leq \|l\| \cdot {\|\varphi\|}_H $
-
-$ \underset{\psi \rightarrow \varphi}{\lim} l_\psi = l_\varphi \quad \quad \quad \forall \varepsilon > 0 \quad \exists \delta: \| \psi - \varphi \| < \delta: \quad |l_\psi - l_\varphi| < \varepsilon$ \\ \\
-
-\textbf{Теор. (Рисса)} $ \forall l $ --- непрерывного линейного функционала в $H$ $\exists! \psi \in H:  l_\varphi = (\varphi, \psi)$ \\ \\
-
-
-Пусть $M$ --- плотно в $H$, \quad $\Phi: M \times M \rightarrow \mathbb{C} (\mathbb{R})  $
-
-$ \Phi(\varphi, \psi): \Phi(\varphi, \psi) = \overline{\Phi(\psi, \varphi)} $
-
-$ \Phi(\varphi, \varphi) $ --- квадратичная форма \\ \\
-
-
-$ H: D_A \subset H $ --- область определения некоторого оператора А
-
-Линейный оператор $A$ ограничен $\Leftrightarrow A$ непрерывен
-
-$\varphi \in D_A, \quad A\varphi \in R_A$ --- область значений оператора $A$
-
-$\varphi \in D_A \rightarrow ! \enspace A\varphi \in R_A$
-
-\newpage
+\input{lectures/1}
+\input{lectures/2}
 
 \section{Лекция 3}
 
@@ -428,7 +156,7 @@ $\varphi \in D_A \rightarrow ! \enspace A\varphi \in R_A$
 	\end{split}
 \end{equation*}
 
-\[ N \boldsymbol{\cdot} := \sum_{i,k=1}^{m } A_{ik } \frac{\partial \boldsymbol{\cdot} }{\partial x_i } cos(\overline{n} \cdot x_i) \]
+\[ N u := \sum_{i,k=1}^{m } A_{ik } \frac{\partial u }{\partial x_i } cos(\overline{n} \cdot x_i) \]
 
 \begin{equation}
 	\label{3.3}
@@ -508,15 +236,13 @@ $ {u|}_S = 0 $ --- мембрана закреплена на краях
 \textbf{Опр.} Симметричный оператор $A$ называется положительно определенным, если
 \begin{equation}
 	\exists \gamma > 0 : (Au, u) \geq \gamma^2 {\|u\|}^2
-\end{equation}
-
+\end{equation} \\
 \textbf{Пр. 1 (продолжение)}
 \[ B: u(0) = 0, u \in D_B \]
 \[ u(x) = \int\limits_{0}^{x } u'(t) dt, \quad x \in [0, 1] \]
 \[ u^2(x) \leq \int\limits_{0}^{x} 1^2 dt \cdot \int\limits_{0}^{x} {(u'(t))}^2 dt = x \int\limits_{0}^{x} {(u'(t))}^2 dt \leq x \int\limits_{0}^{1} {(u'(t))}^2 dt \]
 \[ \int\limits_{0}^{1} u^2 (x) dx \leq \frac{1}{2} \int\limits_{0}^{1} {(u'(t))}^2 dt \]
-\[ \gamma^2 \|u\|^2 \leq (Bu, u) , \quad \gamma = \sqrt{2} \quad \Rightarrow B \text{ является положительно определенным} \]
-
+\[ \gamma^2 \|u\|^2 \leq (Bu, u) , \quad \gamma = \sqrt{2} \quad \Rightarrow B \text{ является положительно определенным} \] \\
 \textbf{Пр. 4}
 \[ Lu = - \frac{d }{ d x } \left(x^3 \frac{du}{dx}\right) \quad \text{в } L_2 (0,1) \]
 \[ D_L = \{u \in C^2[0,1], \ u(1) = 0 \} \]
@@ -531,11 +257,8 @@ $ {u|}_S = 0 $ --- мембрана закреплена на краях
 \newpage
 
 \subsection{Энергетическая норма}
-
-Пусть $A$ --- положительно определен в $H$ (гильберт.)
-
-На $D_A: \quad {[u, v]}_A = {(A u, v)}_H$
-
+Пусть $A$ --- положительно определен в $H$ (гильберт.) \\
+На $D_A: \quad {[u, v]}_A = {(A u, v)}_H$ \\
 Можно показать что выполняются все аксиомы скалярного произведения
 
 \begin{enumerate}
@@ -561,13 +284,11 @@ $ D_A $ предгильбертово, дополним его по $ {|\boldsy
 
 \subsection{Энергетическое пространство}
 
-Пусть $A$ --- положительно определен в $H$ (гильберт.)
-
+Пусть $A$ --- положительно определен в $H$ (гильберт.) \\
 На $D_A: \enspace \begin{array}{l}
 	{[u, v]}_A = {(A u, v)}_H \\
 	{\|u\|}_A = {[u,u]}_A
-\end{array} $
-
+\end{array} $ \\
 $ H_A $ --- энергетическое пространство
 \[ {\|u\|}_H \leq \frac{1}{\gamma   } {\|u\|}_A \label{4.0} \tag{4.0} \]
 \[ u \in H_A \begin{array}{l@{\ }l}
@@ -598,7 +319,14 @@ $ H_A $ --- энергетическое пространство
 	Переходя к пределу: $ {[\varphi, u]}_A = 0 \ \forall \varphi \qquad \Rightarrow u = 0 \Rightarrow u_1 = u_2 \hfill \square $
 \end{enumerate}
 
-TODO: пропущено
+Неравенство \eqref{4.0} выполняется не только в $D_A$, но и во всем пространстве $H_A$. Пусть $u \notin D_A$, тогда:
+\[ \exists \{u_n\} \in D_A \qquad {\|u_n - u\|}_A \rightarrow 0, \ \text{при этом} \ {\|u_n - u\|}_H \rightarrow 0 \]
+
+Отсюда вытекает, что
+\[ {\|u_n\|}_A \rightarrow {\|u\|}_A \qquad {\|u_n\|}_H \rightarrow {\|u\|}_H \]
+
+Так как, $u_n \in M$, то для $u_n$ справедливо ${\|u_n\|}_H \leq \frac{1}{\gamma} {\|u_n\|}_A$. Переходя к пределу при $n \rightarrow \infty$ получим
+\[ {\|u\|}_H \leq \frac{1}{\gamma} {\|u\|}_A \] \\ \\
 
 \textbf{Пример 1}
 \[ Bu = - \frac{d^2}{d x^2}u, \qquad D_{B} = \{u \in C^2 [0,1], \ u(0) = u(1) = 0 \} \]
@@ -606,7 +334,7 @@ TODO: пропущено
 \[ u \in H_B, \quad \exists \{u_n\} \in D_B \quad {\|u_n - u\|}_B \rightarrow 0 \]
 \[ {\|u_n - u_k\|}_B \leq {\|u_n - u\|}_B + {\|u_k - u\|}_B \underset{n,k \rightarrow \infty}{\rightarrow} 0 \]
 \[ {\|u_n - u_k\|}_B^2 = \int\limits_{0}^{1} {\left(\frac{du_n}{dx} - \frac{du_k}{dx} \right)}^2 dx \underset{n,k \rightarrow \infty}{\rightarrow} 0 \]
-\[ \Rightarrow \{\frac{du_n}{dx}\} \ \text{фундаментальна в} \ L_2(0,1) \Rightarrow \exists v(x) \in H\]
+\[ \Rightarrow \left\{ \frac{du_n}{dx} \right\} \ \text{фундаментальна в} \ L_2(0,1) \Rightarrow \exists v(x) \in H\]
 \[ u_n(x) = u_n(0) + \int\limits_{0}^{x} u_n^{'}(t) dt, \quad u_n \in D_B, \qquad \ \text{при} \ x=0:\ u_n(0) = 0 \]
 \[ \text{Переходя к пределу:} \quad u(x) = \int\limits_{0}^{x} v(t) dt \quad \text{и} \quad u(0)=0\]
 \[ u(1) = \int\limits_{0}^{1} v(t) dt = \lim\limits_{n \rightarrow \infty} \int\limits_{0}^{1} u_n^{'}(t) dt = \lim\limits_{n \rightarrow \infty} \left( u_n(1) - u_n(0) \right) = 0 \]
@@ -642,12 +370,40 @@ TODO: пропущено
 \[ A \tilde{u} = 0 \]
 \[ \left( A \tilde{u}, \tilde{u} \right) = {[\tilde{u}, \tilde{u}]}_A = {\| \tilde{u} \|}^2_A = 0 \hfill \square \]
 
-\textbf{Теор. (о функциональной энергии)} $A$ --- является положительным в $H$; $u$ --- решение уравнения \eqref{4.1} $ \Leftrightarrow $ $u$ доставляет минимум функционала
+\textbf{Теор. (о функционале энергии)} Если $A$ --- является положительным в $H$; $u$ --- решение уравнения \eqref{4.1} $ \Leftrightarrow $ $u$ доставляет минимум функционалу
 \[ F(u) = {(Au, u)}_H - {(f, u)}_H - {(u, f)}_H \label{4.2} \tag{4.2} \]
 
 \underline{Док-во.}
-... \\
-TODO: пропущено  \\
+
+Заметим, что $D_A = D_F$ (вытекает из выражения \eqref{4.2}). Также $F(u) = (Au, u) - 2 \operatorname{Re}(u, f)$, и так как $A$ положительный оператор, то $F(u)$ принимает только вещественные значения.
+\begin{itemize}
+	\item[\textcircled{$\Rightarrow$}] 
+	
+	\[ u_0: \ Au_0 - f = 0 \]
+	\[ \forall v \in D_A = D_F, \quad v = u_0 + \eta \]
+	\begin{align*}
+		F(v) &= (A(u_0 + \eta), u_0 = \eta) - (u_0 + \eta, f) - (f, u_0 + \eta) \overset{\text{симм.} A}{=} \\
+		&= F(u_0) + (Au_0 -f, \eta) + (\eta, Au_0 - f) + (A\eta, \eta) \overset{Au_0 - f = 0}{=} \\[1ex]
+		&= F(u_0) + A(\eta, \eta) \geq F(u_0) \Rightarrow u_0 = \underset{D_F}{\operatorname{argmin}} F
+	\end{align*}
+
+	\item[\textcircled{$\Leftarrow$}]
+	
+	\[ u_0 = \underset{D_F}{\operatorname{argmin}} F \]
+	\[ \forall \eta \in D_A: \ v = u_0 + \lambda \eta \in D_A = D_F, \quad \lambda \in \mathbb{R} \]
+	\[ F(v) \geq F(u_0) \]
+	Используя симметричность $A$ приведем к виду 
+	\[ 2\lambda \operatorname{Re} [(Au_0 -f, \eta)] + \lambda^2 (A\eta, \eta) \geq 0 \]
+	Это возможно только тогда, когда
+	\[ \operatorname{Re} [(Au_0 -f, \eta)] = 0 \]
+	Заменив $\eta$ на $i \eta$, получим
+	\[ \operatorname{Im} [(Au_0 -f, \eta)] = 0 \]
+	Получаем
+	\[ (Au_0 -f, \eta) = 0 \quad \forall u \in D_A \Rightarrow Au_0 - f = 0 \hfill \square \]
+\end{itemize}
+
+\textbf{Замеч.}
+Если пространство вещественное, получим $F(u) = A(u, u) - 2(u, f)$ \\
 
 \textbf{Пример 4}
 \[ A \omega = \Delta^2 \omega = \frac{\partial^4 \omega}{\partial x^4} + 2 \frac{\partial^4 \omega }{\partial^2 x \partial^2 y} + \frac{\partial^4 \omega }{\partial y ^4} \]
@@ -1192,7 +948,7 @@ FIX
 \[ {(Lu,u)}_H \geq c_0 \Int_{\Omega}^{} u^2 d\Omega = \gamma^2 {\|u\|}^2_H \]
 
 При условии \eqref{7.7}:
-\[ N(u) = -\sigma u $ на $ \partial  \Omega, \qquad \sigma (P) \geq \sigma_0 > 0 \]
+\[ N(u) = -\sigma u \ \text{на} \ \partial  \Omega, \qquad \sigma (P) \geq \sigma_0 > 0 \]
 \[ (Lu, u)_H \geq \sigma_0 \Int_{ \partial  \Omega}^{} u^2 dS \geq \sigma_0 \|u\|^2_H \]
 FIX
 
@@ -1221,13 +977,13 @@ FIX
 
 \end{enumerate}
 
-\subsection{Энергетический метод для пложительных операторов}
+\subsection{Энергетический метод для положительных операторов}
 
-\[ Au = f \label(8_2_1), u, f \in H, A \textrm{ положительный } \]
+\[ Au = f, u, f \in H, A \textrm{ положительный } \]
 Все еще работает теорема о функциональной энергии
 
 \[ F(u) = (Au, u)_H - 2(u, f)_H \label{8_2_2}\]
-Энергетическое пространство попрожденное опреатором $ H_A $, вообще говоря его элементам нельзя соспоставить элементы из Гильбертова.
+Энергетическое пространство порожденное опреатором $ H_A $, вообще говоря его элементам нельзя соспоставить элементы из Гильбертова.
 \[ H_A - \textrm{  Энергетическое пр-во } \]
 
 \[ (u, f) \textrm{ на  } D_A - \textrm{ плотно в H и в } H_A  \]
@@ -1968,7 +1724,7 @@ $ \lambda_n \Rightarrow \lambda_{n+1} = \frac{(A \varphi_{n+1}, \varphi_{n+1})}{
 TODO
 
 Система $ \{ \varphi_n \} \subset D(A)$ полна в H
-\[\ \forall u \in D(A) \quad \forall \varepsilon > 0 \quad \exists n \in \mathbb{N} $ и $ \alpha_1, ... , \alpha_n \in \mathbb{C} \]
+\[\ \forall u \in D(A) \quad \forall \varepsilon > 0 \quad \exists n \in \mathbb{N} \ \text{и} \ \alpha_1, ... , \alpha_n \in \mathbb{C} \]
 \[ \|u - u^*\| < \varepsilon, \qquad u^* = \Sum_{k=1}^{n} \alpha_k \varphi_k \]
 
 Положим
