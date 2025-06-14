@@ -1,0 +1,144 @@
+\section{Лекция 8}
+
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} \underline{задача Робена}
+
+\[ \left\{ \begin{array}{l}
+	- \Delta u = f \qquad \text{в} \ \Omega \\
+	{\left. \cfrac{\partial u }{\partial n} \right|}_{\partial \Omega} = 0
+\end{array} \right. \]
+
+\subsection{Неравенство Пуанкаре}
+
+TODO
+\[ (x_1, y_1), (x_2, x_2) \in \Omega \]
+\[ \Omega u^2 d \Omega \in A \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega + B(\Int_{\Omega}^{}u d\Omega)^2\]
+\[ \Int_{\Omega}^{} u^2 d\Omega \leq (\frac{\partial  u }{\partial x})^2 + (\frac{\partial  u }{\partial y})^2 + B(\Int_{\Omega}^{} d\Omega)^2 \]
+
+\begin{multline*}
+	u^2 (x_2, y_2) + u^2(x_1, y_1) - 2u(x_2, y_2) \, u(x_1, u_1) = \\
+	= {\left( \Int_{x_1}^{x_2} \frac{\partial u}{\partial x} (x, y_1) dx \right)}^2 + {\left( \Int_{y_1}^{y_2} \frac{\partial u}{\partial y}(x_2, y) dy \right)}^2 + 2\Int_{x_1}^{x_2} \frac{\partial u}{\partial x} (x, y_1)dx \Int_{y_1}^{y_2} \frac{\partial u}{\partial y} (x_2, y) \leq \\
+	\leq 2 {\left( \Int_{x_1}^{x_2} \frac{\partial u}{\partial x} (x, y_1) dx \right)}^2 + 2 {\left( \Int_{y_1}^{y_2} \frac{\partial u}{\partial y}(x_2, y) dy \right)}^2 \leq \\
+	\leq 2 \left\{ |x_2-x_1| \Int_{0}^{a} {\left( \frac{\partial u}{\partial x}(x, y_1) \right)}^2 dx + |y_2-y_1| \Int_{0}^{b} {\left( \frac{\partial u}{\partial x}(x_2, y) \right)}^2 dy \right\}
+\end{multline*}
+
+Проинтегрируем $\iiiint (...) dx_1 dy_1 dx_2 dy_2$
+\[ \iiiint u^2 (x_2, y_2) dx_1 dy_1 dx_2 dy_2 = ab \Int_{\Omega}^{} u^2 d\Omega \]
+\[ \iiiint u(x_2, y_2) u(x_1, y_1) dx_1 dy_1 dx_2 dy_2 = {\left( \Int_{\Omega}^{} u d \Omega \right)}^2 \]
+\[ 2 ab \Int_{\Omega}^{} u^2 d\Omega -2 {\left(\Int_{\Omega}^{} u d\Omega \right)}^2 \leq ab \left\{a^2 \Int_{\Omega}^{} {\left(\frac{\partial u}{\partial x}\right)}^2 d\Omega + b^2 \Int_{\Omega}^{} {\left(\frac{\partial u}{\partial y}\right)}^2 d\Omega) \right\} \]
+\[ A = \max \{a^2, b^2\}, \quad B = \frac{1}{ab} \]
+\[ \Int_{\Omega} u^2 d\Omega \leq A \Int_{\Omega} \left( {\left(\frac{\partial u }{\partial x}\right)}^2 + {\left(\frac{\partial u }{\partial y}\right)}^2 \right) d\Omega + B {\left(\Int_{\Omega} u d\Omega \right)}^2 \]
+\[ D_N = D(A_N) = \left\{ u \in C^2(\overline{\Omega}), \quad {\left. \frac{\partial u}{\partial n} \right|}_{\partial  \Omega} = 0, \quad \Int_{\Omega}^{} u d\Omega = 0 \right\} \]
+\[ {\|u\|}^2_H \leq A \Int_{\Omega}^{} \Sum_{k=1}^{m} {\left(\frac{\partial u}{\partial x_k}\right)}^2 d\Omega = \widetilde{A} \ {(Au, u)}_H, \qquad \gamma = \frac{1}{\sqrt{\widetilde{A}}} (A_Nu, u) \geq \gamma^2 {\|u\|}^2_H\]
+
+Далее $ A: \quad A_N $ или $ A_D $ \qquad $ {[u, v]}_A = \Int_{\Omega}^{} \operatorname{grad} u \cdot \operatorname{grad} v \ d\Omega$ 
+\[ {\|u\|}_A = \Int_{\Omega}^{} (\operatorname{grad} u )^2 d \Omega \]
+\[ u, v \in L_2 (\Omega), \quad \psi \in C^{\infty}_0 (\overline{ \Omega}) \]
+
+Если $\forall \psi \in C^{\infty}_0$ справедливо тождество
+\[ \Int_{\Omega}^{} u \frac{\partial \psi}{\partial x_j} d\Omega = -\Int_{\Omega} v_j \psi \, d \Omega \]
+
+то функция $v_j$ называется TODO \\
+
+Пусть $u \in H_{A_D}, \qquad \exists \{u_n\} \in D_{A_{D}}$ такая, что
+\[ {\|u_n - u\|}_H \underset{n \rightarrow \infty}{\rightarrow} 0 \]
+\[ {\|u_n - u\|}_A \underset{n \rightarrow \infty}{\rightarrow} 0 \]
+\[ \Int_{\Omega} {(\operatorname{grad} u_n - \operatorname{grad} u_l)}^2 d\Omega = \Sum_{k=1}^{m} \Int_{\Omega} {\left( \frac{\partial  u_n}{\partial  x_k} - \frac{\partial u_l}{\partial x_k} \right)}^2 d \Omega \rightarrow 0 \]
+\[ \exists \, v_j \in L_2(\Omega): \qquad {\left\| \frac{\partial u_n}{\partial x_k} - v_j \right\|}_H \rightarrow 0 \]
+
+Покажем, что $ v_k = \cfrac{\partial u}{\partial x_k}, \quad k=\overline{1,m} $
+
+Пусть $ \psi(P) \in C^{\infty}_{0} ( \overline{\Omega}), \qquad \{u_n\} \in C^2(\overline{\Omega}) $
+\[ \Int_{\Omega}^{} u_n \frac{\partial \psi}{\partial x_k} d\Omega = - \Int_{\Omega}^{} \psi \frac{\partial u_n}{\partial x_k} d\Omega \]
+\[ {\left( u_n, \frac{\partial \psi}{\partial  x_k} \right)}_H = - {\left( \frac{\partial  u_n}{\partial x_k}, \psi \right)}_H \qquad \rightarrow \qquad {\left( u, \frac{\partial \psi}{\partial  x_k} \right)}_H = -(\psi, v_k)_H \]
+
+\subsection{Неоднородные краевые условия}
+
+\[ \Delta u = 0 \label{8.1} \tag{8.1} \]
+\[ u|_{\partial \Omega} = \psi \label{8.2} \tag{8.2} \]
+
+Пусть $\exists \ \psi(P)$, удовлетворяет следующим условиям:
+\[ \bullet \ \psi \in C(\overline{\Omega}) \]
+\[ \bullet \ {\left. \psi (P) \right|}_{\partial \Omega} = \varphi(P) \]
+\[ \bullet \ \frac{\partial  \psi}{\partial  x_k} \in C(\Omega), \ k=\overline{1,m} \]
+\[ \bullet \ \Phi(u) = \Int_{\Omega}^{} (\operatorname{grad} u)^2 d\Omega \label{8.3} \tag{8.3} \]
+
+\[ D_{\Phi} = \{u: ref{7_*} \} \Phi (P) + \eta(P), \]
+\[ \eta: \ref{7_*} + \eta|_{\partial  \Omega } = 0 \label{7_4} \]
+
+Пусть функция $ u_0(P) $ достигает $ \min \Phi(u) : u_0(P) $ реш. $ \eqref{8.1}, \eqref{8.2} $
+
+** 1-3 и еще на границе ноль $ \label{7_**}$
+
+\[ u_0 + t \eta \in D_{\Phi}, \forall t \in \mathcal{R}, \eta : \ref{7_**} \]
+
+\[ \Phi(u_0 + t \eta)\textrm{ достигает min при  } t=0 \ \text{как скал функция от} \ t \]
+\begin{multline*}
+	{\left. \left[ \frac{d}{dt} \Phi(u_0+t \eta) \right] \right|}_{t=0} = {\left. \left[ \frac{d}{dt} \Int_{\Omega}^{} \Sum_{k=1}^{m} {\left(\frac{\partial (u_0 + t\eta)}{\partial x_k}\right)}^2 d\Omega \right] \right|}_{t=0} = \\
+	= {\left. \left[ \frac{d}{dt} \Int_{\Omega}^{} \Sum_{k=1}^{m} \left({\left(\frac{\partial u_0}{\partial  x_k}\right)}^2 + 2\frac{\partial u_0}{\partial x_k} \cdot t \frac{\partial \eta}{\partial x_k} + t^2 {\left(\frac{\partial \eta}{\partial x_k}\right)}^2 \right) d\Omega \right] \right|}_{t=0} = ... = \\
+	= \Int_{\Omega} \operatorname{grad} u_0 \operatorname{grad} \eta d\Omega = 0
+\end{multline*}
+
+Применяя формулу Грина \eqref{label} и используя краевое условие \eqref{7.4}, получим
+\[ \Int_{\Omega}^{} \eta \, \Delta u_0 \, d\Omega = 0 \]
+
+Множество функций $\eta$ плотно в $L_2(\Omega)$. Тогда из последнего следует:
+\[ \Delta u_0 = 0 \]
+
+\[ \Phi (u) = \Int_{\Omega}^{}(\operatorname{grad} u)^2 d \Omega \]
+\[ u = \psi - v, \qquad v|_{\partial \Omega} = 0 \]
+\begin{multline*}
+	\Phi(u) = \Phi (\psi - v) = \Int_{\Omega}^{} {\bigl(\operatorname{grad} (\psi - v) \bigr)}^2 d\Omega = \\
+	= \Int_{\Omega}^{} (\operatorname{grad} \psi)^2 d\Omega - 2 \Int_{\Omega}^{} \operatorname{grad} \psi \cdot \operatorname{grad} v d \Omega + \Int_{\Omega}^{} (\operatorname{grad} v)^2 d \Omega
+\end{multline*}
+\[ F(v) = {\|v\|}^2_{A_D} - 2 \Int_{\Omega}^{} \operatorname{grad} v \cdot \operatorname{grad} \psi \ d\Omega, \qquad v \in H_D = H_{A_D}\]
+
+Линейный функционал
+\[ lv = \Int_{\Omega}^{} \operatorname{grad} v \cdot \operatorname{grad} \psi \ d\Omega \]
+\[ {|lv|}^2 \leq \Int_{\Omega}^{} {(\operatorname{grad} \psi)}^2 d\Omega \Int_{\Omega}^{} {(\operatorname{grad} v)}^2 d\Omega = c \, {\|v\|}_{H_{A_D}} \quad \Rightarrow \quad l \ \text{--- ограничен}\]
+
+Из этого следует, что существует решение задачи о минимуме функционала.
+FIX
+\[ \psi \in H(\Omega): \quad \exists ! \textrm{ Обобщен. реш Дирихле} \]
+\[ u \in H (\Omega) \]
+
+\subsection{Уравнения с переменными коэффициентами}
+
+\[ Lu = - \Sum_{j,k=1}^{m} \frac{\partial }{\partial x_j} \left(A_{jk}(P) \frac{\partial u}{\partial x_k}\right) + C(P) u, \qquad Lu=f, \quad \Omega \in \mathbb{R}^m \label{7.5} \tag{7.5} \]
+
+Краевые условия одного из трех типов
+\[ u|_{\partial \Omega} = 0 \label{7.6} \tag{7.6} \]
+\[ {\left. \left[N [u] + \sigma (P) u \right] \right|}_{\partial \Omega} = 0 \label{7.7} \tag{7.7} \]
+\[ {\left. N(u) \right|}_{\partial \Omega} = 0 \label{7.8} \tag{7.8} \]
+
+Формула Грина
+\[ \Int_{\Omega}^{} \left(v Lu - uLv\right) d\Omega = - \Int_{\partial \Omega}^{} \left(v N(u) - u N(v)\right) dS \label{7.9} \tag{7.9} \]
+
+При условиях \eqref{7.6} и \eqref{7.8} интеграл очевидным образом обращается в 0, поэтому остается рассмотреть случай \eqref{7.7}.
+\[ N(u) + \sigma u = 0, \quad N(v) + \sigma v = 0 \]
+\[ v N(u) + v \sigma u - u N(v) - u \sigma v = 0 \]
+\[ {\left. \left[ v N(u) - u N(v) \right] \right|}_{\partial \Omega} = 0 \]
+
+Получаем, что при любых граничных условиях \eqref{7.6}-\eqref{7.8} правая часть \eqref{7.9} обращается в ноль, а следовательно $(Lu, v) = (u, Lv)$ и оператор симметричен. \\
+
+Оператор L называется эллиптическим в $ \overline{\Omega} $, если
+\[ \exists \, \mu_0 = const > 0 \quad \forall t_1, ... t_m \in \mathbb{R}, \quad \forall P \in \overline{\Omega}: \quad \Sum_{j,k=0}^{m} A_{jk}(P) t_j t_k \geq \mu_0 \Sum_{j,k=1}^{m} t_k^2 \]
+
+\textbf{Пример} (оператор Трикоми)
+\[ Ly = y \frac{\partial^2 u}{{\partial x}^2} + \frac{\partial^2 u}{{\partial y}^2} \]
+\[ A_{11} = y, \quad A_{21} = A_{12} = 0, \quad A_{22} = 1 \]
+\[ y t_1^2 + 1\cdot t^2_2 \geq B \, t^2_1 + t^2_2 \geq \widetilde{B}(t^2_1+t^2_2), \qquad \widetilde{B} = \min \{B, 1\} \]
+\[ \forall \, \Omega : \ \ \overline{\Omega} \subset \mathbb{R} \times (0, +\infty) \qquad L \ \text{эллиптический в} \ \overline{\Omega} \]
+
+Если коэффициент $C(P)$ ограничен снизу некоторым положительным числом, то оператор $L$ положительно определенный. Действительно, по формуле Грина \eqref{la}:
+\[ {(Lu, u)}_H = \Int_{\Omega}^{}u Lu \, d\Omega = \Int_{\Omega}^{} \left[\Sum_{j,k=1}^{m} A_{jk} \frac{\partial u}{\partial  x_j}\frac{\partial u}{\partial x_k} + C u^2 \right] d\Omega - \Int_{\partial \Omega}^{} u N (u) dS \]
+
+При краевых условиях \eqref{7.6}, \eqref{7.8}:
+\[ \Int_{\partial \Omega}^{}(...) \, dS = 0, \qquad \Rightarrow \gamma = \sqrt{c_0} \]
+\[ {(Lu,u)}_H \geq c_0 \Int_{\Omega}^{} u^2 d\Omega = \gamma^2 {\|u\|}^2_H \]
+
+При условии \eqref{7.7}:
+\[ N(u) = -\sigma u \ \text{на} \ \partial  \Omega, \qquad \sigma (P) \geq \sigma_0 > 0 \]
+\[ (Lu, u)_H \geq \sigma_0 \Int_{ \partial  \Omega}^{} u^2 dS \geq \sigma_0 \|u\|^2_H \]
+FIX
+
+\newpage

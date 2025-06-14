@@ -1,0 +1,165 @@
+\section{Лекция 14}
+
+\subsection{Вариационная постановка задачи на собственные значения \\ симметрично положительного оператора}
+
+\[ A \varphi = \lambda \varphi, \qquad D(A) \subset H \label{14.1} \tag{14.1} \]
+
+A --- симметричный, \qquad $ \lambda $ --- собственные значения, \ $ \lambda \in \mathbb{R} $
+\[ \lambda_1 \neq \lambda_2 \quad \text{--- собств. знач.} \ A \quad \Rightarrow \quad (\varphi_1, \varphi_2) = 0\]
+\[ (A\varphi, \varphi) = \lambda (\varphi, \varphi) \]
+\[ \lambda = \frac{(A\varphi, \varphi)}{(\varphi, \varphi)} \label{eq:14_2} \]
+
+\textbf{Опр.} A ограничен снизу, если $ \forall \varphi \in D(A):$ \\
+\[ (A\varphi, \varphi) \geq k(\varphi, \varphi), \quad k \in \mathbb{R} \ \text{(не обязательно $k>0$)} \label{14.2} \tag{14.2} \] \\
+
+Далее A --- ограничено снизу $ \Rightarrow  \cfrac{(A \varphi, \varphi)}{(\varphi, \varphi)} \geq k \Rightarrow \exists \underset{\varphi \in D(A)}{\inf} \cfrac{(A\varphi, \varphi)}{\varphi, \varphi} = d \geq k$
+\[ F(\varphi) = \frac{(A \varphi, \varphi)}{(\varphi, \varphi)} \label{14.4} \tag{14.4} \]
+
+\textbf{Теор.} Пусть $ A $ --- симметричн., огр. снизу,  \quad $ d = \underset{\varphi \in D(A)}{\inf} \cfrac{(A \varphi, \varphi)}{(\varphi, \varphi)} $ \\
+Если $ \exists \ \varphi_0 \neq 0 \in D(A): \quad F(\varphi_0) = \cfrac{(A \varphi_0, \varphi_0)}{(\varphi_0, \varphi_0)} = d \Rightarrow \exists \min \lambda_1 = d, \quad \varphi_0$ --- собств. функция
+
+\underline{Док-во.}
+
+Пусть $ \eta \in D(A), \quad \forall t \in R, \quad \varphi_0 + t \eta \in D(A) $
+\[ \psi(t) = \frac{\bigl( A(\varphi_0 + t \eta), \varphi_0 + t\eta \bigr)}{(\varphi_0 + t \eta, \varphi_0 + t\eta)} = F(\varphi_0 + t \eta) = \frac{t^2(A \eta, \eta) + 2 t \operatorname{Re}(A \varphi_0, \eta) + (A \varphi_0, \varphi_0)}{t^2 (\eta, \eta) + 2t\operatorname{Re}(\varphi_0, \eta) + (\varphi_0, \varphi_0)} \]
+
+Так как $ \varphi_0 = \operatorname{argmin} F(\varphi) \Rightarrow \psi(t) $ в $ t=0 \ \min \Rightarrow \psi'(0) = 0 $
+\[ (\varphi_0, \varphi_0): \quad \operatorname{Re} (A \varphi_0 - d \varphi_0, \eta) = 0 \]
+
+Аналогично, заменив $ (\eta) $ на $ (i\eta):$
+\[ \operatorname{Im} (A \varphi_0 - d \varphi_0, \eta) = 0 \Rightarrow (A \varphi_0 - d \varphi_0, \eta) = 0 \quad \forall \eta \in D(A) \Rightarrow A \varphi_0 - d \varphi_0 = 0 \Rightarrow A \varphi_0 = d \varphi_0 \]
+
+Следовательно $d$ --- собственное значение, $\varphi_0$ --- собственная функция
+
+Покажем \underline{$\min$}
+
+Пусть $ \lambda_1 $ --- с. зн. $A$
+\[ \lambda_1 = \frac{(A \varphi_1, \varphi_1)}{(\varphi_1, \varphi_1)} \geq \frac{(A \varphi_0, \varphi_0)}{(\varphi_0, \varphi_0)} = d \label{14.5} \tag{14.5} \]
+\[ \hfill \square \]
+
+\textbf{Теор.} Пусть $ \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_n $ --- собств. знач. симм., огр. снизу A \\
+Пусть $ \exists \ \varphi_{n+1} \neq 0 \in D(A): \quad \varphi_{n+1}= \underset{\varphi \in D(A)}{\operatorname{argmin}} \cfrac{(A \varphi, \varphi)}{(\varphi, \varphi)} \quad $ при условии:
+\[ (\varphi_{n+1}, \varphi_i) = 0, \quad i=\overline{1,n} \label{14.6} \tag{14.6} \]
+\[ \Rightarrow \lambda_{n+1} = \frac{(A \varphi_{n+1}, \varphi_{n+1})}{(\varphi_{n+1}, \varphi_{n+1})} \ \text{--- следующее собств. знач.}, \quad \varphi_{i+1} \ \text{--- собств. функц.} \]
+TODO: 7, 8
+
+\underline{Док-во.}
+\[ \forall \zeta \in D(A) \]
+\[ \eta = \zeta - \Sum_{k=1}^{n} (\zeta, \varphi_k) \varphi_k \]
+
+$ \eta $ удовлетворяет усл \eqref{14.6}
+
+$ t \eta $ удовлетворяет усл \eqref{14.6}
+
+$ \varphi_{n+1} + t \eta \in D(A) $ удовлетворяет усл \eqref{14.6}
+\[ \psi(t) = \frac{\bigl(A(\varphi_{n+1}+tn), \varphi_{n+1}+t\eta \bigr)}{(\varphi_{n+1}+t\eta, \varphi_{n+1} + t\eta)} \]
+
+Аналогично \quad $ (A \varphi_{n+1} - \lambda_{n+1} \varphi_{n+1}, \zeta) = 0 \qquad \forall \zeta \in D(A) $ (плотно в $H$)
+\[ \Rightarrow A \varphi_{n+1} = \lambda_{n+1} \varphi_{n+1} \]
+
+Пусть $ \exists \lambda' $ --- собств. знач.: \ \ $ \lambda' > \lambda_n, \quad \varphi' $ --- соответствующая собств. функц.
+\[ \lambda' = \frac{(A\varphi', \varphi')}{(\varphi', \varphi')} \geq \lambda_{min} = \underset{\varphi \in D_A +  \eqref{14.6}}{\min} \frac{( A \varphi, \varphi )}{(\varphi, \varphi)} \]
+
+$ \lambda_{n+1}$ следующее собственное значение после $ \lambda_n $
+\[ \hfill \square \]
+
+\textbf{Теор.}
+
+Пусть оператор опр снизу симм А, содержит тоолько собственные значения  $ \Rightarrow $
+
+$ \Rightarrow \exists min  $ с зн А $ \lambda_0 $ и $ \varphi_0  $ - с ф
+
+$ \frac{(A\varphi_0, \varphi_0)}{(\varphi_0, \varphi_0)} = \lambda_0 $
+
+\[ A \varphi - \lambda B \varphi = 0 \label{eq:14_*} \]
+
+A, B - симметричные, Ф - огр. снизу
+В - положительно опр., $  D(A) \subset D(B) \subset H $
+
+Если $ \lambda_0 и \varphi_0 $ - удовлетворяет \ref{eq:14_*} $ \Rightarrow \lambda_0 $ с зн, $ \varphi_0 $ с ф
+
+\[ \lambda_0 = \frac{A \varphi_0, \varphi_0}{(B \varphi_0, \varphi_0)} \]
+
+Теорема
+
+Пусть $ \lambda_k \neq \lambda_m  $ - с зн \ref{eq:14_*}
+
+\[ (B \varphi_k, \varphi_m) = 0; k \neq m  \] - (огр. снизу А не требуется)
+
+
+Теорема
+
+Пусть $ d - \underset{inf}{\varphi \in D(A)} \frac{(A \varphi, \varphi)}{B \varphi, \varphi} $
+
+Если $ \exists \varphi_0: \frac{(A \varphi_0, \varphi_0)}{(B(\varphi_0, \varphi_0))} = d $
+
+$ \Rightarrow d - min $ - с зн \ref{eq:14_*}, $ \varphi_0 $ - с ф
+
+Теорема
+
+Пусть $ \lambda \leq \lambda \leq ... \leq \lambda $ - с зн \ref{eq:14_*}
+
+$ \varphi_1, ... , \varphi_n $ соответствующие собств функции
+
+Пусть $ \exists \varphi_{n+1} = \underset{argmin}{\varphi \in D(A)}\frac{(A \varphi, \varphi)}{B \varphi, \varphi} $
+
+$ \lambda_n \Rightarrow \lambda_{n+1} = \frac{(A \varphi_{n+1}, \varphi_{n+1})}{(B, \varphi_{n+1}, \varphi_{n+1})} $
+
+\[ (B\varphi, \varphi_k) = 0, k = \overline{1, n} \]
+
+\subsection{Метод Ритца в задаче собственных значений}
+
+Пусть А --- ограниченный снизу оператор
+
+\[ d = \underset{u \in D(A)}{\inf} \frac{(Au, u)}{(u, u)} \label{14.11} \tag{14.11} \] 
+
+По теор. \eqref{по}. Если $ \exists u_0 : \underset{D(A)}{\inf} \cfrac{A \varphi_0, \varphi_0}{\varphi_0, \varphi_0} = d$, то задачу можно свести к
+\[ M = \left\{ u: \varphi \in D(A) \cap	 \|\varphi\|=1 \right\} \]
+\[ \underset{u \in M}{\inf} (Au, u) \label{14.12} \tag{14.12} \]
+\[ (u, u) = 1 \label{14.13} \tag{14.13} \] \\
+
+TODO
+
+Система $ \{ \varphi_n \} \subset D(A)$ полна в H
+\[\ \forall u \in D(A) \quad \forall \varepsilon > 0 \quad \exists n \in \mathbb{N} \ \text{и} \ \alpha_1, ... , \alpha_n \in \mathbb{C} \]
+\[ \|u - u^*\| < \varepsilon, \qquad u^* = \Sum_{k=1}^{n} \alpha_k \varphi_k \]
+
+Положим
+\[ u_n = \Sum_{k=1}^{n} a_k \varphi_k \]
+
+Выберем коэффициенты $a_k$ так, чтобы $u_n$ удовлетворяло \eqref{14.13} и $ (Au_n, u_n) \rightarrow \min $
+\[ (A u_n, u_n) = \Sum_{k,m = 1}^{n} (A \varphi_n, \varphi_m) a_k \overline{a_m} \]
+
+удовлетворяющих уравнению
+\[ (u_n, u_n) = \Sum_{k, m=1}^{n} (\varphi_k, \varphi_m) a_k \overline{a_m} = 1 \label{14.14} \tag{14.14} \] \\
+
+Метод множителей Лагранжа
+\[ \Phi = (A u_n, u_n) - \lambda (u_n, u_n) \]
+
+$ \lambda  $ --- пока неопределенный параметр
+\[ \Sum_{k=1}^{m} a_k \left[(A \varphi_k, \varphi_m) - \lambda (\varphi_k, \varphi_m)\right] = 0, \qquad m= \overline{1,n} \label{14.15} \tag{14.15} \]
+
+Однородное СЛАУ относительно $ a_1, ... , a_n $ (одновременно не обр. в ноль) $ \Rightarrow \det (...) = 0 \Rightarrow \ \text{уравнение на} \ \lambda $
+\[ \begin{vmatrix}
+	(A\varphi_1, \varphi_1) - \lambda (\varphi_1, \varphi_1) & (A\varphi_2, \varphi_1) - \lambda (\varphi_2, \varphi_1) & \dots & (A\varphi_n, \varphi_1) - \lambda (\varphi_n, \varphi_1) \\
+	(A\varphi_1, \varphi_2) - \lambda (\varphi_1, \varphi_2) & (A\varphi_2, \varphi_2) - \lambda (\varphi_2, \varphi_2) & \vdots & (A\varphi_n, \varphi_2) - \lambda (\varphi_n, \varphi_2) \\ 
+	\vdots & \dots & \ddots & \vdots \\
+	(A\varphi_1, \varphi_n) - \lambda (\varphi_1, \varphi_n) & (A\varphi_2, \varphi_n) - \lambda (\varphi_2, \varphi_n) & \dots & (A\varphi_n, \varphi_n) - \lambda (\varphi_n, \varphi_n)
+\end{vmatrix}
+= 0 \label{14.16} \tag{14.16} \]
+
+Если последовательность $\{ \varphi_n \}$ ортонормирована, то уравнение упрощается
+\[ \begin{vmatrix}
+	(A\varphi_1, \varphi_1) - \lambda & (A\varphi_2, \varphi_1) & \dots & (A\varphi_n, \varphi_1) \\
+	(A\varphi_1, \varphi_2) & (A\varphi_2, \varphi_2) - \lambda  & \dots & (A\varphi_n, \varphi_2)  \\ 
+	\vdots & \vdots & \ddots & \vdots \\
+	(A\varphi_1, \varphi_n)  & (A\varphi_2, \varphi_n) & \dots & (A\varphi_n, \varphi_n) - \lambda
+\end{vmatrix}
+= 0 \label{14.17} \tag{14.17} \]
+
+Получаем уравнение $n$-й степени по $\lambda$. Коэффициент при  $ (-1) \lambda^n $ равен определителю матрице Грама для $ \{ \varphi_1, ... \varphi_n \}.$ Отсюда следует, что уравнение имеет ровно $n$ корней \\
+
+Пусть $ \lambda_0 $ --- корень. Пусть $a_k^{(0)}, \quad k=\overline{1,n}$ --- нетривиальное решение. Тогда $ \forall \eta: \, \eta a_k^{(0)}$ также будет решением. Под $a_k^{(0)}$ теперь будем понимать $\eta a_k^{(0)}$. Подставив $\eta a_k^{(0)}$ в \eqref{14.14} найдем $\eta$. Подставив в \eqref{14.15} $\lambda = \lambda_0$ и $a_k = a_k^{(0)}$, умножим на $\overline{a_m^{(0)}}$ и просуммируем $\Sum_m (...)$, получим:
+\[ \underbrace{\Sum_{k,m=1}^{n} a_k^{(0)} \overline{a_m^{(0)}} (A \varphi_k, \varphi_m)}_{= \left(Au_n^{(0)}, u_n^{(0)}\right)} = \lambda_0 \underbrace{\Sum_{k,m=1}^{n} (\varphi_k, \varphi_m) a_k^{(0)} \overline{a_m^{(0)}}}_{=1 \ \eqref{14.14}} \]
+\[ \lambda_0 = \left(Au_n^{(0)}, u_n^{(0)}\right), \qquad u_n^{(0)} = \Sum_{k=1}^n a_k^{(0)} \varphi_k \]
+\[ \underset{M}{\min} (Au, u) = \min \, \text{из $\lambda$ корней} \]

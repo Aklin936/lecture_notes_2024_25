@@ -1,0 +1,140 @@
+\section{Лекция 13}
+
+\[ \left\{ \begin{array}{l}
+	-\cfrac{d}{dx} \left[ p(x) \cfrac{du}{dx}\right] + q(x) u = f \\
+	u(a) = u(b) = 0
+\end{array} \right. \]
+\[ {\|u - u_h\|}_A \leq \|u - v_n\|, \quad \textrm{где} \ v_h = \Sum_{i=1}^{N-1} b_i \varphi_i; \quad \forall v_h \in H_{A}^{(N)} = \accentset{\circ}{W}_2^{1,h} \]
+\[ c_0 {\|u\|}_{{W}_2^1} \leq {\|u\|}_A \leq c_1 {\|u\|}_{{W}_2^1} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq c {\|u - v_h\|}_{{W}^1_2} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq c \underset{v_h \in H_{A}^{(N)}}{\inf} {\|u - v_h\|}_{{W}^1_2} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq ch {\|u\|}_{{W}_2^2} \leq ch {\|f\|}_{H=L_2} \]
+\[ {\|u-u_h\|}_{{W}_2^1} \leq ch {\|f\|}_{H} \]
+\[ {\|u-u_h\|}_{H=L_2} \leq c_2 h {\|f\|}_H \qquad \text{(в силу неравенства Фридрихса)} \]
+
+\[ {[u, v]}_A = (f, v), \quad \forall v \in \accentset{\circ}{W}_2^{1} \]
+\[ {[u_h, v_h]}_A = (f, v_h), \quad  \forall v_h \in \accentset{\circ}{W}_2^{1, h} = H_A^{(N)} \]
+\[ [u - u_h, v_h] = 0 \quad \forall v_n \in \accentset{\circ}{W}_2^{1, h} \]
+
+Рассмотрим вспомогательную задачу $ A \Phi = F, \ F = u - u_h $
+
+по свойствам A $\exists!$ решение $\Phi$:
+\[ {\|\Phi\|}_{W^2_2} \leq c \|F\| = C \|u - u_h\| \]
+
+и $ \Phi $ удовлетворяет: $[\Phi, v] = (F, v) \ \forall v \in \accentset{\circ}{W}_2^{1} $
+
+Рассмотрим $ v = u - u_h $
+\begin{multline*}
+	(F, v) = (u - u_h, u - u_h) = (A \Phi, u - u_h) = [\Phi, u - u_h] - [u - u_h, \Phi_h] = [\Phi - \Phi_h, u - u_h] \leq \\
+	\leq {\|\Phi - \Phi_h\|}_A \cdot {\|u - u_h\|}_A \leq ch \|f\| {\|\Phi - \Phi_h\|}_A \leq \tilde{c} h \|f\| \cdot {\|\Phi - \Phi_h\|}_{W_2^1}
+\end{multline*}
+
+Из результатов аппроксимации можно выбрать $ \Phi_h $:
+\[ {\|\Phi - \Phi_h\|}_{{W}_2^1} \leq \tilde{c} h \ {\|\Phi\|}_{W^2_2} \]
+\[ {\|u-u_h\|}^2 \leq ch {\|f\|} \cdot {\|\Phi- \Phi_h\|}_{{W}_2^1} \leq ch^2 \|f\| \cdot {\|\Phi\|}_{W_2^2} \leq ch^2 \|f\| \cdot \|u - u_h\| \]
+\[ \Rightarrow \|u - u_h\| \leq ch^2 \|f\| \cdot \|u - u_h\| \] \\
+
+Рассмотрим задачу с другими граничными условиями
+\[ \left\{ \begin{array}{l}
+	-\cfrac{d}{dx} \left(p(x) \cfrac{du}{dx}\right) + q(x) u = f(x) \\
+	u(a) = 0, \quad \cfrac{du}{dx}(b) = 0
+\end{array} \right. \]
+\[ u_h = \Sum_{i=1}^N a_i \varphi_i \]
+
+\textbf{Упр.} Проверитть оценки в $ {W'}_2 $
+
+\textbf{Упр.} Найти $ \hat{A} $ при $ h_i = h, i = overline{1, N}, \Phi = 0, P = const $
+
+\subsection{Применение ВП к з. Дирихле для ур-я Лапласа}
+\[ \Omega = \{0 < x < a, \ 0 < y < b\} \] 
+\[ \left\{ \begin{array}{l}
+	- \Delta u = f(x, y) \\
+	u|_{\partial \Omega} = 0
+\end{array}  \right. \]
+
+\[ A u = - \Delta u \]
+\[ D(A) = \{u \in W_2^2(\Omega), \ \ u|_{\partial \omega} = 0 \}, \qquad f \in L_2(\Omega) \]
+
+A --- симметричный положительно определенный
+\[ \Rightarrow \forall f \in L_2 \quad \exists! \ n \in \accentset{\circ}{W}_2^1 \cap W_2^2 \]
+\[ {\| u \|}_{W_2^2} \leq c \, {\| f \|} \]
+\[ H_A = \accentset{\circ}{W}_2^1 (\Omega), \quad {(u, v)}_A = \Int_{\Omega}^{} \left(\frac{\partial u}{\partial x}\frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\frac{\partial v}{\partial y}\right)d\Omega\]
+\[ {[u, v]}_A = (f, v), \quad \forall v \in H_A \]
+TODO: картинка + дополнить
+\[ \phi_ij = \frac{1}{\sqrt{h_x h_y}} \left\{
+\begin{array}{l}
+	1 - \left(\cfrac{u}{h_y}-j\right), \quad x_j \leq x \leq x_{i+1} \\
+	... \\
+	... \\
+	\textbf{Упр.}
+\end{array} \right. \]
+\[ u_h = \Sum_{i=1}^{N_x -1} \Sum_{j=1}^{N_y - 1} a_{ij} \varphi_{ij} (x, y), \qquad H_A^{(N)} = \accentset{\circ}{W}_2^{1, h} \subset H_A = \accentset{\circ}{W}_2^1 \]
+
+$ a_{ij} $ --- решение СЛАУ, \qquad ${[u_h, \varphi_{kl}]}_A = (f, \varphi_{kl}) $
+\[ \hat{A} a = f, \qquad \hat{A} = \left( A_{ijkl} \right), \qquad A_{ijkl} = {[\varphi_{ij}, \varphi_{kl}]}_A, \qquad \varphi_{ij} \ \text{--- кусочно линейные} \]
+\[ a = \left( a_{1,1}, a_{2,1}, ..., a_{N_x-1,1}, ..., a_{1, N_y-1}, ..., a_{N_x-1, N_y-1} \right), \qquad \textbf{Упр.} \ A_{ijkl} = ? \]
+
+Оценки:
+\[ {\|u - u_h\|}_{W_2^1} \leq ch \, \|f\| \]
+\[ \|u - u_h\| \leq ch^2 \, \|f\| \]
+\[ A = - \frac{d}{dx} (p(x) \frac{du}{dx}) + q(x)u \]
+
+\textbf{Упр.} показать предыдущее выражение
+
+\[ \frac{2a_{ij} - a_{i-1, j} - a_{j+1, i}}{h^2_x} + \frac{2a_{ij} - a_{i, j-1} - a_{i, j+1}}{h^2_y} = f_{ij} = {(f, \varphi_{ij})}_H, \quad i=\overline{1,N_x-1}, \ j=\overline{1,N_y-1} \]
+TODO:картинка
+\[ \partial  \Omega_h \subset \partial  \Omega \]
+
+$h$ --- $\max$ сторона $ \triangle $
+
+$\theta_0$ --- $\min \angle $
+\[ {\|u-u_h\|}_{W_2^1(\Omega)} \leq c \, \frac{h}{sin \theta_0} \|f\| \]
+\[ u_h = \Sum_{i=1}^{N} a_i \varphi_i (x, y) \]
+
+\subsection{Подходы к решению неоднородной краевой задачи}
+
+\[ \left\{
+\begin{array}{l}
+	- \Delta u = f \quad \text{в} \ \Omega \leftarrow \text{выпуклая}, \ \partial \Omega \ \text{гладкая} \\
+	u|_{\partial \Omega} = g, \qquad f \in L_2 (\Omega), \ g \in W^{3/2}_2 (\partial \Omega)
+\end{array}
+\right. \]
+\[ c_3 ({\|f\|}_L2 + {\|g\|}_{W_2^{3/2}}) \leq {\|u\|}_{W^2_2(|omega)} \leq c_u() \]
+
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {1}}} Сведение к однородным граничным условиям
+
+Пусть  $\exists \, \Phi \in  D(A): \ \ \Phi=g$ \ на \ $ \partial \Omega $
+\[ v = u - \Phi \]
+\[ \left\{ \begin{array}{l}
+	- \Delta u = \tilde{f} = f + \Delta \Phi \quad \in L_2(\Omega) \\
+	u|_{\partial \Omega} = 0,
+\end{array} \right. \]
+\[ u_h = v_h + \Phi \]
+\[ \Phi \in {W}_2^1 (\Omega) \]
+
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {2}}} "Снос" \ граничных условий (с $\partial \Omega$ на $\partial \Omega_h$ )
+\[ u_h = \Sum_{i=1}^{\widetilde{N}} a_i \varphi_i (x, y), \qquad \varphi_1, ..., \varphi_N \ \text{--- внутренние узлы}, \ \varphi_{N+1}, ..., \varphi_{\widetilde{N}} \ \text{--- граничные узлы} \]
+\[ i = \overline{1, N}: \quad {[u_h, \varphi_i]}_A = (f, \varphi_i) \]
+\[ i = \overline{N + 1, \widetilde{N}}: \quad a_i \varphi_i (x_i, y_i) = g(x_i, y_i) \]
+
+\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {3}}} Метод штрафа
+
+Рассмотрим модифицированную 3 краевую задачу
+\[ \left\{
+\begin{array}{l}
+	- \Delta u_{\varepsilon} = f \quad \text{в} \Omega \\
+	u_{\varepsilon} + \varepsilon \cfrac{\partial u}{\partial n} = g \quad \textrm{на} \ \partial \Omega
+\end{array}
+\right., \qquad \varepsilon > 0 \ \text{мало} \]
+
+Для нее:
+\[ {[u, v]}_A = \Int_{\Omega}^{} \left( \frac{\partial u}{\partial x} \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \frac{\partial v}{\partial y} \right) d\Omega + \Int_{\partial \Omega}^{} \frac{1}{\varepsilon} u v \, dS \]
+\[ u_{\varepsilon, h} = \Sum_{i=1}^{N} a_i \varphi_i(x) \]
+
+$ a_i $ находится из
+\[ {[u_h, \varphi_i]}_A = (f, \varphi_i) + \Int_{\partial \Omega} g \varphi_i \, dS \]
+\[ {\|u_{\varepsilon} - u_{\varepsilon, h} \|}_{W_2^1 (\Omega)} \leq \frac{ch}{\sin \theta_0} \left( 1 + \frac{h}{\varepsilon} \right) \left({\|f\|}_{L_2} + \frac{1 }{\varepsilon} \| g \|_{W_2^{1/2} \left(\partial \Omega \right)} \right) \]
+\[ {\|u_{\varepsilon} - u_{\varepsilon, h} \|}_{L_2 (\Omega)} \leq \frac{ch^2}{\sin^2 \theta_0} {\left( 1 + \frac{h}{\varepsilon} \right)}^2 \left({\|f\|}_{L_2} + \frac{1 }{\varepsilon} \| g \|_{W_2^{1/2} \left(\partial \Omega \right)} \right) \]
+\[ {\|u - u_{\varepsilon} \|}_{W_2^1 (\Omega)} \leq c \, \varepsilon \left({\|f\|}_{L_2} + \frac{1 }{\varepsilon} \| g \|_{W_2^{1/2} \left(\partial \Omega \right)} \right) \]
+
+\newpage
